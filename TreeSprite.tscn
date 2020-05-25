@@ -1,0 +1,451 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://triangles/long_triangle.png" type="Texture" id=1]
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("leaf:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 32.3773, -83.9077 ), Vector2( 29.5273, -77.2577 ), Vector2( 32.3773, -83.9077 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("leaf9:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 18.1273, -56.3575 ), Vector2( 14.3273, -47.8075 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("leaf5:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 39.9773, -45.9075 ), Vector2( 35.2273, -37.3575 ), Vector2( 39.9773, -45.9075 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("leaf10:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 29.2556, -15.3597 ), Vector2( 24.5055, -16.3097 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("leaf2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 6.72726, -85.8077 ), Vector2( 5.77725, -78.2076 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("leaf4:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -16.0728, -97.2077 ), Vector2( -11.3228, -82.0076 ), Vector2( -16.0728, -97.2077 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("leaf8:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -40.7729, -79.1576 ), Vector2( -34.1228, -73.4576 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("leaf3:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -16.0728, -57.3076 ), Vector2( -11.3228, -51.6076 ), Vector2( -16.0728, -57.3076 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("leaf6:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -35.0728, -34.5075 ), Vector2( -28.4228, -32.6075 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("leaf7:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -26.5228, -9.80744 ), Vector2( -20.8228, -10.7574 ), Vector2( -26.5228, -9.80744 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Singing_Hard"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("leaf7:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -25.749, -3.61718 ), Vector2( -19.5588, -9.80744 ), Vector2( -25.749, -3.61718 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("leaf6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.326036 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -15.1544, -33.2709 ), Vector2( -20.685, -31.0599 ), Vector2( -28.4228, -32.6075 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("leaf3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -16.0728, -57.3076 ), Vector2( -13.7515, -54.2124 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("leaf8:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -40.7571, -56.2086 ), Vector2( -34.1228, -68.0411 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("leaf4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -15.4094, -85.9295 ), Vector2( -11.4301, -96.4339 ), Vector2( -16.0728, -97.2077 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("leaf2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 5.77725, -78.2076 ), Vector2( 8.0986, -74.3387 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("leaf9:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 14.3273, -47.8075 ), Vector2( 10.4584, -51.6764 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("leaf10:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 17.8713, -19.6268 ), Vector2( 23.7318, -24.8213 ), Vector2( 24.5055, -16.3097 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("leaf5:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 32.7901, -37.9464 ), Vector2( 34.5609, -41.2648 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("leaf:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 28.3968, -77.2734 ), Vector2( 29.2822, -76.1698 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Singing_Soft"
+length = 1.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("leaf8:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.001, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -33.613, -80.5895 ), Vector2( -27.0969, -78.146 ), Vector2( -37.6855, -73.259 ), Vector2( -33.613, -80.5895 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("leaf5:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.001, 0.5, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 27.0896, -40.1796 ), Vector2( 27.0896, -40.1796 ), Vector2( 27.0896, -34.4781 ), Vector2( 27.0896, -40.1796 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("leaf10:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 16.3604, -17.9388 ), Vector2( 21.2475, -22.0113 ), Vector2( 16.3604, -17.9388 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("leaf:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 23.4177, -76.5771 ), Vector2( 26.6758, -74.9481 ), Vector2( 23.4177, -76.5771 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("leaf3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -16.0728, -57.3076 ), Vector2( -20.1454, -49.1625 ), Vector2( -16.0728, -57.3076 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("leaf6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -30.1858, -35.322 ), Vector2( -31.8148, -30.4349 ), Vector2( -30.1858, -35.322 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("leaf7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -15.9342, -18.767 ), Vector2( -14.3052, -13.88 ), Vector2( -15.9342, -18.767 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("leaf4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -16.0728, -97.2077 ), Vector2( -8.72847, -100.337 ), Vector2( -16.0728, -97.2077 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("leaf2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.7, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 6.72726, -85.8077 ), Vector2( 10.7998, -85.8077 ), Vector2( 6.72726, -85.8077 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("leaf9:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 9.44021, -50.251 ), Vector2( 6.9967, -55.1381 ), Vector2( 9.44021, -50.251 ) ]
+}
+
+[node name="TreeSprite" type="Node2D"]
+
+[node name="trunk" type="Sprite" parent="."]
+position = Vector2( 0.373329, 21.3451 )
+rotation = 3.1454
+scale = Vector2( 0.0416091, 0.108302 )
+texture = ExtResource( 1 )
+
+[node name="leaf" type="Sprite" parent="."]
+position = Vector2( 28.3968, -77.2734 )
+rotation = 0.626817
+scale = Vector2( 0.042413, 0.0521816 )
+texture = ExtResource( 2 )
+
+[node name="leaf2" type="Sprite" parent="."]
+position = Vector2( 5.77725, -78.2076 )
+rotation = 0.242741
+scale = Vector2( 0.042413, 0.0521816 )
+texture = ExtResource( 2 )
+
+[node name="leaf3" type="Sprite" parent="."]
+position = Vector2( -16.0728, -57.3076 )
+rotation = -0.989828
+scale = Vector2( 0.042413, 0.0521816 )
+texture = ExtResource( 2 )
+
+[node name="leaf4" type="Sprite" parent="."]
+position = Vector2( -15.4094, -85.9295 )
+rotation = -0.10639
+scale = Vector2( 0.042413, 0.0515851 )
+texture = ExtResource( 2 )
+
+[node name="leaf5" type="Sprite" parent="."]
+position = Vector2( 32.7901, -37.9464 )
+rotation = 1.18353
+scale = Vector2( 0.0409076, 0.0514744 )
+texture = ExtResource( 2 )
+
+[node name="leaf6" type="Sprite" parent="."]
+position = Vector2( -15.1544, -33.2709 )
+rotation = -1.58359
+scale = Vector2( 0.042413, 0.0521816 )
+texture = ExtResource( 2 )
+
+[node name="leaf7" type="Sprite" parent="."]
+position = Vector2( -25.749, -3.61718 )
+rotation = -1.9457
+scale = Vector2( 0.042413, 0.0521816 )
+texture = ExtResource( 2 )
+
+[node name="leaf8" type="Sprite" parent="."]
+position = Vector2( -40.7571, -56.2086 )
+rotation = -0.859719
+scale = Vector2( 0.042413, 0.0521816 )
+texture = ExtResource( 2 )
+
+[node name="leaf9" type="Sprite" parent="."]
+position = Vector2( 14.3273, -47.8075 )
+rotation = 1.02814
+scale = Vector2( 0.042413, 0.0521816 )
+texture = ExtResource( 2 )
+
+[node name="leaf10" type="Sprite" parent="."]
+position = Vector2( 17.8713, -19.6268 )
+rotation = 1.87786
+scale = Vector2( 0.042413, 0.0521816 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 1 )
+anims/Singing_Hard = SubResource( 2 )
+anims/Singing_Soft = SubResource( 3 )
