@@ -15,6 +15,7 @@ func _met_timeout():
 			beat = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("player/NotePlayer").mode = 1
 	get_node("SingingTree").song = [
 		[0,3],
 		[1,-1],

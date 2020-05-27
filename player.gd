@@ -18,17 +18,17 @@ func dir_anim(dir):
 #checks the inputs for the movement of the object
 func move_2d(delta):
 	var to_move = Vector2(0,0)
+	if (Input.is_action_just_pressed("NOTE_4")):
+		get_node("NotePlayer").play_note(4)
+		to_move.x += 1
 	if (Input.is_action_just_pressed("NOTE_1")):
 		get_node("NotePlayer").play_note(1)
-		to_move.x += 1
+		to_move.x -= 1
 	if (Input.is_action_just_pressed("NOTE_2")):
 		get_node("NotePlayer").play_note(2)
-		to_move.x -= 1
+		to_move.y += 1
 	if (Input.is_action_just_pressed("NOTE_3")):
 		get_node("NotePlayer").play_note(3)
-		to_move.y += 1
-	if (Input.is_action_just_pressed("NOTE_5")):
-		get_node("NotePlayer").play_note(5)
 		to_move.y -= 1
 	if (to_move != Vector2(0,0)):
 		var working_speed = speed
