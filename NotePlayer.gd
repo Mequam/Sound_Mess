@@ -29,13 +29,30 @@ func get_note(note_number):
 		return 'c'
 
 #loads a note as a resource for our object
-func load_note(note_number):
-	var st = load("res://notes/" + get_note(note_number) + ".wav")
+func load_note(note_number,low=false):
+	var st
+	if (low):
+		#load the octave bellow
+		st = load("res://notes/lows/" + get_note(note_number) + "_low.wav")
+	else:
+		#load the main octave
+		st = load("res://notes/" + get_note(note_number) + ".wav")
+	
 	self.stream = st
 
 #this function plays the given scale degree
 func play_note(scale_degree):
+	#flag used to determine wether or not we play down the octave
+	var low = false
+	
+	#get to an octive we can play
+	while (scale_degree < 0): #use a while loop just in case
+		scale_degree += 7
+		low = true
+		
 	var to_play = 0
+	
+	#build the note to play from the offsets of our given scale (add the offsets until we get the actual note value)
 	for i in range(0,scale_degree):
 		to_play += offsets[(i+index)%7]
 	
@@ -43,13 +60,6 @@ func play_note(scale_degree):
 	if (self.playing):
 		self.stop()
 		
-	load_note(to_play)
+	load_note(to_play,low)
 	
 	self.play()
-
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

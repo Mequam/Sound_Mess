@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/f_low.wav-7705ffa00456b2c5643f85f7da30ff62.sample"
+
+[deps]
+
+source_file="res://notes/lows/f_low.wav"
+dest_files=[ "res://.import/f_low.wav-7705ffa00456b2c5643f85f7da30ff62.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

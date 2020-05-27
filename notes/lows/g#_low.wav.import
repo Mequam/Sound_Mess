@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/g#_low.wav-0c455e8969efdc9986879a580abc8eb0.sample"
+
+[deps]
+
+source_file="res://notes/lows/g#_low.wav"
+dest_files=[ "res://.import/g#_low.wav-0c455e8969efdc9986879a580abc8eb0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
