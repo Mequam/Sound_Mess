@@ -19,16 +19,16 @@ func dir_anim(dir):
 func move_2d(delta):
 	var to_move = Vector2(0,0)
 	if (Input.is_action_just_pressed("NOTE_4")):
-		get_node("NotePlayer").play_note(4)
+		get_node("NotePlayer").play_note(4-7)
 		to_move.x += 1
 	if (Input.is_action_just_pressed("NOTE_1")):
-		get_node("NotePlayer").play_note(1)
+		get_node("NotePlayer").play_note(1-7)
 		to_move.x -= 1
 	if (Input.is_action_just_pressed("NOTE_2")):
-		get_node("NotePlayer").play_note(2)
+		get_node("NotePlayer").play_note(2-7)
 		to_move.y += 1
 	if (Input.is_action_just_pressed("NOTE_3")):
-		get_node("NotePlayer").play_note(3)
+		get_node("NotePlayer").play_note(3-7)
 		to_move.y -= 1
 	if (to_move != Vector2(0,0)):
 		var working_speed = speed
@@ -47,12 +47,14 @@ func check_inputs(delta):
 	if (Input.is_action_just_pressed("mode_change")):
 		get_node("NotePlayer").mode+=1
 	if (Input.is_action_just_pressed("NOTE_6")):
-		get_node("NotePlayer").play_note(6)
+		get_node("NotePlayer").play_note(6-7)
 		long = true
 	if (Input.is_action_just_pressed("NOTE_0")):
+		get_node("NotePlayer").play_note(-7)
+	if (Input.is_action_just_pressed("NOTE_5")):
+		get_node("NotePlayer").play_note(5-7)
+	if (Input.is_action_just_pressed("NOTE_7")):
 		get_node("NotePlayer").play_note(0)
-	if (Input.is_action_just_pressed("NOTE_4")):
-		get_node("NotePlayer").play_note(4)
 	move_2d(delta)
 	
 #runs when the player completes a combo
