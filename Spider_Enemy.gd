@@ -8,21 +8,19 @@ extends KinematicBody2D
 #represents the mode that the spdider is in, search, patroll, attack
 var mode = "search" setget set_mode,get_mode
 var just_attacked = false
+
 func on_col(player):
-	pass
+	print("[spider] hit")
+	
+	print("[spider] death approaches!")
+	set_mode("die")
 func set_mode(val):
 	#print("[SPIDER] changing mode:" + mode)
-	if (val in ["die","search","patroll","attack"]):
-		
-		
+	if (val in ["die","search","patroll","attack"] and mode != "die"): #once we die we dont change modes
 		if (val == "die"):
 			#we do not die while attacking, we kill things
-			if (mode != "attack"):
+			if (mode == "attack"):
 				mode = "die"
-				if val == "attack" and mode != "attack":
-					get_node("NotePlayer").volume_db += 3
-				elif (val != "attack" and mode == "attack"):
-					get_node("NotePlayer").volume_db -= 3
 		else:
 			mode = val
 			if (mode =="attack"):

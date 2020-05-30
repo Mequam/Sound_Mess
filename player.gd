@@ -98,6 +98,7 @@ func on_combo(combo_name):
 					if (node.just_attacked):
 						node.mode = "die"
 func on_col(thing):
+	print("hit by " + thing.name)
 	if (thing.is_in_group("spiders")):
 		queue_free()
 #this function plays when our sword interacts with a body
