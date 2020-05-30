@@ -9,8 +9,8 @@ extents = Vector2( 24.0541, 13.8128 )
 
 [node name="Spider_Enemy" type="KinematicBody2D"]
 light_mask = 0
-collision_layer = 2
-collision_mask = 5
+collision_layer = 4
+collision_mask = 11
 script = ExtResource( 2 )
 
 [node name="Spider" parent="." instance=ExtResource( 1 )]

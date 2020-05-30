@@ -12,7 +12,6 @@ func set_flip_h(val):
 		scale.x *= -1
 func get_flip_h():
 	return scale.x < 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

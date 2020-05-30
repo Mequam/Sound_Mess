@@ -5,8 +5,8 @@ var speed = 50
 var timeout = 0
 var long = false
 
+#plays the proper animation for moving in the given direction
 func dir_anim(dir):
-	#plays the proper animation for moving in the given direction
 	if (dir.x > 0):
 		get_node("Player_Sprite").flip_h = false
 		get_node("Player_Sprite/AnimationPlayer").play("Slide")
@@ -40,19 +40,40 @@ func move_2d(delta):
 		if (collided):
 			#decide what to do with the thing that we hit
 			collision_action(collided)
+
+#decide what to do with the thing we hit
 func collision_action(collision):
-	#decide what to do with the thing we hit
 	collision.collider.on_col(self)
+
+#this function takes a vector 2 and sets the player up for attacking
+func attack(dir):
+	print("[DEBUG] attacking!")
+	if (dir.x > 0):
+		get_node("Player_Sprite").flip_h = false
+		get_node("Player_Sprite/AnimationPlayer").play("Attack")
+	elif (dir.x < 0):
+		get_node("Player_Sprite").flip_h = true
+		get_node("Player_Sprite/AnimationPlayer").play("Attack")
+
 func check_inputs(delta):
 	if (Input.is_action_just_pressed("mode_change")):
 		get_node("NotePlayer").mode+=1
+
 	if (Input.is_action_just_pressed("NOTE_6")):
+		#attack right
 		get_node("NotePlayer").play_note(6-7)
+		attack(Vector2(1,0))
 		long = true
 	if (Input.is_action_just_pressed("NOTE_0")):
 		get_node("NotePlayer").play_note(-7)
 	if (Input.is_action_just_pressed("NOTE_5")):
+		#attack left
 		get_node("NotePlayer").play_note(5-7)
+		
+		#make sure we are flipped
+		get_node("Player_Sprite").flip_h = true
+		#play the attack animation
+		get_node("Player_Sprite/AnimationPlayer").play("Attack")
 	if (Input.is_action_just_pressed("NOTE_7")):
 		get_node("NotePlayer").play_note(0)
 	move_2d(delta)
@@ -79,8 +100,17 @@ func on_combo(combo_name):
 func on_col(thing):
 	if (thing.is_in_group("spiders")):
 		queue_free()
+#this function plays when our sword interacts with a body
+func _on_sword_strike(body):
+	print("struck " + str(body))
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#start our animation cylce
+	get_node("Player_Sprite/AnimationPlayer").play("Idle")
+
+	#TODO: loading combos needs to be its own funciton
+	
 	#start mortal combat combo
 	var forward = get_node("ComboTracker").comboActionScript.new()
 	forward.action = "NOTE_1"
@@ -237,6 +267,8 @@ func _ready():
 	get_node("ComboTracker").connect("combo_found",self,"on_combo")
 	get_node("Player_Sprite/AnimationPlayer").connect("animation_finished",self,"_finished_anim")
 
+#this runs whenever our animation player finishes
+#we use it to reset to an idle state
 func _finished_anim(anim):
 	get_node("Player_Sprite/AnimationPlayer").play("Idle")
 
