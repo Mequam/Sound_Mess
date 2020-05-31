@@ -61,7 +61,7 @@
 3/z_index = 0
 
 [node name="TS1" type="TileMap"]
-modulate = Color( 0, 1, 0.392157, 1 )
+modulate = Color( 0, 1, 0.298039, 1 )
 position = Vector2( 480.354, 280.207 )
 scale = Vector2( 0.3, 0.3 )
 mode = 2
