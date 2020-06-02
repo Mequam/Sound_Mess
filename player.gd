@@ -1,9 +1,16 @@
 extends KinematicBody2D
 
-var speed = 50
-#timer used to tur off the notes that are playing
+var speed = 10
+
+#timer used to turn off the notes that are playing
 var timeout = 0
+
 var long = false
+
+#this is the sub beat time that we aim for when subdividing our max beat
+var target_time = .13
+#the time offset of the smallest possible sub beat, calculated from a bellow function
+var sub_beat
 
 #plays the proper animation for moving in the given direction
 func dir_anim(dir):
@@ -15,8 +22,18 @@ func dir_anim(dir):
 		get_node("Player_Sprite").flip_h = true
 		get_node("Player_Sprite/AnimationPlayer").play("Slide")
 
+#this function checks wether or not the given delta beat falls close enough to our sub beats to be valid
+func checkValidDelta(delta_beat):
+	var beat_err = sub_beat/9
+	print("[RANGE] " + str(0-beat_err) + " < d < " + str(sub_beat+beat_err))
+	return ( (-beat_err <= delta_beat and delta_beat <= beat_err)  or (sub_beat-beat_err <= delta_beat and delta_beat <= sub_beat+beat_err))
 #checks the inputs for the movement of the object
-func move_2d(delta):
+func move_2d(delta,delta_beat):
+	if (Input.is_action_just_pressed("NOTE_0")):
+		if (checkValidDelta(delta_beat)):
+			print('[PLAYER] matching tempo with ' + str(delta_beat))
+		else:
+			print('[PLAYER] no tempo match with ' + str(delta_beat))
 	var to_move = Vector2(0,0)
 	if (Input.is_action_just_pressed("NOTE_4")):
 		get_node("NotePlayer").play_note(4-7)
@@ -55,7 +72,13 @@ func attack(dir):
 		get_node("Player_Sprite").flip_h = true
 		get_node("Player_Sprite/AnimationPlayer").play("Attack")
 
-func check_inputs(delta):
+
+var beat_divisions = 4
+func calcSubBeat(max_beat_time):
+	sub_beat = max_beat_time
+	return sub_beat
+
+func check_inputs(delta,delta_beat):
 	if (Input.is_action_just_pressed("mode_change")):
 		get_node("NotePlayer").mode+=1
 
@@ -76,7 +99,8 @@ func check_inputs(delta):
 		get_node("Player_Sprite/AnimationPlayer").play("Attack")
 	if (Input.is_action_just_pressed("NOTE_7")):
 		get_node("NotePlayer").play_note(0)
-	move_2d(delta)
+	move_2d(delta,delta_beat)
+	get_node("ComboTracker").check_inputs(delta)
 	
 #runs when the player completes a combo
 func on_combo(combo_name):
@@ -101,18 +125,35 @@ func on_col(thing):
 	print("hit by " + thing.name)
 	if (thing.is_in_group("spiders")):
 		queue_free()
+
 #this function plays when our sword interacts with a body
 func _on_sword_strike(body):
 	print("struck " + str(body))
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	load_combos()
 	#start our animation cylce
 	get_node("Player_Sprite/AnimationPlayer").play("Idle")
+	#connect all of our child nodes
+	get_node("ComboTracker").connect("combo_found",self,"on_combo")
+	get_node("Player_Sprite/AnimationPlayer").connect("animation_finished",self,"_finished_anim")
 
-	#TODO: loading combos needs to be its own funciton
-	
-	#start mortal combat combo
+#this runs whenever our animation player finishes
+#we use it to reset to an idle state
+func _finished_anim(anim):
+	get_node("Player_Sprite/AnimationPlayer").play("Idle")
+
+func _process(delta):
+	#this code snippet ensures that we play short blips
+	if (get_node("NotePlayer").playing):
+		timeout+=delta
+		if (timeout >= .1):
+			timeout = 0
+			get_node("NotePlayer").stop()
+
+#this function is in charge of loading the combos for our player
+func load_combos():
+		#start mortal combat combo
 	var forward = get_node("ComboTracker").comboActionScript.new()
 	forward.action = "NOTE_1"
 	forward.falling = false
@@ -263,19 +304,3 @@ func _ready():
 		left_cmb_container.action_list.append(cmb_container.action_list[i])
 	left_cmb_container.name = "song of the spiders left"
 	get_node("ComboTracker").combos.append(left_cmb_container)
-#end song of the spiders left	
-	#connect all of our child nodes
-	get_node("ComboTracker").connect("combo_found",self,"on_combo")
-	get_node("Player_Sprite/AnimationPlayer").connect("animation_finished",self,"_finished_anim")
-
-#this runs whenever our animation player finishes
-#we use it to reset to an idle state
-func _finished_anim(anim):
-	get_node("Player_Sprite/AnimationPlayer").play("Idle")
-
-func _process(delta):
-	if (get_node("NotePlayer").playing):
-		timeout+=delta
-		if (timeout >= .1):
-			timeout = 0
-			get_node("NotePlayer").stop()
