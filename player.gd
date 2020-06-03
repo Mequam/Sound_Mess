@@ -7,8 +7,6 @@ var timeout = 0
 
 var long = false
 
-#this is the sub beat time that we aim for when subdividing our max beat
-var target_time = .13
 #the time offset of the smallest possible sub beat, calculated from a bellow function
 var sub_beat
 
@@ -22,18 +20,28 @@ func dir_anim(dir):
 		get_node("Player_Sprite").flip_h = true
 		get_node("Player_Sprite/AnimationPlayer").play("Slide")
 
+var last_input = 0
 #this function checks wether or not the given delta beat falls close enough to our sub beats to be valid
-func checkValidDelta(delta_beat):
-	var beat_err = sub_beat/9
-	print("[RANGE] " + str(0-beat_err) + " < d < " + str(sub_beat+beat_err))
-	return ( (-beat_err <= delta_beat and delta_beat <= beat_err)  or (sub_beat-beat_err <= delta_beat and delta_beat <= sub_beat+beat_err))
+func checkValidDelta():
+	var new_input = OS.get_system_time_msecs()
+	var delta = (new_input - last_input)/1000.0
+	last_input = new_input
+
+	for i in range(-1,3):
+		#check to see if the note distance goes through 16th notes
+		var target = sub_beat*pow(2,i)
+		var beat_err = target/5
+		print("checking " + str(delta) + " == "  + str(target) +    "+- " + str(beat_err))
+		if (target-beat_err <= delta and delta <= target+beat_err):
+			print('IN TIME with ' + str(delta))
+			return true
+	print('OUT OF TIME with ' + str(delta))
+	return false
+
 #checks the inputs for the movement of the object
 func move_2d(delta,delta_beat):
 	if (Input.is_action_just_pressed("NOTE_0")):
-		if (checkValidDelta(delta_beat)):
-			print('[PLAYER] matching tempo with ' + str(delta_beat))
-		else:
-			print('[PLAYER] no tempo match with ' + str(delta_beat))
+		checkValidDelta()
 	var to_move = Vector2(0,0)
 	if (Input.is_action_just_pressed("NOTE_4")):
 		get_node("NotePlayer").play_note(4-7)
@@ -71,12 +79,6 @@ func attack(dir):
 	elif (dir.x < 0):
 		get_node("Player_Sprite").flip_h = true
 		get_node("Player_Sprite/AnimationPlayer").play("Attack")
-
-
-var beat_divisions = 4
-func calcSubBeat(max_beat_time):
-	sub_beat = max_beat_time
-	return sub_beat
 
 func check_inputs(delta,delta_beat):
 	if (Input.is_action_just_pressed("mode_change")):
