@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 10
+var speed = 20
 
 #timer used to turn off the notes that are playing
 var timeout = 0
@@ -9,7 +9,27 @@ var long = false
 
 #the time offset of the smallest possible sub beat, calculated from a bellow function
 var sub_beat
+#the time of the players last input, stored to calculate rythom
+var last_input = 0
 
+#used to score how well we are keeping track of rythom
+var rythom_score = 0 setget set_rythom_score,get_rythom_score
+
+func set_rythom_score(val):
+	rythom_score = val
+func get_rythom_score():
+	pass
+
+#this function retrives a given speed based on our rythom score
+func RythomToSpeed():
+	if (rythom_score < 1):
+		return 10
+	elif (rythom_score < 2):
+		return  30
+	elif (rythom_score < 3):
+		return 60
+	else:
+		return 60
 #plays the proper animation for moving in the given direction
 func dir_anim(dir):
 	if (dir.x > 0):
@@ -20,17 +40,16 @@ func dir_anim(dir):
 		get_node("Player_Sprite").flip_h = true
 		get_node("Player_Sprite/AnimationPlayer").play("Slide")
 
-var last_input = 0
 #this function checks wether or not the given delta beat falls close enough to our sub beats to be valid
-func checkValidDelta():
+func checkInputRythom():
 	var new_input = OS.get_system_time_msecs()
 	var delta = (new_input - last_input)/1000.0
 	last_input = new_input
 
-	for i in range(-1,3):
+	for i in range(0,3):
 		#check to see if the note distance goes through 16th notes
 		var target = sub_beat*pow(2,i)
-		var beat_err = target/5
+		var beat_err = target/6
 		print("checking " + str(delta) + " == "  + str(target) +    "+- " + str(beat_err))
 		if (target-beat_err <= delta and delta <= target+beat_err):
 			print('IN TIME with ' + str(delta))
@@ -38,33 +57,52 @@ func checkValidDelta():
 	print('OUT OF TIME with ' + str(delta))
 	return false
 
+#this fuction updates our momentom to match our rythom
+func updateRythomMomentom():
+	if (checkInputRythom()):
+		print("in time")
+		rythom_score += 1
+	else:
+		print("out of time")
+		rythom_score -= 5
+	if (rythom_score < -5):
+		rythom_score = -5
+	if (rythom_score > 15):
+		rythom_score = 15
+
+#this function moves us in the given direction for player control
+func move_dir(dir,delta):
+	var working_speed = RythomToSpeed()
+	if (long):
+		working_speed /= 2
+		long = !long
+	dir_anim(dir)
+	var collided = move_and_collide(delta*dir*working_speed*100)
+		
+	if (collided):
+		#decide what to do with the thing that we hit
+		collision_action(collided)
 #checks the inputs for the movement of the object
-func move_2d(delta,delta_beat):
-	if (Input.is_action_just_pressed("NOTE_0")):
-		checkValidDelta()
+func move_2d(delta):
 	var to_move = Vector2(0,0)
-	if (Input.is_action_just_pressed("NOTE_4")):
-		get_node("NotePlayer").play_note(4-7)
-		to_move.x += 1
-	if (Input.is_action_just_pressed("NOTE_1")):
-		get_node("NotePlayer").play_note(1-7)
-		to_move.x -= 1
-	if (Input.is_action_just_pressed("NOTE_2")):
-		get_node("NotePlayer").play_note(2-7)
-		to_move.y += 1
-	if (Input.is_action_just_pressed("NOTE_3")):
-		get_node("NotePlayer").play_note(3-7)
-		to_move.y -= 1
+	for i in range(1,5):
+		if (Input.is_action_just_pressed("NOTE_" + str(i))):
+			updateRythomMomentom()
+			match i:
+				4:
+					get_node("NotePlayer").play_note(4-7)
+					to_move.x += 1
+				1:
+					get_node("NotePlayer").play_note(1-7)
+					to_move.x -= 1
+				2:
+					get_node("NotePlayer").play_note(2-7)
+					to_move.y += 1
+				3:
+					get_node("NotePlayer").play_note(3-7)
+					to_move.y -= 1
 	if (to_move != Vector2(0,0)):
-		var working_speed = speed
-		if (long):
-			working_speed /= 2
-			long = !long
-		dir_anim(to_move)
-		var collided = move_and_collide(delta*to_move*working_speed*100)
-		if (collided):
-			#decide what to do with the thing that we hit
-			collision_action(collided)
+		move_dir(to_move,delta)
 
 #decide what to do with the thing we hit
 func collision_action(collision):
@@ -101,7 +139,7 @@ func check_inputs(delta,delta_beat):
 		get_node("Player_Sprite/AnimationPlayer").play("Attack")
 	if (Input.is_action_just_pressed("NOTE_7")):
 		get_node("NotePlayer").play_note(0)
-	move_2d(delta,delta_beat)
+	move_2d(delta)
 	get_node("ComboTracker").check_inputs(delta)
 	
 #runs when the player completes a combo
@@ -123,6 +161,8 @@ func on_combo(combo_name):
 				if (node.position.x < position.x and node.position.distance_to(position) <= 800):
 					if (node.just_attacked):
 						node.mode = "die"
+
+#this is called by entities when they hit US
 func on_col(thing):
 	print("hit by " + thing.name)
 	if (thing.is_in_group("spiders")):
@@ -133,9 +173,12 @@ func _on_sword_strike(body):
 	print("struck " + str(body))
 
 func _ready():
+	get_node("NotePlayer").mode = 5
+	#load all of our combos
 	load_combos()
 	#start our animation cylce
 	get_node("Player_Sprite/AnimationPlayer").play("Idle")
+	
 	#connect all of our child nodes
 	get_node("ComboTracker").connect("combo_found",self,"on_combo")
 	get_node("Player_Sprite/AnimationPlayer").connect("animation_finished",self,"_finished_anim")

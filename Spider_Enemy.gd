@@ -35,11 +35,12 @@ func get_mode():
 	return mode
 
 var patroll_down = true
-var speed = 20
+var speed = 15
 # Called when thenode enters the scene tree for the first time.
 func _ready():
 	add_to_group("enemies")
 	add_to_group("spiders")
+	set_group_vol()
 	get_node("NotePlayer").mode = 4
 	get_node("Spider/AnimationPlayer").play("Idle")
 
