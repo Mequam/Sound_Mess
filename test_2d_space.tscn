@@ -2,7 +2,7 @@
 
 [ext_resource path="res://MushRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://test_2d_space.gd" type="Script" id=2]
-[ext_resource path="res://SingingTree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PineTreeBody.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Met.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://testTiles.tscn" type="PackedScene" id=6]
@@ -57,9 +57,6 @@ scale = Vector2( 0.5, 0.5 )
 [node name="player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 93.4288, 75.9765 )
 
-[node name="SingingTree" parent="." instance=ExtResource( 3 )]
-position = Vector2( -45.2251, 263.062 )
-
 [node name="Met" parent="." instance=ExtResource( 4 )]
 position = Vector2( -80.4357, 95.5415 )
 
@@ -83,3 +80,19 @@ position = Vector2( 1063.79, 536.732 )
 
 [node name="Spider_Enemy7" parent="." instance=ExtResource( 7 )]
 position = Vector2( 448.359, 565.166 )
+
+[node name="SingingTree" parent="." instance=ExtResource( 3 )]
+position = Vector2( 19.0452, 239.426 )
+
+[node name="SingingTree2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 296.561, 253.03 )
+
+[node name="SingingTree3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -110.19, 482.933 )
+
+[node name="SingingTree4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 831.082, 358.411 )
+
+[node name="SingingTree5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 114.271, 395.869 )
+scale = Vector2( 0.5, 0.5 )
