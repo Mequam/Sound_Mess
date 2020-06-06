@@ -23,3 +23,8 @@ volume_db = -5.0
 
 [node name="Player_Sprite" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2.32135, 12.3805 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_smoothed = true
+smoothing_enabled = true

@@ -13,37 +13,38 @@ position = Vector2( 114.272, -47.6133 )
 script = ExtResource( 2 )
 
 [node name="testTiles" parent="." instance=ExtResource( 6 )]
-tile_data = PoolIntArray( -327680, 2, 0, -327678, 2, 0, -196609, 2, 0, -262144, 0, 0, -262143, 3, 0, -262142, 0, 0, -262141, 1, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 1, 0, -65538, 2, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 1, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 1, 0, 65534, 2, 0, 65535, 0, 0, 0, 0, 0, 1, 1, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 1, 0 )
+modulate = Color( 0.576471, 0.933333, 0, 1 )
+tile_data = PoolIntArray( -196609, 2, 0, -262144, 2, 0, -131074, 11, 0, -131073, 0, 0, -196608, 0, 0, -196607, 1, 0, -65537, 4, 0, -131072, 4, 0, -131071, 8, 0, -2, 2, 0, -1, 0, 0, -65536, 0, 0, -65535, 7, 0, 65533, 11, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 1, 0, 131069, 10, 0, 131070, 4, 0, 131071, 8, 0, 65536, 11, 0, 196604, 11, 0, 196605, 0, 0, 196606, 0, 0, 196607, 7, 0 )
 
 [node name="MushRoom" parent="." instance=ExtResource( 1 )]
-position = Vector2( 221.548, 470.783 )
+position = Vector2( -88.9892, 482.601 )
 
 [node name="MushRoom2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 150.634, 518.85 )
+position = Vector2( 172.848, 458.556 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MushRoom4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 139.476, 571.851 )
+position = Vector2( 120.436, 475.063 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MushRoom3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 75.3171, 560.693 )
+position = Vector2( 389.482, 452.798 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MushRoom15" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8.24391, 516.943 )
+position = Vector2( 51.0845, 477.276 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MushRoom19" parent="." instance=ExtResource( 1 )]
-position = Vector2( 230.767, 542.857 )
+position = Vector2( 252.981, 479.389 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MushRoom20" parent="." instance=ExtResource( 1 )]
-position = Vector2( 528.719, 533.604 )
+position = Vector2( 727.091, 238.444 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MushRoom21" parent="." instance=ExtResource( 1 )]
-position = Vector2( 539.823, 457.728 )
+position = Vector2( 673.11, 295.733 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MushRoom22" parent="." instance=ExtResource( 1 )]
@@ -51,48 +52,17 @@ position = Vector2( 550.926, 276.366 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MushRoom23" parent="." instance=ExtResource( 1 )]
-position = Vector2( 329.788, 525.906 )
+position = Vector2( 328.201, 490.999 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 93.4288, 75.9765 )
+position = Vector2( 118.447, 216.585 )
 
 [node name="Met" parent="." instance=ExtResource( 4 )]
-position = Vector2( -80.4357, 95.5415 )
-
-[node name="Spider_Enemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 614.341, 379.019 )
-
-[node name="Spider_Enemy2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 724.157, 483.56 )
-
-[node name="Spider_Enemy3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 622.471, 267.218 )
-
-[node name="Spider_Enemy4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 788.145, 104.58 )
-
-[node name="Spider_Enemy5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 416.813, 319.176 )
-
-[node name="Spider_Enemy6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1063.79, 536.732 )
-
-[node name="Spider_Enemy7" parent="." instance=ExtResource( 7 )]
-position = Vector2( 448.359, 565.166 )
+position = Vector2( -86.5874, 62.7324 )
 
 [node name="SingingTree" parent="." instance=ExtResource( 3 )]
-position = Vector2( 19.0452, 239.426 )
+position = Vector2( -16.3356, 362.623 )
 
-[node name="SingingTree2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 296.561, 253.03 )
-
-[node name="SingingTree3" parent="." instance=ExtResource( 3 )]
-position = Vector2( -110.19, 482.933 )
-
-[node name="SingingTree4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 831.082, 358.411 )
-
-[node name="SingingTree5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 114.271, 395.869 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Spider_Enemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 318.508, 452.076 )
