@@ -6,9 +6,12 @@ extends Node2D
 # var b = "text"
 var beat = 0
 func _met_timeout():
+	get_tree().call_group("sprite_particle","run")
 	if (get_node("player")):
 		beat += .5
 		get_tree().call_group("plants","run")
+		#call the players met process
+		get_node("player")._met_process(beat)
 		for node in get_tree().get_nodes_in_group("enemies"):
 			node.run(get_node("player").position,beat)
 		if (beat >= 4):

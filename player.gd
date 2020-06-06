@@ -1,44 +1,67 @@
 extends KinematicBody2D
 
-var speed = 20
-
+var speed = 10
 #timer used to turn off the notes that are playing
 var timeout = 0
-
 var long = false
-
 #the time offset of the smallest possible sub beat, calculated from a bellow function
 var sub_beat
 #the time of the players last input, stored to calculate rythom
 var last_input = 0
+var i_timer = 0 setget set_i_timer, get_i_timer
+var mode = 1
 
+var shrinking_triangle = load("res://Shrinking_Triangle.tscn")
+
+func set_i_timer(val):
+	if (val >= 0):
+		i_timer = val
+		if (val != 0):
+			#we cannot collide with enemies
+			collision_layer = 0
+			get_node("Player_Sprite").modulate = Color.lightgray
+		else:
+			#we can collide with enemeies
+			collision_layer = 1
+			get_node("Player_Sprite").modulate = Color.white
+func get_i_timer():
+	return i_timer
 #used to score how well we are keeping track of rythom
 var rythom_score = 0 setget set_rythom_score,get_rythom_score
 
 func set_rythom_score(val):
 	rythom_score = val
 func get_rythom_score():
-	pass
+	return rythom_score
 
 #this function retrives a given speed based on our rythom score
 func RythomToSpeed():
 	if (rythom_score < 1):
-		return 10
+		return 5
 	elif (rythom_score < 2):
 		return  30
 	elif (rythom_score < 3):
 		return 60
 	else:
 		return 60
+
 #plays the proper animation for moving in the given direction
 func dir_anim(dir):
-	if (dir.x > 0):
-		get_node("Player_Sprite").flip_h = false
-		get_node("Player_Sprite/AnimationPlayer").play("Slide")
-	elif (dir.x < 0):
-		#trick the node into playing its animation backwords
-		get_node("Player_Sprite").flip_h = true
-		get_node("Player_Sprite/AnimationPlayer").play("Slide")
+	if (dir.y < 0):
+		#emit up
+		$Player_Sprite.emit_up(last_beat,sub_beat)
+	elif (dir.y > 0):
+		#emit down
+		$Player_Sprite.emit_down(last_beat,sub_beat)
+	else:
+		$Player_Sprite.emit_horizontal(last_beat,sub_beat)
+		if (dir.x > 0):
+			get_node("Player_Sprite").flip_h = false
+			get_node("Player_Sprite/AnimationPlayer").play("Slide")
+		elif (dir.x < 0):
+			#trick the node into playing its animation backwords
+			get_node("Player_Sprite").flip_h = true
+			get_node("Player_Sprite/AnimationPlayer").play("Slide")
 
 #this function checks wether or not the given delta beat falls close enough to our sub beats to be valid
 func checkInputRythom():
@@ -46,22 +69,27 @@ func checkInputRythom():
 	var delta = (new_input - last_input)/1000.0
 	last_input = new_input
 
-	for i in range(0,3):
+	for i in range(1,3):
 		#check to see if the note distance goes through 16th notes
 		var target = sub_beat*pow(2,i)
 		var beat_err = target/6
 		print("checking " + str(delta) + " == "  + str(target) +    "+- " + str(beat_err))
 		if (target-beat_err <= delta and delta <= target+beat_err):
-			print('IN TIME with ' + str(delta))
-			return true
-	print('OUT OF TIME with ' + str(delta))
-	return false
+			print("in time with " + str(i))
+			return i
+	return -100
 
+#stores the last beat that the player played
+var last_beat = 0
 #this fuction updates our momentom to match our rythom
 func updateRythomMomentom():
-	if (checkInputRythom()):
-		print("in time")
+	var beat_value = checkInputRythom()
+	if (beat_value != -100):
+		last_beat = beat_value
 		rythom_score += 1
+		if (beat_value == 2):
+			#they are in quarter notes, give them two beats of invulnerability
+			i_timer = 4
 	else:
 		print("out of time")
 		rythom_score -= 5
@@ -73,6 +101,7 @@ func updateRythomMomentom():
 #this function moves us in the given direction for player control
 func move_dir(dir,delta):
 	var working_speed = RythomToSpeed()
+	#todo: rename this to short
 	if (long):
 		working_speed /= 2
 		long = !long
@@ -106,6 +135,7 @@ func move_2d(delta):
 
 #decide what to do with the thing we hit
 func collision_action(collision):
+	print("struck " + str(collision) + " with i_timer of " + str(i_timer))
 	collision.collider.on_col(self)
 
 #this function takes a vector 2 and sets the player up for attacking
@@ -164,9 +194,11 @@ func on_combo(combo_name):
 
 #this is called by entities when they hit US
 func on_col(thing):
-	print("hit by " + thing.name)
-	if (thing.is_in_group("spiders")):
-		queue_free()
+	#print("hit by " + thing.name)
+	if (i_timer <= 0):
+		#these only run if we are not invencible
+		if (thing.is_in_group("spiders")):
+			hide()
 
 #this function plays when our sword interacts with a body
 func _on_sword_strike(body):
@@ -196,6 +228,11 @@ func _process(delta):
 			timeout = 0
 			get_node("NotePlayer").stop()
 
+#this function is called every beat of the metronome
+func _met_process(beat):
+	if (i_timer != 0):
+		#decriment our invencibility timer
+		set_i_timer(i_timer - 1)
 #this function is in charge of loading the combos for our player
 func load_combos():
 		#start mortal combat combo

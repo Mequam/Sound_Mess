@@ -10,25 +10,27 @@ var mode = "search" setget set_mode,get_mode
 var just_attacked = false
 
 func on_col(player):
-	print("[spider] hit")
-	
-	print("[spider] death approaches!")
-	set_mode("die")
+	if (player.i_timer != null and player.i_timer > 0):
+		print("dying")
+		set_mode("die")
 func set_mode(val):
 	#print("[SPIDER] changing mode:" + mode)
 	if (val in ["die","search","patroll","attack"] and mode != "die"): #once we die we dont change modes
 		if (val == "die"):
-			#we do not die while attacking, we kill things
 			if (mode == "attack"):
-				mode = "die"
+					$NotePlayer.volume_db += 3
+					mode = "die"
+					#we are diying now is not the time for collisions!
+					collision_layer = 0
+					collision_mask = 0
 		else:
-			mode = val
 			if (mode =="attack"):
 				just_attacked = true
 			if val == "attack" and mode != "attack":
-				get_node("NotePlayer").volume_db += 3
+				get_node("NotePlayer").volume_db /= 2
 			elif (val != "attack" and mode == "attack"):
-				get_node("NotePlayer").volume_db -= 3
+				get_node("NotePlayer").volume_db *= 2
+		mode = val
 		play_modal_animation(mode)
 
 func get_mode():
