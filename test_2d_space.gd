@@ -6,6 +6,8 @@ extends Node2D
 # var b = "text"
 var beat = 0
 func _met_timeout():
+	get_node("Blipper").target = get_node("player").position
+	get_node("Blipper")._met_process()
 	get_tree().call_group("sprite_particle","run")
 	if (get_node("player")):
 		beat += .5
@@ -18,6 +20,7 @@ func _met_timeout():
 			beat = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("Blipper").mode = "evil"
 	get_node("player").sub_beat = get_node("Met/Met").wait_time
 	get_node("player/NotePlayer").mode = 1
 	get_node("SingingTree").song = [

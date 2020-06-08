@@ -136,7 +136,8 @@ func move_2d(delta):
 #decide what to do with the thing we hit
 func collision_action(collision):
 	print("struck " + str(collision) + " with i_timer of " + str(i_timer))
-	collision.collider.on_col(self)
+	if (collision.collider.has_method("on_col")):
+		collision.collider.on_col(self)
 
 #this function takes a vector 2 and sets the player up for attacking
 func attack(dir):
