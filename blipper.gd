@@ -41,9 +41,12 @@ func get_dir(var target_pos):
 			#hop left and right randomly
 			dir = Vector2(rng.randf_range(-1,1),rng.randf_range(-2,2))
 		"evil":
-			dir =  target_pos - position
+			dir =  make_dir(target_pos - position)
 	return dir
-
+#this function ensures that the magnitude of the given vector is 1
+func make_dir(v2):
+	var n = 1.0/sqrt(v2.x*v2.x+v2.y*v2.y)
+	return Vector2(n*v2.x,n*v2.y)
 func look_at(target_pos):
 	if (target_pos.x < position.x):
 		#this is a hack to flip the visuals and should not be used on kinimatic bodies
@@ -80,36 +83,55 @@ func _anim_finished(var animation):
 			if (animation == "Transform"):
 				mode = "evil"
 				#musical mode not to be confused with AI mode
-				get_node("NotePlayer").mode = 6
+				get_node("NotePlayer").mode = 5
 
 var beat = 0
 #called every metronome beet
 func _met_process():
-	print(mode)
 	match mode:
 		"normal":
-			if (beat == 3):
+			if (beat == 3.0):
 				get_node("Bunny/AnimationPlayer").play("Jump")
 				get_node("NotePlayer").stop()
-			if (beat == 4):
+			if (beat == 4.0):
 				get_node("Bunny/AnimationPlayer").play("Jump")
 				get_node("NotePlayer").stop()
 		"evil":
-			print("evil_met")
-			if (beat == 0.0):
-				get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_1")
-				get_node("NotePlayer").play_note(3)
-			elif (beat == 1.0):
-				get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_2")
-				get_node("NotePlayer").play_note(4)
-			elif (beat == 2.0):
-				get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_3")
-				get_node("NotePlayer").play_note(1)
+			if (position.distance_to(target) > 350):
+				if (beat == 0.0):
+					get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_1")
+					get_node("NotePlayer").play_note(1)
+				elif (beat == 1.0):
+					get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_2")
+					get_node("NotePlayer").play_note(2)
+				elif (beat == 2.0):
+					get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_3")
+					get_node("NotePlayer").play_note(4)
+				else:
+					get_node("NotePlayer").stop()
 			else:
-				get_node("NotePlayer").stop()
-	beat += 1
-	if (beat == 8):
-		beat = 0
+				if (beat == 0.0):
+					get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_1")
+					get_node("NotePlayer").play_note(2)
+				elif (beat == 1.0):
+					get_node("Bunny/AnimationPlayer").play("Evil_Jump_Prep")
+					get_node("NotePlayer").play_note(7)
+				elif (beat == 2.0):
+					get_node("Bunny/AnimationPlayer").play("Evil_Jump_Action")
+					get_node("NotePlayer").play_note(6)
+					collision_layer = pow(2,5)
+				elif ( 2.5 <= beat and beat <= 3.0):
+					get_node("NotePlayer").stop()
+					move(target)
+				elif (beat == 4.0):
+					collision_layer = pow(2,4)+1
+					get_node("Bunny/AnimationPlayer").play("Evil_Land")
+					get_node("NotePlayer").play_note(5-7)
+				elif (beat):
+					get_node("NotePlayer").stop()
+	beat += .5
+	if (beat == 5.0):
+		beat = 0.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
