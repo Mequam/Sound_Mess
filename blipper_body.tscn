@@ -5,18 +5,18 @@
 [ext_resource path="res://Sprites.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9.22658, 17.9623 )
+extents = Vector2( 29.1992, 23.6684 )
 
 [node name="Blipper" type="KinematicBody2D"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 32
+collision_mask = 24
 script = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.773766, 3.8147e-06 )
-rotation = 1.545
-shape = SubResource( 1 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 1 )]
 
 [node name="Bunny" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7.46565, 11.4628 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1.08072 )
+shape = SubResource( 1 )

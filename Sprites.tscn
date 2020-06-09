@@ -635,7 +635,7 @@ tracks/27/keys = {
 "values": [ Vector2( 0.05, 0.0321696 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=3]
 resource_name = "Evil_Land"
 length = 0.1
 tracks/0/type = "value"
@@ -939,7 +939,7 @@ tracks/24/keys = {
 "values": [ Vector2( 0.154969, 0.0594914 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -1267,7 +1267,7 @@ tracks/26/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body_Position/third leg_a:position")
@@ -1594,7 +1594,7 @@ tracks/26/keys = {
 "values": [ Vector2( 0, -130 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body_Position/back_leg:position")
@@ -1669,8 +1669,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.0383465, 0.148968 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Idle_Evil_Beat_3"
+[sub_resource type="Animation" id=7]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body_Position/front_leg:position")
@@ -1733,7 +1732,7 @@ tracks/4/keys = {
 "values": [ Vector2( 41.842, 92.0751 ), Vector2( 34.842, 94.0751 ), Vector2( 41.842, 92.0751 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.55
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body_Position/body:position")
@@ -1904,7 +1903,7 @@ tracks/13/keys = {
 "values": [ 171.06, 168.09, 137.869 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body_Position/face:position")
@@ -2356,19 +2355,19 @@ script = ExtResource( 3 )
 visible = false
 modulate = Color( 0.266667, 0.266667, 0.266667, 0.611765 )
 position = Vector2( -9.51181, -11.2336 )
-scale = Vector2( 0.154969, 0.0594914 )
+scale = Vector2( 0.190963, 0.0844721 )
 texture = ExtResource( 1 )
 
 [node name="Body_Position" type="Node2D" parent="."]
 
 [node name="tail" type="Sprite" parent="Body_Position"]
-position = Vector2( -28.1673, -15.0571 )
+position = Vector2( -30.734, -18.1371 )
 rotation = -1.63166
 scale = Vector2( 0.0317078, 0.0293621 )
 texture = ExtResource( 1 )
 
 [node name="body" type="Sprite" parent="Body_Position"]
-position = Vector2( 1.713, 3.842 )
+position = Vector2( 1.71256, 1.84167 )
 rotation = -0.0118244
 scale = Vector2( 0.0990381, 0.0332751 )
 texture = ExtResource( 2 )
@@ -2380,20 +2379,20 @@ scale = Vector2( 0.0329872, 0.0318454 )
 texture = ExtResource( 1 )
 
 [node name="face" type="Sprite" parent="Body_Position"]
-position = Vector2( 38.802, -27.35 )
+position = Vector2( 38.8025, -29.3498 )
 rotation = -1.71599
 scale = Vector2( 0.0583658, 0.0555919 )
 texture = ExtResource( 1 )
 
 [node name="ear_back" type="Sprite" parent="Body_Position"]
 position = Vector2( 27.8472, -67.0104 )
-rotation = 2.98556
+rotation = 2.93859
 scale = Vector2( 0.0258268, 0.0453985 )
 texture = ExtResource( 2 )
 
 [node name="ear_front" type="Sprite" parent="Body_Position"]
 position = Vector2( 21.3846, -64.9154 )
-rotation = 2.54233
+rotation = 2.82464
 scale = Vector2( 0.0224386, 0.04501 )
 texture = ExtResource( 2 )
 
@@ -2434,13 +2433,13 @@ texture = ExtResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Evil_Jump_Action = SubResource( 1 )
 anims/Evil_Jump_Prep = SubResource( 2 )
-anims/Evil_Land = SubResource( 9 )
-anims/Idle = SubResource( 3 )
-anims/Idle_Evil_Beat_1 = SubResource( 4 )
-anims/Idle_Evil_Beat_2 = SubResource( 5 )
-anims/Idle_Evil_Beat_3 = SubResource( 6 )
-anims/Jump = SubResource( 7 )
-anims/Transform = SubResource( 8 )
+anims/Evil_Land = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Idle_Evil_Beat_1 = SubResource( 5 )
+anims/Idle_Evil_Beat_2 = SubResource( 6 )
+anims/Idle_Evil_Beat_3 = SubResource( 7 )
+anims/Jump = SubResource( 8 )
+anims/Transform = SubResource( 9 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 2.36041, -1.31314 )

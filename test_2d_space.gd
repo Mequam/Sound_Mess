@@ -6,8 +6,6 @@ extends Node2D
 # var b = "text"
 var beat = 0
 func _met_timeout():
-	get_node("Blipper").target = get_node("player").position
-	get_node("Blipper")._met_process()
 	get_tree().call_group("sprite_particle","run")
 	if (get_node("player")):
 		beat += .5

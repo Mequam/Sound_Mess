@@ -17,12 +17,8 @@ func set_i_timer(val):
 	if (val >= 0):
 		i_timer = val
 		if (val != 0):
-			#we cannot collide with enemies
-			collision_layer = 0
 			get_node("Player_Sprite").modulate = Color.lightgray
 		else:
-			#we can collide with enemeies
-			collision_layer = 1
 			get_node("Player_Sprite").modulate = Color.white
 func get_i_timer():
 	return i_timer
@@ -195,10 +191,11 @@ func on_combo(combo_name):
 
 #this is called by entities when they hit US
 func on_col(thing):
+	print("i_timer " + str(i_timer))
 	#print("hit by " + thing.name)
 	if (i_timer <= 0):
 		#these only run if we are not invencible
-		if (thing.is_in_group("spiders")):
+		if (thing.is_in_group("enemies")):
 			hide()
 
 #this function plays when our sword interacts with a body

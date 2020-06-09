@@ -53,7 +53,10 @@ func look_at(target_pos):
 		get_node("Bunny").scale.x = -1
 	else:
 		get_node("Bunny").scale.x = 1
-		
+func on_col(thing):
+	print("hit")
+	if (vulnerable and thing.i_timer != null and thing.i_timer != 0):
+		queue_free()
 func move(target_pos):
 	
 	var dir = get_dir(target_pos)
@@ -64,7 +67,7 @@ func move(target_pos):
 	
 	look_at(target_pos)
 	
-	var collision = move_and_collide(Vector2(dir.x*20,dir.y*100))
+	var collision = move_and_collide(Vector2(dir.x,dir.y)*(position.distance_to(target_pos)/4))
 	if (collision and collision.collider.has_method("on_col")):
 		#tell the thing that we collided with that we have a hit
 		collision.collider.on_col(self)
@@ -82,12 +85,15 @@ func _anim_finished(var animation):
 		"still":
 			if (animation == "Transform"):
 				mode = "evil"
+				add_to_group("enemies")
 				#musical mode not to be confused with AI mode
 				get_node("NotePlayer").mode = 5
 
 var beat = 0
+var vulnerable = true
 #called every metronome beet
-func _met_process():
+func run(target_pos,beat):
+	target=target_pos
 	match mode:
 		"normal":
 			if (beat == 3.0):
@@ -111,22 +117,33 @@ func _met_process():
 					get_node("NotePlayer").stop()
 			else:
 				if (beat == 0.0):
+					collision_mask  = pow(2,3) + pow(2,4)
 					get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_1")
 					get_node("NotePlayer").play_note(2)
 				elif (beat == 1.0):
+					#we are vulnerable on our prep
+					vulnerable = true
+					#make sure that the player can hit us
+					collision_mask  = pow(2,0) + pow(2,1) + pow(2,3) + pow(2,4)
+					
 					get_node("Bunny/AnimationPlayer").play("Evil_Jump_Prep")
 					get_node("NotePlayer").play_note(7)
 				elif (beat == 2.0):
+					vulnerable = false
+					collision_mask = pow(2,3) + pow(2,4)
 					get_node("Bunny/AnimationPlayer").play("Evil_Jump_Action")
 					get_node("NotePlayer").play_note(6)
-					collision_layer = pow(2,5)
 				elif ( 2.5 <= beat and beat <= 3.0):
 					get_node("NotePlayer").stop()
 					move(target)
 				elif (beat == 4.0):
-					collision_layer = pow(2,4)+1
 					get_node("Bunny/AnimationPlayer").play("Evil_Land")
 					get_node("NotePlayer").play_note(5-7)
+					collision_mask  = pow(2,0) + pow(2,1) + pow(2,3) + pow(2,4)
+					var collision = move_and_collide(Vector2(0,0))
+					if (collision and collision.collider.has_method("on_col")):
+						collision.collider.on_col(self)
+						
 				elif (beat):
 					get_node("NotePlayer").stop()
 	beat += .5
