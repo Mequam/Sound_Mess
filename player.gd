@@ -69,14 +69,16 @@ func checkInputRythom():
 		#check to see if the note distance goes through 16th notes
 		var target = sub_beat*pow(2,i)
 		var beat_err = target/6
-		print("checking " + str(delta) + " == "  + str(target) +    "+- " + str(beat_err))
+		#print("checking " + str(delta) + " == "  + str(target) +    "+- " + str(beat_err))
 		if (target-beat_err <= delta and delta <= target+beat_err):
-			print("in time with " + str(i))
+			#print("in time with " + str(i))
 			return i
 	return -100
 
 #stores the last beat that the player played
 var last_beat = 0
+func get_type():
+	return "player"
 #this fuction updates our momentom to match our rythom
 func updateRythomMomentom():
 	var beat_value = checkInputRythom()
@@ -87,7 +89,6 @@ func updateRythomMomentom():
 			#they are in quarter notes, give them two beats of invulnerability
 			i_timer = 4
 	else:
-		print("out of time")
 		rythom_score -= 5
 	if (rythom_score < -5):
 		rythom_score = -5
@@ -191,7 +192,7 @@ func on_combo(combo_name):
 
 #this is called by entities when they hit US
 func on_col(thing):
-	print("i_timer " + str(i_timer))
+	#print("i_timer " + str(i_timer))
 	#print("hit by " + thing.name)
 	if (i_timer <= 0):
 		#these only run if we are not invencible

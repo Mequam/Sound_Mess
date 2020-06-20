@@ -10,13 +10,15 @@ func get_mode():
 func set_mode(val):
 	if (val == "evil"):
 		get_node("Bunny/AnimationPlayer").play("Transform")
+		remove_from_group("corruptable")
 		mode = "still"
 	elif (val in ["normal","evil_jump","still"]):
 		mode = val
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("Bunny/AnimationPlayer").connect("animation_finished",self,"_anim_finished")
-
+	add_to_group("generic_ai")
+	add_to_group("corruptable")
 var target
 var go_down = true
 func die():
@@ -54,8 +56,8 @@ func look_at(target_pos):
 	else:
 		get_node("Bunny").scale.x = 1
 func on_col(thing):
-	print("hit")
-	if (vulnerable and thing.i_timer != null and thing.i_timer != 0):
+	#print("hit")
+	if (vulnerable and thing.has_method("get_type") and thing.get_type() == "player" and thing.i_timer != null and thing.i_timer != 0):
 		queue_free()
 func move(target_pos):
 	
@@ -85,6 +87,7 @@ func _anim_finished(var animation):
 		"still":
 			if (animation == "Transform"):
 				mode = "evil"
+				remove_from_group("generic_ai")
 				add_to_group("enemies")
 				#musical mode not to be confused with AI mode
 				get_node("NotePlayer").mode = 5

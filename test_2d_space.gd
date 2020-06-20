@@ -12,13 +12,13 @@ func _met_timeout():
 		get_tree().call_group("plants","run")
 		#call the players met process
 		get_node("player")._met_process(beat)
-		for node in get_tree().get_nodes_in_group("enemies"):
-			node.run(get_node("player").position,beat)
+		get_tree().call_group("generic_ai","run",$player.position,beat)
+		get_tree().call_group("enemies","run",$player.position,beat)
 		if (beat >= 4):
 			beat = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("Blipper").mode = "evil"
+	get_node("Blipper").mode = "Idle"
 	get_node("player").sub_beat = get_node("Met/Met").wait_time
 	get_node("player/NotePlayer").mode = 1
 	get_node("SingingTree").song = [

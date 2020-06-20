@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://NotePlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tarantula_Sprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tarantula.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 59.0512
+
+[node name="Tarantula" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 3 )
+
+[node name="Tarantula_Sprite" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.32416, 11.0805 )
+shape = SubResource( 1 )
+
+[node name="NotePlayer" parent="." instance=ExtResource( 1 )]
