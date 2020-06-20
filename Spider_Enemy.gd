@@ -186,7 +186,10 @@ func play_note(beat):
 func move_dir(dir,mod=1):
 	var col = move_and_collide(dir*speed*mod)
 	if (col):
-		col.collider.on_col(self)
+		if (col.collider.has_method("on_col")):
+			col.collider.on_col(self)
+		patroll_down = !patroll_down
+		
 
 #this is used as a timer to tell how long we are vulnerable to the spider song after attacking
 var attack_cool_down_max = 32

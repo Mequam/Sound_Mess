@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MushRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://test_2d_space.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://testTiles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Tarantula.tscn" type="PackedScene" id=7]
 [ext_resource path="res://blipper_body.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Spider_Enemy.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 114.272, -47.6133 )
@@ -43,15 +44,6 @@ position = Vector2( 2773.93, -781.798 )
 [node name="Blipper" parent="." instance=ExtResource( 8 )]
 position = Vector2( 413.974, -665.315 )
 
-[node name="Blipper2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 180.145, -677.007 )
-
-[node name="Blipper3" parent="." instance=ExtResource( 8 )]
-position = Vector2( -67.0447, -671.996 )
-
-[node name="Blipper7" parent="." instance=ExtResource( 8 )]
-position = Vector2( -578.508, -703.797 )
-
 [node name="Blipper5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 604.377, -717.091 )
 
@@ -63,9 +55,6 @@ position = Vector2( 1159.03, 230.789 )
 
 [node name="Blipper15" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3210.88, -222.637 )
-
-[node name="Blipper4" parent="." instance=ExtResource( 8 )]
-position = Vector2( -163.917, -705.4 )
 
 [node name="Tarantula" parent="." instance=ExtResource( 7 )]
 position = Vector2( -270.225, -689.539 )
@@ -96,3 +85,9 @@ scale = Vector2( 0.5, 0.5 )
 modulate = Color( 0.980392, 0.32549, 0.0941176, 1 )
 position = Vector2( 784.865, 384.659 )
 scale = Vector2( 0.5, 0.5 )
+
+[node name="Spider_Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1347.53, 344.666 )
+
+[node name="Spider_Enemy2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1974.68, 120.971 )
