@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://MushRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://test_2d_space.gd" type="Script" id=2]
@@ -6,96 +6,93 @@
 [ext_resource path="res://Met.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://testTiles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tarantula.tscn" type="PackedScene" id=7]
 [ext_resource path="res://blipper_body.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 114.272, -47.6133 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 
 [node name="testTiles" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.576471, 0.933333, 0, 1 )
+scale = Vector2( 0.4, 0.4 )
 collision_mask = 15
-tile_data = PoolIntArray( -720890, 2, 0, -720889, 2, 0, -720888, 2, 0, -655357, 2, 0, -655356, 2, 0, -655355, 2, 0, -655354, 0, 0, -655353, 0, 0, -655352, 0, 0, -655351, 7, 0, -589822, 2, 0, -589821, 0, 0, -589820, 0, 0, -589819, 0, 0, -589818, 0, 0, -589817, 0, 0, -589816, 4, 0, -589815, 8, 0, -524287, 2, 0, -524286, 0, 0, -524285, 0, 0, -524284, 0, 0, -524283, 10, 0, -524282, 4, 0, -524281, 4, 0, -524280, 0, 0, -524279, 7, 0, -458752, 2, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -458744, 0, 0, -458743, 7, 0, -327681, 11, 0, -393216, 0, 0, -393215, 0, 0, -393214, 11, 0, -393213, 11, 0, -393212, 11, 0, -393211, 2, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -393207, 7, 0, -262145, 11, 0, -327680, 0, 0, -327679, 0, 0, -327678, 11, 0, -327676, 2, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 7, 0, -196609, 2, 0, -262144, 0, 0, -262141, 2, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 7, 0, -262136, 11, 0, -131074, 11, 0, -131073, 0, 0, -196608, 0, 0, -196607, 1, 0, -196606, 2, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 7, 0, -65537, 4, 0, -131072, 4, 0, -131071, 2, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 7, 0, -2, 2, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 7, 0, 65533, 11, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 7, 0, 131069, 10, 0, 131070, 4, 0, 131071, 8, 0, 65536, 11, 0, 65537, 11, 0, 65538, 11, 0, 196604, 11, 0, 196605, 0, 0, 196606, 0, 0, 196607, 7, 0, 262141, 11, 0, 262142, 11, 0 )
-
-[node name="MushRoom" parent="." instance=ExtResource( 1 )]
-position = Vector2( -88.9892, 482.601 )
-
-[node name="MushRoom2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 172.848, 458.556 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="MushRoom4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 120.436, 475.063 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="MushRoom3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 389.482, 452.798 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="MushRoom15" parent="." instance=ExtResource( 1 )]
-position = Vector2( 51.0845, 477.276 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="MushRoom19" parent="." instance=ExtResource( 1 )]
-position = Vector2( 252.981, 479.389 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="MushRoom20" parent="." instance=ExtResource( 1 )]
-position = Vector2( 727.091, 238.444 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="MushRoom21" parent="." instance=ExtResource( 1 )]
-position = Vector2( 673.11, 295.733 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="MushRoom22" parent="." instance=ExtResource( 1 )]
-position = Vector2( 550.926, 276.366 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="MushRoom23" parent="." instance=ExtResource( 1 )]
-position = Vector2( 328.201, 490.999 )
-scale = Vector2( 0.5, 0.5 )
+tile_data = PoolIntArray( -327681, 11, 0, -65537, 2, 0, -131072, 2, 0, -131071, 2, 0, -131070, 10, 0, -2, 11, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 1, 0, 65534, 11, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 3, 0, 4, 10, 0, 5, 10, 0, 131066, 10, 0, 131067, 4, 0, 131068, 4, 0, 131069, 4, 0, 131070, 4, 0, 131071, 4, 0, 65536, 4, 0, 65537, 8, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 1, 0, 196601, 10, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 7, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 7, 0, 262136, 11, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 1, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 1, 0, 327672, 11, 0, 327673, 0, 0, 327674, 7, 0, 327675, 11, 0, 327676, 11, 0, 327677, 11, 0, 327678, 11, 0, 327679, 2, 0, 262144, 2, 0, 262145, 10, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 1, 0, 393208, 11, 0, 393209, 0, 0, 393210, 3, 0, 393211, 2, 0, 393212, 10, 0, 393213, 2, 0, 393214, 2, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 7, 0, 327684, 11, 0, 327685, 11, 0, 458744, 11, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 7, 0, 524280, 11, 0, 524281, 11, 0, 524282, 11, 0, 524283, 11, 0, 524284, 11, 0, 524285, 11, 0, 524286, 11, 0, 524287, 11, 0, 458752, 11, 0, 458753, 11, 0, 458754, 11, 0, 524288, 11, 0, 524289, 11, 0 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1146.58, 359.743 )
+position = Vector2( 272.939, 241.357 )
 
 [node name="Met" parent="." instance=ExtResource( 4 )]
 position = Vector2( -86.5874, 62.7324 )
 
 [node name="SingingTree" parent="." instance=ExtResource( 3 )]
-position = Vector2( -16.3356, 362.623 )
+position = Vector2( 1605.6, 114.826 )
 
 [node name="SingingTree2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -20.0368, 612.459 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 2893.48, -455.752 )
 
 [node name="SingingTree3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 231.65, 606.907 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="SingingTree5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 398.207, 856.743 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="SingingTree6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 577.719, 775.315 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="SingingTree7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 418.564, 751.257 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="SingingTree8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 827.555, 730.9 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="SingingTree9" parent="." instance=ExtResource( 3 )]
-position = Vector2( 853.464, 860.444 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 3849.88, -287.296 )
 
 [node name="SingingTree4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 231.65, 788.27 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 2773.93, -781.798 )
 
 [node name="Blipper" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1363.28, 596.455 )
+position = Vector2( 413.974, -665.315 )
+
+[node name="Blipper2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 180.145, -677.007 )
+
+[node name="Blipper3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -67.0447, -671.996 )
+
+[node name="Blipper7" parent="." instance=ExtResource( 8 )]
+position = Vector2( -578.508, -703.797 )
+
+[node name="Blipper5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 604.377, -717.091 )
+
+[node name="Blipper6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 776.408, -673.666 )
+
+[node name="Blipper14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1159.03, 230.789 )
+
+[node name="Blipper15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3210.88, -222.637 )
+
+[node name="Blipper4" parent="." instance=ExtResource( 8 )]
+position = Vector2( -163.917, -705.4 )
+
+[node name="Tarantula" parent="." instance=ExtResource( 7 )]
+position = Vector2( -270.225, -689.539 )
+
+[node name="Tarantula3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3348.23, -269.268 )
+
+[node name="Area2D" parent="." instance=ExtResource( 1 )]
+modulate = Color( 1, 0.105882, 0.0117647, 1 )
+position = Vector2( 737.396, 263.349 )
+
+[node name="Area2D4" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.980392, 0.32549, 0.0941176, 1 )
+position = Vector2( 614.328, 324.883 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Area2D5" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.980392, 0.32549, 0.0941176, 1 )
+position = Vector2( 693.443, 365.319 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Area2D6" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.980392, 0.32549, 0.0941176, 1 )
+position = Vector2( 791.897, 347.738 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Area2D7" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.980392, 0.32549, 0.0941176, 1 )
+position = Vector2( 784.865, 384.659 )
+scale = Vector2( 0.5, 0.5 )
