@@ -11,7 +11,7 @@ var last_input = 0
 var i_timer = 0 setget set_i_timer, get_i_timer
 var mode = 1
 
-var shrinking_triangle = load("res://Shrinking_Triangle.tscn")
+#var shrinking_triangle = load("res://Shrinking_Triangle.tscn")
 
 func set_i_timer(val):
 	if (val >= 0):
@@ -89,25 +89,36 @@ func updateRythomMomentom():
 			#they are in quarter notes, give them two beats of invulnerability
 			i_timer = 4
 	else:
-		rythom_score -= 5
-	if (rythom_score < -5):
-		rythom_score = -5
-	if (rythom_score > 15):
-		rythom_score = 15
+		rythom_score -= 2
+	if (rythom_score < -2):
+		rythom_score = -2
+	if (rythom_score > 4):
+		rythom_score = 4
 
 #this function moves us in the given direction for player control
 func move_dir(dir,delta):
 	var working_speed = RythomToSpeed()
-	#todo: rename this to short
-	if (long):
-		working_speed /= 2
-		long = !long
 	dir_anim(dir)
 	var collided = move_and_collide(delta*dir*working_speed*100)
-		
 	if (collided):
 		#decide what to do with the thing that we hit
 		collision_action(collided)
+var push_proj_package = load("res://pushProjectile.tscn")
+
+#this function is in charge of our push effect
+func push_dir(dir,delta):
+	var proj = push_proj_package.instance()
+	proj.beat_val = last_beat
+	proj.dialate_speed(sub_beat)
+	proj.dir = dir
+	#TODO: figure out why this position needs to be shifted! (without the shift the projectile spawns in the wrong spot DESPITE beign at 0,0 in our chords)
+	proj.position = position+Vector2(105,0)
+	print("spawning projctile @ " + str(proj.position-position) + " with last beat of " + str(last_beat))
+	proj.speed = speed/2
+	get_tree().get_root().add_child(proj)
+	for node in get_tree().get_nodes_in_group("projectile"):
+		print("global position "  + str(node.position - position))
+
 #checks the inputs for the movement of the object
 func move_2d(delta):
 	var to_move = Vector2(0,0)
@@ -128,7 +139,16 @@ func move_2d(delta):
 					get_node("NotePlayer").play_note(3-7)
 					to_move.y -= 1
 	if (to_move != Vector2(0,0)):
-		move_dir(to_move,delta)
+		match flavor:
+			"push":
+				print("found to move")
+				push_dir(to_move,delta)
+				move_dir(to_move/2,delta)
+			"none":
+				move_dir(to_move,delta)
+			_:
+				move_dir(to_move,delta)
+		flavor = "none"
 
 #decide what to do with the thing we hit
 func collision_action(collision):
@@ -146,21 +166,28 @@ func attack(dir):
 		get_node("Player_Sprite").flip_h = true
 		get_node("Player_Sprite/AnimationPlayer").play("Attack")
 
+#this function "augments" our next movement input with the given flavor
+var flavor = "none" setget set_flavor, get_flavor
+func set_flavor(new_flavor):
+	flavor = new_flavor
+func get_flavor():
+	return flavor
+
+#this function checks the given inputs to move the player
 func check_inputs(delta,delta_beat):
 	if (Input.is_action_just_pressed("mode_change")):
 		get_node("NotePlayer").mode+=1
-
+	
 	if (Input.is_action_just_pressed("NOTE_6")):
 		#attack right
 		get_node("NotePlayer").play_note(6-7)
-		attack(Vector2(1,0))
-		long = true
+		updateRythomMomentom()
+		set_flavor("push")
 	if (Input.is_action_just_pressed("NOTE_0")):
 		get_node("NotePlayer").play_note(-7)
 	if (Input.is_action_just_pressed("NOTE_5")):
 		#attack left
 		get_node("NotePlayer").play_note(5-7)
-		
 		#make sure we are flipped
 		get_node("Player_Sprite").flip_h = true
 		#play the attack animation

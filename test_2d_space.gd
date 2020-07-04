@@ -6,6 +6,7 @@ extends Node2D
 # var b = "text"
 var beat = 0
 func _met_timeout():
+	get_tree().call_group("projectile","run",$player.position,beat)
 	get_tree().call_group("sprite_particle","run")
 	if (get_node("player")):
 		beat += .5

@@ -38,8 +38,6 @@ func emit_up(last_beat,sub_beat):
 	$Shrinking_Triangle.rotation = PI
 	$Shrinking_Triangle.position = Vector2(0,-init_particle_dist)
 	$Shrinking_Triangle.emitting = true
-	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

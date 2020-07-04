@@ -42,7 +42,6 @@ func make_dir(v2):
 var target_dir = Vector2(0,0)
 var speed = 50
 func run(player_pos,beat):
-	print("running")
 	match mode:
 		"Attack":
 			var collision = move_and_collide(target_dir*speed)
@@ -95,7 +94,7 @@ func run(player_pos,beat):
 						#until we are slightly past them
 						target_pos = target_dir*2+player_pos
 		"Alert":
-			print(mode)
+			#print(mode)
 			match inner_beat:
 				0.0:
 					$NotePlayer.play_note(0)
@@ -132,7 +131,7 @@ func run(player_pos,beat):
 				set_mode("Alert")
 			match inner_beat:
 				0.0:
-					print(init_rotation)
+					#print(init_rotation)
 					$NotePlayer.play_note(1)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation - PI/10
 					$Tarantula_Sprite/Body/Butt.position = init_position
