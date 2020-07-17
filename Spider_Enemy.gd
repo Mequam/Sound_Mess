@@ -10,8 +10,10 @@ var mode = "search" setget set_mode,get_mode
 var just_attacked = false
 
 func on_col(player):
-	if (player.i_timer != null and player.i_timer > 0):
+	if (player.is_in_group("player") and player.i_timer != null and player.i_timer > 0):
 		print("dying")
+		set_mode("die")
+	else:
 		set_mode("die")
 func set_mode(val):
 	#print("[SPIDER] changing mode:" + mode)
