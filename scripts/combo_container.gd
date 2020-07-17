@@ -1,6 +1,6 @@
 extends Object
 #this object represents a combo containing comboActions
-var comboActionScript = load("res://comboAction.gd")
+var comboActionScript = load("res://scripts/comboAction.gd")
 #the name of the combo
 var name = ""
 #the actions of the combo, sorted based on the times that they occure

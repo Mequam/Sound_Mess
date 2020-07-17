@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Met.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Met.gd" type="Script" id=1]
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=2]
 
 [node name="Met_Pos" type="Node2D"]

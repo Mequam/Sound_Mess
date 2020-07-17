@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://NotePlayer.gd" type="Script" id=1]
+[ext_resource path="res://scripts/NotePlayer.gd" type="Script" id=1]
 
 [node name="NotePlayer" type="AudioStreamPlayer2D"]
 volume_db = -10.0

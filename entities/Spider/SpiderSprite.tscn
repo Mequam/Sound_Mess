@@ -2,7 +2,8 @@
 
 [ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=2]
-[ext_resource path="res://SpiderSprite.gd" type="Script" id=3]
+[ext_resource path="res://scripts/SpiderSprite.gd" type="Script" id=3]
+
 
 
 

@@ -1,7 +1,7 @@
 extends Node
 
-var comboActionScript = load("res://comboAction.gd")
-var comboContainerScript = load("res://combo_container.gd")
+var comboActionScript = load("res://scripts/comboAction.gd")
+var comboContainerScript = load("res://scripts/combo_container.gd")
 
 #used by callers to get the objects to interact with us
 func get_combo_container():

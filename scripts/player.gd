@@ -103,7 +103,7 @@ func move_dir(dir,delta):
 	if (collided):
 		#decide what to do with the thing that we hit
 		collision_action(collided)
-var push_proj_package = load("res://pushProjectile.tscn")
+var push_proj_package = load("res://scenes/instance/projectiles/pushProjectile.tscn")
 
 #this function is in charge of our push effect
 func push_dir(dir,delta):
