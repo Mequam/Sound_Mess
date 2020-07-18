@@ -11,8 +11,6 @@
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=10]
 
-
-
 [node name="Node2D" type="Node2D"]
 position = Vector2( 114.272, -47.6133 )
 script = ExtResource( 2 )
@@ -30,7 +28,16 @@ tile_data = PoolIntArray( -327681, 11, 0, -65537, 2, 0, -131072, 2, 0, -131071, 
 position = Vector2( 546.074, 270.987 )
 
 [node name="Traper_Entity2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 3673.75, -83.6557 )
+position = Vector2( 3673.75, -80.7917 )
+
+[node name="Traper_Entity3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 3088.06, -30.6718 )
+
+[node name="Traper_Entity4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 3142.48, -325.663 )
+
+[node name="Traper_Entity5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 3559.19, -297.023 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 261.292, 234.026 )
@@ -51,7 +58,7 @@ position = Vector2( 3849.88, -287.296 )
 position = Vector2( 2773.93, -781.798 )
 
 [node name="Blipper15" parent="." instance=ExtResource( 8 )]
-position = Vector2( 3210.88, -222.637 )
+position = Vector2( 3356.94, -209.749 )
 
 [node name="Tarantula" parent="." instance=ExtResource( 7 )]
 position = Vector2( -270.225, -689.539 )

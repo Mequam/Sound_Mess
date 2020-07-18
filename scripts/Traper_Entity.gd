@@ -22,10 +22,9 @@ func _anim_finished(anim):
 			backwords = false
 			mode="idle"
 		#tell whatever we jist hit they got owned
-		if (inside != null and inside.has_method("on_col")):
+		if (inside and inside.has_method("on_col")):
 			inside.on_col(self)
 func run(player_pos,beat):
-	print("trapper " + str(inner_beat))
 	match inner_beat:
 		0:
 			$Traper/spdier/head/eyes/eye1.visible = false

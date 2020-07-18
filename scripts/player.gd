@@ -139,22 +139,29 @@ func move_2d(delta):
 					get_node("NotePlayer").play_note(3-7)
 					to_move.y -= 1
 	if (to_move != Vector2(0,0)):
-		match flavor:
-			"push":
-				print("found to move")
-				push_dir(to_move,delta)
-				move_dir(to_move/2,delta)
-			"none":
-				move_dir(to_move,delta)
-			_:
-				move_dir(to_move,delta)
+		if (rythom_score >= 1):
+			#we only match flavor when the rythom score is valid
+			match flavor:
+				"push":
+					push_dir(to_move,delta)
+					move_dir(to_move/2,delta)
+				"attack":
+					attack_dir(to_move,delta)
+				"none":
+					move_dir(to_move,delta)
+				_:
+					move_dir(to_move,delta)
+		else:
+			move_dir(to_move,delta)
 		flavor = "none"
 
 #decide what to do with the thing we hit
 func collision_action(collision):
 	print("struck " + str(collision) + " with i_timer of " + str(i_timer))
-	if (collision.collider.has_method("on_col")):
+	if (!collision.collider.is_in_group("enemies") and collision.collider.has_method("on_col")):
 		collision.collider.on_col(self)
+	else:
+		hide()
 
 #this function takes a vector 2 and sets the player up for attacking
 func attack(dir):
@@ -165,6 +172,31 @@ func attack(dir):
 	elif (dir.x < 0):
 		get_node("Player_Sprite").flip_h = true
 		get_node("Player_Sprite/AnimationPlayer").play("Attack")
+
+func make_dir(v2):
+	var n = 1.0/sqrt(v2.x*v2.x+v2.y*v2.y)
+	return Vector2(n*v2.x,n*v2.y)
+
+var attack_dir_pkg = load("res://scenes/instance/projectiles/attack_proj.tscn")
+
+#this function is in charge of our push effect
+func attack_dir(dir,delta):
+	var proj = attack_dir_pkg.instance()
+	proj.scale *= last_beat
+	proj.speed = 400*last_beat
+	proj.dir = dir
+	if (last_beat == 2):
+		proj.modulate = Color.lightgray
+	var offset = make_dir(dir)*30
+	#this creates a dead zone around the player sprite so that the projectile never touches them
+	if (offset.x < 10 and offset.x > -10 and offset.y < 30 and offset.y > -40):
+		if (offset.y-30 > offset.y+60):
+			offset.y = 30
+		else:
+			offset.y = -60
+	proj.position = position + Vector2(114,-25) + offset
+	proj.position
+	get_tree().get_root().add_child(proj)
 
 #this function "augments" our next movement input with the given flavor
 var flavor = "none" setget set_flavor, get_flavor
@@ -186,12 +218,10 @@ func check_inputs(delta,delta_beat):
 	if (Input.is_action_just_pressed("NOTE_0")):
 		get_node("NotePlayer").play_note(-7)
 	if (Input.is_action_just_pressed("NOTE_5")):
-		#attack left
+		#attack command
 		get_node("NotePlayer").play_note(5-7)
-		#make sure we are flipped
-		get_node("Player_Sprite").flip_h = true
-		#play the attack animation
-		get_node("Player_Sprite/AnimationPlayer").play("Attack")
+		updateRythomMomentom()
+		set_flavor("attack")
 	if (Input.is_action_just_pressed("NOTE_7")):
 		get_node("NotePlayer").play_note(0)
 	move_2d(delta)
