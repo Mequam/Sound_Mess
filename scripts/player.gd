@@ -246,21 +246,24 @@ func on_combo(combo_name):
 				if (node.position.x < position.x and node.position.distance_to(position) <= 800):
 					if (node.just_attacked):
 						node.mode = "die"
-
+func take_damage(amount):
+	$health_bar.hp -= amount
+	if $health_bar.hp == 0:
+		hide()
 #this is called by entities when they hit US
 func on_col(thing):
-	#print("i_timer " + str(i_timer))
-	#print("hit by " + thing.name)
 	if (i_timer <= 0):
 		#these only run if we are not invencible
 		if (thing.is_in_group("enemies")):
-			hide()
+			take_damage(1)
 
 #this function plays when our sword interacts with a body
 func _on_sword_strike(body):
 	print("struck " + str(body))
 
 func _ready():
+	$health_bar.hp = 5
+	$health_bar.sync_disp()
 	get_node("NotePlayer").mode = 5
 	#load all of our combos
 	load_combos()
@@ -283,6 +286,8 @@ func _process(delta):
 		if (timeout >= .1):
 			timeout = 0
 			get_node("NotePlayer").stop()
+	if (Input.is_action_just_pressed("NOTE_0")):
+		take_damage(1)
 
 #this function is called every beat of the metronome
 func _met_process(beat):
