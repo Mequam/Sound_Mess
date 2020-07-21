@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/blipper_body.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/instance/entities/enemies/blipper_body.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=10]
 
@@ -57,14 +57,11 @@ position = Vector2( 3849.88, -287.296 )
 [node name="SingingTree4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2773.93, -781.798 )
 
-[node name="Blipper15" parent="." instance=ExtResource( 8 )]
-position = Vector2( 3356.94, -209.749 )
-
 [node name="Tarantula" parent="." instance=ExtResource( 7 )]
 position = Vector2( -270.225, -689.539 )
 
 [node name="Tarantula3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3348.23, -269.268 )
+position = Vector2( 387.839, 339.633 )
 
 [node name="Area2D" parent="." instance=ExtResource( 1 )]
 modulate = Color( 1, 0.105882, 0.0117647, 1 )
@@ -95,3 +92,6 @@ position = Vector2( 1347.53, 344.666 )
 
 [node name="Spider_Enemy2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1974.68, 120.971 )
+
+[node name="Blipper" parent="." instance=ExtResource( 8 )]
+position = Vector2( 226.424, 361.97 )

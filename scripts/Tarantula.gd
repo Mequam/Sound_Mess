@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://scripts/generic_enemy.gd"
 
 var mode = "" setget set_mode, get_mode
 func set_mode(val):
@@ -22,7 +22,8 @@ var init_position
 var target_pos
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_to_group("enemies")
+	._ready()
+	$health_bar.hp = 2
 	add_to_group("spiders")
 	set_mode("Idle")
 	init_rotation = $Tarantula_Sprite/Body/Butt.rotation
@@ -31,9 +32,9 @@ func _ready():
 #used to keep track of what musical beat we are on
 var inner_beat = 0.0
 
-func on_col(obj):
+func on_col(obj,dmg = 1):
 	if (mode != "Attack"):
-		queue_free()
+		.on_col(obj,dmg)
 #this function ensures that the magnitude of the given vector is 1
 func make_dir(v2):
 	var n = 1.0/sqrt(v2.x*v2.x+v2.y*v2.y)

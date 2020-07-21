@@ -2901,13 +2901,13 @@ texture = ExtResource( 1 )
 [node name="Body_Position" type="Node2D" parent="."]
 
 [node name="tail" type="Sprite" parent="Body_Position"]
-position = Vector2( -30.734, -18.1371 )
+position = Vector2( -28.1673, -15.0571 )
 rotation = -1.63166
 scale = Vector2( 0.0317078, 0.0293621 )
 texture = ExtResource( 1 )
 
 [node name="body" type="Sprite" parent="Body_Position"]
-position = Vector2( 1.71256, 1.84167 )
+position = Vector2( 1.713, 3.842 )
 rotation = -0.0118244
 scale = Vector2( 0.0990381, 0.0332751 )
 texture = ExtResource( 2 )
@@ -2919,20 +2919,20 @@ scale = Vector2( 0.0329872, 0.0318454 )
 texture = ExtResource( 1 )
 
 [node name="face" type="Sprite" parent="Body_Position"]
-position = Vector2( 38.8025, -29.3498 )
+position = Vector2( 38.802, -27.35 )
 rotation = -1.71599
 scale = Vector2( 0.0583658, 0.0555919 )
 texture = ExtResource( 1 )
 
 [node name="ear_back" type="Sprite" parent="Body_Position"]
 position = Vector2( 27.8472, -67.0104 )
-rotation = 2.93859
+rotation = 2.98556
 scale = Vector2( 0.0258268, 0.0453985 )
 texture = ExtResource( 2 )
 
 [node name="ear_front" type="Sprite" parent="Body_Position"]
 position = Vector2( 21.3846, -64.9154 )
-rotation = 2.82464
+rotation = 2.54233
 scale = Vector2( 0.0224386, 0.04501 )
 texture = ExtResource( 2 )
 
@@ -2951,7 +2951,7 @@ texture = ExtResource( 1 )
 
 [node name="third leg_b" type="Sprite" parent="Body_Position"]
 visible = false
-position = Vector2( -76.7161, 90.0028 )
+position = Vector2( -78.7161, 88.0028 )
 rotation = 0.269882
 scale = Vector2( 0.0328305, 0.153936 )
 texture = ExtResource( 1 )
@@ -2965,7 +2965,7 @@ texture = ExtResource( 1 )
 
 [node name="back_leg_b" type="Sprite" parent="Body_Position"]
 visible = false
-position = Vector2( -10.7349, 109.861 )
+position = Vector2( -11.7349, 109.861 )
 rotation = 0.038902
 scale = Vector2( 0.0383465, 0.148968 )
 texture = ExtResource( 1 )

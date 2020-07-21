@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/assets/Tarantula_Sprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Tarantula.gd" type="Script" id=2]
 [ext_resource path="res://scenes/instance/NotePlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/instance/health_bar.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 59.0512
@@ -20,3 +21,7 @@ position = Vector2( 3.32416, 11.0805 )
 shape = SubResource( 1 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 3 )]
+
+[node name="health_bar" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0.56131, -161.598 )
+scale = Vector2( 2, 2 )

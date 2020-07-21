@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://scripts/generic_enemy.gd"
 
 
 # Declare member variables here. Examples:
@@ -55,10 +55,10 @@ func look_at(target_pos):
 		get_node("Bunny").scale.x = -1
 	else:
 		get_node("Bunny").scale.x = 1
-func on_col(thing):
-	#print("hit")
-	if (vulnerable and thing.has_method("get_type") and thing.get_type() == "player" and thing.i_timer != null and thing.i_timer != 0):
-		queue_free()
+func on_col(thing,dmg=1):
+	if (vulnerable):
+		print("taking damage")
+		.on_col(thing,dmg)
 func move(target_pos):
 	
 	var dir = get_dir(target_pos)
@@ -66,7 +66,6 @@ func move(target_pos):
 	#we dont hapily sing while eeeevil
 	if (mode =="normal"):
 		play_dir(dir)
-	
 	look_at(target_pos)
 	
 	var collision = move_and_collide(Vector2(dir.x,dir.y)*(position.distance_to(target_pos)/4))
@@ -86,7 +85,9 @@ func _anim_finished(var animation):
 				get_node("Bunny/AnimationPlayer").play("Jump")
 		"still":
 			if (animation == "Transform"):
+				#$health_bar.hp = 20
 				mode = "evil"
+				$health_bar.hp = 4
 				remove_from_group("generic_ai")
 				add_to_group("enemies")
 				#musical mode not to be confused with AI mode
@@ -105,6 +106,8 @@ func run(target_pos,beat):
 			if (beat == 4.0):
 				get_node("Bunny/AnimationPlayer").play("Jump")
 				get_node("NotePlayer").stop()
+			else:
+				$NotePlayer.stop()
 		"evil":
 			if (position.distance_to(target) > 350):
 				if (beat == 0.0):
