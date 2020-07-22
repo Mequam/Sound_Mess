@@ -4,6 +4,10 @@ var inner_beat = 0.0
 var inside = null
 var backwords = false
 var mode = "idle"
+
+#how much damage we do each hit
+var dmg = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("enemies")
@@ -22,8 +26,8 @@ func _anim_finished(anim):
 			backwords = false
 			mode="idle"
 		#tell whatever we jist hit they got owned
-		if (inside and inside.has_method("on_col")):
-			inside.on_col(self)
+		if (is_instance_valid(inside) and inside.has_method("on_col")):
+			inside.on_col(self,dmg)
 func run(player_pos,beat):
 	match inner_beat:
 		0:

@@ -236,16 +236,6 @@ func on_combo(combo_name):
 			get_node("Player_Sprite").scale.y *= -1
 		"full_scale" :
 			get_node("NotePlayer").mode += 1
-		"song of the spiders right":
-			for node in get_tree().get_nodes_in_group("spiders"):
-				if (node.position.x > position.x and node.position.distance_to(position) <= 800):
-					if (node.just_attacked):
-						node.mode = "die"
-		"song of the spiders left":
-			for node in get_tree().get_nodes_in_group("spiders"):
-				if (node.position.x < position.x and node.position.distance_to(position) <= 800):
-					if (node.just_attacked):
-						node.mode = "die"
 func take_damage(amount):
 	$health_bar.hp -= amount
 	if $health_bar.hp == 0:

@@ -61,7 +61,7 @@ position = Vector2( 2773.93, -781.798 )
 position = Vector2( -270.225, -689.539 )
 
 [node name="Tarantula3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 387.839, 339.633 )
+position = Vector2( 827.356, 260.298 )
 
 [node name="Area2D" parent="." instance=ExtResource( 1 )]
 modulate = Color( 1, 0.105882, 0.0117647, 1 )
@@ -94,4 +94,4 @@ position = Vector2( 1347.53, 344.666 )
 position = Vector2( 1974.68, 120.971 )
 
 [node name="Blipper" parent="." instance=ExtResource( 8 )]
-position = Vector2( 226.424, 361.97 )
+position = Vector2( 854.758, 208.06 )
