@@ -241,11 +241,11 @@ func take_damage(amount):
 	if $health_bar.hp == 0:
 		hide()
 #this is called by entities when they hit US
-func on_col(thing):
+func on_col(thing,dmg=1):
 	if (i_timer <= 0):
 		#these only run if we are not invencible
 		if (thing.is_in_group("enemies")):
-			take_damage(1)
+			take_damage(dmg)
 
 #this function plays when our sword interacts with a body
 func _on_sword_strike(body):

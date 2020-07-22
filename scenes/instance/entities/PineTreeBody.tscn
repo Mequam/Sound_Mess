@@ -11,11 +11,12 @@ extents = Vector2( 48, 24 )
 script = ExtResource( 2 )
 
 [node name="TreeSprite" parent="." instance=ExtResource( 3 )]
-position = Vector2( 8, -40 )
+position = Vector2( 8, -90 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -90 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 72 )
+position = Vector2( 0, -90 )
 shape = SubResource( 1 )
