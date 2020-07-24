@@ -457,19 +457,19 @@ scale = Vector2( 0.120507, 0.0774567 )
 texture = ExtResource( 2 )
 
 [node name="Head" type="Sprite" parent="."]
-position = Vector2( 0.01408, -51.672 )
+position = Vector2( 0.01408, -56.316 )
 rotation = 3.14159
 scale = Vector2( 0.126044, 0.116542 )
 texture = ExtResource( 3 )
 
 [node name="right_hand" type="Sprite" parent="."]
-position = Vector2( 42.55, 12.5171 )
+position = Vector2( 42.55, 9.2 )
 rotation = -0.553582
 scale = Vector2( 0.0578371, 0.0473431 )
 texture = ExtResource( 3 )
 
 [node name="left_hand" type="Sprite" parent="."]
-position = Vector2( -44.3214, 12.1884 )
+position = Vector2( -46.9751, 8.87127 )
 rotation = 0.220864
 scale = Vector2( 0.0578371, 0.0473431 )
 texture = ExtResource( 3 )

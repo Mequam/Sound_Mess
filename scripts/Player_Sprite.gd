@@ -1,10 +1,5 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 #this initial distance of the particles
 var init_particle_dist = 0
 var init_time = 1

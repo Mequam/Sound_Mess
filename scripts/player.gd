@@ -14,12 +14,13 @@ var mode = 1
 #var shrinking_triangle = load("res://Shrinking_Triangle.tscn")
 
 func set_i_timer(val):
+	
 	if (val >= 0):
 		i_timer = val
 		if (val != 0):
-			get_node("Player_Sprite").modulate = Color.lightgray
+			get_node("avatar").modulate = Color.lightgray
 		else:
-			get_node("Player_Sprite").modulate = Color.white
+			get_node("avatar").modulate = Color.white
 func get_i_timer():
 	return i_timer
 #used to score how well we are keeping track of rythom
@@ -41,23 +42,6 @@ func RythomToSpeed():
 	else:
 		return 60
 
-#plays the proper animation for moving in the given direction
-func dir_anim(dir):
-	if (dir.y < 0):
-		#emit up
-		$Player_Sprite.emit_up(last_beat,sub_beat)
-	elif (dir.y > 0):
-		#emit down
-		$Player_Sprite.emit_down(last_beat,sub_beat)
-	else:
-		$Player_Sprite.emit_horizontal(last_beat,sub_beat)
-		if (dir.x > 0):
-			get_node("Player_Sprite").flip_h = false
-			get_node("Player_Sprite/AnimationPlayer").play("Slide")
-		elif (dir.x < 0):
-			#trick the node into playing its animation backwords
-			get_node("Player_Sprite").flip_h = true
-			get_node("Player_Sprite/AnimationPlayer").play("Slide")
 
 #this function checks wether or not the given delta beat falls close enough to our sub beats to be valid
 func checkInputRythom():
@@ -98,7 +82,8 @@ func updateRythomMomentom():
 #this function moves us in the given direction for player control
 func move_dir(dir,delta):
 	var working_speed = RythomToSpeed()
-	dir_anim(dir)
+	#the avatar animates the direction that we move in
+	$avatar.dir_anim(dir)
 	var collided = move_and_collide(delta*dir*working_speed*100)
 	if (collided):
 		#decide what to do with the thing that we hit
@@ -136,21 +121,12 @@ func move_2d(delta):
 					get_node("NotePlayer").play_note(3-7)
 					to_move.y -= 1
 	if (to_move != Vector2(0,0)):
+		var mult = 1
 		if (rythom_score >= 1):
-			#we only match flavor when the rythom score is valid
-			match flavor:
-				"push":
-					push_dir(to_move,delta)
-					move_dir(to_move/2,delta)
-				"attack":
-					attack_dir(to_move,delta)
-				"none":
-					move_dir(to_move,delta)
-				_:
-					move_dir(to_move,delta)
-		else:
-			move_dir(to_move,delta)
-		flavor = "none"
+			#let the avatar decide what our flavors do
+			mult=$avatar.run_flavor(flavor,to_move,delta)
+		move_dir(to_move*mult,delta)
+		flavor = -1
 
 #decide what to do with the thing we hit
 func collision_action(collision):
@@ -174,29 +150,8 @@ func make_dir(v2):
 	var n = 1.0/sqrt(v2.x*v2.x+v2.y*v2.y)
 	return Vector2(n*v2.x,n*v2.y)
 
-var attack_dir_pkg = load("res://scenes/instance/projectiles/attack_proj.tscn")
-
-#this function is in charge of our push effect
-func attack_dir(dir,delta):
-	var proj = attack_dir_pkg.instance()
-	proj.scale *= last_beat*2
-	proj.speed = 400*last_beat
-	proj.dir = dir
-	if (last_beat == 2):
-		proj.modulate = Color.lightgray
-	var offset = make_dir(dir)*30
-	#this creates a dead zone around the player sprite so that the projectile never touches them
-	if (offset.x < 10 and offset.x > -10 and offset.y < 30 and offset.y > -40):
-		if (offset.y-30 > offset.y+60):
-			offset.y = 30
-		else:
-			offset.y = -60
-	proj.position = position + Vector2(114,-25) + offset
-	proj.position
-	get_tree().get_root().add_child(proj)
-
 #this function "augments" our next movement input with the given flavor
-var flavor = "none" setget set_flavor, get_flavor
+var flavor = -1 setget set_flavor, get_flavor
 func set_flavor(new_flavor):
 	flavor = new_flavor
 func get_flavor():
@@ -211,14 +166,14 @@ func check_inputs(delta,delta_beat):
 		#attack right
 		get_node("NotePlayer").play_note(6-7)
 		updateRythomMomentom()
-		set_flavor("push")
+		set_flavor(6)
 	if (Input.is_action_just_pressed("NOTE_0")):
 		get_node("NotePlayer").play_note(-7)
 	if (Input.is_action_just_pressed("NOTE_5")):
 		#attack command
 		get_node("NotePlayer").play_note(5-7)
 		updateRythomMomentom()
-		set_flavor("attack")
+		set_flavor(7)
 	if (Input.is_action_just_pressed("NOTE_7")):
 		get_node("NotePlayer").play_note(0)
 	move_2d(delta)
@@ -255,16 +210,10 @@ func _ready():
 	#load all of our combos
 	load_combos()
 	#start our animation cylce
-	get_node("Player_Sprite/AnimationPlayer").play("Idle")
+	$avatar.play_idle()
 	
 	#connect all of our child nodes
 	get_node("ComboTracker").connect("combo_found",self,"on_combo")
-	get_node("Player_Sprite/AnimationPlayer").connect("animation_finished",self,"_finished_anim")
-
-#this runs whenever our animation player finishes
-#we use it to reset to an idle state
-func _finished_anim(anim):
-	get_node("Player_Sprite/AnimationPlayer").play("Idle")
 
 func _process(delta):
 	#this code snippet ensures that we play short blips
