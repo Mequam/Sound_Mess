@@ -113,11 +113,8 @@ func push_dir(dir,delta):
 	proj.dir = dir
 	#TODO: figure out why this position needs to be shifted! (without the shift the projectile spawns in the wrong spot DESPITE beign at 0,0 in our chords)
 	proj.position = position+Vector2(105,0)
-	print("spawning projctile @ " + str(proj.position-position) + " with last beat of " + str(last_beat))
 	proj.speed = speed/2
 	get_tree().get_root().add_child(proj)
-	for node in get_tree().get_nodes_in_group("projectile"):
-		print("global position "  + str(node.position - position))
 
 #checks the inputs for the movement of the object
 func move_2d(delta):
@@ -182,7 +179,7 @@ var attack_dir_pkg = load("res://scenes/instance/projectiles/attack_proj.tscn")
 #this function is in charge of our push effect
 func attack_dir(dir,delta):
 	var proj = attack_dir_pkg.instance()
-	proj.scale *= last_beat
+	proj.scale *= last_beat*2
 	proj.speed = 400*last_beat
 	proj.dir = dir
 	if (last_beat == 2):

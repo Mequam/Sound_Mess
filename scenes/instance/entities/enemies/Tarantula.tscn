@@ -21,6 +21,7 @@ position = Vector2( 3.32416, 11.0805 )
 shape = SubResource( 1 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 3 )]
+volume_db = 0.0
 
 [node name="health_bar" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0.56131, -161.598 )

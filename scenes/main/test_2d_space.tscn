@@ -19,7 +19,6 @@ script = ExtResource( 2 )
 
 [node name="testTiles" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.576471, 0.933333, 0, 1 )
-position = Vector2( 480.354, 280.207 )
 scale = Vector2( 0.4, 0.4 )
 z_index = -2
 collision_mask = 15
@@ -27,60 +26,46 @@ tile_data = PoolIntArray( -327681, 11, 0, -65537, 2, 0, -131072, 2, 0, -131071, 
 
 [node name="Met" parent="." instance=ExtResource( 4 )]
 position = Vector2( -86.5874, 62.7324 )
-scale = Vector2( 1, 1 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 375.649, 224.89 )
-scale = Vector2( 1, 1 )
 
 [node name="Traper_Entity" parent="." instance=ExtResource( 10 )]
 position = Vector2( 570.125, 213.892 )
-scale = Vector2( 1, 1 )
 
 [node name="Traper_Entity2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 3678.04, -94.5099 )
-scale = Vector2( 1, 1 )
 
 [node name="Traper_Entity3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 3088.06, -30.6717 )
-scale = Vector2( 1, 1 )
 
 [node name="Traper_Entity4" parent="." instance=ExtResource( 10 )]
 position = Vector2( 3142.48, -325.663 )
-scale = Vector2( 1, 1 )
 
 [node name="Traper_Entity5" parent="." instance=ExtResource( 10 )]
 position = Vector2( 3559.19, -297.023 )
-scale = Vector2( 1, 1 )
 
 [node name="SingingTree2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2893.48, -455.752 )
-scale = Vector2( 1, 1 )
 
 [node name="SingingTree" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1605.6, 114.826 )
-scale = Vector2( 1, 1 )
 
 [node name="SingingTree3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 3849.88, -287.296 )
-scale = Vector2( 1, 1 )
 
 [node name="SingingTree4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2773.93, -781.798 )
-scale = Vector2( 1, 1 )
 
 [node name="Tarantula" parent="." instance=ExtResource( 7 )]
 position = Vector2( -270.225, -689.539 )
-scale = Vector2( 0.5, 0.5 )
 
 [node name="Tarantula3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 930.928, 183.861 )
-scale = Vector2( 0.5, 0.5 )
 
 [node name="Area2D" parent="." instance=ExtResource( 1 )]
 modulate = Color( 1, 0.105882, 0.0117647, 1 )
 position = Vector2( 737.396, 263.349 )
-scale = Vector2( 1, 1 )
 
 [node name="Area2D4" parent="." instance=ExtResource( 1 )]
 modulate = Color( 0.980392, 0.32549, 0.0941176, 1 )
@@ -104,12 +89,9 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="Spider_Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1347.53, 344.666 )
-scale = Vector2( 1, 1 )
 
 [node name="Spider_Enemy2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1974.68, 120.971 )
-scale = Vector2( 1, 1 )
 
 [node name="Blipper" parent="." instance=ExtResource( 8 )]
 position = Vector2( 815.976, 235.761 )
-scale = Vector2( 1, 1 )
