@@ -47,7 +47,7 @@ func run_seven(to_move,delta):
 	return 1
 
 #this function is the default animation behavior of every avatar
-func dir_anim(dir):
+func dir_anim(dir,prefix=""):
 	#make sure that the sprite is not backwoards before begining the animation
 	if ($Sprite.scale.x < 0):
 		$Sprite.scale.x *= -1
@@ -55,26 +55,26 @@ func dir_anim(dir):
 	if (abs(dir.y) > abs(dir.x)):
 		if (dir.y > 0):
 			#up and down
-			$Sprite/AnimationPlayer.play("Move_Front")
+			$Sprite/AnimationPlayer.play(prefix+"Move_Front")
 		else:
-			$Sprite/AnimationPlayer.play("Move_Back")
+			$Sprite/AnimationPlayer.play(prefix+"Move_Back")
 	elif (dir.x > 0):
 		#right
 		#invert the sprite when moving right
 		$Sprite.scale.x *= -1
-		$Sprite/AnimationPlayer.play("Move_Left")
+		$Sprite/AnimationPlayer.play(prefix+"Move_Left")
 	elif (dir.x < 0):
 		#left
-		$Sprite/AnimationPlayer.play("Move_Left")
+		$Sprite/AnimationPlayer.play(prefix+"Move_Left")
 	$Sprite/Shrinking_Triangle.emit_dir_pos(
 		Vector2((dir.x*$Sprite.scale.x/abs($Sprite.scale.x)),
 				dir.y
 				))
 func run_flavor(flavor,to_move,delta):
 	match flavor:
-		6:
+		5:
 			return run_six(to_move,delta)
-		7:
+		6:
 			return run_seven(to_move,delta)
 	return 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.

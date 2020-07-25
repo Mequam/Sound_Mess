@@ -83,8 +83,8 @@ func updateRythomMomentom():
 func move_dir(dir,delta):
 	var working_speed = RythomToSpeed()
 	#the avatar animates the direction that we move in
-	$avatar.dir_anim(dir)
 	var collided = move_and_collide(delta*dir*working_speed*100)
+	$avatar.dir_anim(dir)
 	if (collided):
 		#decide what to do with the thing that we hit
 		collision_action(collided)

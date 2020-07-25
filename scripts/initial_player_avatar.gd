@@ -39,7 +39,7 @@ func run_seven(dir,delta):
 	get_tree().get_root().add_child(proj)
 	return 0
 #plays the proper animation for moving in the given direction
-func dir_anim(dir):
+func dir_anim(dir,prefix=""):
 	var sub_beat = get_sub_beat()
 	var last_beat = get_last_beat()
 	
