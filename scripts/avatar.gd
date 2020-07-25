@@ -37,7 +37,9 @@ func run_seven(to_move,delta):
 
 #this function is to be overiden in order to animate based on the direction of motion
 func dir_anim(dir):
-	pass
+	if (abs(dir.y) > abs(dir.x)):
+		$Sprite/AnimationPlayer.play("Front_Jump")
+	$Sprite/Shrinking_Triangle.emit_dir_pos(dir)
 func run_flavor(flavor,to_move,delta):
 	match flavor:
 		6:

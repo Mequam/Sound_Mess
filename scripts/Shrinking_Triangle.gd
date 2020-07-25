@@ -4,12 +4,10 @@ extends Particles2D
 func emit_dir(dir):
 	rotation = create_rot(dir)
 	emitting = true
-
 #this function takes a given direction and returns the angle we want to emit at
 func create_rot(dir):
 	var neg = 1 if dir.y >= 0 else -1
 	return acos(dir.x)*neg-PI/2
-
 var init_particle_dist = 0
 var init_time = 1
 
@@ -23,19 +21,14 @@ func get_flip_h():
 	return scale.x < 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("running ready")
-	init_particle_dist = position.x
-	print("set init time" + str(speed_scale))
+	init_particle_dist = position.distance_to(get_parent().position)
+	print("initial partical distance of " + str(init_particle_dist))
 	init_time = speed_scale
 func _init():
 	init_time = speed_scale
 #sets the speed based on the previous beats given by the player
 func dialate_speed(last_beat,sub_beat):
 	if (sub_beat*last_beat != 0):
-		print("init_time " + str(init_time))
-		print("last_beat " + str(last_beat))
-		print("sub beat " + str(sub_beat))
-		print("speed scale set to " + str(init_time/last_beat))
 		speed_scale = init_time/last_beat
 
 #emits in the specified direction
@@ -51,14 +44,9 @@ func emit_down():
 func emit_up():
 	rotation = PI
 	emitting = true
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
-
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+#moves the particles to the position and emits
+func emit_dir_pos(dir):
+	position = dir*init_particle_dist
+	print("moving to " + str(position))
+	emit_dir(dir)
