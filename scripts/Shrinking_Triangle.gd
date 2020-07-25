@@ -47,6 +47,6 @@ func emit_up():
 
 #moves the particles to the position and emits
 func emit_dir_pos(dir):
-	position = dir*init_particle_dist
+	position = -dir*init_particle_dist
 	print("moving to " + str(position))
 	emit_dir(dir)
