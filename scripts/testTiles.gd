@@ -10,8 +10,7 @@ extends TileMap
 func _ready():
 	pass # Replace with function body.
 
-func on_col(thing):
-	#print("player_fell")
+func on_col(thing,dmg):
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

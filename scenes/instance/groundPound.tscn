@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/ground_pop_particles.tres" type="Material" id=1]
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=2]
+
+[node name="groundPound" type="Particles2D"]
+position = Vector2( -1.54304, -10.6559 )
+emitting = false
+amount = 4
+lifetime = 0.8
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.94
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )

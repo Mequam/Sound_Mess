@@ -71,7 +71,7 @@ func move(target_pos):
 	var collision = move_and_collide(Vector2(dir.x,dir.y)*(position.distance_to(target_pos)/4))
 	if (collision and collision.collider.has_method("on_col")):
 		#tell the thing that we collided with that we have a hit
-		collision.collider.on_col(self)
+		collision.collider.on_col(self,1)
 	
 
 #this function moves the bunny after it finishes its animation
@@ -148,7 +148,7 @@ func run(target_pos,beat):
 					collision_mask  = pow(2,0) + pow(2,1) + pow(2,3) + pow(2,4)
 					var collision = move_and_collide(Vector2(0,0))
 					if (collision and collision.collider.has_method("on_col")):
-						collision.collider.on_col(self)
+						collision.collider.on_col(self,1)
 						
 				elif (beat):
 					get_node("NotePlayer").stop()

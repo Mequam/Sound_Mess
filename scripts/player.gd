@@ -132,7 +132,7 @@ func move_2d(delta):
 func collision_action(collision):
 	print("struck " + str(collision) + " with i_timer of " + str(i_timer))
 	if (!collision.collider.is_in_group("enemies") and collision.collider.has_method("on_col")):
-		collision.collider.on_col(self)
+		collision.collider.on_col(self,1)
 	else:
 		hide()
 

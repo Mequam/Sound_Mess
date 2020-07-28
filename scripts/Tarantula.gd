@@ -48,7 +48,7 @@ func run(player_pos,beat):
 			var collision = move_and_collide(target_dir*speed)
 			if (collision):
 				if collision.collider.has_method("on_col"):
-					collision.collider.on_col(self)
+					collision.collider.on_col(self,2)
 					set_mode("Attack_Alert")
 			if (position.distance_to(target_pos)) <= 50:
 				set_mode("Attack_Alert")

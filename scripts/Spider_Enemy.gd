@@ -191,7 +191,7 @@ func move_dir(dir,mod=1):
 	var col = move_and_collide(dir*speed*mod)
 	if (col):
 		if (col.collider.has_method("on_col")):
-			col.collider.on_col(self)
+			col.collider.on_col(self,1)
 		patroll_down = !patroll_down
 		
 
