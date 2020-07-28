@@ -1,15 +1,13 @@
 extends StaticBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var music_mode setget set_mode,get_mode
 
 #this variable stores the note that we are currently playing
 var playing = -1 setget set_playing,get_playing
-
+func set_top_color(color):
+	pass
+func set_bottom_color(color):
+	pass
 func get_playing():
 	return playing
 	
@@ -33,7 +31,7 @@ func play_soft(note):
 	playing = note
 	get_node("TreeSprite/AnimationPlayer").play("Singing_Hard")
 	get_node("NotePlayer").play_note(note)
-func on_col(player):
+func on_col(player,dmg):
 	if (singing):
 		stop()
 	singing = !singing
@@ -65,7 +63,3 @@ func _ready():
 	get_node("TreeSprite/AnimationPlayer").play("Idle")
 	add_to_group("plants")
 	add_to_group("singing_trees")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

@@ -5,6 +5,11 @@ var inside = null
 var backwords = false
 var mode = "idle"
 
+var leg_color setget set_leg_color,get_leg_color
+func get_leg_color():
+	return $Traper.leg_color
+func set_leg_color(color):
+	$Traper.leg_color = color
 #how much damage we do each hit
 var dmg = 1
 
@@ -12,6 +17,7 @@ var dmg = 1
 func _ready():
 	add_to_group("enemies")
 	add_to_group("spiders")
+	add_to_group("trapers")
 	$NotePlayer.mode = 6
 	$Traper/AnimationPlayer.play("Idle")
 	$Traper/AnimationPlayer.connect("animation_finished",self,"_anim_finished")

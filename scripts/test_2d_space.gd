@@ -19,6 +19,8 @@ func _met_timeout():
 			beat = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for node in get_tree().get_nodes_in_group("trapers"):
+		node.leg_color = Color.darkgreen
 	get_node("player").sub_beat = get_node("Met/Met").wait_time
 	get_node("player/NotePlayer").mode = 1
 	get_node("SingingTree").song = [
@@ -33,7 +35,10 @@ func _ready():
 		print('[' + combo.name + '] ')
 		for act in combo.action_list:
 			print('->' + act.action)
-
+	$SingingTree.set_top_color(Color.violet)
+	$SingingTree3.set_top_color(Color.aqua)
+	$SingingTree4.set_top_color(Color.orangered)
+	$SingingTree2.set_top_color(Color.lightcoral)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (get_node("player")):

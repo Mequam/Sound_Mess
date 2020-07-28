@@ -61,26 +61,21 @@ position = Vector2( -270.225, -689.539 )
 position = Vector2( 930.928, 183.861 )
 
 [node name="Area2D" parent="." instance=ExtResource( 1 )]
-modulate = Color( 1, 0.105882, 0.0117647, 1 )
-position = Vector2( 737.396, 263.349 )
+position = Vector2( 736.036, 263.349 )
 
 [node name="Area2D4" parent="." instance=ExtResource( 1 )]
-modulate = Color( 0.980392, 0.32549, 0.0941176, 1 )
 position = Vector2( 614.328, 324.883 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Area2D5" parent="." instance=ExtResource( 1 )]
-modulate = Color( 0.980392, 0.32549, 0.0941176, 1 )
 position = Vector2( 693.443, 365.319 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Area2D6" parent="." instance=ExtResource( 1 )]
-modulate = Color( 0.980392, 0.32549, 0.0941176, 1 )
 position = Vector2( 791.897, 347.738 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Area2D7" parent="." instance=ExtResource( 1 )]
-modulate = Color( 0.980392, 0.32549, 0.0941176, 1 )
 position = Vector2( 784.865, 384.659 )
 scale = Vector2( 0.5, 0.5 )
 
