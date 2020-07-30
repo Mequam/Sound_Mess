@@ -33,4 +33,4 @@ limit_smoothed = true
 smoothing_enabled = true
 
 [node name="health_bar" parent="." instance=ExtResource( 5 )]
-position = Vector2( -42.9107, -89.1192 )
+position = Vector2( -33.8428, -87.475 )

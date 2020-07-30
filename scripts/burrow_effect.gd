@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 var trail = load("res://scenes/assets/burrow/burrow_trail.tscn")
 var speed = 10000
@@ -17,3 +17,8 @@ func _on_Timer_timeout():
 	var inst = trail.instance()
 	inst.position = position
 	get_parent().add_child(inst)
+
+func _on_burrow_effect_body_exited(body):
+	if (body.has_method("on_col")):
+		print("calling collision")
+		body.on_col(self,1)

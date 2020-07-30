@@ -69,9 +69,6 @@ func updateRythomMomentom():
 	if (beat_value != -100):
 		last_beat = beat_value
 		rythom_score += 1
-		if (beat_value == 2):
-			#they are in quarter notes, give them two beats of invulnerability
-			i_timer = 4
 	else:
 		rythom_score -= 2
 	if (rythom_score < -2):
@@ -132,7 +129,6 @@ func move_2d(delta):
 
 #decide what to do with the thing we hit
 func collision_action(collision):
-	print("struck " + str(collision) + " with i_timer of " + str(i_timer))
 	if (!collision.collider.is_in_group("enemies") and collision.collider.has_method("on_col")):
 		collision.collider.on_col(self,1)
 
@@ -193,9 +189,12 @@ func take_damage(amount):
 	$health_bar.hp -= amount
 	if $health_bar.hp == 0:
 		hide()
+#used to make the player invencible
+var invencible = false
 #this is called by entities when they hit US
 func on_col(thing,dmg=1):
-	if (i_timer <= 0):
+	print("player it by " + thing.name + " with i_timer of " + str(i_timer))
+	if (i_timer <= 0 and !invencible):
 		#these only run if we are not invencible
 		if (thing.is_in_group("enemies")):
 			take_damage(dmg)

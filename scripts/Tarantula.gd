@@ -11,7 +11,6 @@ func set_mode(val):
 		$Tarantula_Sprite/AnimationPlayer.play("Attack")
 	if (val == "Idle" or val == "Alert" or val ==  "Attack_Alert"):
 		$Tarantula_Sprite/AnimationPlayer.play("Idle")
-	print("changing mode to " + val)
 	mode = val
 func get_mode():
 	return mode

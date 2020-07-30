@@ -8,14 +8,25 @@ func run_seven(to_move,delta):
 func run_six(to_move,delta):
 	$Sprite.burrow_dir(to_move,1.5*333.33)
 	var parent = get_parent()
+	#you do not collide with burrow terrain
 	if (parent.collision_mask & int(pow(2,5)) != 0):
 		parent.collision_mask -= pow(2,5)
+	#you do not collide with enemies
+	if (parent.collision_mask & int(pow(2,2)) != 0):
+		parent.collision_mask -= pow(2,2)
+	#you are now on the burrow layer
+	parent.collision_layer = 2
+	
 	return 1.5
 func clean_six(to_move,delta):
 	if (get_last_beat() == 2):
 		ground_pound(1,100)
+	
+	var parent = get_parent()
 	#make sure that we collide with the burrow layer when we come up
-	get_parent().collision_mask |= int(pow(2,5))
+	parent.collision_mask |= int(pow(2,5))
+	parent.collision_mask |= int(pow(2,2))
+	parent.collision_layer = 1
 var push_speed = 100
 func ground_pound(dmg=1,rad=400):
 	print("running ground pound")
@@ -30,6 +41,7 @@ func ground_pound(dmg=1,rad=400):
 						i.on_col(self,dmg)
 func flavor_changed(flavor):
 	if flavor == 7 and $Sprite/AnimationPlayer.assigned_animation != "burrow":
+			get_parent().i_timer = 2
 			$Sprite/AnimationPlayer.play("burrow")
 			$Sprite/burrow/Particles2D.emitting = true
 func anim_finished(anim):
