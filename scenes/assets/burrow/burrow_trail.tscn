@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/burrow_trail.gd" type="Script" id=1]
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=1]
+max_value = 2.0
+_data = [ Vector2( 0, 1 ), 0.0, 2.22222, 0, 0, Vector2( 0.102273, 2 ), -1.04, -1.04, 0, 0, Vector2( 1, 0 ), 0.748052, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 20.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 40.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 180.0
+angle_random = 0.1
+scale = 0.05
+scale_curve = SubResource( 2 )
+color = Color( 0.513726, 0.313726, 0, 1 )
+
+[node name="burrow_trail" type="Particles2D"]
+z_index = -1
+emitting = false
+amount = 4
+lifetime = 2.0
+one_shot = true
+speed_scale = 4.0
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 3 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )

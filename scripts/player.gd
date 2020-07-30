@@ -154,6 +154,8 @@ func make_dir(v2):
 var flavor = -1 setget set_flavor, get_flavor
 func set_flavor(new_flavor):
 	flavor = new_flavor
+	#alert the avatar that our flavor changed
+	$avatar.flavor_changed(flavor)
 func get_flavor():
 	return flavor
 

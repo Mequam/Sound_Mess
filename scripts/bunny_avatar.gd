@@ -5,6 +5,9 @@ func run_seven(to_move,delta):
 	running_7 = true
 	dmg7 = 1 if get_last_beat() == 2 else 0 
 	return 2
+func run_six(to_move,delta):
+	$Sprite.burrow_dir(to_move,1.5*333.33)
+	return 1.5
 var push_speed = 100
 func ground_pound(dmg=1,rad=400):
 	print("running ground pound")
@@ -17,6 +20,10 @@ func ground_pound(dmg=1,rad=400):
 						col.collider.on_col(self,dmg) 
 					if (i.has_method("on_col")):
 						i.on_col(self,dmg)
+func flavor_changed(flavor):
+	if flavor == 7 and $Sprite/AnimationPlayer.assigned_animation != "burrow":
+			$Sprite/AnimationPlayer.play("burrow")
+			$Sprite/burrow/Particles2D.emitting = true
 func anim_finished(anim):
 	if (running_7):
 		running_7 = false

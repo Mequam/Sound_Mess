@@ -45,7 +45,8 @@ func run_six(to_move,delta):
 #run the special ability orisponding to 7
 func run_seven(to_move,delta):
 	return 1
-
+func flavor_changed(flavor):
+	pass
 #this function is the default animation behavior of every avatar
 func dir_anim(dir,prefix=""):
 	#make sure that the sprite is not backwoards before begining the animation
@@ -72,7 +73,7 @@ func dir_anim(dir,prefix=""):
 				))
 func run_flavor(flavor,to_move,delta):
 	match flavor:
-		5:
+		7:
 			return run_six(to_move,delta)
 		6:
 			return run_seven(to_move,delta)
