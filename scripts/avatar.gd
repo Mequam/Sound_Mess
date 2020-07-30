@@ -42,8 +42,11 @@ func _ready():
 #runs the special corisponding to 6
 func run_six(to_move,delta):
 	return 1
-#run the special ability orisponding to 7
 func run_seven(to_move,delta):
+	return 1
+func clean_six(to_move,delta):
+	return 1
+func clean_seven(to_move,delta):
 	return 1
 func flavor_changed(flavor):
 	pass
@@ -78,6 +81,12 @@ func run_flavor(flavor,to_move,delta):
 		6:
 			return run_seven(to_move,delta)
 	return 1
+func clean_flavor(flavor,to_move,delta):
+	match flavor:
+		7:
+			return clean_six(to_move,delta)
+		6:
+			return clean_seven(to_move,delta)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

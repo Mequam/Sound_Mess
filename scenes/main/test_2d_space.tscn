@@ -17,6 +17,14 @@ cell_y_sort = true
 format = 1
 script = ExtResource( 2 )
 
+[node name="burow_able" parent="." instance=ExtResource( 6 )]
+modulate = Color( 1, 0.00784314, 0.00784314, 1 )
+position = Vector2( 480.354, 280.207 )
+scale = Vector2( 0.4, 0.4 )
+collision_layer = 32
+collision_mask = 0
+tile_data = PoolIntArray( 196605, 4, 0, 262141, 4, 0 )
+
 [node name="testTiles" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.576471, 0.933333, 0, 1 )
 scale = Vector2( 0.4, 0.4 )

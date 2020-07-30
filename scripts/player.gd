@@ -125,7 +125,9 @@ func move_2d(delta):
 		if (rythom_score >= 1):
 			#let the avatar decide what our flavors do
 			mult=$avatar.run_flavor(flavor,to_move,delta)
+			mult=$avatar.run_flavor(flavor,to_move,delta)
 		move_dir(to_move*mult,delta)
+		$avatar.clean_flavor(flavor,to_move,delta)
 		flavor = -1
 
 #decide what to do with the thing we hit
@@ -133,12 +135,9 @@ func collision_action(collision):
 	print("struck " + str(collision) + " with i_timer of " + str(i_timer))
 	if (!collision.collider.is_in_group("enemies") and collision.collider.has_method("on_col")):
 		collision.collider.on_col(self,1)
-	else:
-		hide()
 
 #this function takes a vector 2 and sets the player up for attacking
 func attack(dir):
-	print("[DEBUG] attacking!")
 	if (dir.x > 0):
 		get_node("Player_Sprite").flip_h = false
 		get_node("Player_Sprite/AnimationPlayer").play("Attack")
