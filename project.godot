@@ -19,6 +19,10 @@ config/name="Sound_Mess"
 run/main_scene="res://scenes/main/test_2d_space.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://scripts/singletons/globals.gd"
+
 [input]
 
 ui_accept={

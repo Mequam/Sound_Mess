@@ -1,4 +1,4 @@
-extends "res://scripts/avatar.gd"
+extends "res://scripts/abstracts/avatar.gd"
 var running_7 = false
 var dmg7 = 1
 func run_seven(to_move,delta):

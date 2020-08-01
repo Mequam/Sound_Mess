@@ -1,41 +1,39 @@
 extends Node2D
 
 var beat = 0
-var player_position = Vector2(0,0)
+var load_path = ""
 
 func _met_timeout():
+	#call
 	get_tree().call_group("sprite_particle","run")
 	get_tree().call_group("plants","run")
+	
 	if (get_node("player")):
 		beat += .5
+		
 		#call the players met process
 		get_node("player")._met_process(beat)
+		
+		#call things that require the player to run
 		get_tree().call_group("projectile","run",$player.position,beat)
 		get_tree().call_group("generic_ai","run",$player.position,beat)
 		get_tree().call_group("enemies","run",$player.position,beat)
+		
 		if (beat >= 4):
 			beat = 0
 
 func _ready():
-	#for node in get_tree().get_nodes_in_group("trapers"):
-	#	node.leg_color = Color.darkgreen
-	
+	add_to_group("main_scene")
 	$player.sub_beat = get_node("Met/Met").wait_time
-	if (player_position):
-		$player.position = player_position
+	if (Globals.load_able_player_position != null):
+		$player.position = Globals.load_able_player_position
+	elif (Globals.prev_door_name != null):
+		for n in get_tree().get_nodes_in_group("door_ways"):
+			n.current_scene = load_path
+			if (n.door_name == Globals.prev_door_name):
+				$player.position = n.get_node("player_position").position
+				n.new_scene = Globals.prev_scene
 	$Met/Met.connect("timeout",self,"_met_timeout")
-	
-	#get_node("SingingTree").song = [
-	#	[0,3],
-	#	[1,-1],
-	#	[2,3],
-	#	[3,-1],
-	#	[4,3]
-	#]
-	#$SingingTree.set_top_color(Color.violet)
-	#$SingingTree3.set_top_color(Color.aqua)
-	#$SingingTree4.set_top_color(Color.orangered)
-	#$SingingTree2.set_top_color(Color.lightcoral)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (get_node("player")):

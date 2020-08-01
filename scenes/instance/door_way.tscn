@@ -9,4 +9,7 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="player_position" type="Node2D" parent="."]
+position = Vector2( 0.749153, 17.2305 )
 [connection signal="body_entered" from="." to="." method="_on_door_way_body_entered"]

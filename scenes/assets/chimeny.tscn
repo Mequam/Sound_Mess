@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://triangles/long_triangle.png" type="Texture" id=1]
+[ext_resource path="res://scenes/assets/chimney_smoke.tscn" type="PackedScene" id=2]
+
+[node name="chimeny" type="Node2D"]
+
+[node name="body" type="Node2D" parent="."]
+modulate = Color( 0.839216, 0.498039, 0.498039, 1 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="long_triangle" type="Sprite" parent="body"]
+position = Vector2( 3.65942, -31.1542 )
+rotation = -2.53166
+scale = Vector2( 0.331343, 0.227788 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle2" type="Sprite" parent="body"]
+position = Vector2( 49.9192, -135.077 )
+rotation = -0.0862503
+scale = Vector2( 0.412588, 0.113605 )
+texture = ExtResource( 1 )
+
+[node name="chimney_smoke\'" parent="." instance=ExtResource( 2 )]
+position = Vector2( 26.6667, -104.807 )
