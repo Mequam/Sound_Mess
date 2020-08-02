@@ -37,7 +37,7 @@ func play_idle(last_anim = "Move_Front"):
 func anim_finished(anim):
 	play_idle(anim)
 #this function has to set the parent mode to the desired value
-func _ready():
+func init():
 	$Sprite/AnimationPlayer.connect("animation_finished",self,"anim_finished")
 #runs the special corisponding to 6
 func run_six(to_move,delta):

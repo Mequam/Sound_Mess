@@ -58,7 +58,7 @@ func anim_finished(anim):
 	else:
 		.anim_finished(anim)
 func _ready():
-	._ready()
+	.init()
 
 func dir_anim(dir,prefix=""):
 	if (running_7):
