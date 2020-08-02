@@ -5,7 +5,7 @@ func _ready():
 	load_path = "res://scenes/main/test_2d_space.tscn"
 	$house_a/bunny_house_a/door_way.door_name = "A"
 	$house_a/bunny_house_a/door_way.new_scene = "res://scenes/main/test_scene_2.tscn"
-	
+	$house_a/bunny_house_a/door_way.player_position = Vector2(483.252,-196.213)
 	for node in get_tree().get_nodes_in_group("trapers"):
 		node.leg_color = Color.darkgreen
 	
@@ -21,4 +21,4 @@ func _ready():
 	$SingingTree4.set_top_color(Color.orangered)
 	$SingingTree2.set_top_color(Color.lightcoral)
 	
-	._ready()
+	.init()

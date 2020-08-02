@@ -23,17 +23,20 @@ func _met_timeout():
 			beat = 0
 
 func _ready():
+	pass
+func init():
 	add_to_group("main_scene")
 	$player.sub_beat = get_node("Met/Met").wait_time
 	if (Globals.load_able_player_position != null):
 		$player.position = Globals.load_able_player_position
 	elif (Globals.prev_door_name != null):
+		print("checking the previous door name against names in the scene as " + load_path)
 		for n in get_tree().get_nodes_in_group("door_ways"):
 			n.current_scene = load_path
 			if (n.door_name == Globals.prev_door_name):
-				$player.position = n.get_node("player_position").position
-				n.new_scene = Globals.prev_scene
+				$player.position = n.player_position
 	$Met/Met.connect("timeout",self,"_met_timeout")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (get_node("player")):

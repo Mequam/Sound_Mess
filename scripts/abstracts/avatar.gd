@@ -87,6 +87,3 @@ func clean_flavor(flavor,to_move,delta):
 			return clean_six(to_move,delta)
 		6:
 			return clean_seven(to_move,delta)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
