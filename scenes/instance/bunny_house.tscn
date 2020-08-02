@@ -5,7 +5,7 @@
 [ext_resource path="res://triangles/even_triangle.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 86.0503, 11.307 )
+extents = Vector2( 69.3453, 11.307 )
 
 [node name="bunny_house_a" type="StaticBody2D"]
 scale = Vector2( 2, 2 )
@@ -22,7 +22,7 @@ texture = ExtResource( 4 )
 modulate = Color( 0.509804, 0.823529, 0, 1 )
 
 [node name="even_triangle" type="Sprite" parent="house/speckles"]
-position = Vector2( 30.9369, -52.8096 )
+position = Vector2( 41.793, -50.8359 )
 rotation = 0.664874
 scale = Vector2( 0.128854, 0.239726 )
 texture = ExtResource( 1 )
@@ -45,30 +45,74 @@ rotation = -1.28574
 scale = Vector2( 0.187808, 0.0908586 )
 texture = ExtResource( 1 )
 
-[node name="dorway" type="Sprite" parent="."]
-modulate = Color( 0.631373, 0.490196, 0.00392157, 1 )
-position = Vector2( -0.429794, -13.1724 )
-rotation = -3.14159
-scale = Vector2( 0.21669, 0.0978429 )
-texture = ExtResource( 4 )
-
-[node name="dorway2" type="Sprite" parent="."]
-modulate = Color( 0.839216, 0.498039, 0.498039, 1 )
-position = Vector2( 15.0618, -2.1851 )
-rotation = 0.0290645
-scale = Vector2( 0.0496343, 0.0305336 )
-texture = ExtResource( 4 )
-
 [node name="door_way" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2.35193, -11.302 )
-scale = Vector2( 2.5, 2 )
+position = Vector2( 0.721444, -14.4138 )
+scale = Vector2( 3.8, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color( 0.223529, 0.223529, 0.223529, 1 )
-position = Vector2( -112.269, -2.81995 )
+position = Vector2( -115.768, -3.98633 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 modulate = Color( 0.223529, 0.223529, 0.223529, 1 )
-position = Vector2( 116.138, -5.39767 )
+position = Vector2( 119.054, -3.64811 )
 shape = SubResource( 1 )
+
+[node name="door" type="Node2D" parent="."]
+scale = Vector2( 1.3, 1.3 )
+
+[node name="ColorRect" type="ColorRect" parent="door"]
+margin_left = -23.0
+margin_top = -17.0
+margin_right = 27.0
+margin_bottom = 1.0
+color = Color( 0.137255, 0.00784314, 0.00784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hexagon" type="Node2D" parent="door"]
+modulate = Color( 0.627451, 0.384314, 0, 1 )
+position = Vector2( 0.000337601, -8.03491 )
+scale = Vector2( 0.075, 0.035 )
+
+[node name="top" type="Node2D" parent="door/hexagon"]
+
+[node name="1" type="Sprite" parent="door/hexagon/top"]
+position = Vector2( 12.7639, -213.852 )
+texture = ExtResource( 4 )
+
+[node name="2" type="Sprite" parent="door/hexagon/top"]
+position = Vector2( 200.578, -105.58 )
+rotation = 1.0472
+texture = ExtResource( 4 )
+
+[node name="3" type="Sprite" parent="door/hexagon/top"]
+position = Vector2( 200.578, 110.209 )
+rotation = 2.0944
+texture = ExtResource( 4 )
+
+[node name="bottom" type="Node2D" parent="door/hexagon"]
+position = Vector2( 24.5798, 3.51141 )
+rotation = 3.14159
+
+[node name="1" type="Sprite" parent="door/hexagon/bottom"]
+position = Vector2( 12.7639, -213.852 )
+texture = ExtResource( 4 )
+
+[node name="2" type="Sprite" parent="door/hexagon/bottom"]
+position = Vector2( 200.578, -105.58 )
+rotation = 1.0472
+texture = ExtResource( 4 )
+
+[node name="3" type="Sprite" parent="door/hexagon/bottom"]
+position = Vector2( 200.578, 110.209 )
+rotation = 2.0944
+texture = ExtResource( 4 )
+
+[node name="handle" type="Sprite" parent="door"]
+modulate = Color( 0.486275, 0.486275, 0.486275, 1 )
+position = Vector2( 19.7724, -4.99562 )
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 4 )
