@@ -46,15 +46,8 @@ func _ready():
 	$health_bar.hp = 2
 	add_to_group("enemies")
 	add_to_group("spiders")
-	set_group_vol()
 	get_node("NotePlayer").mode = 4
 	get_node("Spider/AnimationPlayer").play("Idle")
-
-func set_group_vol():
-	#makes sure all of the spiders have the same volume so as not to overwhelm the player
-	var grp = get_tree().get_nodes_in_group("spiders")
-	for node in grp:
-		node.get_node("NotePlayer").volume_db -= 3*floor(len(grp)/2)
 func play_modal_animation(mode):
 	match mode:
 		"die" :
@@ -69,7 +62,7 @@ func play_modal_animation(mode):
 #returns true if we can see the target
 func can_see(target_pos):
 	#print(str(target_pos.y-10) + ',' + str(target_pos.y+10) + ':' + str(position.y))
-	return target_pos.y-position.y <= 20*scale.y and target_pos.y-position.y >= -20*scale.y  
+	return position.distance_to(target_pos) <= 1000 and target_pos.y-position.y <= 20*scale.y and target_pos.y-position.y >= -20*scale.y  
 #makes the spider look for a target and change modes accordingly
 func look(target_pos):
 	#print("[SPIDER] looking!")

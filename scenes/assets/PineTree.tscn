@@ -121,7 +121,6 @@ tracks/5/keys = {
 [sub_resource type="Animation" id=3]
 resource_name = "Singing_Hard"
 length = 0.3
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Node2D/bottom_leaf:rotation_degrees")
 tracks/0/interp = 1

@@ -19,5 +19,5 @@ shape = SubResource( 1 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 50 )
-volume_db = 3.0
+volume_db = 0.0
 [connection signal="body_entered" from="." to="." method="_on_Traper_Entity_body_entered"]

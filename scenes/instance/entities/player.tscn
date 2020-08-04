@@ -29,6 +29,7 @@ volume_db = -5.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -0.63028, -0.630257 )
 current = true
+zoom = Vector2( 1.5, 1.5 )
 limit_smoothed = true
 smoothing_enabled = true
 

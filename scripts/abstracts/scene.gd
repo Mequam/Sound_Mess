@@ -36,6 +36,9 @@ func init():
 			if (n.door_name == Globals.prev_door_name):
 				$player.position = n.player_position
 	$Met/Met.connect("timeout",self,"_met_timeout")
+	
+	for node in get_tree().get_nodes_in_group("play_idle"):
+		node.get_node("AnimationPlayer").play("Idle")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
