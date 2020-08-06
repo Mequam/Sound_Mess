@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/instance/bunny_house.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/assets/chimeny.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/assets/bunny_window.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/assets/architecture/bunny/bunny_window.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/instance/entities/SingingTree.tscn" type="PackedScene" id=14]
 
 [node name="testScene" type="TileMap"]

@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Sound_Mess"
-run/main_scene="res://scenes/main/bunny/bunny_forest.tscn"
+run/main_scene="res://scenes/main/bunny/church_yard.tscn"
 config/icon="res://icon.png"
 
 [autoload]

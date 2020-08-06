@@ -43,7 +43,6 @@ scale = Vector2( 0.135009, 0.109596 )
 texture = ExtResource( 1 )
 
 [node name="inner" type="Sprite" parent="."]
-modulate = Color( 0.823529, 0.945098, 0.117647, 1 )
 position = Vector2( 0.633411, -3.29232 )
 rotation = 3.14159
 scale = Vector2( 0.0879065, 0.0579301 )
