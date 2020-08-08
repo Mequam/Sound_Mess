@@ -16,11 +16,9 @@ tile_data = PoolIntArray( -196611, 2, 0, -131075, 0, 0, -131074, 1, 0, -65540, 2
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 52.4793, 34.6367 )
-scale = Vector2( 1, 1 )
 
 [node name="Met" parent="." instance=ExtResource( 6 )]
 position = Vector2( -239.698, -88.8944 )
-scale = Vector2( 1, 1 )
 
 [node name="SingingTree" parent="." instance=ExtResource( 2 )]
 position = Vector2( 58.8416, -302.229 )

@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/assets/burrow/burrow_particles.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 100.897
+radius = 202.876
 
 [node name="burrow_effect" type="Area2D"]
 z_index = -1

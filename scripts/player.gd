@@ -214,7 +214,7 @@ func _ready():
 	
 	#connect all of our child nodes
 	get_node("ComboTracker").connect("combo_found",self,"on_combo")
-
+	add_to_group("player")
 func _process(delta):
 	#this code snippet ensures that we play short blips
 	if (get_node("NotePlayer").playing):

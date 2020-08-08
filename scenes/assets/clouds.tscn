@@ -16,7 +16,11 @@ angle_random = 0.42
 scale = 0.01
 scale_random = 1.0
 
-[node name="clouds" type="Particles2D"]
+[node name="Node2D" type="Node2D"]
+
+[node name="clouds" type="Particles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.8 )
+position = Vector2( 12.676, -386.621 )
 amount = 10
 lifetime = 20.0
 explosiveness = 0.62

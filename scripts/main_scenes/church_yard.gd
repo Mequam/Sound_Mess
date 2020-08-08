@@ -1,4 +1,4 @@
-extends "res://scripts/abstracts/scene.gd"
+extends "res://scripts/abstracts/bunny_forest.gd"
 
 
 # Declare member variables here. Examples:
@@ -8,6 +8,8 @@ extends "res://scripts/abstracts/scene.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$bunny_forest.door_name = "A"
+	$bunny_forest.new_scene = "res://scenes/main/bunny/bunny_forest.tscn"
 	.init()
 
 

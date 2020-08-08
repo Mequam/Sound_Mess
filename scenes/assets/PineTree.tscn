@@ -205,6 +205,7 @@ tracks/2/keys = {
 modulate = Color( 0.278431, 0.278431, 0.278431, 0.701961 )
 position = Vector2( -13.1543, 286.351 )
 scale = Vector2( 0.898064, 0.316449 )
+z_index = -1
 texture = ExtResource( 1 )
 
 [node name="trunc" type="Sprite" parent="."]

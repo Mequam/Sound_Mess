@@ -34,7 +34,8 @@ func init():
 		for n in get_tree().get_nodes_in_group("door_ways"):
 			n.current_scene = load_path
 			if (n.door_name == Globals.prev_door_name):
-				$player.position = n.player_position
+				n.locked = true
+				$player.position = n.position
 	$Met/Met.connect("timeout",self,"_met_timeout")
 	
 	for node in get_tree().get_nodes_in_group("play_idle"):
