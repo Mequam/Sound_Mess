@@ -9,24 +9,40 @@ func _ready():
 var inner_beat = 0
 var mode = "transition_strike"
 
-func dir_anim(dir):
-	if (1.5*abs(dir.x) > abs(dir.y)):
-		print("scale.x " + str(scale.x))
+func dir_anim(dir,x_wieght=1):
+	if (float(x_wieght*abs(dir.x)) > float(abs(dir.y))):
 		if (dir.x > 0 and $Bunny_Boss_Sprite.scale.x > 0):
 			$Bunny_Boss_Sprite.scale.x *= -1
 		elif (dir.x < 0 and $Bunny_Boss_Sprite.scale.x < 0):
 			$Bunny_Boss_Sprite.scale.x *= -1
 		$Bunny_Boss_Sprite/AnimationPlayer2.play("Idle_Side")
-	else:
+	elif (dir.y > 0):
 		$Bunny_Boss_Sprite/AnimationPlayer2.play("Idle_Top")
-	print("scale.x " + str(scale.x))
-func move(player_pos):
+	else:
+		$Bunny_Boss_Sprite/AnimationPlayer2.play("Idle_Back")
+func move(player_pos,inner_beat):
 	match mode:
 		"transition_strike":
-			var dir = (player_pos-position).normalized()
-			move_and_collide(80*dir)
-			dir_anim(dir)
+			var local = player_pos-position
+			var m = Transform2D()
+			#the direction we are aiming
+			m.x = local.normalized()
+			#this is a fancy way of rotating 90 degrees counter clockwise with matrixes
+			m.y = Vector2(local.y*-1,local.x).normalized()
+		
+			var dir
+			match inner_beat:
+				1:
+					dir = m.basis_xform(Vector2(50,100))
+				3:
+					dir = m.basis_xform(Vector2(50,100))
+				5:
+					dir = m.basis_xform(Vector2(200,100))
+			if (dir != null):
+				move_and_collide(dir)
+				dir_anim(-m.basis_xform(Vector2(0,1)),.6)
 func run(player_pos,beat):
+	move(player_pos,inner_beat)
 	match inner_beat:
 		0:
 			$Bunny_Boss_Sprite/AnimationPlayer.play("left_leg_out")
@@ -34,21 +50,19 @@ func run(player_pos,beat):
 		1:
 			$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
 			$NotePlayer.play_note(-5)
-			move(player_pos)
+			
 		2:
 			$Bunny_Boss_Sprite/AnimationPlayer.play("mid_leg_out")
 			$NotePlayer.play_note(-3)
 		3:
 			$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
 			$NotePlayer.play_note(-6)
-			move(player_pos)
 		4:
 			$Bunny_Boss_Sprite/AnimationPlayer.play("right_leg_out")
 			$NotePlayer.play_note(-4)
 		5:
 			$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
 			$NotePlayer.play_note(-6)
-			move(player_pos)
 		_:
 			$NotePlayer.stop()
 	inner_beat += 1
