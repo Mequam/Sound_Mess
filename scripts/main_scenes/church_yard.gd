@@ -10,6 +10,7 @@ extends "res://scripts/abstracts/bunny_forest.gd"
 func _ready():
 	$bunny_forest.door_name = "A"
 	$bunny_forest.new_scene = "res://scenes/main/bunny/bunny_forest.tscn"
+	$player/NotePlayer.mode = 1
 	.init()
 
 

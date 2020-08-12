@@ -20,4 +20,5 @@ func _ready():
 	
 	$bunny_church.door_name = "A"
 	$bunny_church.new_scene = "res://scenes/main/bunny/church_yard.tscn"
+	$player/NotePlayer.mode = 1
 	.init()

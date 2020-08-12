@@ -102,7 +102,7 @@ func push_dir(dir,delta):
 func move_2d(delta):
 	var to_move = Vector2(0,0)
 	for i in range(1,5):
-		if (Input.is_action_just_pressed("NOTE_" + str(i))):
+		if (Globals.action_just_pressed("NOTE_" + str(i))):
 			updateRythomMomentom()
 			match i:
 				4:
@@ -156,21 +156,19 @@ func get_flavor():
 
 #this function checks the given inputs to move the player
 func check_inputs(delta,delta_beat):
-	if (Input.is_action_just_pressed("mode_change")):
+	if (Globals.action_just_pressed("mode_change")):
 		get_node("NotePlayer").mode+=1
-	
-	if (Input.is_action_just_pressed("NOTE_6")):
-		print("NOTE_6 has been pressed!")
+	if (Globals.action_just_pressed("NOTE_6")):
 		updateRythomMomentom()
 		set_flavor(6)
-	if (Input.is_action_just_pressed("NOTE_0")):
+	if (Globals.action_just_pressed("NOTE_0")):
 		get_node("NotePlayer").play_note(-7)
-	if (Input.is_action_just_pressed("NOTE_5")):
+	if (Globals.action_just_pressed("NOTE_5")):
 		#attack command
 		get_node("NotePlayer").play_note(5-7)
 		updateRythomMomentom()
 		set_flavor(7)
-	if (Input.is_action_just_pressed("NOTE_7")):
+	if (Globals.action_just_pressed("NOTE_7")):
 		get_node("NotePlayer").play_note(0)
 	move_2d(delta)
 	get_node("ComboTracker").check_inputs(delta)
@@ -221,9 +219,6 @@ func _process(delta):
 		if (timeout >= .1):
 			timeout = 0
 			get_node("NotePlayer").stop()
-	if (Input.is_action_just_pressed("NOTE_0")):
-		take_damage(1)
-
 #this function is called every beat of the metronome
 func _met_process(beat):
 	if (i_timer != 0):

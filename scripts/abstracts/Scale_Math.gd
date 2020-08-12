@@ -42,15 +42,15 @@ func note2deg(note):
 	return null
 
 #this function takes a scale degree and throws the appropriate input action
-func deg2action(deg):
+func deg2action(deg,pressed=true):
 	#make sure we re-map to posotive
 	while deg < 0:
 		deg += 7
 	#create and throw the input event
 	var ie = InputEventAction.new()
 	ie.action = "NOTE_" + str(deg)
-	ie.pressed = true
-	Input.parse_input_event(ie)
+	ie.pressed = pressed
+	return ie
 #this function takes a scale degree and returns a note index
 func deg2note(scale_degree):
 	var to_play = 0

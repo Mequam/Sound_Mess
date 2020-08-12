@@ -48,12 +48,14 @@ func _unhandled_input(event : InputEvent):
 			MIDI_MESSAGE_NOTE_ON:
 				var note = (event.pitch % 24)-12
 				play_note_index(note)
-				scale_math.deg2action(
-					scale_math.note2deg(note)
-					)
+				Input.parse_input_event(
+					scale_math.deg2action(
+						scale_math.note2deg(note)
+					))
 			MIDI_MESSAGE_NOTE_OFF:
-				var note = (event.pitch % 24)-12
-				play_note_index(note)
-				scale_math.deg2action(
-					scale_math.note2deg(note)
-					)
+				var ei = scale_math.deg2action(
+					scale_math.note2deg(
+						(event.pitch % 24)-12),false)
+				Input.parse_input_event(ei)
+				Globals.release_action(ei.action)
+				
