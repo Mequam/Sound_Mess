@@ -11,6 +11,7 @@ func _ready():
 	load_path = "res://scenes/main/test_scene_2.tscn"
 	$SingingTree/door_way.door_name="A"
 	$SingingTree/door_way.new_scene = "res://scenes/main/test_2d_space.tscn"
+	$player/NotePlayer.mode = 1
 	.init()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

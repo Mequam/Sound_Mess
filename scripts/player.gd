@@ -160,8 +160,7 @@ func check_inputs(delta,delta_beat):
 		get_node("NotePlayer").mode+=1
 	
 	if (Input.is_action_just_pressed("NOTE_6")):
-		#attack right
-		get_node("NotePlayer").play_note(6-7)
+		print("NOTE_6 has been pressed!")
 		updateRythomMomentom()
 		set_flavor(6)
 	if (Input.is_action_just_pressed("NOTE_0")):
