@@ -5,16 +5,17 @@
 [ext_resource path="res://scenes/instance/NotePlayer.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 43.9757, 56.0566 )
+extents = Vector2( 43.9757, 18.1256 )
 
 [node name="bunny_boss_entity" type="KinematicBody2D"]
 position = Vector2( -1.67021, 10.0212 )
 script = ExtResource( 2 )
 
 [node name="Bunny_Boss_Sprite" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0.799988, 36 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -4.96947, -77.2966 )
+position = Vector2( -0.96947, -10.8966 )
 shape = SubResource( 1 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 3 )]

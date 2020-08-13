@@ -15,5 +15,6 @@ func _ready():
 	.init()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_key_pressed(KEY_SPACE):
+		$bunny_boss_entity.mode = "move_burrow" if $bunny_boss_entity.mode == "move_circle" else "move_circle"

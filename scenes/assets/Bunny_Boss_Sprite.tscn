@@ -442,8 +442,9 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "Burrow"
-length = 0.5
+length = 0.3
 loop = true
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("bunny:visible")
 tracks/0/interp = 1
@@ -463,10 +464,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -921.641, -684.427 ), Vector2( -1094.79, 37.0286 ), Vector2( -1094.79, 37.0286 ) ]
+"times": PoolRealArray( 0, 0.05, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -921.641, -684.427 ), Vector2( -1094.79, 37.0286 ), Vector2( -1025.53, -251.554 ), Vector2( -990.901, -395.845 ), Vector2( -956.271, -540.136 ), Vector2( -921.641, -684.427 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("burrow/arms/left_forearm:rotation_degrees")
@@ -475,10 +476,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 96.3865, 51.4961, 51.4961 ]
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 96.3865, 51.4961, 60.4742, 69.4523, 78.4303, 87.4084, 96.3865 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("burrow/arms/left_sholder:position")
@@ -487,10 +488,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -172.48, -259.345 ), Vector2( -230.196, -230.487 ), Vector2( -230.196, -230.487 ) ]
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -172.48, -259.345 ), Vector2( -230.196, -230.487 ), Vector2( -218.653, -236.259 ), Vector2( -207.11, -242.03 ), Vector2( -184.023, -253.573 ), Vector2( -172.48, -259.345 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("burrow/arms/left_sholder:rotation_degrees")
@@ -499,10 +500,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -7.17395, -34.9861, -34.9861 ]
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -7.17395, -34.9861, -29.4237, -23.8612, -18.2988, -12.7364, -7.17395 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("burrow/arms/right_forearm:position")
@@ -511,10 +512,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.2, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 986.309, -112.772 ), Vector2( 736.201, -718.794 ), Vector2( 986.309, -112.772 ) ]
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 986.309, -112.772 ), Vector2( 902.94, -314.779 ), Vector2( 819.57, -516.787 ), Vector2( 736.201, -718.794 ), Vector2( 986.309, -112.772 ), Vector2( 986.309, -112.772 ), Vector2( 986.309, -112.772 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("burrow/arms/right_forearm:rotation_degrees")
@@ -523,10 +524,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0.2, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -62.0011, -101.819, -62.0011 ]
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -62.0011, -75.2737, -88.5464, -101.819, -62.0011, -62.0011, -62.0011 ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("burrow/arms/right_sholder:position")
@@ -535,10 +536,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.2, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 91.1545, -230.931 ), Vector2( 43.0576, -230.931 ), Vector2( 91.1545, -230.931 ) ]
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 91.1545, -230.931 ), Vector2( 59.0899, -230.931 ), Vector2( 43.0576, -230.931 ), Vector2( 91.1545, -230.931 ), Vector2( 91.1545, -230.931 ), Vector2( 91.1545, -230.931 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("burrow/arms/right_sholder:rotation_degrees")
@@ -547,10 +548,142 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0.2, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 36.11, -3.56418, 36.11 ]
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 36.11, 9.66055, -3.56418, 36.11, 36.11 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("burrow:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("burrow/arms/back_sholder:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -62.9359, -238.055 ), Vector2( -51.6223, -187.144 ), Vector2( -54.4507, -199.871 ), Vector2( -57.2792, -212.599 ), Vector2( -60.1076, -230.984 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("burrow/arms/back_sholder:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2.77172, 20.8926, -6.79064, -3.60319, -16.2701 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("burrow/arms/back_forearm:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -163.952, -771.345 ), Vector2( 192.43, -703.463 ), Vector2( -48.552, -813.206 ), Vector2( -218.823, -746.172 ), Vector2( -308.013, -754.563 ), Vector2( -139.816, -813.866 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("burrow/arms/back_forearm:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -196.322, -150.635, -176.989, -200.545, -209.756, -189.375 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("burrow/dirt_front/dirt_a4:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 184.722, 174.017, 177.342, 173.571 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("burrow/dirt_front/dirt_a3:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0.05, 0.102291, 0.290569, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 164.435, 169.982, 183.143, 174.346 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("burrow/dirt_front/dirt_a:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 174.075, 180.518 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("burrow/dirt_back/dirt_a4:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0.15, 0.201525 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 216.238, -56.8325 ), Vector2( 212, -42 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("burrow/dirt_back/dirt_a:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -92.2379, -129.308 ), Vector2( -88, -106 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("burrow/dirt_back/dirt_a3:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0.2, 0.28986 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -248, -64.6528 ), Vector2( -248, -45.7754 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -820,6 +953,18 @@ tracks/21/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/22/type = "value"
+tracks/22/path = NodePath("burrow:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 0.7
@@ -1075,6 +1220,18 @@ tracks/20/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("burrow:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -1356,6 +1513,18 @@ tracks/22/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/23/type = "value"
+tracks/23/path = NodePath("burrow:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="Bunny_Boss_Sprite" type="Node2D"]
 scale = Vector2( 0.1, 0.1 )
@@ -1364,27 +1533,25 @@ __meta__ = {
 }
 
 [node name="bunny" type="Node2D" parent="."]
-visible = false
-scale = Vector2( 1, 1 )
 
 [node name="tail_front" type="Sprite" parent="bunny"]
 visible = false
-position = Vector2( 399.572, -638.14 )
-rotation = 1.15204
+position = Vector2( 399.572, -715.52 )
+rotation = 0.858004
 scale = Vector2( 1.48204, 0.822913 )
 texture = ExtResource( 1 )
 
 [node name="side_left_forarm" type="Sprite" parent="bunny"]
 visible = false
-position = Vector2( -497.502, -658.858 )
+position = Vector2( -613.293, -753.596 )
 rotation = 0.731644
 scale = Vector2( 0.361486, 1.49158 )
 texture = ExtResource( 1 )
 
 [node name="side_left_sholder" type="Sprite" parent="bunny"]
 visible = false
-position = Vector2( -78.6367, -1258.42 )
-rotation = -2.85206
+position = Vector2( -78.6367, -1247.89 )
+rotation = -2.21604
 scale = Vector2( 0.374119, 0.614859 )
 texture = ExtResource( 2 )
 
@@ -1395,7 +1562,6 @@ scale = Vector2( 1, 1.86 )
 texture = ExtResource( 1 )
 
 [node name="front" type="Node2D" parent="bunny"]
-scale = Vector2( 1, 1 )
 
 [node name="head" type="Node2D" parent="bunny/front"]
 position = Vector2( 163.247, -54.4156 )
@@ -1523,7 +1689,6 @@ texture = ExtResource( 1 )
 
 [node name="side" type="Node2D" parent="bunny"]
 visible = false
-scale = Vector2( 1, 1 )
 
 [node name="head_side" type="Node2D" parent="bunny/side"]
 
@@ -1578,6 +1743,7 @@ texture = ExtResource( 1 )
 
 [node name="right_ear" type="Node2D" parent="bunny/side/head2/ears"]
 position = Vector2( -26.3046, -2004.24 )
+rotation = 0.247372
 
 [node name="outer" type="Sprite" parent="bunny/side/head2/ears/right_ear"]
 position = Vector2( -35.1523, -342.902 )
@@ -1594,19 +1760,18 @@ texture = ExtResource( 1 )
 [node name="arms" type="Node2D" parent="bunny/side"]
 
 [node name="right_sholder" type="Sprite" parent="bunny/side/arms"]
-position = Vector2( 52.9073, -1227.47 )
+position = Vector2( 68.0745, -1150.47 )
 rotation = 3.32815
 scale = Vector2( 0.374119, 0.614859 )
 texture = ExtResource( 2 )
 
 [node name="right_forearm" type="Sprite" parent="bunny/side/arms"]
-position = Vector2( -539.283, -490.288 )
-rotation = 0.769296
+position = Vector2( -585.467, -595.491 )
+rotation = 1.00268
 scale = Vector2( 0.361486, 2.05311 )
 texture = ExtResource( 1 )
 
 [node name="legs" type="Node2D" parent="bunny"]
-scale = Vector2( 1, 1 )
 
 [node name="even_triangle" type="Sprite" parent="bunny/legs"]
 position = Vector2( -645.695, -459.109 )
@@ -1652,35 +1817,99 @@ anims/right_leg_out = SubResource( 4 )
 
 [node name="burrow" type="Node2D" parent="."]
 visible = false
-scale = Vector2( 1, 1 )
+
+[node name="dirt_back" type="Node2D" parent="burrow"]
+modulate = Color( 0.486275, 0.270588, 0, 1 )
+
+[node name="dirt_a" type="Sprite" parent="burrow/dirt_back"]
+position = Vector2( -88, -106 )
+rotation = 3.03818
+scale = Vector2( 0.648702, 0.512644 )
+texture = ExtResource( 2 )
+
+[node name="dirt_a2" type="Sprite" parent="burrow/dirt_back"]
+position = Vector2( 55.9998, -78 )
+rotation = 3.54346
+scale = Vector2( 0.545463, 0.322231 )
+texture = ExtResource( 2 )
+
+[node name="dirt_a3" type="Sprite" parent="burrow/dirt_back"]
+position = Vector2( -248, -45.7754 )
+rotation = 2.96674
+scale = Vector2( 0.545463, 0.322231 )
+texture = ExtResource( 2 )
+
+[node name="dirt_a4" type="Sprite" parent="burrow/dirt_back"]
+position = Vector2( 212, -42 )
+rotation = 3.22401
+scale = Vector2( 0.606489, 0.364944 )
+texture = ExtResource( 2 )
 
 [node name="arms" type="Node2D" parent="burrow"]
 position = Vector2( 0, -10.5264 )
-scale = Vector2( 1, 1 )
+
+[node name="back_sholder" type="Sprite" parent="burrow/arms"]
+position = Vector2( -62.9359, -238.055 )
+rotation = 0.0483756
+scale = Vector2( 0.358115, 0.80562 )
+texture = ExtResource( 2 )
+
+[node name="back_forearm" type="Sprite" parent="burrow/arms"]
+position = Vector2( -139.816, -813.866 )
+rotation = -3.30522
+scale = Vector2( 0.254239, 0.893614 )
+texture = ExtResource( 1 )
 
 [node name="right_sholder" type="Sprite" parent="burrow/arms"]
-position = Vector2( 73.3869, -230.931 )
-rotation = 0.37444
+position = Vector2( 91.1545, -230.931 )
+rotation = 0.630238
 scale = Vector2( 0.374119, 0.910131 )
 texture = ExtResource( 2 )
 
 [node name="left_sholder" type="Sprite" parent="burrow/arms"]
-position = Vector2( -230.196, -230.487 )
-rotation = -0.610622
+position = Vector2( -172.48, -259.345 )
+rotation = -0.125209
 scale = Vector2( 0.374119, 0.962747 )
 texture = ExtResource( 2 )
 
 [node name="left_forearm" type="Sprite" parent="burrow/arms"]
-position = Vector2( -1094.79, 37.0286 )
-rotation = 0.898777
+position = Vector2( -921.641, -684.427 )
+rotation = 1.68226
 scale = Vector2( 0.361486, 2.05311 )
 texture = ExtResource( 1 )
 
 [node name="right_forearm" type="Sprite" parent="burrow/arms"]
-position = Vector2( 893.916, -336.644 )
-rotation = -1.33885
+position = Vector2( 986.309, -112.772 )
+rotation = -1.08212
 scale = Vector2( 0.397761, 2.06599 )
 texture = ExtResource( 1 )
+
+[node name="dirt_front" type="Node2D" parent="burrow"]
+modulate = Color( 0.486275, 0.270588, 0, 1 )
+
+[node name="dirt_a" type="Sprite" parent="burrow/dirt_front"]
+position = Vector2( -114, -47.881 )
+rotation = 3.03818
+scale = Vector2( 0.522388, 0.268888 )
+texture = ExtResource( 2 )
+
+[node name="dirt_a2" type="Sprite" parent="burrow/dirt_front"]
+position = Vector2( 73.9998, -58 )
+rotation = 3.54346
+scale = Vector2( 0.448103, 0.269973 )
+texture = ExtResource( 2 )
+
+[node name="dirt_a3" type="Sprite" parent="burrow/dirt_front"]
+position = Vector2( -274, 4.00002 )
+rotation = 3.04291
+scale = Vector2( 0.411308, 0.134757 )
+texture = ExtResource( 2 )
+
+[node name="dirt_a4" type="Sprite" parent="burrow/dirt_front"]
+position = Vector2( 55.9998, -22 )
+rotation = 3.22401
+scale = Vector2( 0.606489, 0.364944 )
+texture = ExtResource( 2 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 anims/Burrow = SubResource( 5 )

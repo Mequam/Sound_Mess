@@ -11,7 +11,14 @@ var last_input = 0
 var i_timer = 0 setget set_i_timer, get_i_timer
 var mode = 1
 
-#var shrinking_triangle = load("res://Shrinking_Triangle.tscn")
+#determines the type of input that the game is looking for
+#options are dev (uses keys 1-7) and midi (uses midi note frequency)
+
+
+#TODO: this needs a setter and a getter that changes other aspects of the game
+#additionaly need to add the fourier transform or "tuner" input method
+var input_mode = "dev"
+
 
 func set_i_timer(val):
 	
@@ -98,11 +105,19 @@ func push_dir(dir,delta):
 	proj.speed = speed/2
 	get_tree().get_root().add_child(proj)
 
+func check_action(act):
+	match input_mode:
+		"dev":
+			return Input.is_action_just_pressed(act)
+		"midi":
+			return Globals.action_just_pressed(act)
+		_:
+			return false
 #checks the inputs for the movement of the object
 func move_2d(delta):
 	var to_move = Vector2(0,0)
 	for i in range(1,5):
-		if (Globals.action_just_pressed("NOTE_" + str(i))):
+		if (check_action("NOTE_" + str(i))):
 			updateRythomMomentom()
 			match i:
 				4:
@@ -156,19 +171,19 @@ func get_flavor():
 
 #this function checks the given inputs to move the player
 func check_inputs(delta,delta_beat):
-	if (Globals.action_just_pressed("mode_change")):
+	if (check_action("mode_change")):
 		get_node("NotePlayer").mode+=1
-	if (Globals.action_just_pressed("NOTE_6")):
+	if (check_action("NOTE_6")):
 		updateRythomMomentom()
 		set_flavor(6)
-	if (Globals.action_just_pressed("NOTE_0")):
+	if (check_action("NOTE_0")):
 		get_node("NotePlayer").play_note(-7)
-	if (Globals.action_just_pressed("NOTE_5")):
+	if (check_action("NOTE_5")):
 		#attack command
 		get_node("NotePlayer").play_note(5-7)
 		updateRythomMomentom()
 		set_flavor(7)
-	if (Globals.action_just_pressed("NOTE_7")):
+	if (check_action("NOTE_7")):
 		get_node("NotePlayer").play_note(0)
 	move_2d(delta)
 	get_node("ComboTracker").check_inputs(delta)

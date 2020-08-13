@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+[ext_resource path="res://scripts/dieing_particle.gd" type="Script" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.00416668, 0.875451 ), 0.0, 0.586934, 0, 0, Vector2( 1, 0.557762 ), -1.97465, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 40, 6, 0 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 204.5
+angle_random = 1.0
+scale = 0.01
+scale_random = 0.1
+scale_curve = SubResource( 2 )
+color = Color( 0.486275, 0.270588, 0, 1 )
+
+[node name="dieing_particle" type="Particles2D"]
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
