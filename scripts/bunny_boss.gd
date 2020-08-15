@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-
+var scale_math = load("res://scripts/abstracts/Scale_Math.gd").new()
 func _ready():
+	scale_math.mode = 6
 	add_to_group("spiders")
 	add_to_group("enemies")
 	$NotePlayer.mode = 6
@@ -48,7 +49,7 @@ func move(player_pos,inner_beat):
 	match mode:
 		"move_burrow":
 			match inner_beat:
-				0:
+				1:
 					var theta = (randf()*PI/2)+PI/4
 					#print("theta " + str(theta))
 					print(burrow_radius*Vector2(cos(theta),sin(theta)) + Vector2(position.distance_to(player_pos),0))
@@ -71,11 +72,12 @@ func move(player_pos,inner_beat):
 								var part = dieing_burrow_particle.instance()
 								part.position = position+m.xform(-i*part_div*burrow_dir)
 								get_tree().get_root().add_child(part)
+			return 7
 		"move_circle":
 			var m = get_ctx_matrix(player_pos)
 			
 			var dir
-			match inner_beat:
+			match (inner_beat-1):
 				1:
 					dir = m.basis_xform(Vector2(50,200))
 				3:
@@ -85,32 +87,48 @@ func move(player_pos,inner_beat):
 			if (dir != null):
 				move_and_collide(dir)
 				dir_anim(-m.basis_xform(Vector2(0,1)),.6)
+			return 6
+func play_beats(mode):
+	match mode:
+		"move_circle":
+			match (inner_beat-1):
+					0:
+						$Bunny_Boss_Sprite/AnimationPlayer.play("left_leg_out")
+						$NotePlayer.play_note(-7)
+					1:
+						$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
+						$NotePlayer.play_note(-5)
+						
+					2:
+						$Bunny_Boss_Sprite/AnimationPlayer.play("mid_leg_out")
+						$NotePlayer.play_note(-3)
+					3:
+						$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
+						$NotePlayer.play_note(-6)
+					4:
+						$Bunny_Boss_Sprite/AnimationPlayer.play("right_leg_out")
+						$NotePlayer.play_note(-4)
+					5:
+						$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
+						$NotePlayer.play_note(-6)
+					_:
+						$NotePlayer.stop()
+		"move_burrow":
+			print(
+				"going to play " + str(scale_math.note2str(
+					scale_math.deg2note(
+						([-1,-7,-5,-7,-6,-5,-7,-1])[inner_beat-1]
+						)+11
+					))
+				+ " with an index of " + str(inner_beat-1))
+			$NotePlayer.play_note(([-1,-7,-5,-7,-6,-5,-7,-1])[inner_beat-1])
 func run(player_pos,beat):
 	if (moving):
-		move(player_pos,inner_beat)
-		match inner_beat:
-			0:
-				$Bunny_Boss_Sprite/AnimationPlayer.play("left_leg_out")
-				$NotePlayer.play_note(-7)
-			1:
-				$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
-				$NotePlayer.play_note(-5)
-				
-			2:
-				$Bunny_Boss_Sprite/AnimationPlayer.play("mid_leg_out")
-				$NotePlayer.play_note(-3)
-			3:
-				$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
-				$NotePlayer.play_note(-6)
-			4:
-				$Bunny_Boss_Sprite/AnimationPlayer.play("right_leg_out")
-				$NotePlayer.play_note(-4)
-			5:
-				$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
-				$NotePlayer.play_note(-6)
-			_:
-				$NotePlayer.stop()
-	inner_beat += 1
-	if (inner_beat == 6):
-		inner_beat = 0
+		play_beats(mode)
+		if (inner_beat >= move(player_pos,inner_beat)):
+			inner_beat = 0
+		inner_beat += 1
+
+		
+		
 
