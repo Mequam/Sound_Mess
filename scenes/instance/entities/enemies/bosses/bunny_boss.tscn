@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/assets/Bunny_Boss_Sprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/bunny_boss.gd" type="Script" id=2]
 [ext_resource path="res://scenes/instance/NotePlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/instance/health_bar.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 43.9757, 18.1256 )
@@ -12,7 +13,7 @@ position = Vector2( -1.67021, 10.0212 )
 script = ExtResource( 2 )
 
 [node name="Bunny_Boss_Sprite" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.799988, 36 )
+position = Vector2( 4.14038, 37.6702 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.96947, -10.8966 )
@@ -21,4 +22,7 @@ shape = SubResource( 1 )
 [node name="NotePlayer" parent="." instance=ExtResource( 3 )]
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="health_bar" parent="." instance=ExtResource( 4 )]
+position = Vector2( -85.7328, -286.218 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

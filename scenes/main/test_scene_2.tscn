@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny_boss.tscn" type="PackedScene" id=7]
 
 [node name="TileMap" type="TileMap"]
+cell_y_sort = true
 format = 1
 script = ExtResource( 3 )
 
@@ -30,4 +31,4 @@ position = Vector2( 782.791, 21.376 )
 scale = Vector2( 6, 4 )
 
 [node name="bunny_boss_entity" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3855.01, -620.306 )
+position = Vector2( 3584.66, -342.617 )

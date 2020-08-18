@@ -24,7 +24,10 @@ func load_note(note_number,note_geter=funcref(scale_math,"note2str")):
 	#changing the name of this function would require changing it in MANY
 	#places
 func play_note(scale_degree):
-	play_note_index(scale_math.deg2note(scale_degree))
+	if (scale_degree == null):
+		stop()
+	else:
+		play_note_index(scale_math.deg2note(scale_degree))
 	
 func play_note_index(note):
 	if (self.playing):
