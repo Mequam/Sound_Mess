@@ -17,7 +17,7 @@ var mode = 1
 
 #TODO: this needs a setter and a getter that changes other aspects of the game
 #additionaly need to add the fourier transform or "tuner" input method
-var input_mode = "dev"
+var input_mode = "midi"
 
 
 func set_i_timer(val):
@@ -176,6 +176,7 @@ func check_inputs(delta,delta_beat):
 	if (check_action("NOTE_6")):
 		updateRythomMomentom()
 		set_flavor(6)
+		get_node("NotePlayer").play_note(-1)
 	if (check_action("NOTE_0")):
 		get_node("NotePlayer").play_note(-7)
 	if (check_action("NOTE_5")):

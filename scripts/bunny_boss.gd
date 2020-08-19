@@ -54,6 +54,18 @@ func get_ctx_matrix(player_pos):
 	m.y = Vector2(local.y*-1,local.x).normalized()
 	return m
 var burrow_dir
+#this funtion moves us a direction and damages anything that we hit
+func move_dmg(dir):
+	var col = move_and_collide(dir)
+	if (col and col.collider.has_method("on_col")):
+		col.collider.on_col(self,1)
+		print("colliding")
+	return col
+func burrow_effect(n,unit,m=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(0,0))):
+	for i in range(0,n):
+		var part = dieing_burrow_particle.instance()
+		part.position = position+m.xform(-i*unit)
+		get_tree().get_root().add_child(part)
 func move(player_pos,inner_beat):
 	print("movement inner beat " + str(inner_beat))
 	match mode:
@@ -69,28 +81,26 @@ func move(player_pos,inner_beat):
 					#then move that point over the player in target space (where the player is on the x axis)
 						
 					#now create a vector of length burrow speed and point to that point
-					var col = move_and_collide(
+					var col = move_dmg(
 						m.xform(
 							burrow_dir*burrow_speed
 							)
 						)
 					if !col:
-						var part_div = burrow_speed/4
-						for i in range(0,4):
-							var part = dieing_burrow_particle.instance()
-							part.position = position+m.xform(-i*part_div*burrow_dir)
-							get_tree().get_root().add_child(part)
+						burrow_effect(4,burrow_dir*burrow_speed/4,m)
 			if(inner_beat == 9):
+				#set up the target direction for the future
 				burrow_dir = (player_pos-position).normalized()*burrow_speed
-			if (inner_beat >= 9 and inner_beat%3==0):
-				move_and_collide(
-					burrow_dir
-						)
-				var part_dir = burrow_dir/4
-				for i in range(0,4):
-					var part = dieing_burrow_particle.instance()
-					part.position = position-(i*part_dir)
-					get_tree().get_root().add_child(part)
+				
+				#dont move too close to the player on the first beat
+				var to_move = burrow_dir*.7
+				if (player_pos.distance_to(position) <= 200):
+					to_move *= -1
+				move_dmg(to_move)
+				burrow_effect(4,to_move/4)
+			if (inner_beat >= 12 and inner_beat%3==0):
+				move_dmg(burrow_dir)
+				burrow_effect(4,burrow_dir/4)
 			return 16
 		"move_circle":
 			var m = get_ctx_matrix(player_pos)
@@ -110,27 +120,26 @@ func move(player_pos,inner_beat):
 		"move_strike":
 			match inner_beat:
 				1:
-					#TODO: this needs to be a function I have used it three times now
-					var part_dir = (player_pos-position).normalized()*40
-					for i in range(0,4):
-						var part = dieing_burrow_particle.instance()
-						part.position = position-(i*part_dir)
-						get_tree().get_root().add_child(part)
-						
-					position = player_pos + Vector2(0,-100)
+					position = player_pos
 				2:
 					$Bunny_Boss_Sprite/AnimationPlayer2.play("Front_Slash_Windup")
 				4:
 					$Bunny_Boss_Sprite/AnimationPlayer2.play("Front_Slash")
 			return 5
 		"move_slam":
-			print("running move_slam with a beat of " + str(inner_beat) + " " + str(collision_layer))
 			match inner_beat:
 				2:
 					collision_mask = 0
 					collision_layer = 0
 					position = player_pos
 					$Bunny_Boss_Sprite/AnimationPlayer2.play("Front_Slash_Windup")
+				6:
+					collision_mask = init_col_mask
+					collision_layer = init_col_layer
+					var col = move_dmg(Vector2(0,0))
+					if (col and col.collider.has_method("on_col")):
+						col.collider.on_col(self,3)
+						
 			return 10
 func play_beats(mode):
 	match mode:
