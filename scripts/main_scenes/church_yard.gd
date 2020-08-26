@@ -8,9 +8,13 @@ extends "res://scripts/abstracts/bunny_forest.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#set up the doors
 	$bunny_forest.door_name = "A"
 	$bunny_forest.new_scene = "res://scenes/main/bunny/bunny_forest.tscn"
-	$player/NotePlayer.mode = 1
+	
+	$bcd.new_scene = "res://scenes/main/bunny/inner_church.tscn"
+	$bcd.door_name = "B"
+	
 	.init()
 
 
