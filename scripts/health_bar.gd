@@ -5,7 +5,6 @@ var heart = load("res://scenes/instance/half_heart.tscn")
 var hp = 1 setget set_hp,get_hp
 var buffering = false setget set_buffering,get_buffering
 func set_buffering(val):
-	print("buffering!")
 	buffering = val
 	if (buffering):
 		$iframe_timeout.start()

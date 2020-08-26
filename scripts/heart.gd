@@ -13,7 +13,6 @@ func set_hp(val):
 		hp = val
 	elif (val > 2):
 		hp = 2
-	print("heart spawning with hp of " + str(hp))
 	sync_hp()
 	return true
 

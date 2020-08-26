@@ -1,0 +1,304 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/inner_church.gd" type="Script" id=2]
+[ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/assets/architecture/bunny/chair.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/assets/img_tiles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://triangles/long_triangle.png" type="Texture" id=7]
+[ext_resource path="res://triangles/right_triangle.png" type="Texture" id=8]
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=9]
+[ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny_boss.tscn" type="PackedScene" id=11]
+
+[node name="TileMap" type="TileMap"]
+cell_y_sort = true
+format = 1
+script = ExtResource( 2 )
+
+[node name="tiles" type="Node2D" parent="."]
+modulate = Color( 0.517647, 0.341176, 0, 1 )
+z_index = -1
+
+[node name="main" parent="tiles" instance=ExtResource( 1 )]
+scale = Vector2( 0.3, 0.3 )
+tile_data = PoolIntArray( -327679, 4, 0, -327678, 4, 0, -196609, 4, 0, -262144, 4, 0, -262141, 4, 0, -196603, 4, 0, -65538, 9, 0, -131071, 0, 0, -2, 9, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, 65534, 9, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 9, 0, 131070, 9, 0, 131071, 14, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 9, 0, 196606, 9, 0, 196607, 14, 0, 131072, 14, 0, 131073, 0, 0, 131074, 0, 0, 131075, 14, 0, 131076, 14, 0, 131077, 9, 0, 262142, 9, 0, 262143, 14, 0, 196608, 14, 0, 196609, 14, 0, 196610, 14, 0, 196611, 14, 0, 196612, 14, 0, 196613, 9, 0, 327678, 9, 0, 327679, 9, 0, 262144, 9, 0, 262145, 14, 0, 262146, 14, 0, 262147, 9, 0, 262148, 9, 0, 262149, 9, 0, 327680, 9, 0, 327681, 9, 0, 327682, 9, 0, 327683, 9, 0 )
+
+[node name="forground" parent="tiles" instance=ExtResource( 1 )]
+scale = Vector2( 0.3, 0.3 )
+z_index = 4
+tile_data = PoolIntArray( -327679, 14, 0, -327678, 14, 0, -327677, 14, 0, -196610, 14, 0, -196609, 14, 0, -262144, 14, 0, -262140, 14, 0, -196607, 9, 0, -196606, 9, 0, -196603, 14, 0, -65539, 11, 0, -65537, 9, 0, -131072, 9, 0, -131070, 9, 0, -131069, 9, 0, -131068, 9, 0, -131066, 11, 0, -3, 11, 0, -65532, 9, 0, -65531, 9, 0, -65530, 11, 0, 65533, 11, 0, 6, 11, 0, 131069, 11, 0, 65542, 11, 0, 196605, 11, 0, 131078, 11, 0, 196614, 11, 0, 262150, 11, 0, 327684, 11, 0, 327685, 11, 0 )
+
+[node name="img_tiles" parent="tiles" instance=ExtResource( 6 )]
+scale = Vector2( 0.3, 0.3 )
+z_index = 4
+tile_data = PoolIntArray( -262143, 14, 0, -262142, 14, 0, -262141, 14, 0, -131074, 14, 0, -131073, 14, 0, -196608, 14, 0, -196605, 14, 0, -196604, 14, 0, -131067, 14, 0 )
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 901.164, 371.991 )
+
+[node name="Met" parent="." instance=ExtResource( 4 )]
+position = Vector2( 643.883, 434.724 )
+
+[node name="chair" parent="." instance=ExtResource( 5 )]
+position = Vector2( 738.15, 282.691 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 871.548, 289.198 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1004.95, 285.944 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1842.14, 210.828 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1715.88, 298.959 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1859.04, 298.959 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1917.6, 237.14 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1784.21, 227.379 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1923.48, 145.755 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1086.29, 214.365 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 943.127, 207.858 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="chair12" parent="." instance=ExtResource( 5 )]
+position = Vector2( 799.969, 207.858 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="window" type="Node2D" parent="."]
+position = Vector2( 1985.08, -150.406 )
+rotation = -3.14159
+scale = Vector2( 0.369862, 0.227948 )
+
+[node name="background" type="Sprite" parent="window"]
+modulate = Color( 0.694118, 0.392157, 0, 1 )
+position = Vector2( -5.00342, 44.653 )
+scale = Vector2( 1.22981, 1.22702 )
+texture = ExtResource( 7 )
+
+[node name="window" type="Sprite" parent="window"]
+modulate = Color( 0.00392157, 1, 1, 1 )
+texture = ExtResource( 7 )
+
+[node name="shadow" type="Sprite" parent="window"]
+modulate = Color( 0.00392157, 1, 1, 0.486275 )
+position = Vector2( -1.38927, -722.456 )
+rotation = 3.14159
+scale = Vector2( -1.46755, 1.66147 )
+texture = ExtResource( 8 )
+
+[node name="window3" type="Node2D" parent="."]
+position = Vector2( 2602.13, -33.2131 )
+rotation = -3.14159
+scale = Vector2( 0.369862, 0.227948 )
+
+[node name="background" type="Sprite" parent="window3"]
+modulate = Color( 0.694118, 0.392157, 0, 1 )
+position = Vector2( -5.00342, 44.653 )
+scale = Vector2( 1.22981, 1.22702 )
+texture = ExtResource( 7 )
+
+[node name="window" type="Sprite" parent="window3"]
+modulate = Color( 1, 0.470588, 0.00392157, 1 )
+texture = ExtResource( 7 )
+
+[node name="shadow" type="Sprite" parent="window3/window"]
+modulate = Color( 1, 1, 1, 0.615686 )
+position = Vector2( -1.38965, -722.456 )
+rotation = 1.50996e-07
+scale = Vector2( 1.46755, -1.66147 )
+texture = ExtResource( 8 )
+
+[node name="window5" type="Node2D" parent="."]
+position = Vector2( 2356.99, -33.2131 )
+rotation = -3.14159
+scale = Vector2( 0.369862, 0.227948 )
+
+[node name="background" type="Sprite" parent="window5"]
+modulate = Color( 0.694118, 0.392157, 0, 1 )
+position = Vector2( -5.00342, 44.653 )
+scale = Vector2( 1.22981, 1.22702 )
+texture = ExtResource( 7 )
+
+[node name="window" type="Sprite" parent="window5"]
+modulate = Color( 1, 0.00392157, 0.960784, 1 )
+texture = ExtResource( 7 )
+
+[node name="shadow" type="Sprite" parent="window5/window"]
+modulate = Color( 1, 1, 1, 0.615686 )
+position = Vector2( -1.38965, -722.456 )
+rotation = 1.50996e-07
+scale = Vector2( 1.46755, -1.66147 )
+texture = ExtResource( 8 )
+
+[node name="window4" type="Node2D" parent="."]
+position = Vector2( 1114.5, -35.6048 )
+rotation = -3.14159
+scale = Vector2( 0.369862, 0.227948 )
+
+[node name="background" type="Sprite" parent="window4"]
+modulate = Color( 0.694118, 0.392157, 0, 1 )
+position = Vector2( -5.00342, 44.653 )
+scale = Vector2( 1.22981, 1.22702 )
+texture = ExtResource( 7 )
+
+[node name="window" type="Sprite" parent="window4"]
+modulate = Color( 1, 0.913725, 0.00392157, 1 )
+texture = ExtResource( 7 )
+
+[node name="shadow" type="Sprite" parent="window4/window"]
+modulate = Color( 1, 1, 1, 0.584314 )
+position = Vector2( -1.38916, -722.456 )
+rotation = 1.50996e-07
+scale = Vector2( 1.46755, -1.66147 )
+texture = ExtResource( 8 )
+
+[node name="bottom_triangle" type="Sprite" parent="."]
+modulate = Color( 1, 0.447059, 0, 0.682353 )
+position = Vector2( 1547.33, 76.1198 )
+scale = Vector2( 1, 0.33432 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="bottom_triangle3" type="Sprite" parent="."]
+modulate = Color( 0.568627, 0, 1, 0.682353 )
+position = Vector2( 2206.81, 260.071 )
+scale = Vector2( 1, 0.33432 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="bottom_triangle4" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0.560784, 0.682353 )
+position = Vector2( 1161.46, 189.598 )
+scale = Vector2( 1, 0.33432 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="bottom_triangle5" type="Sprite" parent="."]
+modulate = Color( 1, 0.631373, 0, 0.682353 )
+position = Vector2( 1604.85, 271.816 )
+scale = Vector2( 1, 0.33432 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="bottom_triangle2" type="Sprite" parent="."]
+modulate = Color( 0, 1, 0.552941, 0.682353 )
+position = Vector2( 696.534, 419.489 )
+scale = Vector2( 1, 0.33432 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="mid_layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1.1, 1.1 )
+
+[node name="mid_triangle" type="Sprite" parent="ParallaxBackground/mid_layer"]
+modulate = Color( 1, 0.447059, 0, 0.682353 )
+position = Vector2( 1549.81, 67.9953 )
+scale = Vector2( 0.668158, 0.196732 )
+z_index = 1
+texture = ExtResource( 9 )
+
+[node name="mid_triangle3" type="Sprite" parent="ParallaxBackground/mid_layer"]
+modulate = Color( 0.568627, 0, 1, 0.682353 )
+position = Vector2( 2423.64, 251.946 )
+scale = Vector2( 0.668158, 0.196732 )
+z_index = 1
+texture = ExtResource( 9 )
+
+[node name="mid_triangle4" type="Sprite" parent="ParallaxBackground/mid_layer"]
+modulate = Color( 1, 0, 0.560784, 0.682353 )
+position = Vector2( 1157.95, 205.455 )
+scale = Vector2( 0.668158, 0.196732 )
+z_index = 1
+texture = ExtResource( 9 )
+
+[node name="mid_triangle5" type="Sprite" parent="ParallaxBackground/mid_layer"]
+modulate = Color( 1, 0.631373, 0, 0.682353 )
+position = Vector2( 1874.53, 275.437 )
+scale = Vector2( 0.668158, 0.196732 )
+z_index = 1
+texture = ExtResource( 9 )
+
+[node name="mid_triangle2" type="Sprite" parent="ParallaxBackground/mid_layer"]
+modulate = Color( 0, 1, 0.552941, 0.682353 )
+position = Vector2( 747.25, 411.316 )
+scale = Vector2( 0.668158, 0.196732 )
+z_index = 1
+texture = ExtResource( 9 )
+
+[node name="top_layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1.2, 1.2 )
+
+[node name="top_triangle" type="Sprite" parent="ParallaxBackground/top_layer"]
+modulate = Color( 1, 0.447059, 0, 0.682353 )
+position = Vector2( 1547.43, 64.1952 )
+scale = Vector2( 0.442505, 0.131213 )
+z_index = 2
+texture = ExtResource( 9 )
+
+[node name="top_triangle3" type="Sprite" parent="ParallaxBackground/top_layer"]
+modulate = Color( 0.568627, 0, 1, 0.682353 )
+position = Vector2( 2644.43, 254.019 )
+scale = Vector2( 0.442505, 0.131213 )
+z_index = 2
+texture = ExtResource( 9 )
+
+[node name="top_triangle4" type="Sprite" parent="ParallaxBackground/top_layer"]
+modulate = Color( 1, 0, 0.560784, 0.682353 )
+position = Vector2( 1160.96, 242.205 )
+scale = Vector2( 0.442505, 0.131213 )
+z_index = 2
+texture = ExtResource( 9 )
+
+[node name="top_triangle5" type="Sprite" parent="ParallaxBackground/top_layer"]
+modulate = Color( 1, 0.631373, 0, 0.682353 )
+position = Vector2( 2134.12, 273.245 )
+scale = Vector2( 0.442505, 0.131213 )
+z_index = 2
+texture = ExtResource( 9 )
+
+[node name="top_triangle2" type="Sprite" parent="ParallaxBackground/top_layer"]
+modulate = Color( 0, 1, 0.552941, 0.682353 )
+position = Vector2( 790.203, 401.04 )
+scale = Vector2( 0.442505, 0.131213 )
+z_index = 2
+texture = ExtResource( 9 )
+
+[node name="Traper_Entity" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1546.39, 282.958 )
+
+[node name="Traper_Entity2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 330.017, 234.531 )
+
+[node name="Traper_Entity3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 921.997, 97.6408 )
+
+[node name="bunny_boss_entity" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1659.38, -13.9527 )

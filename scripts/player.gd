@@ -17,7 +17,7 @@ var mode = 1
 
 #TODO: this needs a setter and a getter that changes other aspects of the game
 #additionaly need to add the fourier transform or "tuner" input method
-var input_mode = "midi"
+var input_mode = "dev"
 
 
 func set_i_timer(val):

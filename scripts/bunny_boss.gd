@@ -59,7 +59,6 @@ func move_dmg(dir):
 	var col = move_and_collide(dir)
 	if (col and col.collider.has_method("on_col")):
 		col.collider.on_col(self,1)
-		print("colliding")
 	return col
 func burrow_effect(n,unit,m=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(0,0))):
 	for i in range(0,n):
@@ -67,12 +66,10 @@ func burrow_effect(n,unit,m=Transform2D(Vector2(1,0),Vector2(0,1),Vector2(0,0)))
 		part.position = position+m.xform(-i*unit)
 		get_tree().get_root().add_child(part)
 func move(player_pos,inner_beat):
-	print("movement inner beat " + str(inner_beat))
 	match mode:
 		"move_burrow":
 			if (inner_beat == 1):
 				var theta = (randf()*PI/2)+PI/4
-				print(burrow_radius*Vector2(cos(theta),sin(theta)) + Vector2(position.distance_to(player_pos),0))
 				burrow_dir = (burrow_radius*Vector2(cos(theta),sin(theta)) + Vector2(position.distance_to(player_pos),0)).normalized()
 			if (inner_beat >= 1 and inner_beat <= 8):
 				if (burrow_dir != null):
@@ -81,7 +78,7 @@ func move(player_pos,inner_beat):
 					#then move that point over the player in target space (where the player is on the x axis)
 						
 					#now create a vector of length burrow speed and point to that point
-					var col = move_dmg(
+					var col = move_and_collide( #dont damage the player while were bieng spastic
 						m.xform(
 							burrow_dir*burrow_speed
 							)
@@ -99,7 +96,11 @@ func move(player_pos,inner_beat):
 				move_dmg(to_move)
 				burrow_effect(4,to_move/4)
 			if (inner_beat >= 12 and inner_beat%3==0):
+				for i in get_tree().get_nodes_in_group("trapers"):
+					if check_rad(70,i.position,burrow_dir):
+						i._on_Traper_Entity_body_entered(self)
 				move_dmg(burrow_dir)
+				#because our movment is "teleportish" we have to check to see if we crossed over an enemy that can harm us
 				burrow_effect(4,burrow_dir/4)
 			return 16
 		"move_circle":
@@ -141,6 +142,20 @@ func move(player_pos,inner_beat):
 						col.collider.on_col(self,3)
 						
 			return 10
+func on_col(obj,dmg):
+	$health_bar.hp -= dmg*2
+	if ($health_bar.hp <= 0):
+		queue_free()
+
+#checks if a given point goes through a given circle
+func check_rad(r : float,c : Vector2,p : Vector2):
+	#make sure c is in our chord space
+	c = c-position
+	var c_angle = c.angle()
+	var origin = Vector2(0,0)
+	var theta = asin(r/c.distance_to(origin))
+	var p_angle = p.angle()
+	return r*r >= p.distance_squared_to(c) or (c_angle-theta <= p_angle and c_angle+theta >= p_angle and p.distance_squared_to(origin) > c.distance_squared_to(origin))
 func play_beats(mode):
 	match mode:
 		"move_circle":
