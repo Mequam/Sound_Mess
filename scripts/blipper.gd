@@ -1,9 +1,5 @@
-extends "res://scripts/generic_enemy.gd"
+extends "res://scripts/abstracts/generic_enemy.gd"
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var mode = "normal" setget set_mode, get_mode
 func get_mode():
 	return mode
@@ -57,7 +53,6 @@ func look_at(target_pos):
 		get_node("Bunny").scale.x = 1
 func on_col(thing,dmg=1):
 	if (vulnerable):
-		print("taking damage")
 		.on_col(thing,dmg)
 func move(target_pos):
 	

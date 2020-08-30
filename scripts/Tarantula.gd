@@ -1,4 +1,4 @@
-extends "res://scripts/generic_enemy.gd"
+extends "res://scripts/abstracts/generic_enemy.gd"
 
 var mode = "" setget set_mode, get_mode
 func set_mode(val):

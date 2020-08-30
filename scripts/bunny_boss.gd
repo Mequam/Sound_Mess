@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://scripts/abstracts/generic_enemy.gd"
 
 var scale_math = load("res://scripts/abstracts/Scale_Math.gd").new()
 var init_col_layer

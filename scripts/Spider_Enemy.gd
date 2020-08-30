@@ -1,4 +1,4 @@
-extends "res://scripts/generic_enemy.gd"
+extends "res://scripts/abstracts/generic_enemy.gd"
 
 
 # Declare member variables here. Examples:
