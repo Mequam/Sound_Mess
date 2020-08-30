@@ -27,6 +27,8 @@ func set_mode(val):
 	match mode:
 		"move_burrow":
 			$Bunny_Boss_Sprite/AnimationPlayer2.play("Burrow")
+		"Dead":
+			$Bunny_Boss_Sprite/AnimationPlayer2.play("Death")
 func get_mode():
 	return mode
 
@@ -145,7 +147,7 @@ func move(player_pos,inner_beat):
 func on_col(obj,dmg):
 	$health_bar.hp -= dmg*2
 	if ($health_bar.hp <= 0):
-		queue_free()
+		set_mode("Dead")
 
 #checks if a given point goes through a given circle
 func check_rad(r : float,c : Vector2,p : Vector2):
