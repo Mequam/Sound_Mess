@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/main_scenes/bunny_forest.gd" type="Script" id=1]
 [ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/instance/entities/PineTreeBody.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/instance/entities/MushRoom.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/blipper_body.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/instance/entities/enemies/blipper_body.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/instance/entities/poof_grass.tscn" type="PackedScene" id=10]
@@ -17,6 +17,7 @@
 [ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/assets/signs/mushroom_sign.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/assets/signs/bunny_church.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=18]
 
 [node name="bunny_forest" type="TileMap"]
 cell_y_sort = true
@@ -680,18 +681,6 @@ position = Vector2( 416.274, 378.431 )
 [node name="Met" parent="." instance=ExtResource( 5 )]
 position = Vector2( -235.212, -175.763 )
 
-[node name="Blipper" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2167.8, 167.178 )
-
-[node name="Blipper2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1694.53, 201.83 )
-
-[node name="Blipper3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1922.7, 66.1038 )
-
-[node name="Blipper4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1160.52, -269.107 )
-
 [node name="Traper_Entity" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3385.82, 555.786 )
 
@@ -855,3 +844,9 @@ scale = Vector2( 0.133981, 0.187661 )
 position = Vector2( 11089.2, 889.919 )
 rotation = -0.531857
 scale = Vector2( 40, 5 )
+
+[node name="Blipper" parent="." instance=ExtResource( 7 )]
+position = Vector2( 459.174, 235.279 )
+
+[node name="Tarantula" parent="." instance=ExtResource( 18 )]
+position = Vector2( 334.836, 231.994 )

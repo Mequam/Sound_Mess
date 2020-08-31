@@ -1,20 +1,15 @@
-extends "res://scripts/abstracts/generic_enemy.gd"
+extends "res://scripts/abstracts/corruptable_enemy.gd"
 
-var mode = "normal" setget set_mode, get_mode
-func get_mode():
-	return mode
 func set_mode(val):
-	if (val == "evil"):
-		get_node("Bunny/AnimationPlayer").play("Transform")
-		remove_from_group("corruptable")
-		mode = "still"
-	elif (val in ["normal","evil_jump","still"]):
+	if (val in ["normal","evil_jump","still"]):
 		mode = val
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("Bunny/AnimationPlayer").connect("animation_finished",self,"_anim_finished")
+	get_node("Sprite/AnimationPlayer").connect("animation_finished",self,"_anim_finished")
 	add_to_group("generic_ai")
 	add_to_group("corruptable")
+	
+	set_mode("normal")
 var target
 var go_down = true
 func die():
@@ -48,9 +43,9 @@ func make_dir(v2):
 func look_at(target_pos):
 	if (target_pos.x < position.x):
 		#this is a hack to flip the visuals and should not be used on kinimatic bodies
-		get_node("Bunny").scale.x = -1
+		get_node("Sprite").scale.x = -1
 	else:
-		get_node("Bunny").scale.x = 1
+		get_node("Sprite").scale.x = 1
 func on_col(thing,dmg=1):
 	if (vulnerable):
 		.on_col(thing,dmg)
@@ -75,9 +70,9 @@ func _anim_finished(var animation):
 		"normal":
 			if (animation == 'Jump'):
 				move(target)
-				get_node("Bunny/AnimationPlayer").play("Idle")
+				get_node("Sprite/AnimationPlayer").play("Idle")
 			else:
-				get_node("Bunny/AnimationPlayer").play("Jump")
+				get_node("Sprite/AnimationPlayer").play("Jump")
 		"still":
 			if (animation == "Transform"):
 				#$health_bar.hp = 20
@@ -96,30 +91,30 @@ func run(target_pos,beat):
 	match mode:
 		"normal":
 			if (beat == 3.0):
-				get_node("Bunny/AnimationPlayer").play("Jump")
+				get_node("Sprite/AnimationPlayer").play("Jump")
 				get_node("NotePlayer").stop()
 			if (beat == 4.0):
-				get_node("Bunny/AnimationPlayer").play("Jump")
+				get_node("Sprite/AnimationPlayer").play("Jump")
 				get_node("NotePlayer").stop()
 			else:
 				$NotePlayer.stop()
 		"evil":
 			if (position.distance_to(target) > 350):
 				if (beat == 0.0):
-					get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_1")
+					get_node("Sprite/AnimationPlayer").play("Idle_Evil_Beat_1")
 					get_node("NotePlayer").play_note(1)
 				elif (beat == 1.0):
-					get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_2")
+					get_node("Sprite/AnimationPlayer").play("Idle_Evil_Beat_2")
 					get_node("NotePlayer").play_note(2)
 				elif (beat == 2.0):
-					get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_3")
+					get_node("Sprite/AnimationPlayer").play("Idle_Evil_Beat_3")
 					get_node("NotePlayer").play_note(4)
 				else:
 					get_node("NotePlayer").stop()
 			else:
 				if (beat == 0.0):
 					collision_mask  = pow(2,3) + pow(2,4)
-					get_node("Bunny/AnimationPlayer").play("Idle_Evil_Beat_1")
+					get_node("Sprite/AnimationPlayer").play("Idle_Evil_Beat_1")
 					get_node("NotePlayer").play_note(2)
 				elif (beat == 1.0):
 					#we are vulnerable on our prep
@@ -127,18 +122,18 @@ func run(target_pos,beat):
 					#make sure that the player can hit us
 					collision_mask  = pow(2,0) + pow(2,1) + pow(2,3) + pow(2,4)
 					
-					get_node("Bunny/AnimationPlayer").play("Evil_Jump_Prep")
+					get_node("Sprite/AnimationPlayer").play("Evil_Jump_Prep")
 					get_node("NotePlayer").play_note(7)
 				elif (beat == 2.0):
 					vulnerable = false
 					collision_mask = pow(2,3) + pow(2,4)
-					get_node("Bunny/AnimationPlayer").play("Evil_Jump_Action")
+					get_node("Sprite/AnimationPlayer").play("Evil_Jump_Action")
 					get_node("NotePlayer").play_note(6)
 				elif ( 2.5 <= beat and beat <= 3.0):
 					get_node("NotePlayer").stop()
 					move(target)
 				elif (beat == 4.0):
-					get_node("Bunny/AnimationPlayer").play("Evil_Land")
+					get_node("Sprite/AnimationPlayer").play("Evil_Land")
 					get_node("NotePlayer").play_note(5-7)
 					collision_mask  = pow(2,0) + pow(2,1) + pow(2,3) + pow(2,4)
 					var collision = move_and_collide(Vector2(0,0))

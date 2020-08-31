@@ -1,6 +1,5 @@
 extends "res://scripts/abstracts/generic_enemy.gd"
 
-var mode = "" setget set_mode, get_mode
 func set_mode(val):
 	#if we move from the attack state to another state reset our target position
 	if (val != "Attack" and mode == "Attack"):
@@ -12,8 +11,6 @@ func set_mode(val):
 	if (val == "Idle" or val == "Alert" or val ==  "Attack_Alert"):
 		$Tarantula_Sprite/AnimationPlayer.play("Idle")
 	mode = val
-func get_mode():
-	return mode
 
 #the initial position and rotation of the tarantulas butt
 var init_rotation
@@ -21,24 +18,22 @@ var init_position
 var target_pos
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	._ready()
 	$health_bar.hp = 2
 	add_to_group("spiders")
-	set_mode("Idle")
+	
+	#we start off looking for somthing to EAT
+	set_mode("Alert")
 	init_rotation = $Tarantula_Sprite/Body/Butt.rotation
 	init_position = $Tarantula_Sprite/Body/Butt.position
+	
 	$NotePlayer.mode = 6
+
 #used to keep track of what musical beat we are on
 var inner_beat = 0.0
 
 func on_col(obj,dmg = 1):
 	if (mode != "Attack"):
 		.on_col(obj,dmg)
-#this function ensures that the magnitude of the given vector is 1
-func make_dir(v2):
-	var n = 1.0/sqrt(v2.x*v2.x+v2.y*v2.y)
-	return Vector2(n*v2.x,n*v2.y)
-
 var target_dir = Vector2(0,0)
 var speed = 50
 func run(player_pos,beat):
@@ -90,7 +85,7 @@ func run(player_pos,beat):
 						#the player is in range, attack!
 						set_mode("Attack")
 						#we want to go twords them
-						target_dir = make_dir(player_pos-position)
+						target_dir = (player_pos-position).normalized()
 						#until we are slightly past them
 						target_pos = target_dir*2+player_pos
 		"Alert":
@@ -111,8 +106,11 @@ func run(player_pos,beat):
 					$Tarantula_Sprite/Body/Butt.position = Vector2(init_position.x,init_position.y+10)
 					$Tarantula_Sprite/Particles2D.emitting = true
 					for node in get_tree().get_nodes_in_group("corruptable"):
+						print(str(position) + " - " + str(to_global(node.position)))
+						print(str(position.distance_to(node.position)))
 						if (position.distance_to(node.position) <= 400):
-							node.mode = "evil"
+							print("corrupting!")
+							node.corrupt()
 				2.0:
 					$NotePlayer.play_note(7)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation+PI/10
@@ -123,7 +121,7 @@ func run(player_pos,beat):
 						#the player is in range, attack!
 						set_mode("Attack")
 						#we want to go twords them
-						target_dir = make_dir(player_pos-position)
+						target_dir = (player_pos-position).normalized()
 						#until we are slightly past them
 						target_pos = target_dir*2+player_pos
 		"Idle":

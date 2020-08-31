@@ -6,7 +6,6 @@ extends "res://scripts/abstracts/generic_enemy.gd"
 # var b = "text"
 
 #represents the mode that the spdider is in, search, patroll, attack
-var mode = "search" setget set_mode,get_mode
 var just_attacked = false
 
 func on_col(player,dmg=1):
@@ -17,7 +16,6 @@ func on_col(player,dmg=1):
 	if ($health_bar.hp <= 0):
 		set_mode("die")
 func set_mode(val):
-	#print("[SPIDER] changing mode:" + mode)
 	if (val in ["die","search","patroll","attack"] and mode != "die"): #once we die we dont change modes
 		if (val == "die"):
 			if (mode == "attack"):
@@ -36,18 +34,17 @@ func set_mode(val):
 		mode = val
 		play_modal_animation(mode)
 
-func get_mode():
-	return mode
-
 var patroll_down = true
 var speed = 15
 # Called when thenode enters the scene tree for the first time.
 func _ready():
 	$health_bar.hp = 2
-	add_to_group("enemies")
 	add_to_group("spiders")
+	
 	get_node("NotePlayer").mode = 4
 	get_node("Spider/AnimationPlayer").play("Idle")
+	
+	set_mode("search")
 func play_modal_animation(mode):
 	match mode:
 		"die" :

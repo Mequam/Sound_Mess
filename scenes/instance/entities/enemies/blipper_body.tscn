@@ -18,7 +18,7 @@ position = Vector2( -36.6082, -189.961 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 2 )]
 
-[node name="Bunny" parent="." instance=ExtResource( 3 )]
+[node name="Sprite" parent="." instance=ExtResource( 3 )]
 position = Vector2( 7.46565, 11.4628 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
