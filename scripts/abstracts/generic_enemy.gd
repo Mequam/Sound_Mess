@@ -13,6 +13,15 @@ func on_col(obj,dmg):
 	if ($health_bar.hp <= 0):
 		queue_free()
 
+#moves in a direction and damages anything we come accross
+func dmg_mv(dir,dmg):
+	var col = move_and_collide(dir)
+	if (col):
+		print("evil collision!")
+	if (col and col.collider.has_method("on_col")):
+		print("evil damage!")
+		col.collider.on_col(self,dmg)
+	return col
 #virtual functions
 func anim_finished(anim):
 	pass
