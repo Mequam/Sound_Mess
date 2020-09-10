@@ -18,18 +18,18 @@ var init_position
 var target_pos
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#used to keep track of what musical beat we are on
+	inner_beat = 0.0
+	
 	$health_bar.hp = 2
 	add_to_group("spiders")
 	
 	#we start off looking for somthing to EAT
-	set_mode("Alert")
+	set_mode("Idle")
 	init_rotation = $Tarantula_Sprite/Body/Butt.rotation
 	init_position = $Tarantula_Sprite/Body/Butt.position
 	
 	$NotePlayer.mode = 6
-
-#used to keep track of what musical beat we are on
-var inner_beat = 0.0
 
 func on_col(obj,dmg = 1):
 	if (mode != "Attack"):
@@ -89,7 +89,6 @@ func run(player_pos,beat):
 						#until we are slightly past them
 						target_pos = target_dir*2+player_pos
 		"Alert":
-			#print(mode)
 			match inner_beat:
 				0.0:
 					$NotePlayer.play_note(0)
@@ -106,8 +105,6 @@ func run(player_pos,beat):
 					$Tarantula_Sprite/Body/Butt.position = Vector2(init_position.x,init_position.y+10)
 					$Tarantula_Sprite/Particles2D.emitting = true
 					for node in get_tree().get_nodes_in_group("corruptable"):
-						print(str(position) + " - " + str(to_global(node.position)))
-						print(str(position.distance_to(node.position)))
 						if (position.distance_to(node.position) <= 400):
 							print("corrupting!")
 							node.corrupt()
@@ -125,7 +122,7 @@ func run(player_pos,beat):
 						#until we are slightly past them
 						target_pos = target_dir*2+player_pos
 		"Idle":
-			if (position.distance_to(player_pos) < 300):
+			if (position.distance_squared_to(player_pos) < 300*300):
 				set_mode("Alert")
 			match inner_beat:
 				0.0:

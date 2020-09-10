@@ -12,7 +12,6 @@ func _ready():
 	$SingingTree/door_way.door_name="A"
 	$SingingTree/door_way.new_scene = "res://scenes/main/test_2d_space.tscn"
 	$player/NotePlayer.mode = 1
-	$evil_carrot.corrupt()
 	.init()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

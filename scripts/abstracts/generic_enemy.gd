@@ -1,4 +1,5 @@
 extends KinematicBody2D
+var inner_beat = 0
 var mode = "default" setget set_mode,get_mode
 func set_mode(val):
 	mode = val
