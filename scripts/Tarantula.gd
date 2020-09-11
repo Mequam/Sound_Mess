@@ -1,16 +1,17 @@
 extends "res://scripts/abstracts/generic_enemy.gd"
 
 func set_mode(val):
+	inner_beat = 0.0
 	#if we move from the attack state to another state reset our target position
 	if (val != "Attack" and mode == "Attack"):
 		modulate = Color.white
-		inner_beat = 0.0
 	elif (val == "Attack" and mode != "Attack"):
 		modulate = Color.gray
 		$Tarantula_Sprite/AnimationPlayer.play("Attack")
 	if (val == "Idle" or val == "Alert" or val ==  "Attack_Alert"):
 		$Tarantula_Sprite/AnimationPlayer.play("Idle")
 	mode = val
+	print("Tarantula mode " + str(mode))
 
 #the initial position and rotation of the tarantulas butt
 var init_rotation
@@ -122,7 +123,7 @@ func run(player_pos,beat):
 						#until we are slightly past them
 						target_pos = target_dir*2+player_pos
 		"Idle":
-			if (position.distance_squared_to(player_pos) < 300*300):
+			if (position.distance_squared_to(player_pos) < 90000):
 				set_mode("Alert")
 			match inner_beat:
 				0.0:
