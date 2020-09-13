@@ -15,6 +15,7 @@ func anim_finished(anim):
 		collision_layer = 4
 		collision_mask = 5
 		$Sprite/body.z_index = 0
+		$Sprite/evil.z_index = 0
 	.anim_finished(anim)
 func play_note(mode):
 	match mode:
@@ -49,6 +50,7 @@ func play_note(mode):
 				inner_beat = 0
 func _ready():
 	$Sprite/body.z_index = -1
+	$Sprite/evil.z_index = -1
 	$NotePlayer.mode = 6
 func run(player_pos,beat):
 	match mode:
