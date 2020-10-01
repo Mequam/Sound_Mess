@@ -15,6 +15,8 @@ func _ready():
 	$bcd.new_scene = "res://scenes/main/bunny/inner_church.tscn"
 	$bcd.door_name = "B"
 	
+	$carrot_fields.new_scene = "res://scenes/main/bunny/fields.tscn"
+	$carrot_fields.door_name = "C"
 	.init()
 
 
