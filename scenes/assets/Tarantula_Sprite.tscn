@@ -118,7 +118,7 @@ tracks/8/keys = {
 [sub_resource type="Animation" id=2]
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Body/Head/eye0:scale")
+tracks/0/path = NodePath("Body/Head/eyes/eye0:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -130,7 +130,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.0407184, 0.0290977 ), Vector2( 0.051183, 0.0394328 ), Vector2( 0.0582372, 0.0290977 ), Vector2( 0.0501975, 0.0424704 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Head/eye1:scale")
+tracks/1/path = NodePath("Body/Head/eyes/eye1:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -142,7 +142,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.0384585, 0.0340056 ), Vector2( 0.0474026, 0.0407925 ), Vector2( 0.0605219, 0.0460492 ), Vector2( 0.0384585, 0.0340056 ), Vector2( 0.052237, 0.0340056 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Body/Head/eye2:scale")
+tracks/2/path = NodePath("Body/Head/eyes/eye2:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -154,7 +154,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0.0522031, 0.0307249 ), Vector2( 0.0256385, 0.0196539 ), Vector2( 0.0392007, 0.0310839 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Body/Head/eye3:scale")
+tracks/3/path = NodePath("Body/Head/eyes/eye3:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -261,39 +261,41 @@ rotation = -0.0239708
 scale = Vector2( 0.1902, 0.141714 )
 texture = ExtResource( 1 )
 
-[node name="eye0" type="Sprite" parent="Body/Head"]
+[node name="eyes" type="Node2D" parent="Body/Head"]
+
+[node name="eye0" type="Sprite" parent="Body/Head/eyes"]
 modulate = Color( 0.913725, 0.913725, 0.913725, 1 )
 position = Vector2( -16.4689, -1.37631 )
 rotation = -0.0239708
-scale = Vector2( 0.0407184, 0.0290977 )
+scale = Vector2( 0.051183, 0.0394328 )
 texture = ExtResource( 1 )
 
-[node name="eye1" type="Sprite" parent="Body/Head"]
+[node name="eye1" type="Sprite" parent="Body/Head/eyes"]
 modulate = Color( 0.913725, 0.913725, 0.913725, 1 )
 position = Vector2( 16.8668, 0.307797 )
 rotation = -0.0239708
-scale = Vector2( 0.052237, 0.0340056 )
+scale = Vector2( 0.0384585, 0.0340056 )
 texture = ExtResource( 1 )
 
-[node name="eye2" type="Sprite" parent="Body/Head"]
+[node name="eye2" type="Sprite" parent="Body/Head/eyes"]
 modulate = Color( 0.913725, 0.913725, 0.913725, 1 )
 position = Vector2( -9.15461, 17.1917 )
 rotation = -0.0239708
 scale = Vector2( 0.0392007, 0.0310839 )
 texture = ExtResource( 1 )
 
-[node name="eye3" type="Sprite" parent="Body/Head"]
+[node name="eye3" type="Sprite" parent="Body/Head/eyes"]
 modulate = Color( 0.913725, 0.913725, 0.913725, 1 )
 position = Vector2( 15.3381, 16.087 )
 rotation = -0.0239708
-scale = Vector2( 0.0535112, 0.0380999 )
+scale = Vector2( 0.0370183, 0.0299016 )
 texture = ExtResource( 1 )
 
 [node name="Legs" type="Node2D" parent="Body"]
 
 [node name="leg0" type="Sprite" parent="Body/Legs"]
 position = Vector2( -62.5661, 19.8613 )
-rotation = 0.820542
+rotation = 0.695467
 scale = Vector2( 0.0851002, 0.123075 )
 texture = ExtResource( 1 )
 
@@ -305,7 +307,7 @@ texture = ExtResource( 1 )
 
 [node name="leg2" type="Sprite" parent="Body/Legs"]
 position = Vector2( 40.9851, 50.2617 )
-rotation = -0.828147
+rotation = -1.03095
 scale = Vector2( 0.0851002, 0.123075 )
 texture = ExtResource( 1 )
 

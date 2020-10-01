@@ -1,10 +1,20 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=1]
 [ext_resource path="res://triangles/even_triangle.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Idle"
+[sub_resource type="ParticlesMaterial" id=1]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 78.8
+gravity = Vector3( 0, 600, 0 )
+initial_velocity = 300.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.05
+color = Color( 1, 0.67451, 0, 1 )
+
+[sub_resource type="Animation" id=2]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -224,8 +234,7 @@ tracks/17/keys = {
 "values": [ Vector2( 27.1502, -34.3609 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Rush"
+[sub_resource type="Animation" id=3]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -421,7 +430,7 @@ tracks/15/keys = {
 "values": [ -9.56476, -9.56476 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/eyes/right:position")
@@ -904,7 +913,7 @@ tracks/39/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -932,8 +941,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.879742, 11.7041 ), Vector2( 1.47506, 3.13041 ), Vector2( 2.07037, -5.44327 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Close"
+[sub_resource type="Animation" id=6]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/teeth/top:position")
@@ -960,8 +968,7 @@ tracks/1/keys = {
 "values": [ Vector2( 2.07037, -5.44327 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Look_down_left"
+[sub_resource type="Animation" id=7]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/eyes/left:position")
@@ -988,8 +995,7 @@ tracks/1/keys = {
 "values": [ Vector2( 5.19742, -6.5474 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Look_down_right"
+[sub_resource type="Animation" id=8]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/eyes/left:position")
@@ -1016,8 +1022,7 @@ tracks/1/keys = {
 "values": [ Vector2( 14.4373, -13.5311 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Look_forward"
+[sub_resource type="Animation" id=9]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/eyes/left:position")
@@ -1044,7 +1049,7 @@ tracks/1/keys = {
 "values": [ Vector2( 11.2021, -13.5191 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/teeth/top:position")
@@ -1230,7 +1235,7 @@ scale = Vector2( 0.0311371, 0.0172452 )
 texture = ExtResource( 2 )
 
 [node name="bottom" type="Node2D" parent="evil/teeth"]
-position = Vector2( 1.01177, 3.13214 )
+position = Vector2( 1.45611, -1.96574 )
 
 [node name="even_triangle4" type="Sprite" parent="evil/teeth/bottom"]
 position = Vector2( -7.29478, 13.0438 )
@@ -1244,15 +1249,24 @@ rotation = 3.14159
 scale = Vector2( 0.0311371, 0.0172452 )
 texture = ExtResource( 2 )
 
+[node name="spew" type="Particles2D" parent="evil"]
+position = Vector2( -3.17245, -50.2257 )
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.82
+process_material = SubResource( 1 )
+texture = ExtResource( 2 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 1 )
-anims/Rush = SubResource( 2 )
-anims/Transform = SubResource( 3 )
+anims/Idle = SubResource( 2 )
+anims/Rush = SubResource( 3 )
+anims/Transform = SubResource( 4 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/Chomp = SubResource( 4 )
-anims/Close = SubResource( 5 )
-anims/Look_down_left = SubResource( 6 )
-anims/Look_down_right = SubResource( 7 )
-anims/Look_forward = SubResource( 8 )
-anims/Open = SubResource( 9 )
+anims/Chomp = SubResource( 5 )
+anims/Close = SubResource( 6 )
+anims/Look_down_left = SubResource( 7 )
+anims/Look_down_right = SubResource( 8 )
+anims/Look_forward = SubResource( 9 )
+anims/Open = SubResource( 10 )

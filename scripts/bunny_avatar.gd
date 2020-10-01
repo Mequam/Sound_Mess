@@ -6,7 +6,10 @@ func run_seven(to_move,delta):
 	dmg7 = 1 if get_last_beat() == 2 else 0 
 	return 2
 func run_six(to_move,delta):
-	$Sprite.burrow_dir(to_move,1.5*333.33)
+	#constant that tells us how far we move
+	var burrow_distance = 1.75
+	
+	$Sprite.burrow_dir(to_move,burrow_distance*333.33)
 	var parent = get_parent()
 	#you do not collide with burrow terrain
 	if (parent.collision_mask & int(pow(2,5)) != 0):
@@ -17,7 +20,7 @@ func run_six(to_move,delta):
 	#you are now on the burrow layer
 	parent.collision_layer = 2
 	
-	return 1.5
+	return burrow_distance
 func clean_six(to_move,delta):
 	if (get_last_beat() == 2):
 		ground_pound(1,100)

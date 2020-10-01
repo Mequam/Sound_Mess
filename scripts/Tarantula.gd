@@ -1,21 +1,23 @@
 extends "res://scripts/abstracts/generic_enemy.gd"
 
 func set_mode(val):
+	resetEyeSize()
 	inner_beat = 0.0
 	#if we move from the attack state to another state reset our target position
 	if (val != "Attack" and mode == "Attack"):
 		modulate = Color.white
 	elif (val == "Attack" and mode != "Attack"):
+		#make the visual changes for the given mode
 		modulate = Color.gray
 		$Tarantula_Sprite/AnimationPlayer.play("Attack")
 	if (val == "Idle" or val == "Alert" or val ==  "Attack_Alert"):
 		$Tarantula_Sprite/AnimationPlayer.play("Idle")
 	mode = val
-	print("Tarantula mode " + str(mode))
 
 #the initial position and rotation of the tarantulas butt
 var init_rotation
 var init_position
+var init_eye_scale = []
 var target_pos
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,11 +29,24 @@ func _ready():
 	
 	#we start off looking for somthing to EAT
 	set_mode("Idle")
+	
+	#store the default state for the animated transformations
 	init_rotation = $Tarantula_Sprite/Body/Butt.rotation
 	init_position = $Tarantula_Sprite/Body/Butt.position
+	for eye in $Tarantula_Sprite/Body/Head/eyes.get_children():
+		init_eye_scale.append(eye.scale) 
 	
 	$NotePlayer.mode = 6
-
+	
+#simple display function that multiplies the size of our eyes
+func multEyeSize(factor):
+	for node in $Tarantula_Sprite/Body/Head/eyes.get_children():
+		node.scale *= factor
+#this function resets the eye size to initial scale
+func resetEyeSize():
+	var children = $Tarantula_Sprite/Body/Head/eyes.get_children()
+	for i in range(0,len(init_eye_scale)):
+		children[i] = init_eye_scale[i]
 func on_col(obj,dmg = 1):
 	if (mode != "Attack"):
 		.on_col(obj,dmg)
@@ -44,11 +59,15 @@ func run(player_pos,beat):
 			if (collision):
 				if collision.collider.has_method("on_col"):
 					collision.collider.on_col(self,2)
+					#we hit the player, get a new target point
 					set_mode("Attack_Alert")
+			#we are close to the player, get a new target point
 			if (position.distance_to(target_pos)) <= 50:
 				set_mode("Attack_Alert")
 			if (position.distance_to(player_pos) > 500):
 				set_mode("Idle")
+				
+			#play notes corisponding to our attack animation
 			match inner_beat:
 				0.0:
 					$NotePlayer.play_note(1)
@@ -80,6 +99,13 @@ func run(player_pos,beat):
 					$NotePlayer.play_note(3)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation+PI/10
 					$Tarantula_Sprite/Body/Butt.position = init_position
+				2.5:
+					#make the eyes bigger for the last beat, indicating attack
+					multEyeSize(2.5)
+					$NotePlayer.stop()
+				3.0:
+					resetEyeSize()
+					$NotePlayer.play_note(4)
 				_:
 					$NotePlayer.stop()
 					if (position.distance_to(player_pos) <= 400):

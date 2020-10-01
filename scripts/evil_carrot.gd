@@ -62,8 +62,11 @@ func run(player_pos,beat):
 			if (player_pos.y <= position.y):
 				set_mode("evil")
 			if (player_pos.x < position.x):
-				print("looking left!")
 				$Sprite/AnimationPlayer2.play("Look_down_left")
 			else:
 				$Sprite/AnimationPlayer2.play("Look_down_right")
 	play_note(mode)
+func dmg_mv(dir : Vector2,dmg=1):
+	var col = .dmg_mv(dir,dmg)
+	if (col):
+		$Sprite/evil/spew.emitting = true
