@@ -14,9 +14,8 @@ func _ready():
 	$Bunny_Boss_Sprite/AnimationPlayer2.play("Idle_Top")
 	set_mode("move_circle")
 
-var inner_beat = 0
+
 var dieing_burrow_particle = load("res://scenes/instance/dieing_particle.tscn")
-var mode = "move_circle" setget set_mode,get_mode
 func set_mode(val):
 	if (mode == "move_slam"):
 		collision_layer = init_col_layer

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/assets/bushy_tree.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/instance/bushyTreeBody.gd" type="Script" id=2]
+[ext_resource path="res://scenes/instance/NotePlayer.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 51.515, 26.9286 )
+
+[node name="bushyTreeBody" type="StaticBody2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+
+[node name="TreeSprite" parent="." instance=ExtResource( 1 )]
+position = Vector2( 30.9828, -292.124 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 10.465, 2.21652 )
+shape = SubResource( 1 )
+
+[node name="NotePlayer" parent="." instance=ExtResource( 4 )]

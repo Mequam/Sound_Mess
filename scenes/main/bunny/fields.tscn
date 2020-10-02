@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/instance/entities/PineTreeBody.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/assets/clouds.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/instance/bushyTreeBody.tscn" type="PackedScene" id=13]
 
 [node name="fields" type="TileMap"]
 cell_y_sort = true
@@ -325,3 +326,15 @@ position = Vector2( -1206.43, 2371.41 )
 [node name="door_church_yard" parent="." instance=ExtResource( 12 )]
 position = Vector2( 743.584, 197.905 )
 scale = Vector2( 40, 10 )
+
+[node name="bushyTreeBody" parent="." instance=ExtResource( 13 )]
+position = Vector2( 294.391, 513.965 )
+
+[node name="bushyTreeBody2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 734.719, 960.964 )
+
+[node name="bushyTreeBody3" parent="." instance=ExtResource( 13 )]
+position = Vector2( -733.04, 1387.95 )
+
+[node name="bushyTreeBody4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1948.96, 820.86 )

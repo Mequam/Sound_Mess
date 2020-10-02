@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/entities/SingingTree.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/instance/entities/enemies/evil_carrot.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/instance/bushyTreeBody.tscn" type="PackedScene" id=9]
 
 [node name="TileMap" type="TileMap"]
 cell_y_sort = true
@@ -21,7 +22,7 @@ tile_data = PoolIntArray( -196611, 2, 0, -131075, 0, 0, -131074, 1, 0, -65540, 2
 position = Vector2( -1034.39, 291.846 )
 
 [node name="Met" parent="." instance=ExtResource( 6 )]
-position = Vector2( -239.698, -88.8944 )
+position = Vector2( 116.487, -150.542 )
 
 [node name="SingingTree" parent="." instance=ExtResource( 2 )]
 position = Vector2( 58.8416, -302.229 )
@@ -31,95 +32,11 @@ scale = Vector2( 0.8, 0.8 )
 position = Vector2( 782.791, 21.376 )
 scale = Vector2( 6, 4 )
 
-[node name="evil_carrot" parent="." instance=ExtResource( 8 )]
-position = Vector2( -741.62, -274.055 )
-
-[node name="evil_carrot2" parent="." instance=ExtResource( 8 )]
-position = Vector2( -735.158, -206.851 )
-
-[node name="evil_carrot3" parent="." instance=ExtResource( 8 )]
-position = Vector2( -728.696, -138.355 )
-
-[node name="evil_carrot4" parent="." instance=ExtResource( 8 )]
-position = Vector2( -723.527, -76.3208 )
-
-[node name="evil_carrot5" parent="." instance=ExtResource( 8 )]
-position = Vector2( -748.082, -338.674 )
-
-[node name="evil_carrot10" parent="." instance=ExtResource( 8 )]
-position = Vector2( -521.152, -277.396 )
-
-[node name="evil_carrot9" parent="." instance=ExtResource( 8 )]
-position = Vector2( -514.69, -210.192 )
-
-[node name="evil_carrot8" parent="." instance=ExtResource( 8 )]
-position = Vector2( -508.228, -141.696 )
-
-[node name="evil_carrot7" parent="." instance=ExtResource( 8 )]
-position = Vector2( -503.058, -79.6613 )
-
-[node name="evil_carrot6" parent="." instance=ExtResource( 8 )]
-position = Vector2( -527.614, -342.015 )
-
-[node name="evil_carrot15" parent="." instance=ExtResource( 8 )]
-position = Vector2( -365.821, -277.396 )
-
-[node name="evil_carrot14" parent="." instance=ExtResource( 8 )]
-position = Vector2( -359.36, -210.192 )
-
-[node name="evil_carrot13" parent="." instance=ExtResource( 8 )]
-position = Vector2( -352.898, -141.696 )
-
-[node name="evil_carrot12" parent="." instance=ExtResource( 8 )]
-position = Vector2( -347.728, -79.6613 )
-
-[node name="evil_carrot11" parent="." instance=ExtResource( 8 )]
-position = Vector2( -372.283, -342.015 )
-
-[node name="evil_carrot20" parent="." instance=ExtResource( 8 )]
-position = Vector2( -915.323, -262.364 )
-
-[node name="evil_carrot19" parent="." instance=ExtResource( 8 )]
-position = Vector2( -908.861, -195.16 )
-
-[node name="evil_carrot18" parent="." instance=ExtResource( 8 )]
-position = Vector2( -902.399, -126.664 )
-
-[node name="evil_carrot17" parent="." instance=ExtResource( 8 )]
-position = Vector2( -897.229, -64.6293 )
-
-[node name="evil_carrot16" parent="." instance=ExtResource( 8 )]
-position = Vector2( -921.785, -326.983 )
-
-[node name="evil_carrot25" parent="." instance=ExtResource( 8 )]
-position = Vector2( -1085.68, -259.023 )
-
-[node name="evil_carrot24" parent="." instance=ExtResource( 8 )]
-position = Vector2( -1079.22, -191.819 )
-
-[node name="evil_carrot23" parent="." instance=ExtResource( 8 )]
-position = Vector2( -1072.76, -123.323 )
-
-[node name="evil_carrot22" parent="." instance=ExtResource( 8 )]
-position = Vector2( -1067.59, -61.2888 )
-
-[node name="evil_carrot21" parent="." instance=ExtResource( 8 )]
-position = Vector2( -1092.15, -323.642 )
-
-[node name="evil_carrot30" parent="." instance=ExtResource( 8 )]
-position = Vector2( -621.365, -279.066 )
-
-[node name="evil_carrot29" parent="." instance=ExtResource( 8 )]
-position = Vector2( -616.573, -211.862 )
-
-[node name="evil_carrot28" parent="." instance=ExtResource( 8 )]
-position = Vector2( -610.111, -143.366 )
-
-[node name="evil_carrot27" parent="." instance=ExtResource( 8 )]
-position = Vector2( -604.941, -81.3315 )
-
-[node name="evil_carrot26" parent="." instance=ExtResource( 8 )]
-position = Vector2( -629.497, -343.685 )
-
 [node name="Tarantula" parent="." instance=ExtResource( 7 )]
-position = Vector2( -824.384, -327.068 )
+position = Vector2( -451.075, -580.507 )
+
+[node name="evil_carrot" parent="." instance=ExtResource( 8 )]
+position = Vector2( -460.081, -390.433 )
+
+[node name="bushyTreeBody" parent="." instance=ExtResource( 9 )]
+position = Vector2( -908.522, -256.25 )
