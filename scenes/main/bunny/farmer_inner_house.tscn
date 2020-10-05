@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/assets/architecture/bunny/table.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/assets/architecture/bunny/rose.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/assets/vase.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/main_scenes/farmer_inner_house.gd" type="Script" id=7]
+[ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=9]
+
+[node name="farmer_inner_house" type="TileMap"]
+cell_y_sort = true
+format = 1
+script = ExtResource( 7 )
+
+[node name="crop_fields_door" parent="." instance=ExtResource( 9 )]
+position = Vector2( -907.136, 711.821 )
+scale = Vector2( 32, 8 )
+
+[node name="tiles" type="Node2D" parent="."]
+modulate = Color( 0.776471, 0.584314, 0.309804, 1 )
+
+[node name="main" parent="tiles" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -131074, 0, 0, -65538, 0, 0, -131072, 14, 0, -2, 0, 0, 65533, 9, 0, 65534, 0, 0, 65535, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 14, 0, 262141, 14, 0, 262142, 14, 0 )
+
+[node name="supplimental" parent="tiles" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -131075, 11, 0, -131074, 7, 0, -131073, 11, 0, -196608, 7, 0, -65539, 11, 0, -65538, 7, 0, -65537, 11, 0, -3, 11, 0, -2, 7, 0, -1, 11, 0, -65536, 11, 0, 65532, 11, 0, 65533, 11, 0, 65534, 7, 0, 0, 11, 0, 131068, 11, 0, 131069, 7, 0, 65536, 11, 0, 196604, 11, 0, 196605, 7, 0, 131072, 11, 0, 262140, 11, 0, 262143, 11, 0, 327676, 11, 0, 327677, 11, 0, 327678, 11, 0, 327679, 11, 0 )
+
+[node name="foreGround" parent="tiles" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -131075, 9, 0, -131073, 9, 0, -65537, 9, 0, -3, 9, 0, -1, 9, 0, -65536, 9, 0, 65532, 9, 0, 65533, 9, 0, 0, 9, 0, 131068, 9, 0, 65536, 9, 0, 196604, 9, 0, 131072, 9, 0, 262140, 9, 0, 262143, 9, 0, 327676, 9, 0, 327677, 9, 0, 327678, 9, 0, 327679, 9, 0 )
+
+[node name="background" type="Node2D" parent="."]
+z_index = -100
+
+[node name="ColorRect" type="ColorRect" parent="background"]
+margin_left = -2920.5
+margin_top = -1726.9
+margin_right = 3614.5
+margin_bottom = 1725.1
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="table" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64.6981, 12.026 )
+
+[node name="rose" parent="." instance=ExtResource( 3 )]
+position = Vector2( 65.466, -0.113102 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="rose2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 61.666, -14.3631 )
+scale = Vector2( -0.1, 0.1 )
+
+[node name="vase" parent="." instance=ExtResource( 4 )]
+position = Vector2( 62.3459, 37.3532 )
+
+[node name="player" parent="." instance=ExtResource( 5 )]
+position = Vector2( -652.082, 543.402 )
+
+[node name="Spider_Enemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( -132.502, -58.3008 )
+
+[node name="Spider_Enemy2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 257.053, 172.252 )
+
+[node name="Spider_Enemy3" parent="." instance=ExtResource( 6 )]
+position = Vector2( -254.403, 227.903 )
+
+[node name="Met" parent="." instance=ExtResource( 8 )]

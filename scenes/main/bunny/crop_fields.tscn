@@ -361,3 +361,7 @@ scale = Vector2( 40, 10 )
 [node name="fields_door" parent="." instance=ExtResource( 12 )]
 position = Vector2( -2410.08, 2262.78 )
 scale = Vector2( 16, 10 )
+
+[node name="inner_farm_house_door" parent="." instance=ExtResource( 12 )]
+position = Vector2( -1061.39, 2105.78 )
+scale = Vector2( 8, 3 )

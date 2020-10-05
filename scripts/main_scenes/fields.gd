@@ -7,4 +7,7 @@ func _ready():
 	
 	$fields_door.new_scene = "res://scenes/main/bunny/grass_field.tscn"
 	$fields_door.door_name = "A"
+	
+	$inner_farm_house_door.new_scene = "res://scenes/main/bunny/farmer_inner_house.tscn"
+	$inner_farm_house_door.door_name = "B"
 	.init()

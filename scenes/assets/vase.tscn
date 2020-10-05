@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+[ext_resource path="res://triangles/long_triangle.png" type="Texture" id=2]
+
+[node name="vase" type="Node2D"]
+modulate = Color( 0.443137, 1, 0.988235, 1 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="long_triangle" type="Sprite" parent="."]
+position = Vector2( 1.83627, -142.132 )
+scale = Vector2( 0.380535, 0.121173 )
+texture = ExtResource( 2 )
+
+[node name="even_triangle" type="Sprite" parent="."]
+position = Vector2( 5.92896, -41.1926 )
+rotation = -3.14159
+scale = Vector2( 0.69153, 0.244196 )
+texture = ExtResource( 1 )

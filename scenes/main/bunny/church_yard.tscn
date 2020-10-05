@@ -202,58 +202,6 @@ modulate = Color( 0.619608, 1, 0.839216, 1 )
 position = Vector2( 95.3945, 156.528 )
 scale = Vector2( 0.25, 0.25 )
 
-[node name="hill5" parent="." instance=ExtResource( 12 )]
-modulate = Color( 0.619608, 1, 0.839216, 1 )
-position = Vector2( -2004.96, 2043 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="hill7" parent="." instance=ExtResource( 12 )]
-modulate = Color( 0.619608, 1, 0.839216, 1 )
-position = Vector2( -1910.07, 2017.92 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="hill14" parent="." instance=ExtResource( 12 )]
-modulate = Color( 0.619608, 1, 0.839216, 1 )
-position = Vector2( -1910.07, 2017.92 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="hill15" parent="." instance=ExtResource( 12 )]
-modulate = Color( 0.619608, 1, 0.839216, 1 )
-position = Vector2( -1851.47, 1963.6 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="hill8" parent="." instance=ExtResource( 12 )]
-modulate = Color( 0.619608, 1, 0.839216, 1 )
-position = Vector2( -1534.22, 1783.02 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="hill9" parent="." instance=ExtResource( 12 )]
-modulate = Color( 0.619608, 1, 0.839216, 1 )
-position = Vector2( -1452, 1715.48 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="hill10" parent="." instance=ExtResource( 12 )]
-modulate = Color( 0.619608, 1, 0.839216, 1 )
-position = Vector2( -1308.12, 1674.37 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="hill11" parent="." instance=ExtResource( 12 )]
-modulate = Color( 0.619608, 1, 0.839216, 1 )
-position = Vector2( -1281.8, 1990.68 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 10
-
-[node name="hill12" parent="." instance=ExtResource( 12 )]
-modulate = Color( 0.619608, 1, 0.839216, 1 )
-position = Vector2( -1419.9, 2104.14 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 10
-
-[node name="hill13" parent="." instance=ExtResource( 12 )]
-modulate = Color( 0.619608, 1, 0.839216, 1 )
-position = Vector2( -1898.07, 1919.71 )
-scale = Vector2( 0.5, 0.5 )
-
 [node name="hill2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 264.817, 398.615 )
 scale = Vector2( 0.25, 0.25 )
@@ -335,6 +283,21 @@ position = Vector2( -975.66, 1228.61 )
 
 [node name="PineTree20" parent="." instance=ExtResource( 8 )]
 position = Vector2( -964.518, 1685.46 )
+
+[node name="PineTree31" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1902.6, 2000.06 )
+
+[node name="PineTree32" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1450.72, 1931.42 )
+
+[node name="PineTree33" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1473.6, 1759.82 )
+
+[node name="PineTree34" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1742.44, 1879.94 )
+
+[node name="PineTree35" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1216.2, 1817.02 )
 
 [node name="PineTree21" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2230.78, 507.601 )
