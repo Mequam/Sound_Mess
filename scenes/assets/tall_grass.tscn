@@ -19,7 +19,7 @@ tracks/0/keys = {
 "values": [ 175.133, 171.43 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("long_triangle4:rotation_degrees")
+tracks/1/path = NodePath("../tall_grass2/tall_grass25:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false

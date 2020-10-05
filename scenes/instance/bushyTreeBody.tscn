@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/assets/bushy_tree.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/instance/bushyTreeBody.gd" type="Script" id=2]
+[ext_resource path="res://scripts/bushyTree.gd" type="Script" id=2]
 [ext_resource path="res://scenes/instance/NotePlayer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
