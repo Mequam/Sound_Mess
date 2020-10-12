@@ -19,9 +19,7 @@ var mode = 1
 #additionaly need to add the fourier transform or "tuner" input method
 var input_mode = "dev"
 
-
 func set_i_timer(val):
-	
 	if (val >= 0):
 		i_timer = val
 		if (val != 0):
@@ -70,6 +68,7 @@ func checkInputRythom():
 var last_beat = 0
 func get_type():
 	return "player"
+
 #this fuction updates our momentom to match our rythom
 func updateRythomMomentom():
 	var beat_value = checkInputRythom()
@@ -114,33 +113,30 @@ func check_action(act):
 		_:
 			return false
 #checks the inputs for the movement of the object
-func move_2d(delta):
+func move_2d(delta,input_number,flavor):
 	var to_move = Vector2(0,0)
-	for i in range(1,5):
-		if (check_action("NOTE_" + str(i))):
-			updateRythomMomentom()
-			match i:
-				4:
-					get_node("NotePlayer").play_note(4-7)
-					to_move.x += 1
-				1:
-					get_node("NotePlayer").play_note(1-7)
-					to_move.x -= 1
-				2:
-					get_node("NotePlayer").play_note(2-7)
-					to_move.y += 1
-				3:
-					get_node("NotePlayer").play_note(3-7)
-					to_move.y -= 1
+	match input_number:
+		4:
+			get_node("NotePlayer").play_note(4-7)
+			to_move.x += 1
+		1:
+			get_node("NotePlayer").play_note(1-7)
+			to_move.x -= 1
+		2:
+			get_node("NotePlayer").play_note(2-7)
+			to_move.y += 1
+		3:
+			get_node("NotePlayer").play_note(3-7)
+			to_move.y -= 1
 	if (to_move != Vector2(0,0)):
 		var mult = 1
 		if (rythom_score >= 1):
 			#let the avatar decide what our flavors do
+			print("calling avatar with a flavor of " + str(flavor))
 			mult=$avatar.run_flavor(flavor,to_move,delta)
-			mult=$avatar.run_flavor(flavor,to_move,delta)
+			#mult=$avatar.run_flavor(flavor,to_move,delta)
 		move_dir(to_move*mult,delta)
 		$avatar.clean_flavor(flavor,to_move,delta)
-		flavor = -1
 
 #decide what to do with the thing we hit
 func collision_action(collision):
@@ -159,35 +155,48 @@ func attack(dir):
 func make_dir(v2):
 	var n = 1.0/sqrt(v2.x*v2.x+v2.y*v2.y)
 	return Vector2(n*v2.x,n*v2.y)
-
-#this function "augments" our next movement input with the given flavor
-var flavor = -1 setget set_flavor, get_flavor
+var flavor = -1 setget set_flavor,get_flavor
 func set_flavor(new_flavor):
 	flavor = new_flavor
-	#alert the avatar that our flavor changed
 	$avatar.flavor_changed(flavor)
 func get_flavor():
 	return flavor
+	
 
-#this function checks the given inputs to move the player
-func check_inputs(delta,delta_beat):
-	if (check_action("mode_change")):
-		get_node("NotePlayer").mode+=1
-	if (check_action("NOTE_6")):
-		updateRythomMomentom()
-		set_flavor(6)
-		get_node("NotePlayer").play_note(-1)
-	if (check_action("NOTE_0")):
-		get_node("NotePlayer").play_note(-7)
-	if (check_action("NOTE_5")):
-		#attack command
-		get_node("NotePlayer").play_note(5-7)
-		updateRythomMomentom()
-		set_flavor(7)
-	if (check_action("NOTE_7")):
-		get_node("NotePlayer").play_note(0)
-	move_2d(delta)
-	get_node("ComboTracker").check_inputs(delta)
+#this function checks which input the user pressed
+func find_input(delta):
+	for i in range(0,8):
+		if (check_action("NOTE_" + str(i))):
+			var tmpFlavor = run_flavor_input(delta,i)
+			if (tmpFlavor == -2):
+				move_2d(delta,i,flavor)
+				set_flavor(-1)
+			else:
+				set_flavor(tmpFlavor)
+			get_node("ComboTracker").check_inputs(delta)
+#this function checks the given inputs to move the player and sets the flavor accordingly
+func run_flavor_input(delta,input_number):
+	#make sure that the player is moving in time
+	updateRythomMomentom()
+	
+	var flavor = -1
+	match input_number:
+		0:
+			get_node("NotePlayer").play_note(-7)
+		7:
+			get_node("NotePlayer").play_note(0)
+		6:
+			flavor = 6
+			get_node("NotePlayer").play_note(-1)
+		5:
+			flavor = 7
+			get_node("NotePlayer").play_note(5-7)
+		_:
+			#indicates that we did nothing and want to move the character
+			flavor = -2
+	$avatar.flavor_changed(flavor)
+	return flavor
+
 	
 #runs when the player completes a combo
 func on_combo(combo_name):
@@ -229,6 +238,9 @@ func _ready():
 	get_node("ComboTracker").connect("combo_found",self,"on_combo")
 	add_to_group("player")
 func _process(delta):
+	#check the user inputs and act accordingly
+	find_input(delta)
+	#check_inputs(delta)
 	#this code snippet ensures that we play short blips
 	if (get_node("NotePlayer").playing):
 		timeout+=delta
