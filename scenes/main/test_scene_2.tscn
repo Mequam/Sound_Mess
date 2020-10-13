@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/entities/SingingTree.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/instance/entities/enemies/evil_carrot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/instance/bushyTreeBody.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/instance/entities/AI_player.tscn" type="PackedScene" id=10]
 
 [node name="TileMap" type="TileMap"]
 cell_y_sort = true
@@ -17,9 +18,6 @@ script = ExtResource( 3 )
 
 [node name="TS1" parent="." instance=ExtResource( 1 )]
 tile_data = PoolIntArray( -196611, 2, 0, -131075, 0, 0, -131074, 1, 0, -65540, 2, 0, -65539, 0, 0, -65538, 1, 0, -4, 0, 0, -3, 0, 0, -2, 1, 0, 65531, 2, 0, 65532, 0, 0, 65533, 0, 0, 65534, 1, 0, 65535, 11, 0, 131067, 0, 0, 131068, 0, 0, 131069, 3, 0, 131070, 2, 0, 131071, 0, 0, 65536, 1, 0, 196601, 2, 0, 196602, 2, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 1, 0, 262136, 2, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 1, 0, 327672, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 1, 0, 393210, 2, 0, 393211, 0, 0, 393212, 1, 0, 458746, 0, 0, 458747, 0, 0, 458748, 1, 0, 524282, 0, 0, 524283, 0, 0, 524284, 1, 0, 589819, 0, 0, 589820, 1, 0 )
-
-[node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1034.39, 291.846 )
 
 [node name="Met" parent="." instance=ExtResource( 6 )]
 position = Vector2( 116.487, -150.542 )
@@ -40,3 +38,10 @@ position = Vector2( -460.081, -390.433 )
 
 [node name="bushyTreeBody" parent="." instance=ExtResource( 9 )]
 position = Vector2( -908.522, -256.25 )
+
+[node name="AI_player" parent="." instance=ExtResource( 10 )]
+modulate = Color( 0.376471, 1, 0.941176, 1 )
+position = Vector2( -903.821, 175.743 )
+
+[node name="player" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1280.41, 348.696 )

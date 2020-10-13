@@ -161,19 +161,22 @@ func set_flavor(new_flavor):
 	$avatar.flavor_changed(flavor)
 func get_flavor():
 	return flavor
-	
-
-#this function checks which input the user pressed
-func find_input(delta):
+func getActionId():
 	for i in range(0,8):
 		if (check_action("NOTE_" + str(i))):
-			var tmpFlavor = run_flavor_input(delta,i)
-			if (tmpFlavor == -2):
-				move_2d(delta,i,flavor)
-				set_flavor(-1)
-			else:
-				set_flavor(tmpFlavor)
-			get_node("ComboTracker").check_inputs(delta)
+			return i
+	return -1
+#this function checks which input the user pressed and passes that information to the players other movement functions
+func find_input(delta):
+			var i = getActionId()
+			if i != -1:
+				var tmpFlavor = run_flavor_input(delta,i)
+				if (tmpFlavor == -2):
+					move_2d(delta,i,flavor)
+					set_flavor(-1)
+				else:
+					set_flavor(tmpFlavor)
+				get_node("ComboTracker").check_inputs(delta)
 #this function checks the given inputs to move the player and sets the flavor accordingly
 func run_flavor_input(delta,input_number):
 	#make sure that the player is moving in time
@@ -224,8 +227,9 @@ func on_col(thing,dmg=1):
 #this function plays when our sword interacts with a body
 func _on_sword_strike(body):
 	print("struck " + str(body))
-
-func _ready():
+#this can be thought of as the actual ready function, we do this
+#so we can over-ride the function isntead of stacking behavior
+func main_ready():
 	$health_bar.hp = 5
 	$health_bar.sync_disp()
 	get_node("NotePlayer").mode = 5
@@ -237,16 +241,29 @@ func _ready():
 	#connect all of our child nodes
 	get_node("ComboTracker").connect("combo_found",self,"on_combo")
 	add_to_group("player")
-func _process(delta):
-	#check the user inputs and act accordingly
-	find_input(delta)
-	#check_inputs(delta)
-	#this code snippet ensures that we play short blips
+
+func _ready():
+	main_ready()
+
+#this functio is called to make sure that the note player is playing or ONE blip
+func limitNotePlayerTime(delta):
+		#this code snippet ensures that we play short blips
 	if (get_node("NotePlayer").playing):
 		timeout+=delta
 		if (timeout >= .1):
 			timeout = 0
 			get_node("NotePlayer").stop()
+func main_process(delta):
+		#check the user inputs and act accordingly
+	find_input(delta)
+	#make sure the note player does not play forever
+	limitNotePlayerTime(delta)
+#for whatever reason _process does not get over-wridden in gdscript
+#so we create a main_process to do that for us
+func _process(delta):
+	main_process(delta)
+
+
 #this function is called every beat of the metronome
 func _met_process(beat):
 	if (i_timer != 0):

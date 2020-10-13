@@ -27,6 +27,9 @@ func _ready():
 func init():
 	add_to_group("main_scene")
 	$player.sub_beat = get_node("Met/Met").wait_time
+	for node in get_tree().get_nodes_in_group("AIplayer"):
+		node.sub_beat = $Met/Met.wait_time
+		node.get_node("Met").wait_time = $Met/Met.wait_time
 	if (Globals.load_able_player_position != null):
 		$player.position = Globals.load_able_player_position
 	elif (Globals.prev_door_name != null):
@@ -40,6 +43,7 @@ func init():
 	
 	for node in get_tree().get_nodes_in_group("play_idle"):
 		node.get_node("AnimationPlayer").play("Idle")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
