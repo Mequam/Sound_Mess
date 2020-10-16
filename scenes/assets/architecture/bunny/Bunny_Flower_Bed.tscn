@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/assets/dirtSpot.tscn" type="PackedScene" id=1]
+
+[node name="Bunny_Flower_Bed" type="Node2D"]
+
+[node name="dirtHoleSprite2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 9.86775, -25.0331 )
+
+[node name="dirtHoleSprite" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -2.8938 )
