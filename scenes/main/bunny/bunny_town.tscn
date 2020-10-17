@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=2]
@@ -8,6 +8,14 @@
 [ext_resource path="res://scripts/main_scenes/bunny_town.gd" type="Script" id=6]
 [ext_resource path="res://scenes/assets/hill.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/assets/bunny_flower_bed.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/assets/architecture/bunny/table.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/assets/architecture/bunny/bunny_church_fence.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/assets/architecture/bunny/bunny_house_tall_windmill.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/instance/entities/PineTreeBody.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/assets/architecture/stone_path.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/assets/architecture/bunny/bunny_house_chimny.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/assets/architecture/stone_path_b.tscn" type="PackedScene" id=16]
 
 [node name="bunnyTown" type="TileMap"]
 cell_y_sort = true
@@ -18,19 +26,25 @@ script = ExtResource( 6 )
 modulate = Color( 0, 1, 0.576471, 1 )
 
 [node name="main" parent="tileSets" instance=ExtResource( 1 )]
-tile_data = PoolIntArray( -196610, 0, 0, -196609, 0, 0, -131073, 0, 0, -65537, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 262139, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 327678, 0, 0, 327679, 0, 0, 393214, 0, 0, 458750, 0, 0 )
+tile_data = PoolIntArray( -196610, 0, 0, -196609, 0, 0, -131073, 0, 0, -196606, 0, 0, -65537, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 14, 0, 65540, 14, 0, 65541, 0, 0, 65542, 14, 0, 65543, 14, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 14, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 262139, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 14, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 327678, 0, 0, 262144, 14, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 393214, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 458750, 0, 0 )
+
+[node name="main2" parent="tileSets" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -262146, 2, 0, -262145, 2, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 1, 0, -262142, 2, 0, -131073, 0, 0, -196608, 1, 0, -196607, 2, 0, -196606, 0, 0, -196605, 3, 0, -196604, 2, 0, -196603, 2, 0, -65540, 2, 0, -65539, 2, 0, -65538, 2, 0, -65537, 0, 0, -131072, 3, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 1, 0, -5, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 1, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 6, 1, 0, 131067, 2, 0, 131068, 2, 0, 131069, 2, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 14, 0, 65540, 14, 0, 65542, 14, 0, 65543, 14, 0, 65544, 8, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 14, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 7, 0, 262139, 0, 0, 262140, 1, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 14, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 1, 0, 327675, 0, 0, 327676, 1, 0, 327678, 0, 0, 262144, 14, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 1, 0, 393211, 0, 0, 393214, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 1, 0, 458750, 0, 0 )
+
+[node name="fore_ground" parent="tileSets" instance=ExtResource( 1 )]
+z_index = 4
 
 [node name="Met" parent="." instance=ExtResource( 2 )]
 position = Vector2( 167.81, 36.5587 )
 
 [node name="farm_house" parent="." instance=ExtResource( 4 )]
-position = Vector2( 356.402, -131.385 )
+position = Vector2( 372.67, -108.61 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 262.063, 157.238 )
 
 [node name="transparent_windmill" parent="." instance=ExtResource( 3 )]
-position = Vector2( 773.536, 153.452 )
+position = Vector2( 68.6177, -201.657 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="hill" parent="." instance=ExtResource( 7 )]
@@ -38,10 +52,10 @@ modulate = Color( 0, 1, 0.576471, 1 )
 position = Vector2( 719.356, -193.317 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="hill2" parent="." instance=ExtResource( 7 )]
+[node name="hill5" parent="." instance=ExtResource( 7 )]
 modulate = Color( 0, 1, 0.576471, 1 )
-position = Vector2( 945.745, -112.159 )
-scale = Vector2( 0.25, 0.5 )
+position = Vector2( 1194.85, 12.3942 )
+scale = Vector2( 0.25, 0.25 )
 
 [node name="hill3" parent="." instance=ExtResource( 7 )]
 modulate = Color( 0, 1, 0.576471, 1 )
@@ -59,3 +73,138 @@ position = Vector2( 45.2548, -4.52545 )
 
 [node name="tall_grass4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 85.9842, 15.8392 )
+
+[node name="bunny_flower_bed" parent="." instance=ExtResource( 9 )]
+position = Vector2( 198.906, -26.6574 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="bunny_flower_bed2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 295.282, -45.1125 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="bunny_flower_bed3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 523.053, -54.2618 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="bunny_flower_bed4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 608.325, -33.1565 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="bunny_flower_bed5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1827.88, 53.1834 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="bunny_flower_bed6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1817.08, 109.304 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="bunny_flower_bed7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1745.85, 139.523 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="bunny_flower_bed8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1655.2, 135.206 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="bunny_flower_bed9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1716.48, 52.2894 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="bunny_flower_bed10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1586.7, 70.3148 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="bunny_flower_bed11" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1561.46, 131.601 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="table" parent="." instance=ExtResource( 10 )]
+position = Vector2( 790.369, -83.7176 )
+
+[node name="fence_front" parent="." instance=ExtResource( 11 )]
+position = Vector2( 585.45, 60.9318 )
+
+[node name="hill4" parent="." instance=ExtResource( 7 )]
+modulate = Color( 0, 1, 0.576471, 1 )
+position = Vector2( 1149.23, -45.1854 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="hill6" parent="." instance=ExtResource( 7 )]
+modulate = Color( 0, 1, 0.576471, 1 )
+position = Vector2( 1096.23, -63.7359 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="hill7" parent="." instance=ExtResource( 7 )]
+modulate = Color( 0, 1, 0.576471, 1 )
+position = Vector2( 1525.82, 173.376 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="hill8" parent="." instance=ExtResource( 7 )]
+modulate = Color( 0, 1, 0.576471, 1 )
+position = Vector2( 1668.09, 103.637 )
+scale = Vector2( 0.25, 0.5 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 15 )]
+
+[node name="chimeny_house" parent="." instance=ExtResource( 15 )]
+position = Vector2( 979.223, -135.251 )
+
+[node name="Node2D" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1989.8, 37.3611 )
+
+[node name="PineTree" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2299.66, 182.152 )
+
+[node name="PineTree2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1244.7, -163.177 )
+
+[node name="PineTree3" parent="." instance=ExtResource( 13 )]
+position = Vector2( -32.7708, 178.117 )
+
+[node name="PineTree4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1824.28, 431.639 )
+
+[node name="path_stones" parent="." instance=ExtResource( 14 )]
+position = Vector2( 534.727, 89.6364 )
+
+[node name="path_stones2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 630.161, 164.802 )
+
+[node name="path_stones5" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1020.7, 284.752 )
+
+[node name="path_stones8" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1426.04, 340.661 )
+
+[node name="path_stones9" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1542.51, 419.865 )
+
+[node name="path_stones10" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1575.12, 326.684 )
+
+[node name="path_stones11" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1682.28, 317.366 )
+
+[node name="path_stones12" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1794.1, 308.048 )
+
+[node name="path_stones13" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1863.99, 224.185 )
+
+[node name="path_stones14" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1985.12, 186.912 )
+
+[node name="path_stones15" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1961.83, 144.981 )
+
+[node name="path_stones6" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1129.49, 359.15 )
+
+[node name="path_stones7" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1264.6, 349.832 )
+
+[node name="path_stones3" parent="." instance=ExtResource( 16 )]
+position = Vector2( 753.178, 262.217 )
+
+[node name="path_stones4" parent="." instance=ExtResource( 16 )]
+position = Vector2( 898.234, 337.535 )

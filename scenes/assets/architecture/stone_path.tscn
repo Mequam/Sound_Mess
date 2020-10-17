@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+
+[node name="path_stones" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+
+[node name="even_triangle" type="Sprite" parent="."]
+modulate = Color( 0.647059, 0.647059, 0.647059, 1 )
+position = Vector2( -60.9501, 35.248 )
+scale = Vector2( 0.32778, 0.13088 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle2" type="Sprite" parent="."]
+modulate = Color( 0.752941, 0.752941, 0.752941, 1 )
+position = Vector2( 44.847, -72.436 )
+scale = Vector2( 0.25, 0.110329 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle3" type="Sprite" parent="."]
+modulate = Color( 0.486275, 0.486275, 0.486275, 1 )
+position = Vector2( 102.504, 85.709 )
+scale = Vector2( 0.210271, 0.0773771 )
+texture = ExtResource( 1 )
