@@ -17,7 +17,7 @@ var mode = 1
 
 #TODO: this needs a setter and a getter that changes other aspects of the game
 #additionaly need to add the fourier transform or "tuner" input method
-var input_mode = "dev"
+var input_mode = "midi"
 
 func set_i_timer(val):
 	if (val >= 0):
@@ -227,6 +227,7 @@ func on_col(thing,dmg=1):
 #this function plays when our sword interacts with a body
 func _on_sword_strike(body):
 	print("struck " + str(body))
+
 #this can be thought of as the actual ready function, we do this
 #so we can over-ride the function isntead of stacking behavior
 func main_ready():
@@ -244,7 +245,7 @@ func main_ready():
 
 func _ready():
 	main_ready()
-
+	$avatar.load_avatar()
 #this functio is called to make sure that the note player is playing or ONE blip
 func limitNotePlayerTime(delta):
 		#this code snippet ensures that we play short blips

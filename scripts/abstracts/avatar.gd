@@ -1,5 +1,12 @@
 extends Node2D
 
+#this is a function that sets the mode of the player note player
+#it is inteanded to be used by other avatars to tell the player
+#what scale to play
+func set_mode(mode):
+	get_parent().get_node("NotePlayer").mode = mode
+func load_avatar():
+	pass
 var in_time setget set_in_time, get_in_time
 func set_in_time(val):
 	pass

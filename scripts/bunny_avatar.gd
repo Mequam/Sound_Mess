@@ -1,6 +1,9 @@
 extends "res://scripts/abstracts/avatar.gd"
 var running_7 = false
 var dmg7 = 1
+
+func load_avatar():
+	set_mode(1)
 func run_seven(to_move,delta):
 	running_7 = true
 	dmg7 = 1 if get_last_beat() == 2 else 0 
