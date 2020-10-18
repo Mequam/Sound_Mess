@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://triangles/long_triangle.png" type="Texture" id=1]
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=2]
+
+[node name="burrow_sign" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+modulate = Color( 0.831373, 0.635294, 0.298039, 1 )
+
+[node name="long_triangle" type="Sprite" parent="Node2D"]
+position = Vector2( -1.00172, -91.8482 )
+rotation = -3.14159
+scale = Vector2( 0.102229, 0.274343 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle2" type="Sprite" parent="Node2D"]
+position = Vector2( -20.7621, -118.149 )
+rotation = 1.07073
+scale = Vector2( 0.169914, 0.301112 )
+texture = ExtResource( 1 )
+
+[node name="bunny_face" type="Node2D" parent="."]
+position = Vector2( 54.9392, -131.545 )
+
+[node name="even_triangle" type="Sprite" parent="bunny_face"]
+position = Vector2( -1.23816, -1.86981 )
+scale = Vector2( 0.0690701, 0.0436538 )
+texture = ExtResource( 2 )
+
+[node name="long_triangle" type="Sprite" parent="bunny_face"]
+position = Vector2( -10.8207, -39.2603 )
+rotation = -3.14159
+scale = Vector2( 0.0331085, 0.0696854 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle2" type="Sprite" parent="bunny_face"]
+position = Vector2( 6.76025, -39.9236 )
+rotation = -3.14159
+scale = Vector2( 0.0317234, 0.0696854 )
+texture = ExtResource( 1 )

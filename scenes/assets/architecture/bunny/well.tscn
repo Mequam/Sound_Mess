@@ -1,0 +1,131 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+[ext_resource path="res://triangles/long_triangle.png" type="Texture" id=2]
+
+[node name="well" type="Node2D"]
+scale = Vector2( 4, 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="roof" type="Node2D" parent="."]
+modulate = Color( 0.862745, 0.72549, 0.560784, 1 )
+
+[node name="even_triangle" type="Sprite" parent="roof"]
+position = Vector2( -0.607163, -26.6078 )
+rotation = -3.14159
+scale = Vector2( 0.1, 0.0467475 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle" type="Sprite" parent="roof"]
+position = Vector2( -9.97844, -11.8476 )
+scale = Vector2( 0.0112831, 0.0141684 )
+texture = ExtResource( 2 )
+
+[node name="long_triangle2" type="Sprite" parent="roof"]
+position = Vector2( 6.40007, -12.3996 )
+scale = Vector2( 0.0112831, 0.0141684 )
+texture = ExtResource( 2 )
+
+[node name="Stones" type="Node2D" parent="."]
+modulate = Color( 0.721569, 0.721569, 0.721569, 1 )
+
+[node name="even_triangle" type="Sprite" parent="Stones"]
+position = Vector2( -7.80313, -5.58857 )
+scale = Vector2( 0.0216682, 0.0139786 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle8" type="Sprite" parent="Stones"]
+position = Vector2( -4.12257, -1.908 )
+scale = Vector2( 0.0216682, 0.0139786 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle10" type="Sprite" parent="Stones"]
+position = Vector2( -8.60339, -1.99565 )
+scale = Vector2( 0.0216682, 0.0139786 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle2" type="Sprite" parent="Stones"]
+position = Vector2( 4.11964, -6.33496 )
+scale = Vector2( 0.0216682, 0.0100117 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle6" type="Sprite" parent="Stones"]
+position = Vector2( -1.87701, 3.34775 )
+rotation = 3.14159
+scale = Vector2( 0.015095, 0.00908008 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle12" type="Sprite" parent="Stones"]
+position = Vector2( -7.37747, 2.9603 )
+rotation = 3.14159
+scale = Vector2( 0.015095, 0.00908008 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle13" type="Sprite" parent="Stones"]
+position = Vector2( 5.77999, -4.41707 )
+scale = Vector2( 0.0251481, 0.011752 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle14" type="Sprite" parent="Stones"]
+position = Vector2( -2.86343, 2.83799 )
+scale = Vector2( 0.0251481, 0.011752 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle15" type="Sprite" parent="Stones"]
+position = Vector2( -0.351993, -0.695702 )
+scale = Vector2( 0.0251481, 0.011752 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle16" type="Sprite" parent="Stones"]
+position = Vector2( 4.88513, -1.81115 )
+scale = Vector2( 0.0251481, 0.011752 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle17" type="Sprite" parent="Stones"]
+position = Vector2( 2.65881, 2.79926 )
+rotation = 3.14159
+scale = Vector2( 0.0251481, 0.011752 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle18" type="Sprite" parent="Stones"]
+position = Vector2( 6.42339, 2.60045 )
+scale = Vector2( 0.0251481, 0.011752 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle19" type="Sprite" parent="Stones"]
+position = Vector2( 3.14619, 1.39683 )
+scale = Vector2( 0.0251481, 0.011752 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle20" type="Sprite" parent="Stones"]
+position = Vector2( -4.21943, -6.14207 )
+scale = Vector2( 0.0251481, 0.011752 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle21" type="Sprite" parent="Stones"]
+position = Vector2( 0.577126, -4.79304 )
+scale = Vector2( 0.0251481, 0.011752 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle7" type="Sprite" parent="Stones"]
+position = Vector2( 8.47876, 3.55872 )
+rotation = 3.14159
+scale = Vector2( 0.015095, 0.00908008 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle4" type="Sprite" parent="Stones"]
+position = Vector2( 7.12902, -0.552003 )
+scale = Vector2( 0.0220548, 0.010416 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle5" type="Sprite" parent="Stones"]
+position = Vector2( -8.28742, 1.57885 )
+scale = Vector2( 0.0220548, 0.010416 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle11" type="Sprite" parent="Stones"]
+position = Vector2( -5.38868, 0.928486 )
+scale = Vector2( 0.0220548, 0.010416 )
+texture = ExtResource( 1 )
