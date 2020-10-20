@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=2]
@@ -16,6 +16,13 @@
 [ext_resource path="res://scenes/assets/architecture/stone_path.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/assets/architecture/bunny/bunny_house_chimny.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/assets/architecture/stone_path_b.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/assets/architecture/bunny/well.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/assets/architecture/bunny/bunny_wire.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/assets/architecture/windmill.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/assets/architecture/bunny/burrow_sign.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/assets/dirtSpot.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/instance/entities/AI_player.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=23]
 
 [node name="bunnyTown" type="TileMap"]
 cell_y_sort = true
@@ -26,13 +33,14 @@ script = ExtResource( 6 )
 modulate = Color( 0, 1, 0.576471, 1 )
 
 [node name="main" parent="tileSets" instance=ExtResource( 1 )]
-tile_data = PoolIntArray( -196610, 0, 0, -196609, 0, 0, -131073, 0, 0, -196606, 0, 0, -65537, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 14, 0, 65540, 14, 0, 65541, 0, 0, 65542, 14, 0, 65543, 14, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 14, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 262139, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 14, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 327678, 0, 0, 262144, 14, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 393214, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 458750, 0, 0 )
+tile_data = PoolIntArray( -196610, 0, 0, -196609, 0, 0, -131073, 0, 0, -196606, 0, 0, -65537, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 131067, 2, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 14, 0, 65540, 14, 0, 65541, 0, 0, 65542, 14, 0, 65543, 14, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 14, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 14, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 327678, 0, 0, 327679, 1, 0, 262144, 14, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 393214, 0, 0, 393215, 1, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 458750, 0, 0 )
 
 [node name="main2" parent="tileSets" instance=ExtResource( 1 )]
-tile_data = PoolIntArray( -262146, 2, 0, -262145, 2, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 1, 0, -262142, 2, 0, -131073, 0, 0, -196608, 1, 0, -196607, 2, 0, -196606, 0, 0, -196605, 3, 0, -196604, 2, 0, -196603, 2, 0, -65540, 2, 0, -65539, 2, 0, -65538, 2, 0, -65537, 0, 0, -131072, 3, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 1, 0, -5, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 1, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 6, 1, 0, 131067, 2, 0, 131068, 2, 0, 131069, 2, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 14, 0, 65540, 14, 0, 65542, 14, 0, 65543, 14, 0, 65544, 8, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 14, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 7, 0, 262139, 0, 0, 262140, 1, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 14, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 1, 0, 327675, 0, 0, 327676, 1, 0, 327678, 0, 0, 262144, 14, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 1, 0, 393211, 0, 0, 393214, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 1, 0, 458750, 0, 0 )
+tile_data = PoolIntArray( -262146, 2, 0, -262145, 2, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 1, 0, -262142, 2, 0, -131073, 0, 0, -196608, 1, 0, -196607, 2, 0, -196606, 0, 0, -196605, 3, 0, -196604, 2, 0, -196603, 2, 0, -65539, 2, 0, -65538, 2, 0, -65537, 0, 0, -131072, 3, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 1, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 1, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 6, 1, 0, 131068, 2, 0, 131069, 2, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 14, 0, 65540, 14, 0, 65542, 14, 0, 65543, 14, 0, 65544, 8, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 14, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 7, 0, 262139, 0, 0, 262140, 1, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 14, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 1, 0, 327675, 0, 0, 327676, 1, 0, 327678, 0, 0, 262144, 14, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 1, 0, 393211, 0, 0, 393214, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 1, 0, 458750, 0, 0 )
 
 [node name="fore_ground" parent="tileSets" instance=ExtResource( 1 )]
 z_index = 4
+tile_data = PoolIntArray( -262147, 11, 0, -196612, 11, 0, -131075, 11, 0, -131074, 11, 0, -65541, 11, 0, -65538, 11, 0, -131072, 11, 0, -6, 11, 0, 65530, 11, 0, 65531, 11, 0, 65532, 11, 0, 131068, 11, 0, 131069, 11, 0, 196602, 11, 0, 262138, 11, 0, 262140, 11, 0, 196613, 11, 0, 196614, 11, 0, 196615, 11, 0, 327674, 11, 0, 327676, 11, 0, 327677, 11, 0, 327679, 11, 0, 262148, 11, 0, 393210, 11, 0, 393212, 11, 0, 393213, 11, 0, 393215, 11, 0, 327683, 11, 0, 458749, 11, 0, 458751, 11, 0, 393216, 11, 0, 393217, 11, 0, 393218, 11, 0 )
 
 [node name="Met" parent="." instance=ExtResource( 2 )]
 position = Vector2( 167.81, 36.5587 )
@@ -66,7 +74,37 @@ scale = Vector2( 0.25, 0.25 )
 position = Vector2( 651.67, -133.502 )
 
 [node name="tall_grass2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 681.085, -90.5097 )
+position = Vector2( 685.989, -90.5097 )
+
+[node name="tall_grass5" parent="." instance=ExtResource( 8 )]
+position = Vector2( -172.255, 272.405 )
+
+[node name="tall_grass6" parent="." instance=ExtResource( 8 )]
+position = Vector2( -137.925, 331.256 )
+
+[node name="tall_grass7" parent="." instance=ExtResource( 8 )]
+position = Vector2( -88.8825, 267.501 )
+
+[node name="tall_grass8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1584.36, -169.824 )
+
+[node name="tall_grass9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1546.33, -81.0914 )
+
+[node name="tall_grass10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2404.57, -439.102 )
+
+[node name="tall_grass11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2355.53, -409.676 )
+
+[node name="tall_grass12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2419.29, -385.155 )
+
+[node name="tall_grass13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2174.08, -546.995 )
+
+[node name="tall_grass14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2208.41, -532.282 )
 
 [node name="tall_grass3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 45.2548, -4.52545 )
@@ -150,10 +188,14 @@ scale = Vector2( 0.25, 0.5 )
 position = Vector2( 979.223, -135.251 )
 
 [node name="Node2D" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1989.8, 37.3611 )
+position = Vector2( 1994.46, 51.3382 )
 
 [node name="PineTree" parent="." instance=ExtResource( 13 )]
 position = Vector2( 2299.66, 182.152 )
+
+[node name="PineTree5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2624.53, -263.973 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="PineTree2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1244.7, -163.177 )
@@ -194,6 +236,84 @@ position = Vector2( 1863.99, 224.185 )
 [node name="path_stones14" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1985.12, 186.912 )
 
+[node name="path_stones16" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2072.97, 258.491 )
+
+[node name="path_stones17" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2160.81, 326.816 )
+
+[node name="path_stones18" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2268.18, 317.055 )
+
+[node name="path_stones19" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2268.18, 430.931 )
+
+[node name="path_stones20" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2395.07, 421.17 )
+
+[node name="path_stones21" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2512.2, 398.395 )
+
+[node name="path_stones22" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2616.31, 391.888 )
+
+[node name="path_stones23" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2730.19, 447.198 )
+
+[node name="path_stones24" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2853.83, 411.409 )
+
+[node name="path_stones25" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2977.46, 326.816 )
+
+[node name="path_stones27" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3101.1, 307.294 )
+
+[node name="path_stones28" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3224.73, 294.28 )
+
+[node name="path_stones29" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3267.03, 209.687 )
+
+[node name="path_stones30" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3380.91, 183.658 )
+
+[node name="path_stones31" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3504.54, 173.898 )
+
+[node name="path_stones32" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3530.57, 79.5439 )
+
+[node name="path_stones33" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3569.61, -27.8243 )
+
+[node name="path_stones34" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3485.02, -83.1352 )
+
+[node name="path_stones35" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3354.88, -79.8816 )
+
+[node name="path_stones36" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3270.28, -70.1208 )
+
+[node name="path_stones37" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3156.41, -63.6137 )
+
+[node name="path_stones38" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3039.28, -141.7 )
+
+[node name="path_stones39" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2896.12, -219.786 )
+
+[node name="path_stones40" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2788.75, -304.379 )
+
+[node name="path_stones41" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2884.62, -116.635 )
+
+[node name="path_stones26" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2870.09, 333.323 )
+
 [node name="path_stones15" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1961.83, 144.981 )
 
@@ -203,8 +323,160 @@ position = Vector2( 1129.49, 359.15 )
 [node name="path_stones7" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1264.6, 349.832 )
 
+[node name="path_stones42" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1353.87, 441.887 )
+
+[node name="path_stones43" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1250.65, 461.414 )
+
+[node name="path_stones44" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1225.55, 545.1 )
+
 [node name="path_stones3" parent="." instance=ExtResource( 16 )]
 position = Vector2( 753.178, 262.217 )
 
+[node name="path_stones45" parent="." instance=ExtResource( 16 )]
+position = Vector2( 632.757, 296.298 )
+
+[node name="path_stones46" parent="." instance=ExtResource( 16 )]
+position = Vector2( 489.615, 325.836 )
+
+[node name="path_stones47" parent="." instance=ExtResource( 16 )]
+position = Vector2( 344.201, 357.645 )
+
 [node name="path_stones4" parent="." instance=ExtResource( 16 )]
 position = Vector2( 898.234, 337.535 )
+
+[node name="well" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1146.12, 619.652 )
+
+[node name="farm_house2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2762.81, -470.563 )
+
+[node name="farm_house3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3354.51, -177.044 )
+
+[node name="transparent_windmill2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2566.91, -538.733 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="bunny_wire" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1927.71, -694.872 )
+rotation = 0.3542
+z_index = 1
+
+[node name="bunny_wire2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2059.72, -667.494 )
+rotation = 0.103003
+z_index = 1
+
+[node name="bunny_wire3" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2191.61, -656.019 )
+rotation = 0.103003
+z_index = 1
+
+[node name="bunny_wire4" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2894.86, -780.493 )
+rotation = 0.275748
+z_index = 1
+
+[node name="bunny_wire10" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3041.34, -772.748 )
+rotation = -0.155133
+z_index = 1
+
+[node name="bunny_wire11" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3177.52, -810.646 )
+rotation = -0.404904
+z_index = 1
+
+[node name="bunny_wire5" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2325.55, -678.059 )
+rotation = -0.405664
+z_index = 1
+
+[node name="bunny_wire6" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2446.88, -770.761 )
+rotation = -0.779267
+z_index = 1
+
+[node name="bunny_wire7" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2533.22, -889.478 )
+rotation = -1.08745
+z_index = 1
+
+[node name="bunny_wire8" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2626.07, -904.798 )
+rotation = 0.701884
+z_index = 1
+
+[node name="bunny_wire9" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2755.6, -828.143 )
+rotation = 0.387456
+z_index = 1
+
+[node name="windmill" parent="." instance=ExtResource( 19 )]
+position = Vector2( 3352.25, -279.645 )
+rotation = -0.218397
+scale = Vector2( 0.4, 0.4 )
+
+[node name="burrow_sign" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1299.3, 217.405 )
+
+[node name="burrow_sign4" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1750.76, -247.334 )
+
+[node name="burrow_sign3" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2538.27, 205.529 )
+scale = Vector2( -1, 1 )
+
+[node name="burrow_sign2" parent="." instance=ExtResource( 20 )]
+position = Vector2( 260.95, 342.252 )
+
+[node name="dirtHoleSprite" parent="." instance=ExtResource( 21 )]
+position = Vector2( 1164.44, 228.209 )
+
+[node name="dirtHoleSprite4" parent="." instance=ExtResource( 21 )]
+position = Vector2( 1615.9, -226.722 )
+
+[node name="dirtHoleSprite3" parent="." instance=ExtResource( 21 )]
+position = Vector2( 2762.06, 243.503 )
+
+[node name="dirtHoleSprite2" parent="." instance=ExtResource( 21 )]
+position = Vector2( 127.419, 360.263 )
+
+[node name="AI_player" parent="." instance=ExtResource( 22 )]
+modulate = Color( 1, 0.490196, 0.490196, 1 )
+position = Vector2( 479.866, 19.6695 )
+
+[node name="AI_player4" parent="." instance=ExtResource( 22 )]
+modulate = Color( 1, 0.490196, 0.490196, 1 )
+position = Vector2( 2017.85, 384.227 )
+
+[node name="AI_player8" parent="." instance=ExtResource( 22 )]
+modulate = Color( 1, 0.490196, 0.490196, 1 )
+position = Vector2( 1927.19, 224.499 )
+
+[node name="AI_player2" parent="." instance=ExtResource( 22 )]
+modulate = Color( 0.54902, 0.988235, 0.945098, 1 )
+position = Vector2( 875.846, 251.384 )
+
+[node name="AI_player5" parent="." instance=ExtResource( 22 )]
+modulate = Color( 0.54902, 0.988235, 0.945098, 1 )
+position = Vector2( 884.935, -421.157 )
+
+[node name="AI_player3" parent="." instance=ExtResource( 22 )]
+modulate = Color( 0.996078, 0.603922, 0.988235, 1 )
+position = Vector2( 1395.93, -66.2385 )
+
+[node name="AI_player6" parent="." instance=ExtResource( 22 )]
+modulate = Color( 0.682353, 0.556863, 0.364706, 1 )
+position = Vector2( 2895.3, -395.692 )
+
+[node name="AI_player7" parent="." instance=ExtResource( 22 )]
+modulate = Color( 0.682353, 0.556863, 0.364706, 1 )
+position = Vector2( 2981.01, -364.524 )
+
+[node name="door_to_tall_grass" parent="." instance=ExtResource( 23 )]
+position = Vector2( -1641.86, 360.2 )
+scale = Vector2( 20, 10 )

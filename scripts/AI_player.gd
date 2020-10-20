@@ -2,7 +2,7 @@ extends "res://scripts/player.gd"
 #this signal fires when we finish iterating through the given loop
 signal loop_finished
 #this is a list of actions that we will be taking
-var actions = [[1,2],[1,2],[2,2],[2,2],[2,2],[2,2]]
+var actions = []
 var offset = 0
 #wether or not we want to loop our actions
 var loop = true

@@ -6,6 +6,8 @@
 modulate = Color( 0.486275, 0.270588, 0, 1 )
 position = Vector2( 0, -1.69513 )
 rotation = 0.00492209
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
 
 [node name="even_triangle5" type="Sprite" parent="."]
 position = Vector2( -31.4097, -32.8325 )
