@@ -4,6 +4,7 @@ var speed = 10
 #timer used to turn off the notes that are playing
 var timeout = 0
 var long = false
+
 #the time offset of the smallest possible sub beat, calculated from a bellow function
 var sub_beat
 #the time of the players last input, stored to calculate rythom
@@ -166,6 +167,7 @@ func getActionId():
 		if (check_action("NOTE_" + str(i))):
 			return i
 	return -1
+
 #this function checks which input the user pressed and passes that information to the players other movement functions
 func find_input(delta):
 			var i = getActionId()
@@ -176,7 +178,9 @@ func find_input(delta):
 					set_flavor(-1)
 				else:
 					set_flavor(tmpFlavor)
+				#check to see if the player is performing a combo
 				get_node("ComboTracker").check_inputs(delta)
+
 #this function checks the given inputs to move the player and sets the flavor accordingly
 func run_flavor_input(delta,input_number):
 	#make sure that the player is moving in time

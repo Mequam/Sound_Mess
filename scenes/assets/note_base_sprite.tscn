@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+
+[node name="note_base_sprite" type="Node2D"]
+
+[node name="even_triangle" type="Sprite" parent="."]
+scale = Vector2( 0.028, 0.018 )
+texture = ExtResource( 1 )
