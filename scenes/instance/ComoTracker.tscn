@@ -24,11 +24,9 @@ var time = 0
 #matches the given combo action with 
 func match_combo(action_name,falling):
 	for container in combos:
-			if (container.name == 'song of the spiders'):
-				print(\"[\" + container.name + ' ' +str(container.score)+ '] ' + action_name)
 			#check wether the action works with the given combo
 			if(container.check_action(action_name,falling,time)):
-				#print('['+container.name+'] match!')
+				print('['+container.name+'] match!')
 				emit_signal(\"combo_found\",container.name)
 				
 				#uncomment this line to increase efficiency when checking combos

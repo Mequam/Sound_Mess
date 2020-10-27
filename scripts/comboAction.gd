@@ -5,37 +5,32 @@ var delta = 0
 
 #the errors represent the error time that the player is allowed
 
-#posotive errro getter setters
-var plus_err = .5 setget set_plus,get_plus
-func get_plus():
-	return plus_err
-
-#make sure that the error is posotive
-func set_plus(val):
-	if (val < 0):
-		val *= -1
-	plus_err = val
-
+#wrapper to set error to fractional values of delta
+var err_perc setget set_err_perc,get_err_perc
+func set_err_perc(val):
+	err = delta/val
+func get_err_perc():
+	pass
 #negetive error getter setters
-var minus_err = .5 setget set_minus,get_minus
-func get_minus():
-	return minus_err
+var err = .5 setget set_err,get_err
+func get_err():
+	return err
 #make sure that the error is posotive
-func set_minus(val):
+func set_err(val):
 	if (val < 0):
 		val *= -1
-	minus_err = val
-	
+	err = val
 #represents wether or not this input is supposed to be a falling ledge
 var falling = true
 
 #represents the action at this time
 var action = ""
-
+func toStr():
+	return 	action + " " +str(falling)+ " @" + str(delta)
 func find_match(cmbAct):
 	return (
-		cmbAct.falling == falling
+	cmbAct.falling == falling
 	and cmbAct.action == action
-	and plus_err + cmbAct.delta >= delta 
-	and cmbAct.delta - minus_err <= delta
+	and err + cmbAct.delta >= delta 
+	and cmbAct.delta - err <= delta
 	)

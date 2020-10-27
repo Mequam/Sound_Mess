@@ -41,6 +41,13 @@ func note2deg(note):
 	#the given note is not in the scale
 	return null
 
+#syntatic sugar function that returns the name of the action 
+#represented by the given degree for outside use
+func deg2actionStr(deg):
+	while deg < 0:
+		deg += 7
+	return "NOTE_" + str(deg)
+
 #this function takes a scale degree and throws the appropriate input action
 func deg2action(deg,pressed=true):
 	#make sure we re-map to posotive
@@ -48,6 +55,8 @@ func deg2action(deg,pressed=true):
 		deg += 7
 	#create and throw the input event
 	var ie = InputEventAction.new()
+	#we could use the degree to action function here, but this way we
+	#avoid a while loop
 	ie.action = "NOTE_" + str(deg)
 	ie.pressed = pressed
 	return ie

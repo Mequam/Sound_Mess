@@ -35,7 +35,6 @@ func clean_six(to_move,delta):
 	parent.collision_layer = 1
 var push_speed = 100
 func ground_pound(dmg=1,rad=400):
-	print("running ground pound")
 	for i in get_tree().get_nodes_in_group("enemies"):
 		if (to_global(position).distance_to(i.position) <= rad):
 			if (i.has_method("move_and_collide")):

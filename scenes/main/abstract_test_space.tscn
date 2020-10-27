@@ -1,11 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/main_scenes/abstract_test_space.gd" type="Script" id=1]
-[ext_resource path="res://scenes/assets/eigth_note_sprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/instance/DialogChoiceList.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/instance/entities/SingingTree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/instance/dialog/dialogMarryLamb.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=5]
 
 [node name="abstract_test_space" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="note_base" parent="." instance=ExtResource( 2 )]
-position = Vector2( 496.455, 399.322 )
-scale = Vector2( 10, 10 )
+[node name="DialogChoiceList" parent="." instance=ExtResource( 2 )]
+position = Vector2( 328.092, 369.103 )
+
+[node name="dialogMarryLamb" parent="DialogChoiceList" instance=ExtResource( 4 )]
+position = Vector2( -71.2305, -103.608 )
+
+[node name="Met" parent="." instance=ExtResource( 5 )]
+position = Vector2( 189.948, 127.351 )
+
+[node name="SingingTree" parent="." instance=ExtResource( 3 )]
+position = Vector2( 720.939, 170.521 )

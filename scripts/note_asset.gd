@@ -3,7 +3,7 @@ extends Node2D
 #to be intutive for the player to read
 
 #the initial scale that we use for reference when changing direction
-var init_scale : Vector2
+var init_scale : Vector2 = Vector2(1,1)
 
 #simple function to get our squished scale
 func get_squished_scale(amount = Vector2(0.75,1.5)):
@@ -13,7 +13,10 @@ func rot_base(degree):
 #the musical degree of the scale which we represent
 var display_degree : int setget set_degree,get_degree
 func set_degree(val):
-	if (val >= 1 and val <=6):
+	#mirror lower notes
+	if (val < 0):
+		val += 7
+	if ((val >= 1 and val <=6)):
 		$base.scale = get_squished_scale()
 	else:
 		$base.scale = init_scale
