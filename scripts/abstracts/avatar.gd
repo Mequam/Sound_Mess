@@ -3,8 +3,13 @@ extends Node2D
 #this is a function that sets the mode of the player note player
 #it is inteanded to be used by other avatars to tell the player
 #what scale to play
-func set_mode(mode):
+func set_mode(mode : int):
 	get_parent().get_node("NotePlayer").mode = mode
+#this function sets the colors of the text bubble for the player
+func set_speech_color(textColor : Color,bubbleColor : Color):
+	var sb = get_parent().get_node("SpeechBubble")
+	sb.note_color = textColor
+	sb.back_color = bubbleColor
 func load_avatar():
 	pass
 var in_time setget set_in_time, get_in_time

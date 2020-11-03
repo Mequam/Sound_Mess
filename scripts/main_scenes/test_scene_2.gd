@@ -13,6 +13,8 @@ func _ready():
 	$SingingTree/door_way.new_scene = "res://scenes/main/test_2d_space.tscn"
 	$DialogChoiceList.sub_beat = $Met/Met.wait_time
 	$DialogChoiceList.init()
+	
+	$player.talking = true
 	.init()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

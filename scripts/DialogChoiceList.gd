@@ -10,7 +10,12 @@ var mode = 1
 var sub_beat = 1
 var onColor = Color.orangered
 var offColor = Color.white
-var enabled = true
+var enabled = true setget set_enabled, get_enabled
+func set_enabled(val):
+	enabled = val
+	visible = enabled
+func get_enabled():
+	return enabled
 
 func init():
 	for node in get_children():

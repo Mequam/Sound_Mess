@@ -1,4 +1,7 @@
 extends Node2D
+#this script is used to track and display notes that the player plays
+#(or notes in general) of a given mode 
+
 #this contains the scale math functions that we need to decode the 
 var scale_math = load("res://scripts/abstracts/Scale_Math.gd").new()
 

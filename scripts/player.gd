@@ -1,21 +1,25 @@
 extends KinematicBody2D
-
-var speed = 10
 #timer used to turn off the notes that are playing
 var timeout = 0
-var long = false
-
 #the time offset of the smallest possible sub beat, calculated from a bellow function
 var sub_beat
 #the time of the players last input, stored to calculate rythom
 var last_input = 0
+#this is from legacy code, it is short for invencibility timer
+#TODO: this needs to either be further supported or removed from the game
 var i_timer = 0 setget set_i_timer, get_i_timer
-var mode = 1
 
+#syntatic sugar for the variable that actualy determines when we are talking
+var talking setget set_talking,get_talking
+func set_talking(val):
+	talking = val
+	#TODO: we might benifit from actually loading a speech bubble
+	#here instead of simply toggling visibility
+	$SpeechBubble.visible = talking
+func get_talking():
+	return $SpeechBubble.visible
 #determines the type of input that the game is looking for
 #options are dev (uses keys 1-7) and midi (uses midi note frequency)
-
-
 #TODO: this needs a setter and a getter that changes other aspects of the game
 #additionaly need to add the fourier transform or "tuner" input method
 var input_mode = "dev"
@@ -49,7 +53,8 @@ func RythomToSpeed():
 		return 60
 
 
-#this function checks wether or not the given delta beat falls close enough to our sub beats to be valid
+#this function checks wether or not the given delta beat falls close enough to
+#an actual rythomic beat to be valid
 func checkInputRythom():
 	var new_input = OS.get_system_time_msecs()
 	var delta = (new_input - last_input)/1000.0
@@ -94,17 +99,6 @@ func move_dir(dir,delta):
 		collision_action(collided)
 var push_proj_package = load("res://scenes/instance/projectiles/pushProjectile.tscn")
 
-#this function is in charge of our push effect
-func push_dir(dir,delta):
-	var proj = push_proj_package.instance()
-	proj.beat_val = last_beat
-	proj.dialate_speed(sub_beat)
-	proj.dir = dir
-	#TODO: figure out why this position needs to be shifted! (without the shift the projectile spawns in the wrong spot DESPITE beign at 0,0 in our chords)
-	proj.position = position+Vector2(105,0)
-	proj.speed = speed/2
-	get_tree().get_root().add_child(proj)
-
 func check_action(act):
 	match input_mode:
 		"dev":
@@ -114,20 +108,17 @@ func check_action(act):
 		_:
 			return false
 #checks the inputs for the movement of the object
+#NOTE: input_number can also be thought of as scale degree
 func move_2d(delta,input_number,flavor):
 	var to_move = Vector2(0,0)
 	match input_number:
 		4:
-			get_node("NotePlayer").play_note(4-7)
 			to_move.x += 1
 		1:
-			get_node("NotePlayer").play_note(1-7)
 			to_move.x -= 1
 		2:
-			get_node("NotePlayer").play_note(2-7)
 			to_move.y += 1
 		3:
-			get_node("NotePlayer").play_note(3-7)
 			to_move.y -= 1
 	if (to_move != Vector2(0,0)):
 		var mult = 1
@@ -167,18 +158,42 @@ func getActionId():
 			return i
 	return -1
 
+#this fuction takes a scale degree, and performs the corisponding option
+func respond_to_scale_degree(delta,scale_degree):
+	#we do not move while we are talking
+	#the speech buble is visible when we are taking
+	if get_talking():
+		var rythom = checkInputRythom()
+		if not (rythom == 2 or rythom == 1):
+			rythom = 1
+		$SpeechBubble.dispNote(scale_degree,rythom,$NotePlayer.mode)
+		set_talking(scale_degree != 0)
+	#move while not talking
+	else:
+		#check the input for flavor
+		var tmpFlavor = run_flavor_input(delta,scale_degree)
+		#move if we do not have flavor
+		if (tmpFlavor == -2):
+			move_2d(delta,scale_degree,flavor)
+			set_flavor(-1)
+		else:
+			#set flavor without moving if we do have flavor
+			set_flavor(tmpFlavor)
+	#actualy display the input that the user gave as sound
+	play_note_inp(scale_degree)
+	#check to see if the player is performing a combo
+	#get_node("ComboTracker").check_inputs(delta)
+
 #this function checks which input the user pressed and passes that information to the players other movement functions
 func find_input(delta):
-			var i = getActionId()
-			if i != -1:
-				var tmpFlavor = run_flavor_input(delta,i)
-				if (tmpFlavor == -2):
-					move_2d(delta,i,flavor)
-					set_flavor(-1)
-				else:
-					set_flavor(tmpFlavor)
-				#check to see if the player is performing a combo
-				#get_node("ComboTracker").check_inputs(delta)
+	var i = getActionId()
+	if i != -1:
+		respond_to_scale_degree(delta,i)
+
+#this function plays the scale degree corisponding to the player input
+func play_note_inp(input_number):
+	#subtract 7 to move the player down an octive
+	$NotePlayer.play_note(input_number-7)
 
 #this function checks the given inputs to move the player and sets the flavor accordingly
 func run_flavor_input(delta,input_number):
@@ -187,16 +202,11 @@ func run_flavor_input(delta,input_number):
 	
 	var flavor = -1
 	match input_number:
-		0:
-			get_node("NotePlayer").play_note(-7)
-		7:
-			get_node("NotePlayer").play_note(0)
 		6:
 			flavor = 6
-			get_node("NotePlayer").play_note(-1)
 		5:
+			#TODO: why is this setting the flavor to 7?
 			flavor = 7
-			get_node("NotePlayer").play_note(5-7)
 		_:
 			#indicates that we did nothing and want to move the character
 			flavor = -2
@@ -212,12 +222,14 @@ func on_combo(combo_name):
 			get_node("Player_Sprite").scale.y *= -1
 		"full_scale" :
 			get_node("NotePlayer").mode += 1
+
 func take_damage(amount):
 	$health_bar.hp -= amount
 	if $health_bar.hp == 0:
 		hide()
 #used to make the player invencible
 var invencible = false
+
 #this is called by entities when they hit US
 func on_col(thing,dmg=1):
 	if (i_timer <= 0 and !invencible):
