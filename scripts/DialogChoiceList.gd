@@ -21,7 +21,8 @@ func set_enabled(val):
 	visible = enabled
 func get_enabled():
 	return enabled
-
+func _ready():
+	add_to_group("dialog_choice_list")
 func init():
 	for node in get_children():
 		if node.name != "ComboTracker":
@@ -46,4 +47,5 @@ func _process(delta):
 		$ComboTracker.check_inputs(delta)
 
 func _on_ComboTracker_combo_found(cmbName):
+	print("emitting signal")
 	emit_signal("completed_dialog",cmbName)

@@ -14,11 +14,6 @@ func _ready():
 	
 	#$DialogChoiceList.sub_beat = $Met/Met.wait_time
 	#$DialogChoiceList.init()
-
-	$bunnyDoorSwitch/singingSwitch/DialogChoiceList.sub_beat = $Met/Met.wait_time
-	$bunnyDoorSwitch/singingSwitch/DialogChoiceList.init()
-		
-	$player.talking = true
 	
 	.init()
 

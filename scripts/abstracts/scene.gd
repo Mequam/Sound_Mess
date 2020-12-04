@@ -43,8 +43,9 @@ func init():
 	
 	for node in get_tree().get_nodes_in_group("play_idle"):
 		node.get_node("AnimationPlayer").play("Idle")
-	
-
+	for node in get_tree().get_nodes_in_group("dialog_choice_list"):
+			node.sub_beat = $Met/Met.wait_time
+			node.init()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	if (get_node("player")):

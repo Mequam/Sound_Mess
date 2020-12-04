@@ -3,7 +3,8 @@ var player : Node = null
 func ready():
 	#make sure that we start off not enabled
 	$DialogChoiceList.enabled = false
-
+	#for some reason this line does not work properly, prolly has somthing to do with node order
+	#$DialogChoiceList.connect("completed_dialog",self,"_on_DialogChoiceList_completed_dialog")
 func _on_singingSwitch_body_entered(body):
 	if body.is_in_group("player"):
 		body.talking = true
