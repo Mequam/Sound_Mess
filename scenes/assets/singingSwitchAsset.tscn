@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 38.7854, 20.0097 )
+
+[node name="singingSwitchAsset" type="KinematicBody2D"]
+
+[node name="body" type="Node2D" parent="."]
+
+[node name="body" type="Sprite" parent="body"]
+modulate = Color( 0.694118, 0.454902, 0, 1 )
+position = Vector2( 5.50889, -31.5599 )
+rotation = -3.14159
+scale = Vector2( 0.239556, 0.152 )
+texture = ExtResource( 1 )
+
+[node name="hands" type="Node2D" parent="body"]
+
+[node name="right" type="Sprite" parent="body/hands"]
+position = Vector2( 20.8482, -21.892 )
+rotation = 1.5708
+scale = Vector2( 0.0493558, 0.0513236 )
+texture = ExtResource( 1 )
+
+[node name="left" type="Sprite" parent="body/hands"]
+position = Vector2( -16.9494, -21.892 )
+rotation = -1.5708
+scale = Vector2( 0.0493558, 0.0513236 )
+texture = ExtResource( 1 )
+
+[node name="head" type="Node2D" parent="."]
+position = Vector2( 2, 32 )
+
+[node name="head_main" type="Sprite" parent="head"]
+modulate = Color( 0.694118, 0.454902, 0, 1 )
+position = Vector2( 2.48594, -89.3802 )
+scale = Vector2( 0.210349, 0.102125 )
+texture = ExtResource( 1 )
+
+[node name="eyes" type="Node2D" parent="head"]
+modulate = Color( 0.266667, 1, 0, 1 )
+
+[node name="even_triangle2" type="Sprite" parent="head/eyes"]
+position = Vector2( -11.4542, -99.4595 )
+rotation = -3.14159
+scale = Vector2( 0.0569453, 0.0384051 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle3" type="Sprite" parent="head/eyes"]
+position = Vector2( 18.1549, -98.8983 )
+rotation = -3.14159
+scale = Vector2( 0.0569453, 0.0384051 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 7.90189, -13.3379 )
+shape = SubResource( 1 )

@@ -1,4 +1,5 @@
 extends KinematicBody2D
+
 #timer used to turn off the notes that are playing
 var timeout = 0
 #the time offset of the smallest possible sub beat, calculated from a bellow function

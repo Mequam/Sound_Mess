@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/entities/SingingTree.tscn" type="PackedScene" id=2]
@@ -6,12 +6,11 @@
 [ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/instance/dialog/testDialog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/instance/entities/enemies/evil_carrot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/instance/bushyTreeBody.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/instance/dialog/dialogMarryLamb.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/instance/DialogChoiceList.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/instance/switches/bunnyDoorSwitch.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/instance/switches/singingSwitch.tscn" type="PackedScene" id=15]
 
 [node name="TileMap" type="TileMap"]
 cell_y_sort = true
@@ -41,14 +40,6 @@ position = Vector2( -908.522, -256.25 )
 [node name="player" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1280.41, 348.696 )
 
-[node name="DialogChoiceList" parent="." instance=ExtResource( 11 )]
-position = Vector2( -1171.47, 55.8777 )
-
-[node name="testDialog" parent="DialogChoiceList" instance=ExtResource( 7 )]
-position = Vector2( 51.4814, 303.167 )
-
-[node name="dialogMarryLamb" parent="DialogChoiceList" instance=ExtResource( 10 )]
-
 [node name="Spider_Enemy" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1544.44, -308.887 )
 
@@ -57,3 +48,10 @@ position = Vector2( -1229.83, -326.047 )
 
 [node name="Spider_Enemy3" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1075.38, -417.569 )
+
+[node name="bunnyDoorSwitch" parent="." instance=ExtResource( 14 )]
+position = Vector2( -1189.05, 166.254 )
+scale = Vector2( 4, 4 )
+
+[node name="singingSwitch" parent="bunnyDoorSwitch" instance=ExtResource( 15 )]
+position = Vector2( 41.0273, 26.1626 )

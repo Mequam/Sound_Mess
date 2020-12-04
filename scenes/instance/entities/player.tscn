@@ -36,3 +36,4 @@ position = Vector2( -33.8428, -87.475 )
 [node name="SpeechBubble" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 77, -64 )
+z_index = 4

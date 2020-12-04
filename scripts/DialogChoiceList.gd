@@ -11,6 +11,11 @@ var sub_beat = 1
 var onColor = Color.orangered
 var offColor = Color.white
 var enabled = true setget set_enabled, get_enabled
+
+#syntactic suguar signal so we dont have to get child nodes when
+#connecting signals elsewhere
+signal completed_dialog
+
 func set_enabled(val):
 	enabled = val
 	visible = enabled
@@ -37,7 +42,8 @@ func init():
 			node.updateDisp(mode)
 
 func _process(delta):
-	$ComboTracker.check_inputs(delta)
+	if (enabled):
+		$ComboTracker.check_inputs(delta)
 
 func _on_ComboTracker_combo_found(cmbName):
-	print("[completed dialog] " + cmbName)
+	emit_signal("completed_dialog",cmbName)

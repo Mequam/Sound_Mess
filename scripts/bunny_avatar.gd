@@ -4,7 +4,7 @@ var dmg7 = 1
 
 #this function runs when the avatar is loaded by the player
 func load_avatar():
-	set_speech_color(Color(0,1,0.576,1),Color(1,0.4,0,1))
+	set_speech_color(Color(0,1,0.576,0.8),Color(1,0.4,0,0.8))
 	set_mode(1)
 func run_seven(to_move,delta):
 	running_7 = true
