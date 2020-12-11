@@ -10,13 +10,21 @@ var last_input = 0
 #TODO: this needs to either be further supported or removed from the game
 var i_timer = 0 setget set_i_timer, get_i_timer
 
+#makes the player talk and unable to stop talking
+var _permatalk = false setget set_perm_talk,get_perm_talk
+func set_perm_talk(val : bool):
+	_permatalk = val
+	$SpeechBubble.visible = get_talking() or _permatalk
+func get_perm_talk():
+	return _permatalk
+
 #syntatic sugar for the variable that actualy determines when we are talking
 var talking setget set_talking,get_talking
 func set_talking(val):
-	talking = val
+	talking = val or _permatalk
 	#TODO: we might benifit from actually loading a speech bubble
 	#here instead of simply toggling visibility
-	$SpeechBubble.visible = talking
+	$SpeechBubble.visible = talking 
 func get_talking():
 	return $SpeechBubble.visible
 #determines the type of input that the game is looking for
@@ -157,7 +165,7 @@ func getActionId():
 	for i in range(0,8):
 		if (check_action("NOTE_" + str(i))):
 			return i
-	return -1
+	return null
 
 #this fuction takes a scale degree, and performs the corisponding option
 func respond_to_scale_degree(delta,scale_degree):
@@ -168,7 +176,8 @@ func respond_to_scale_degree(delta,scale_degree):
 		if not (rythom == 2 or rythom == 1):
 			rythom = 1
 		$SpeechBubble.dispNote(scale_degree,rythom,$NotePlayer.mode)
-		set_talking(scale_degree != 0)
+		#we keep talking if we do not play zero or perma talk is enabled
+		set_talking((scale_degree != 0) or _permatalk)
 	#move while not talking
 	else:
 		#check the input for flavor
@@ -188,7 +197,8 @@ func respond_to_scale_degree(delta,scale_degree):
 #this function checks which input the user pressed and passes that information to the players other movement functions
 func find_input(delta):
 	var i = getActionId()
-	if i != -1:
+	
+	if i != null:
 		respond_to_scale_degree(delta,i)
 
 #this function plays the scale degree corisponding to the player input
