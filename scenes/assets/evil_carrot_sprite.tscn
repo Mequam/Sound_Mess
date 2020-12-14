@@ -1301,6 +1301,7 @@ scale = Vector2( 0.0147294, 0.0285752 )
 texture = ExtResource( 1 )
 
 [node name="right_outer" type="Sprite" parent="evil/legs_front"]
+visible = false
 position = Vector2( 40.6305, 22.4459 )
 rotation = -0.627226
 scale = Vector2( 0.0144502, 0.0460686 )
@@ -1313,6 +1314,7 @@ scale = Vector2( 0.0147294, 0.0285752 )
 texture = ExtResource( 1 )
 
 [node name="left_outer" type="Sprite" parent="evil/legs_front"]
+visible = false
 position = Vector2( -42.2289, 27.7835 )
 rotation = -5.79167
 scale = Vector2( 0.0144502, 0.0460686 )
@@ -1324,13 +1326,13 @@ position = Vector2( -1.70216, 1.14394 )
 
 [node name="black_mouth" type="Sprite" parent="evil/teeth"]
 modulate = Color( 0.2, 0.2, 0.2, 1 )
-position = Vector2( 2.28577, 6.84668 )
+position = Vector2( 3.54864, 7.31672 )
 rotation = -0.00371674
-scale = Vector2( 0.0936791, 0.0175937 )
+scale = Vector2( 0.0871671, 0.0241562 )
 texture = ExtResource( 2 )
 
 [node name="top" type="Node2D" parent="evil/teeth"]
-position = Vector2( 2.09368, 0.828459 )
+position = Vector2( 0.956798, 0.493335 )
 
 [node name="even_triangle" type="Sprite" parent="evil/teeth/top"]
 position = Vector2( -15.2024, 5.1759 )
@@ -1348,7 +1350,7 @@ scale = Vector2( 0.0311371, 0.0172452 )
 texture = ExtResource( 2 )
 
 [node name="bottom" type="Node2D" parent="evil/teeth"]
-position = Vector2( 2.07037, -5.44327 )
+position = Vector2( 1.45611, -1.96574 )
 
 [node name="even_triangle4" type="Sprite" parent="evil/teeth/bottom"]
 position = Vector2( -7.29478, 13.0438 )
