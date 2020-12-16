@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/side_wall_tile.svg-994a9f24aabddc193410cb8339a91a2f.stex"
+path="res://.import/side_wall_tile_dark.png-ffcd9f92a292c06e0f478955cde9df25.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://triangles/tiles/side_wall_tile.svg"
-dest_files=[ "res://.import/side_wall_tile.svg-994a9f24aabddc193410cb8339a91a2f.stex" ]
+source_file="res://triangles/tiles/side_wall_tile_dark.png"
+dest_files=[ "res://.import/side_wall_tile_dark.png-ffcd9f92a292c06e0f478955cde9df25.stex" ]
 
 [params]
 
