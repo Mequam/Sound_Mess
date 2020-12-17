@@ -255,7 +255,6 @@ func _on_sword_strike(body):
 #this can be thought of as the actual ready function, we do this
 #so we can over-ride the function isntead of stacking behavior
 func main_ready():
-	$health_bar.hp = 5
 	$health_bar.sync_disp()
 	get_node("NotePlayer").mode = 5
 	#start our animation cylce
