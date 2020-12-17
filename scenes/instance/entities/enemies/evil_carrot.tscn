@@ -45,9 +45,6 @@ texture = ExtResource( 5 )
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0.414032, 1.15715 )
 
-[node name="health_bar" parent="." instance=ExtResource( 3 )]
-position = Vector2( -44.1791, -72.8029 )
-
 [node name="NotePlayer" parent="." instance=ExtResource( 4 )]
 position = Vector2( -8, 20 )
 
@@ -127,3 +124,6 @@ position = Vector2( -17.2487, 38.7469 )
 rotation = 2.84292
 scale = Vector2( 0.0995271, 0.061993 )
 texture = ExtResource( 5 )
+
+[node name="health_bar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2.75766, -83.5223 )

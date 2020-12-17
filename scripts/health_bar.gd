@@ -1,8 +1,6 @@
 extends Node2D
 
 var heart = load("res://scenes/instance/half_heart.tscn")
-
-var hp = 1 setget set_hp,get_hp
 var buffering = false setget set_buffering,get_buffering
 func set_buffering(val):
 	buffering = val
@@ -13,17 +11,32 @@ func get_buffering():
 func un_buffer():
 	buffering = false
 var do_buffer = true
-func set_hp(val):
-	if (!buffering):
-		if (val < 0):
-			val = 0
-		if (val < hp and do_buffer):
-			set_buffering(true)
-		hp = val
-		sync_disp()
-func get_hp():
-	return hp
 
+#functions designed to be overloaded by more specific classes
+func get_hp() -> int :
+	return 0
+#call sync display when setting hp normaly
+func set_hp(val : int) -> void:
+	sync_disp()
+
+#this function is the logic for changing whatever value we store our hp as
+#it is designed to be encapsulated by child classes which change
+#where exactly that data is stored
+
+#NOTE: if encapsulating this function, you need to sync the display
+#after changing the source of the hp by calling sync_disp
+
+#alternativly you could simply call the parent set_hp after yours and the display will
+#be synced
+func get_new_hp(newVal,oldVal):
+	if (!buffering):
+		if (newVal < 0):
+			newVal = 0
+		if (newVal < oldVal and do_buffer):
+			set_buffering(true)
+		return newVal
+	return oldVal
+	
 #used to keep track of the x position of the last heart (so we can instance new ones)
 var last_heart_position = 0
 func add_heart(val = 3):
@@ -41,10 +54,10 @@ func sync_disp():
 		if (children.name != "iframe_timeout"):
 			children.queue_free()
 	#add the remaining hearts
-	for i in range(0,int(hp)/int(2)):
+	for i in range(0,get_hp()/int(2)):
 		add_heart()
 	#this includes the remainder points
-	add_heart(hp%2)
+	add_heart(get_hp()%2)
 func _ready():
 	add_to_group("ui")
 	add_to_group("health_bar")

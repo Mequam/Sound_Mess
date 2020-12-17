@@ -3,6 +3,10 @@ var load_able_player_position = null
 var prev_door_name = null
 var prev_scene = null
 
+#the health of the player that is saved from scene to scene
+#the default value here is the initial value that the player starts with
+var persistent_player_health = 5
+
 func load_scene(scene,ps,pdn=null,lpp=null):
 	prev_scene = ps
 	load_able_player_position = lpp

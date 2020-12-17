@@ -24,5 +24,5 @@ shape = SubResource( 1 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="health_bar" parent="." instance=ExtResource( 4 )]
-position = Vector2( -85.7328, -286.218 )
+position = Vector2( -84.6043, -184.537 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
