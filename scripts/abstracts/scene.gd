@@ -4,10 +4,14 @@ var beat = 0
 var load_path = ""
 
 func _met_timeout():
-	#call
+	#TODO: figure out what is using the following two group function calls
+	#call the plants, mainly here for mushrooms, need to see what else uses this
+	get_tree().call_group("plant","run")
+	#call the sprite particles
 	get_tree().call_group("sprite_particle","run")
-	get_tree().call_group("plants","run")
 	
+	#run the jute boxes so they can beep in time
+	get_tree().call_group("jutebox","run")
 	if (get_node("player")):
 		beat += .5
 		

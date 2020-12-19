@@ -12,6 +12,9 @@ func _ready():
 	$SingingTree/door_way.door_name="A"
 	$SingingTree/door_way.new_scene = "res://scenes/main/test_2d_space.tscn"
 	
+	$SingingTree/JuteBox.song = [[4,1],[8,null]]
+	$SingingTree/JuteBox.max_beat = 12
+	$SingingTree/JuteBox.singing = true
 	#$DialogChoiceList.sub_beat = $Met/Met.wait_time
 	#$DialogChoiceList.init()
 	

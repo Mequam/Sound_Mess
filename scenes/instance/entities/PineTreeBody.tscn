@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/instance/NotePlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/PineTreeBody.gd" type="Script" id=2]
 [ext_resource path="res://scenes/assets/PineTree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/juteBox.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 44.0374, 7.50413 )
@@ -10,13 +11,16 @@ extents = Vector2( 44.0374, 7.50413 )
 [node name="PineTree" type="StaticBody2D"]
 script = ExtResource( 2 )
 
-[node name="TreeSprite" parent="." instance=ExtResource( 3 )]
-position = Vector2( 8.51334, -116.694 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="NotePlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.513344, -116.694 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.486668, 12.2746 )
 shape = SubResource( 1 )
+
+[node name="JuteBox" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sprite" parent="JuteBox" instance=ExtResource( 3 )]
+position = Vector2( 8.51334, -116.694 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="NotePlayer" parent="JuteBox" instance=ExtResource( 1 )]
+position = Vector2( 0.513344, -116.694 )

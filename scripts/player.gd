@@ -233,11 +233,24 @@ func on_combo(combo_name):
 			get_node("Player_Sprite").scale.y *= -1
 		"full_scale" :
 			get_node("NotePlayer").mode += 1
+func game_over() -> void:
+	hide()
+	
+func set_hp(val : int):
+	$health_bar.hp = val
+	if $health_bar.hp <= 0:
+		game_over()
+func get_hp():
+	return $health_bar.hp
 
-func take_damage(amount):
-	$health_bar.hp -= amount
-	if $health_bar.hp == 0:
-		hide()
+#the following two functions (take_damage and heal) are syntactic sugar only
+#function that indicates the player takes damage
+func take_damage(amount : int):
+	set_hp(get_hp()-amount)
+#function that indicates the player heals
+func heal(amount : int):
+	set_hp(get_hp()+amount)
+
 #used to make the player invencible
 var invencible = false
 
@@ -256,6 +269,7 @@ func _on_sword_strike(body):
 #so we can over-ride the function isntead of stacking behavior
 func main_ready():
 	$health_bar.sync_disp()
+	
 	get_node("NotePlayer").mode = 5
 	#start our animation cylce
 	$avatar.play_idle()

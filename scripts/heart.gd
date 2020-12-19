@@ -22,9 +22,9 @@ func get_hp():
 #makes sure that the heart displays the value that it contains
 func sync_hp():
 	if hp >= 2:
-		$top.visible = true
+		$heart/top.visible = true
 	else:
-		$top.visible = false
+		$heart/top.visible = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

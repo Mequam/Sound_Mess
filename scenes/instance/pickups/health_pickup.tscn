@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/assets/health_pickup_asset.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/health_pickup.gd" type="Script" id=2]
+[ext_resource path="res://scenes/instance/JuteBox.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 49.2369
+
+[node name="health_pickup" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="JuteBox" parent="." instance=ExtResource( 3 )]
+
+[node name="Sprite" parent="JuteBox" instance=ExtResource( 1 )]
+position = Vector2( 0.44545, -36.0814 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4.17233e-06, -24.4696 )
+shape = SubResource( 1 )

@@ -1,0 +1,134 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/assets/half_heart_asset.tscn" type="PackedScene" id=1]
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.236364 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 2
+emission_box_extents = Vector3( 15, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -5, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 42.9
+angle_random = 1.0
+scale = 0.02
+scale_curve = SubResource( 8 )
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.0181818 ), 0.0, 0.0, 0, 0, Vector2( 0.704545, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 32.23
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 0.5
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 900.0
+angle = 120.0
+angle_random = 1.0
+scale = 0.25
+scale_random = 0.17
+scale_curve = SubResource( 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("heart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, -2 ), Vector2( 0, -1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Singing_Hard"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Singing_Soft"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="health_pickup_asset" type="Node2D"]
+scale = Vector2( 2.5, 2.5 )
+
+[node name="ground_particles2" type="Particles2D" parent="."]
+modulate = Color( 1, 0, 0, 0.670588 )
+position = Vector2( 0.634958, 10.4015 )
+scale = Vector2( 1, 1 )
+amount = 4
+lifetime = 3.0
+process_material = SubResource( 9 )
+texture = ExtResource( 2 )
+
+[node name="heart" parent="." instance=ExtResource( 1 )]
+modulate = Color( 1, 0, 0, 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+modulate = Color( 1, 0, 0, 0.556863 )
+position = Vector2( 0.0545101, 0.646782 )
+scale = Vector2( 0.1, 0.1 )
+emitting = false
+lifetime = 0.75
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource( 3 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 4 )
+anims/Singing_Hard = SubResource( 5 )
+anims/Singing_Soft = SubResource( 6 )
+
+[node name="ground_particles" type="Particles2D" parent="."]
+modulate = Color( 1, 0, 0, 0.670588 )
+position = Vector2( 0.634958, 13.9691 )
+amount = 4
+lifetime = 3.0
+process_material = SubResource( 9 )
+texture = ExtResource( 2 )

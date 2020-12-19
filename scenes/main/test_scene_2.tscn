@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/instance/dialog/testDialog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/instance/entities/enemies/evil_carrot.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/instance/bushyTreeBody.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/instance/pickups/health_pickup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/instance/DialogChoiceList.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/switches/bunnyDoorSwitch.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/instance/switches/singingSwitch.tscn" type="PackedScene" id=15]
@@ -35,18 +35,15 @@ scale = Vector2( 6, 4 )
 [node name="evil_carrot" parent="." instance=ExtResource( 8 )]
 position = Vector2( -196.081, -354.433 )
 
-[node name="bushyTreeBody" parent="." instance=ExtResource( 9 )]
-position = Vector2( -604.522, -484.25 )
-
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1280.41, 348.696 )
+position = Vector2( -1063.93, 230.026 )
 
 [node name="bunnyDoorSwitch" parent="." instance=ExtResource( 14 )]
 position = Vector2( -1075.66, 112.077 )
 scale = Vector2( 4, 4 )
 
 [node name="singingSwitch" parent="bunnyDoorSwitch" instance=ExtResource( 15 )]
-position = Vector2( 3.54468, 54.1958 )
+position = Vector2( 41.8533, 60.4321 )
 
 [node name="DialogChoiceList" parent="bunnyDoorSwitch/singingSwitch" instance=ExtResource( 11 )]
 visible = false
@@ -54,4 +51,7 @@ position = Vector2( -24.5684, -30.5531 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="testDialog" parent="bunnyDoorSwitch/singingSwitch/DialogChoiceList" instance=ExtResource( 7 )]
+
+[node name="health_pickup" parent="." instance=ExtResource( 10 )]
+position = Vector2( -1224.34, 302.722 )
 [connection signal="completed_dialog" from="bunnyDoorSwitch/singingSwitch/DialogChoiceList" to="bunnyDoorSwitch/singingSwitch" method="_on_DialogChoiceList_completed_dialog"]

@@ -23,7 +23,7 @@ func getActionId():
 	return null
 #overide the players play note function that plays an octive lower
 func play_note_inp(note_deg):
-	$NotePlayer.play_note(note_deg)
+	$NotePlayer.play_note(note_deg)	
 func _ready():
 	remove_from_group("player")
 	add_to_group("AIplayer")

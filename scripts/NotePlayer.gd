@@ -1,4 +1,7 @@
 extends AudioStreamPlayer2D
+#this script can be thought of as an instrument that plays a single
+#note at a time
+
 var scale_math = load("res://scripts/abstracts/Scale_Math.gd").new()
 
 #getter and setter to pass through the mode variable
