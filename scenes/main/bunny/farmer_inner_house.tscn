@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/assets/architecture/bunny/table.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scripts/main_scenes/farmer_inner_house.gd" type="Script" id=7]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/instance/pickups/health_pickup.tscn" type="PackedScene" id=10]
 
 [node name="farmer_inner_house" type="TileMap"]
 cell_y_sort = true
@@ -26,7 +27,7 @@ modulate = Color( 0.776471, 0.584314, 0.309804, 1 )
 tile_data = PoolIntArray( -131074, 0, 0, -65538, 0, 0, -2, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 14, 0, 262141, 14, 0, 262142, 14, 0 )
 
 [node name="supplimental" parent="tiles" instance=ExtResource( 1 )]
-tile_data = PoolIntArray( -131075, 16, 0, -131073, 11, 0, -65539, 16, 0, -65537, 11, 0, -3, 16, 0, -1, 11, 0, -65536, 11, 0, 65532, 11, 0, 0, 11, 0, 131068, 11, 0, 65536, 11, 0, 196604, 11, 0, 131072, 11, 0, 262140, 11, 0, 262143, 11, 0, 327676, 11, 0, 327677, 11, 0, 327678, 11, 0, 327679, 11, 0 )
+tile_data = PoolIntArray( -262145, 11, 0, -196611, 11, 0, -196610, 11, 0, -131075, 16, 0, -131073, 11, 0, -65539, 16, 0, -65537, 11, 0, -3, 16, 0, -1, 11, 0, -65536, 11, 0, 65532, 11, 0, 0, 11, 0, 131068, 11, 0, 65536, 11, 0, 196604, 11, 0, 131072, 11, 0, 262140, 11, 0, 262143, 11, 0, 327676, 11, 0, 327677, 11, 0, 327678, 11, 0, 327679, 11, 0 )
 
 [node name="foreGround" parent="tiles" instance=ExtResource( 1 )]
 tile_data = PoolIntArray( -196609, 16, 0, -131073, 16, 0, -65537, 16, 0, -131072, 14, 0, -1, 9, 0, -65536, 16, 0, 65532, 9, 0, 65533, 21, 0, 0, 16, 0, 131068, 16, 0, 65536, 16, 0, 196604, 16, 0, 131072, 21, 0, 262140, 16, 0, 262143, 9, 0, 327676, 9, 0, 327677, 9, 0, 327678, 9, 0, 327679, 9, 0 )
@@ -71,3 +72,6 @@ position = Vector2( 257.053, 172.252 )
 position = Vector2( -254.403, 227.903 )
 
 [node name="Met" parent="." instance=ExtResource( 8 )]
+
+[node name="health_pickup" parent="." instance=ExtResource( 10 )]
+position = Vector2( 165.09, -57.1465 )

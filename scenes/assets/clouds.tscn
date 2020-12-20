@@ -16,7 +16,8 @@ angle_random = 0.42
 scale = 0.01
 scale_random = 1.0
 
-[node name="Node2D" type="Node2D"]
+[node name="clouds" type="Node2D"]
+modulate = Color( 1, 1, 1, 0.623529 )
 
 [node name="clouds" type="Particles2D" parent="."]
 modulate = Color( 1, 1, 1, 0.8 )

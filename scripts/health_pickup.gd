@@ -10,3 +10,4 @@ func _ready():
 	$JuteBox.song = [[1,2],[2,null],[9,0],[10,null],[17,4],[18,null]]
 	$JuteBox.max_beat = 24
 	$JuteBox.singing = true
+	$JuteBox/NotePlayer.volume_db += 9

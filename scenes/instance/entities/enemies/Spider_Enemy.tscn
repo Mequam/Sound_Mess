@@ -26,4 +26,4 @@ shape = SubResource( 1 )
 volume_db = -12.632
 
 [node name="health_bar" parent="." instance=ExtResource( 4 )]
-position = Vector2( -28.4823, -31.2017 )
+position = Vector2( 0.102219, -31.8164 )

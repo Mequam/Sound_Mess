@@ -23,3 +23,5 @@ shape = SubResource( 1 )
 volume_db = 0.0
 
 [node name="health_bar" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1.83878, -148.725 )
+scale = Vector2( 2, 2 )

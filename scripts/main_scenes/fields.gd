@@ -10,4 +10,7 @@ func _ready():
 	
 	$inner_farm_house_door.new_scene = "res://scenes/main/bunny/farmer_inner_house.tscn"
 	$inner_farm_house_door.door_name = "B"
+	
+	$outer_fields.new_scene = "res://scenes/main/bunny/carrot_motif/outer_fields.tscn"
+	$outer_fields.door_name = "D"
 	.init()
