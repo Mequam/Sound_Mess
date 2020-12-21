@@ -7,6 +7,10 @@ var prev_scene = null
 #the default value here is the initial value that the player starts with
 var persistent_player_health = 5
 
+#this id represents the game save, when saving data
+#we save it in the folder user://game{game_save_id}/blah
+var game_save_id : int = 0
+
 func load_scene(scene,ps,pdn=null,lpp=null):
 	prev_scene = ps
 	load_able_player_position = lpp

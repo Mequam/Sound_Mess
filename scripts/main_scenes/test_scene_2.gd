@@ -17,7 +17,6 @@ func _ready():
 	$SingingTree/JuteBox.singing = true
 	#$DialogChoiceList.sub_beat = $Met/Met.wait_time
 	#$DialogChoiceList.init()
-	
 	.init()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
