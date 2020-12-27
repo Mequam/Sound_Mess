@@ -94,7 +94,6 @@ func play_note(beat):
 				2.0:
 					get_node("Spider").anim_look_top_right()
 					get_node("Spider").anim_look_bottom_right()
-					get_node("Spider").anim_look_bottom_right()
 					get_node("NotePlayer").play_note(1)
 				2.5:
 					get_node("Spider").anim_look_top_left()
