@@ -104,7 +104,7 @@ position = Vector2( 1349.65, 305.287 )
 
 [node name="tall_grass24" parent="." instance=ExtResource( 9 )]
 modulate = Color( 1, 0.423529, 0, 1 )
-position = Vector2( 1349.65, 305.287 )
+position = Vector2( 1351.77, 305.287 )
 
 [node name="tall_grass25" parent="." instance=ExtResource( 9 )]
 modulate = Color( 1, 0.423529, 0, 1 )

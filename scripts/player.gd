@@ -1,14 +1,26 @@
-extends KinematicBody2D
+extends "res://scripts/abstracts/entity.gd"
 
 #timer used to turn off the notes that are playing
 var timeout = 0
+
 #the time offset of the smallest possible sub beat, calculated from a bellow function
 var sub_beat
+
 #the time of the players last input, stored to calculate rythom
 var last_input = 0
+
 #this is from legacy code, it is short for invencibility timer
 #TODO: this needs to either be further supported or removed from the game
 var i_timer = 0 setget set_i_timer, get_i_timer
+func set_i_timer(val):
+	if (val >= 0):
+		i_timer = val
+		if (val != 0):
+			get_node("avatar").modulate = Color.lightgray
+		else:
+			get_node("avatar").modulate = Color.white
+func get_i_timer():
+	return i_timer
 
 #makes the player talk and unable to stop talking
 var _permatalk = false setget set_perm_talk,get_perm_talk
@@ -27,24 +39,15 @@ func set_talking(val):
 	$SpeechBubble.visible = talking 
 func get_talking():
 	return $SpeechBubble.visible
+
 #determines the type of input that the game is looking for
 #options are dev (uses keys 1-7) and midi (uses midi note frequency)
 #TODO: this needs a setter and a getter that changes other aspects of the game
 #additionaly need to add the fourier transform or "tuner" input method
 var input_mode = "dev"
 
-func set_i_timer(val):
-	if (val >= 0):
-		i_timer = val
-		if (val != 0):
-			get_node("avatar").modulate = Color.lightgray
-		else:
-			get_node("avatar").modulate = Color.white
-func get_i_timer():
-	return i_timer
 #used to score how well we are keeping track of rythom
 var rythom_score = 0 setget set_rythom_score,get_rythom_score
-
 func set_rythom_score(val):
 	rythom_score = val
 func get_rythom_score():
@@ -81,8 +84,6 @@ func checkInputRythom():
 
 #stores the last beat that the player played
 var last_beat = 0
-func get_type():
-	return "player"
 
 #this fuction updates our momentom to match our rythom
 func updateRythomMomentom():
@@ -226,44 +227,23 @@ func run_flavor_input(delta,input_number):
 
 	
 #runs when the player completes a combo
-func on_combo(combo_name):
-	match combo_name:
-		"half_step_release" :
-			get_node("Player_Sprite").scale.x *= -1
-			get_node("Player_Sprite").scale.y *= -1
-		"full_scale" :
-			get_node("NotePlayer").mode += 1
-func game_over() -> void:
-	hide()
-	
-func set_hp(val : int):
-	$health_bar.hp = val
-	if $health_bar.hp <= 0:
-		game_over()
-func get_hp():
-	return $health_bar.hp
+#TODO: give more support to this feature
+func on_combo(combo_name) -> void:
+	pass
 
-#the following two functions (take_damage and heal) are syntactic sugar only
-#function that indicates the player takes damage
-func take_damage(amount : int):
-	set_hp(get_hp()-amount)
-#function that indicates the player heals
-func heal(amount : int):
-	set_hp(get_hp()+amount)
+#overload the default behavior on death
+func die() -> void:
+	hide()
 
 #used to make the player invencible
 var invencible = false
 
 #this is called by entities when they hit US
-func on_col(thing,dmg=1):
+func on_col(thing,dmg : int=1) -> void:
 	if (i_timer <= 0 and !invencible):
 		#these only run if we are not invencible
 		if (thing.is_in_group("enemies")):
-			take_damage(dmg)
-
-#this function plays when our sword interacts with a body
-func _on_sword_strike(body):
-	print("struck " + str(body))
+			.on_col(thing,dmg)
 
 #this can be thought of as the actual ready function, we do this
 #so we can over-ride the function isntead of stacking behavior
@@ -281,6 +261,7 @@ func main_ready():
 func _ready():
 	main_ready()
 	$avatar.load_avatar()
+
 #this functio is called to make sure that the note player is playing or ONE blip
 func limitNotePlayerTime(delta):
 		#this code snippet ensures that we play short blips
@@ -289,19 +270,14 @@ func limitNotePlayerTime(delta):
 		if (timeout >= .1):
 			timeout = 0
 			get_node("NotePlayer").stop()
+#process function that is designed to be overloadable by inheriting children
 func main_process(delta):
-		#check the user inputs and act accordingly
+	#check the user inputs and act accordingly
 	find_input(delta)
 	#make sure the note player does not play forever
 	limitNotePlayerTime(delta)
+	
 #for whatever reason _process does not get over-wridden in gdscript
 #so we create a main_process to do that for us
 func _process(delta):
 	main_process(delta)
-
-
-#this function is called every beat of the metronome
-func _met_process(beat):
-	if (i_timer != 0):
-		#decriment our invencibility timer
-		set_i_timer(i_timer - 1)

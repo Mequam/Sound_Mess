@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/blipper.gd" type="Script" id=1]
 [ext_resource path="res://scenes/instance/NotePlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Sprites.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/instance/health_bar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.1992, 23.6684 )
@@ -24,3 +25,5 @@ shape = SubResource( 1 )
 
 [node name="health_bar" parent="." instance=ExtResource( 4 )]
 position = Vector2( -35.3477, -130.086 )
+
+[node name="save_state_node" parent="." instance=ExtResource( 5 )]

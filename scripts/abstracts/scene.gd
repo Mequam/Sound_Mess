@@ -15,9 +15,6 @@ func _met_timeout():
 	if (get_node("player")):
 		beat += .5
 		
-		#call the players met process
-		get_node("player")._met_process(beat)
-		
 		#call things that require the player to run
 		get_tree().call_group("projectile","run",$player.position,beat)
 		get_tree().call_group("generic_ai","run",$player.position,beat)

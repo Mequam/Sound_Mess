@@ -51,19 +51,19 @@ tracks/2/keys = {
 scale = Vector2( 0.5, 0.4 )
 
 [node name="long_triangle4" type="Sprite" parent="."]
-position = Vector2( 26.0312, -169.112 )
+position = Vector2( 24.2634, -155.447 )
 rotation = 3.13501
 scale = Vector2( 0.114305, 0.546293 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle2" type="Sprite" parent="."]
-position = Vector2( -29.4134, -136.579 )
+position = Vector2( -32.6597, -122.959 )
 rotation = 2.99202
 scale = Vector2( 0.114305, 0.441424 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle3" type="Sprite" parent="."]
-position = Vector2( 44.2194, -126.959 )
+position = Vector2( 44.6635, -113.47 )
 rotation = 3.3763
 scale = Vector2( 0.116452, 0.404779 )
 texture = ExtResource( 1 )

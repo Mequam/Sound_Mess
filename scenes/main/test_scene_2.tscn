@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/entities/SingingTree.tscn" type="PackedScene" id=2]
@@ -12,10 +12,11 @@
 [ext_resource path="res://scenes/instance/pickups/health_pickup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/instance/DialogChoiceList.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/instance/switches/bunnyDoorSwitch.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/instance/switches/singingSwitch.tscn" type="PackedScene" id=15]
 
-[node name="TileMap" type="TileMap"]
+[node name="test_space" type="TileMap"]
 cell_y_sort = true
 format = 1
 script = ExtResource( 3 )
@@ -37,9 +38,6 @@ scale = Vector2( 6, 4 )
 [node name="evil_carrot" parent="." instance=ExtResource( 8 )]
 position = Vector2( -196.081, -354.433 )
 
-[node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -721.232, -59.7559 )
-
 [node name="bunnyDoorSwitch" parent="." instance=ExtResource( 14 )]
 position = Vector2( -1075.66, 112.077 )
 scale = Vector2( 4, 4 )
@@ -59,4 +57,10 @@ position = Vector2( -1224.34, 302.722 )
 
 [node name="save_state_node" parent="health_pickup" instance=ExtResource( 12 )]
 script = ExtResource( 9 )
+
+[node name="Spider_Enemy" parent="." instance=ExtResource( 13 )]
+position = Vector2( -407.54, -200.773 )
+
+[node name="player" parent="." instance=ExtResource( 5 )]
+position = Vector2( -521.411, -101.885 )
 [connection signal="completed_dialog" from="bunnyDoorSwitch/singingSwitch/DialogChoiceList" to="bunnyDoorSwitch/singingSwitch" method="_on_DialogChoiceList_completed_dialog"]

@@ -8,23 +8,27 @@ func serialize() -> Dictionary:
 	return {}
 #gets the path which we are going to store information at
 func get_save_path() -> String:
+	#cache the parent
+	var parent = get_parent()
 	#get the path that this particular node will save to
-	return "user://game" + get_game_save_file() +"/"+ owner.name +"-" + get_parent().name + ".dat"
+	return "user://game" + get_game_save_file() +"/"+ parent.owner.name +"-" + parent.name + ".dat"
 func get_game_save_file() -> String:
 	return str(Globals.game_save_id)
 #saves the data at the custom created path
 #syntactic sugar
 func save_data() -> void:
 	save_data_path(get_save_path())
-#saves the data to the given path
+#saves the data to the given path converted from the parent, syntactic sugar
 func save_data_path(save_path : String) -> void:
+	#the serialize function is supposed to be overloaded to convert
+	#the parent to a dictionary
+	save_data_path_dict(save_path,serialize())
+#saves the data from the given dictionary at the given path
+func save_data_path_dict(save_path : String, dict : Dictionary) -> void:
 	var fileRes = File.new()
-	print("[save state node] opening at " + save_path)
 	if OK == fileRes.open(save_path,File.WRITE):
 		#store the data as json
-		fileRes.store_string(JSON.print(serialize()))
-	else:
-		print("[save state node] not ok!")
+		fileRes.store_string(JSON.print(dict))
 #reads the data at the path from our get_save_path function
 #syntactic sugar
 func read_data() -> Dictionary:
@@ -45,10 +49,14 @@ func read_data_path(load_path : String) -> Dictionary:
 #path, syntactic sugar
 func load_data() -> void:
 	load_data_path(get_save_path())
-#loads the data into the parent from the given path
+#syntactic sugar function that loads the data from the given path into the parent
 func load_data_path(load_path : String) -> void:
-	var read_data = read_data_path(load_path)
-	var parent = get_parent()
-	#we paresed out a dictionary
-	for key in read_data:
-		parent.set(key,read_data[key])
+	load_data_dictionary(read_data_path(load_path))
+#loads the given dictionary into the parent
+func load_data_dictionary(dict : Dictionary) -> void:
+	load_data_dict_node(dict,get_parent())
+#loads the given dictionary into the given node
+func load_data_dict_node(dict : Dictionary, ref : Node) -> void:
+	#store the properties in the dictionary in the parent
+	for key in dict:
+		ref.set(key,dict[key])

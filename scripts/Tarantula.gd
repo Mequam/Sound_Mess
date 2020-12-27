@@ -22,7 +22,7 @@ var target_pos
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#used to keep track of what musical beat we are on
-	inner_beat = 0.0
+	inner_beat = 0
 	
 	$health_bar.hp = 2
 	add_to_group("spiders")
@@ -69,41 +69,41 @@ func run(player_pos,beat):
 				
 			#play notes corisponding to our attack animation
 			match inner_beat:
-				0.0:
+				0:
 					$NotePlayer.play_note(1)
-				2.0:
+				4:
 					$NotePlayer.play_note(1)
-				3.0:
+				6:
 					$NotePlayer.play_note(1)
-				4.0:
+				8:
 					$NotePlayer.play_note(1)
 				_:
 					$NotePlayer.play_note(4)
 		"Attack_Alert":
 			match inner_beat:
-				0.0:
+				0:
 					$NotePlayer.play_note(1)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation - PI/10
 					$Tarantula_Sprite/Body/Butt.position = init_position
-				0.5:
+				1:
 					$NotePlayer.play_note(2)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation + PI/10
-				1.0:
+				2:
 					$NotePlayer.play_note(0)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation - PI/10
-				1.5:
+				3:
 					$NotePlayer.play_note(7)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation
 					$Tarantula_Sprite/Body/Butt.position = Vector2(init_position.x,init_position.y+10)
-				2.0:
+				4:
 					$NotePlayer.play_note(3)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation+PI/10
 					$Tarantula_Sprite/Body/Butt.position = init_position
-				2.5:
+				5:
 					#make the eyes bigger for the last beat, indicating attack
 					multEyeSize(2.5)
 					$NotePlayer.stop()
-				3.0:
+				6:
 					resetEyeSize()
 					$NotePlayer.play_note(4)
 				_:
@@ -117,16 +117,16 @@ func run(player_pos,beat):
 						target_pos = target_dir*2+player_pos
 		"Alert":
 			match inner_beat:
-				0.0:
+				0:
 					$NotePlayer.play_note(0)
 					$Tarantula_Sprite/Body/Butt.position = Vector2(init_position.x,init_position.y-5)
-				0.5:
+				1:
 					$NotePlayer.play_note(7)
 					$Tarantula_Sprite/Body/Butt.position = init_position
-				1.0:
+				2:
 					$NotePlayer.play_note(4)
 					$Tarantula_Sprite/Body/Butt.position = Vector2(init_position.x,init_position.y-5)
-				1.5:
+				3:
 					$NotePlayer.play_note(6)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation
 					$Tarantula_Sprite/Body/Butt.position = Vector2(init_position.x,init_position.y+10)
@@ -135,7 +135,7 @@ func run(player_pos,beat):
 						if (position.distance_to(node.position) <= 400):
 							print("corrupting!")
 							node.corrupt()
-				2.0:
+				4:
 					$NotePlayer.play_note(7)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation+PI/10
 					$Tarantula_Sprite/Body/Butt.position = init_position
@@ -152,29 +152,29 @@ func run(player_pos,beat):
 			if (position.distance_squared_to(player_pos) < 90000):
 				set_mode("Alert")
 			match inner_beat:
-				0.0:
+				0:
 					#print(init_rotation)
 					$NotePlayer.play_note(1)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation - PI/10
 					$Tarantula_Sprite/Body/Butt.position = init_position
-				0.5:
+				1:
 					$NotePlayer.play_note(2)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation + PI/10
-				4.0:
+				8:
 					$NotePlayer.play_note(1)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation - PI/10
-				2.0:
+				4:
 					$NotePlayer.play_note(1)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation
 					$Tarantula_Sprite/Body/Butt.position = Vector2(init_position.x,init_position.y+10)
-				3.5:
+				7:
 					$NotePlayer.play_note(2)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation+PI/10
 					$Tarantula_Sprite/Body/Butt.position = init_position
 				_:
 					$NotePlayer.stop()
-	inner_beat += .5
-	if (inner_beat == 4.0):
+	inner_beat += 1
+	if (inner_beat == 8.0):
 		inner_beat = 0.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

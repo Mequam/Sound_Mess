@@ -3,18 +3,28 @@ extends "res://scripts/abstracts/generic_enemy.gd"
 var scale_math = load("res://scripts/abstracts/Scale_Math.gd").new()
 var init_col_layer
 var init_col_mask
-func _ready():
+func main_ready():
+	#call the generic ready function
+	#this lets the save state node run before we do anything else
+	.main_ready()
+	#we are still a spider if we are dead
+	add_to_group("spiders")
+	#cache the initial collision layer
 	init_col_layer = collision_layer
 	init_col_mask = collision_mask
+	#set the initial health
 	$health_bar.hp = 20
+	#set the mode of the music math
 	scale_math.mode = 6
-	add_to_group("spiders")
-	add_to_group("enemies")
 	$NotePlayer.mode = 6
-	$Bunny_Boss_Sprite/AnimationPlayer2.play("Idle_Top")
-	set_mode("move_circle")
-
-
+	#the save state node will then update our state/mode,
+	#if we are not dead, prepare to move, otherwise do nothing
+	if mode != "dead":
+		#save the initial collision layer
+		$Bunny_Boss_Sprite/AnimationPlayer2.play("Idle_Top")
+		set_mode("move_circle")
+	else:
+		$health_bar.visible = false
 var dieing_burrow_particle = load("res://scenes/instance/dieing_particle.tscn")
 func set_mode(val):
 	if (mode == "move_slam"):
@@ -28,6 +38,8 @@ func set_mode(val):
 			$Bunny_Boss_Sprite/AnimationPlayer2.play("Burrow")
 		"Dead":
 			$Bunny_Boss_Sprite/AnimationPlayer2.play("Death")
+			#save the fact that we are dead
+			$save_state_node.save_data()
 func get_mode():
 	return mode
 

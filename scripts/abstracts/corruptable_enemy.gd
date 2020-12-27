@@ -8,6 +8,12 @@ func corrupt():
 func _ready():
 	remove_from_group("enemies")
 	add_to_group("corruptable")
+
+#overload the parent behavior to save our state on death
+#corruptable enemys do not save when they die
+func die()->void:
+	queue_free()
+
 func anim_finished(anim):
 	#if we finish transforming we are now EVIIIIL mwhahahaha
 	if (anim == "Transform"):

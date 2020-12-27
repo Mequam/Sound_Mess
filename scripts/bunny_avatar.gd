@@ -25,6 +25,11 @@ func run_six(to_move,delta):
 	#you are now on the burrow layer
 	parent.collision_layer = 2
 	
+	var player_health_bar = parent.get_node("health_bar")
+	
+	#make the player invulnerable when they attack
+	player_health_bar.do_buffer = false
+	player_health_bar.inv = true
 	return burrow_distance
 func clean_six(to_move,delta):
 	if (get_last_beat() == 2):
@@ -35,6 +40,11 @@ func clean_six(to_move,delta):
 	parent.collision_mask |= int(pow(2,5))
 	parent.collision_mask |= int(pow(2,2))
 	parent.collision_layer = 1
+	
+	var health = parent.get_node("health_bar")
+	#remove our invulnerability and re-enable buffering
+	health.inv = false
+	health.do_buffer = true
 var push_speed = 100
 func ground_pound(dmg=1,rad=400):
 	for i in get_tree().get_nodes_in_group("enemies"):
@@ -48,7 +58,7 @@ func ground_pound(dmg=1,rad=400):
 						i.on_col(self,dmg)
 func flavor_changed(flavor):
 	if flavor == 7 and $Sprite/AnimationPlayer.assigned_animation != "burrow":
-			get_parent().i_timer = 2
+			var player_health_bar = get_parent().get_node("health_bar")
 			$Sprite/AnimationPlayer.play("burrow")
 			$Sprite/burrow/Particles2D.emitting = true
 func anim_finished(anim):

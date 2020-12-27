@@ -1,30 +1,45 @@
-extends KinematicBody2D
-var inner_beat = 0
-var mode = "default" setget set_mode,get_mode
-func set_mode(val):
+extends "res://scripts/abstracts/entity.gd"
+#this file is the enemy super class which all enemies
+#derive from (save the trapper which is an area 2d)
+#TODO: change that ^
+
+#the beat of the enemies song
+var inner_beat : int = 0
+
+#used to keep track of the state that the enemy is in
+var mode : String = "default" setget set_mode,get_mode
+func set_mode(val)->void:
 	mode = val
-func get_mode():
+func get_mode()->String:
 	return mode
-func _ready():
+
+#generic enemy ready function
+func main_ready()->void:
 	add_to_group("enemies")
+	#if they have a sprite node, connect the animation on it
 	if (get_node("Sprite")):
 		$Sprite/AnimationPlayer.connect("animation_finished",self,"anim_finished")
-func on_col(obj,dmg):
-	$health_bar.hp -= dmg
-	if ($health_bar.hp <= 0):
-		queue_free()
+	$save_state_node.load_data()
+	#call the parent ready
+	.main_ready()
 
 #moves in a direction and damages anything we come accross
-func dmg_mv(dir,dmg):
+func dmg_mv(dir,dmg) -> CollisionObject:
 	var col = move_and_collide(dir)
-	if (col):
-		print("evil collision!")
 	if (col and col.collider.has_method("on_col")):
-		print("evil damage!")
+		#damage the collider
 		col.collider.on_col(self,dmg)
 	return col
+func die()->void:
+	$save_state_node.save_death()
+	.die()
 #virtual functions
-func anim_finished(anim):
+
+#called when the animation player finishes its animation,
+#used for syncing visual actions with the auditory notes and 
+#damaging abilities
+func anim_finished(anim)->void:
 	pass
-func run(player_pos,beat):
+#called every beat with the players position for processing
+func run(player_pos,beat)->void:
 	pass

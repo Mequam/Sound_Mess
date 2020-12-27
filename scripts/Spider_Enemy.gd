@@ -8,6 +8,7 @@ extends "res://scripts/abstracts/generic_enemy.gd"
 #represents the mode that the spdider is in, search, patroll, attack
 var just_attacked = false
 
+#function that is inteanded to be called by people who collide with us
 func on_col(player,dmg=1):
 	if (player.is_in_group("player") and player.i_timer != null and player.i_timer > 0):
 		$health_bar.hp -= dmg
@@ -15,6 +16,7 @@ func on_col(player,dmg=1):
 		$health_bar.hp -= dmg
 	if ($health_bar.hp <= 0):
 		set_mode("die")
+#setter for our mode
 func set_mode(val):
 	if (val in ["die","search","patroll","attack"] and mode != "die"): #once we die we dont change modes
 		if (val == "die"):
@@ -36,8 +38,9 @@ func set_mode(val):
 
 var patroll_down = true
 var speed = 15
-# Called when thenode enters the scene tree for the first time.
-func _ready():
+
+# Called when the node enters the scene tree for the first time.
+func main_ready():
 	$health_bar.hp = 2
 	add_to_group("spiders")
 	
@@ -45,6 +48,9 @@ func _ready():
 	get_node("Spider/AnimationPlayer").play("Idle")
 	
 	set_mode("search")
+	#call the parent ready functions
+	.main_ready()
+
 func play_modal_animation(mode):
 	match mode:
 		"die" :
@@ -56,13 +62,13 @@ func play_modal_animation(mode):
 			get_node("Spider/AnimationPlayer").play("Scury")
 		"attack" :
 			get_node("Spider/AnimationPlayer").play("Scury")
+
 #returns true if we can see the target
 func can_see(target_pos):
-	#print(str(target_pos.y-10) + ',' + str(target_pos.y+10) + ':' + str(position.y))
 	return position.distance_to(target_pos) <= 1000 and target_pos.y-position.y <= 20*scale.y and target_pos.y-position.y >= -20*scale.y  
+
 #makes the spider look for a target and change modes accordingly
 func look(target_pos):
-	#print("[SPIDER] looking!")
 	if (can_see(target_pos)):
 		set_mode("attack")
 
@@ -88,6 +94,7 @@ func play_note(beat):
 				2.0:
 					get_node("Spider").anim_look_top_right()
 					get_node("Spider").anim_look_bottom_right()
+					get_node("Spider").anim_look_bottom_right()
 					get_node("NotePlayer").play_note(1)
 				2.5:
 					get_node("Spider").anim_look_top_left()
@@ -96,7 +103,7 @@ func play_note(beat):
 				3.0:
 					get_node("NotePlayer").play_note(0)
 				4.0:
-					queue_free()
+					die()
 			_death_beat+=.5
 		"patroll":
 			match beat:
