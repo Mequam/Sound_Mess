@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+LoadData="*res://scripts/singletons/loadData.gd"
 Globals="*res://scripts/singletons/globals.gd"
 
 [input]

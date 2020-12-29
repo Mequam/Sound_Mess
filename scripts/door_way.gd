@@ -1,5 +1,9 @@
 extends Area2D
 
+#this script runs the dorrs that connect
+#different scenes together
+#effectivly they function as load zones
+
 var current_scene = ""
 var new_scene = ""
 var door_name = ""
@@ -10,7 +14,7 @@ func _ready():
 	print("door way ready " + str(locked))
 func _on_door_way_body_entered(body):
 	if (!locked and body.is_in_group("player")):
-		Globals.load_scene(new_scene,current_scene,door_name)
+		LoadData.load_scene(new_scene,current_scene,door_name)
 
 
 func _on_door_way_body_exited(body):

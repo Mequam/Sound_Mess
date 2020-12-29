@@ -31,14 +31,19 @@ func init():
 	for node in get_tree().get_nodes_in_group("AIplayer"):
 		node.sub_beat = $Met/Met.wait_time
 		node.get_node("Met").wait_time = $Met/Met.wait_time
-	if (Globals.load_able_player_position != null):
+	#the previous door can set a flag which overides the default
+	#load opperation and sets the player position directly
+	if (LoadData.load_able_player_position != null):
 		$player.position = Globals.load_able_player_position
-	elif (Globals.prev_door_name != null):
-		print("checking the previous door name against names in the scene as " + load_path)
+	elif (LoadData.prev_door_name != null):
 		for n in get_tree().get_nodes_in_group("door_ways"):
 			n.current_scene = load_path
-			if (n.door_name == Globals.prev_door_name):
+			#the previous door connects to the door in the 
+			#current scene
+			if (n.door_name == LoadData.prev_door_name):
+				#the door starts out as locked
 				n.locked = true
+				#the player starts out at that position
 				$player.position = n.position
 	$Met/Met.connect("timeout",self,"_met_timeout")
 	

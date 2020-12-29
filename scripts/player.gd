@@ -114,6 +114,9 @@ func check_action(act):
 		"dev":
 			return Input.is_action_just_pressed(act)
 		"midi":
+			#if I recall correctly this is required
+			#for the NotePlayer emitting custom signals
+			#TODO: more research into what past Mequam did :/
 			return Globals.action_just_pressed(act)
 		_:
 			return false
