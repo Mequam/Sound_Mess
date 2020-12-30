@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/instance/entities/poof_grass.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/instance/entities/PineTreeBody.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/main_scenes/grass_field.gd" type="Script" id=7]
 [ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=8]
@@ -798,9 +797,6 @@ position = Vector2( 212.692, 615.57 )
 position = Vector2( 106.152, 502.243 )
 
 [node name="Met" parent="." instance=ExtResource( 4 )]
-
-[node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2083.52, 606.653 )
 
 [node name="tall_grass" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1713.17, 508.952 )

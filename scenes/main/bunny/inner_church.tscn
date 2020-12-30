@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/inner_church.gd" type="Script" id=2]
-[ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=4]
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=7]
 [ext_resource path="res://triangles/right_triangle.png" type="Texture" id=8]
@@ -31,9 +30,6 @@ tile_data = PoolIntArray( -524286, 11, 0, -458751, 11, 0, -458750, 0, 0, -458749
 scale = Vector2( 0.3, 0.3 )
 z_index = 4
 tile_data = PoolIntArray( -458752, 11, 0, -458751, 11, 0, -458748, 11, 0, -393216, 11, 0, -393213, 11, 0, -393212, 11, 0, -262146, 11, 0, -262145, 11, 0, -327680, 14, 0, -327679, 14, 0, -327677, 14, 0, -327676, 14, 0, -196610, 14, 0, -196609, 14, 0, -262144, 9, 0, -262143, 9, 0, -262141, 9, 0, -262140, 9, 0, -262139, 14, 0, -131074, 9, 0, -131073, 9, 0, -196608, 9, 0, -196604, 9, 0, -196603, 16, 0, -65539, 14, 0, -65538, 11, 0, -131067, 16, 0, -3, 11, 0, -2, 21, 0, -65531, 16, 0, 65533, 11, 0, 5, 16, 0, 131069, 11, 0, 65541, 16, 0, 196605, 11, 0, 131077, 16, 0, 131078, 11, 0, 196613, 21, 0, 196614, 11, 0, 262150, 11, 0, 327684, 11, 0, 327685, 11, 0 )
-
-[node name="player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 395.133, 906.53 )
 
 [node name="Met" parent="." instance=ExtResource( 4 )]
 position = Vector2( 643.883, 434.724 )

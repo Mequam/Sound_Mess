@@ -20,4 +20,9 @@ func _ready():
 	
 	$bunny_church.door_name = "A"
 	$bunny_church.new_scene = "res://scenes/main/bunny/church_yard.tscn"
+	$player.position = $debug_player_pos.position
 	.init()
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_L:
+			LoadData.load_scene("res://scenes/main/bunny/church_yard.tscn",load_path)

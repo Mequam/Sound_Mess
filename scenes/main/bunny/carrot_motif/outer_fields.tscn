@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/instance/entities/poof_grass.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/main_scenes/outer_fields.gd" type="Script" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://scenes/assets/architecture/bunny/farm_house.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/instance/entities/enemies/evil_carrot.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/assets/clouds.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/assets/architecture/bunny/well.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/assets/hill.tscn" type="PackedScene" id=16]
@@ -35,8 +34,6 @@ tile_data = PoolIntArray( -458752, 11, 0, -393216, 11, 0, -393214, 11, 0, -39321
 
 [node name="Met" parent="." instance=ExtResource( 5 )]
 position = Vector2( -119.872, -7.70139 )
-
-[node name="player" parent="." instance=ExtResource( 13 )]
 
 [node name="Spider_Enemy2" parent="." instance=ExtResource( 14 )]
 position = Vector2( -532.625, 340.835 )
@@ -281,3 +278,6 @@ scale = Vector2( 40, 2 )
 [node name="up_carrot_path" parent="." instance=ExtResource( 18 )]
 position = Vector2( 1436.82, 1028.51 )
 scale = Vector2( 40, 2 )
+
+[node name="Tarantula3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 427.529, 1248.79 )

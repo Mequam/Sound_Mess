@@ -133,7 +133,6 @@ func run(player_pos,beat):
 					$Tarantula_Sprite/Particles2D.emitting = true
 					for node in get_tree().get_nodes_in_group("corruptable"):
 						if (position.distance_to(node.position) <= 400):
-							print("corrupting!")
 							node.corrupt()
 				4:
 					$NotePlayer.play_note(7)

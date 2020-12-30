@@ -5,10 +5,6 @@ extends Node
 
 #I will be a happy programmer if this script stays small
 
-#the health of the player that is saved from scene to scene
-#the default value here is the initial value that the player starts with
-var persistent_player_health = 5
-
 #this id represents the game save, when saving data
 #we save it in the folder user://game{game_save_id}/blah
 var game_save_id : int = 0
