@@ -843,6 +843,3 @@ scale = Vector2( 40, 5 )
 
 [node name="Blipper" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1193, 236.769 )
-
-[node name="debug_player_pos" type="Node2D" parent="."]
-position = Vector2( 11415.4, 845.348 )

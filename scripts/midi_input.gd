@@ -3,8 +3,6 @@ extends "res://scripts/NotePlayer.gd"
 func _ready():
 	OS.open_midi_inputs()
 
-	print(OS.get_connected_midi_inputs())
-
 # via <https://github.com/godotengine/godot/blob/master/core/os/input_event.h>
 enum GlobalScope_MidiMessageList {
 	MIDI_MESSAGE_NOTE_OFF = 0x8,

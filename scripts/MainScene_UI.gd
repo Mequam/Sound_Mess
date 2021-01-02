@@ -12,4 +12,6 @@ func load_game():
 	#load the player globaly
 	LoadData.load_player()
 	#TODO: I am faily certain that the previous scene does not do anything
-	LoadData.load_scene("res://scenes/main/bunny/carrot_motif/outer_fields.tscn","")
+	
+	#load the beginner scene of the player, the vector here is the center of the mushroom circle in the bunny forest
+	LoadData.load_scene("res://scenes/main/bunny/bunny_forest.tscn","",null,Vector2(417.919,365.21))

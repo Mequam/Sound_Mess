@@ -34,7 +34,7 @@ func init():
 	#the previous door can set a flag which overides the default
 	#load opperation and sets the player position directly
 	if (LoadData.load_able_player_position != null):
-		$player.position = Globals.load_able_player_position
+		$player.position = LoadData.load_able_player_position
 	elif (LoadData.prev_door_name != null):
 		for n in get_tree().get_nodes_in_group("door_ways"):
 			n.current_scene = load_path

@@ -31,18 +31,18 @@ func load_scene(scene,prevScene,prevDoorName=null,loadablePlayerPos=null):
 	var oldScene = root.get_child(2)
 	
 	#orphan the player so they are no longer in the scene
-	oldScene.remove_child(_player_ref)
+	oldScene.call_deferred("remove_child",_player_ref)
 	
 	#remove the previous scene
 	oldScene.call_deferred("free")
 	
 	#prepare and load the new scene by adding the player
 	var toLoad : Node = load(scene).instance()
-	toLoad.add_child(_player_ref)
+	toLoad.call_deferred("add_child",_player_ref)
 	
 	print("[loading] " + toLoad.name)
 	#actually load the new scene
-	get_tree().root.call_deferred("add_child",toLoad)
+	root.call_deferred("add_child",toLoad)
 
 	print("[Finished] :D ")
 #loads the player from the disc into global memory
