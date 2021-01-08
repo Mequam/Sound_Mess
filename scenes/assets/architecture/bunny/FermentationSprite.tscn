@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/arcitecture/bunny/silo_bottom.png" type="Texture" id=2]
+[ext_resource path="res://triangles/long_triangle.png" type="Texture" id=3]
+[ext_resource path="res://scenes/assets/carrot.tscn" type="PackedScene" id=4]
+
+[node name="FermentationSprite" type="Node2D"]
+
+[node name="Carrot" parent="." instance=ExtResource( 4 )]
+position = Vector2( 73.6279, -376.727 )
+rotation = 0.327668
+
+[node name="Carrot2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 65.1426, -376.727 )
+rotation = -0.22847
+
+[node name="Carrot3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -84.0181, -374.009 )
+rotation = -0.135676
+
+[node name="Carrot4" parent="." instance=ExtResource( 4 )]
+position = Vector2( -42.9873, -380.26 )
+rotation = -0.0556975
+
+[node name="Carrot5" parent="." instance=ExtResource( 4 )]
+position = Vector2( -12.033, -383.435 )
+rotation = -0.0556975
+
+[node name="Carrot6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 16.5402, -380.26 )
+rotation = 0.142468
+
+[node name="silo_bottom" type="Sprite" parent="."]
+modulate = Color( 0.694118, 0.54902, 0.356863, 1 )
+position = Vector2( 7.28568, -195.695 )
+texture = ExtResource( 2 )
+
+[node name="ladder" type="Node2D" parent="."]
+modulate = Color( 0.58, 0.456847, 0.2958, 1 )
+
+[node name="long_triangle" type="Sprite" parent="ladder"]
+position = Vector2( -97.7828, -83.4017 )
+rotation = 1.76695
+scale = Vector2( 0.0506572, 0.149267 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle2" type="Sprite" parent="ladder"]
+position = Vector2( -87.1947, -126.246 )
+rotation = -1.33799
+scale = Vector2( 0.0397351, 0.149267 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle8" type="Sprite" parent="ladder"]
+position = Vector2( -87.7034, -1.50687 )
+rotation = 1.76695
+scale = Vector2( 0.0506572, 0.149267 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle9" type="Sprite" parent="ladder"]
+position = Vector2( -77.1154, -44.3509 )
+rotation = -1.33799
+scale = Vector2( 0.0397351, 0.149267 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle3" type="Sprite" parent="ladder"]
+position = Vector2( -89.1231, -175.832 )
+rotation = 1.76695
+scale = Vector2( 0.0472358, 0.149267 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle4" type="Sprite" parent="ladder"]
+position = Vector2( -77.7642, -222.057 )
+rotation = -1.33799
+scale = Vector2( 0.0507941, 0.149267 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle5" type="Sprite" parent="ladder"]
+position = Vector2( -85.4071, -270.104 )
+rotation = 1.76695
+scale = Vector2( 0.0547852, 0.149267 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle6" type="Sprite" parent="ladder"]
+position = Vector2( -74.2118, -315.352 )
+rotation = -1.33799
+scale = Vector2( 0.0542104, 0.149267 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle7" type="Sprite" parent="ladder"]
+position = Vector2( -68.4923, -366.454 )
+rotation = 1.76695
+scale = Vector2( 0.0568603, 0.149267 )
+texture = ExtResource( 3 )

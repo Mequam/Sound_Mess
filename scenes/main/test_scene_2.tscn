@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/entities/SingingTree.tscn" type="PackedScene" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/instance/switches/bunnyDoorSwitch.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/instance/switches/singingSwitch.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/assets/architecture/bunny/FermentationBody.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/assets/bosses/bunny/siloBossSprite.tscn" type="PackedScene" id=17]
 
 [node name="test_space" type="TileMap"]
 cell_y_sort = true
@@ -63,4 +65,10 @@ position = Vector2( -407.54, -200.773 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 position = Vector2( -521.411, -101.885 )
+
+[node name="RigidBody2D" parent="." instance=ExtResource( 16 )]
+position = Vector2( -749.805, -462.454 )
+
+[node name="siloBossSprite" parent="." instance=ExtResource( 17 )]
+position = Vector2( -65.9258, -71.9187 )
 [connection signal="completed_dialog" from="bunnyDoorSwitch/singingSwitch/DialogChoiceList" to="bunnyDoorSwitch/singingSwitch" method="_on_DialogChoiceList_completed_dialog"]

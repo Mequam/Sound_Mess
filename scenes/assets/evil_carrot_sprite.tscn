@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=1]
 [ext_resource path="res://triangles/even_triangle.png" type="Texture" id=2]
@@ -15,6 +15,108 @@ scale = 0.05
 color = Color( 1, 0.67451, 0, 1 )
 
 [sub_resource type="Animation" id=2]
+resource_name = "Flail"
+length = 0.2
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/legs_back/right_outer:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.07, 0.13, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -227.383, -143.546, -94.6098, -143.546 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/legs_back/right_outer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.07, 0.13, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 11.5778, -134.351 ), Vector2( 59.7013, -128.782 ), Vector2( 68.884, -111.547 ), Vector2( 59.7013, -128.782 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/legs_back/right_upper3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.07 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 24.9558, -94.864 ), Vector2( 30.2637, -94.516 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/legs_back/right_upper3:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.07 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 10.0294, 45.3929 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("evil/legs_back/left_upper:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.13, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -32.1063, -88.8332 ), Vector2( -36.2928, -84.2322 ), Vector2( -32.1063, -88.8332 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("evil/legs_back/left_upper:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.13, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -17.4185, -38.6626, -17.4185 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("evil/legs_back/right_outer2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.07, 0.13, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -26.7716, -131.447 ), Vector2( -36.9384, -135.006 ), Vector2( -74.0503, -100.231 ), Vector2( -36.9384, -135.006 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("evil/legs_back/right_outer2:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.07, 0.13, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 203.441, 179.519, 84.5157, 179.519 ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -162,7 +264,7 @@ tracks/11/keys = {
 "values": [ 123.485, 72.2921 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("evil/legs_back/right_outer:position")
+tracks/12/path = NodePath("evil/legs_back/right_outer:rotation_degrees")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -171,10 +273,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 61.1017, -37.2124 ), Vector2( 53.4029, -57.1135 ) ]
+"values": [ -18.7478, 4.28552 ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("evil/legs_back/right_outer:rotation_degrees")
+tracks/13/path = NodePath("evil/legs_back/right_outer:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -183,7 +285,7 @@ tracks/13/keys = {
 "times": PoolRealArray( 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ -18.7478, 4.28552 ]
+"values": [ Vector2( 61.1017, -37.2124 ), Vector2( 53.4029, -57.1135 ) ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("evil/legs_front/right_outer:rotation_degrees")
@@ -230,7 +332,7 @@ tracks/17/enabled = true
 tracks/17/keys = {
 "times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
+"update": 1,
 "values": [ Vector2( 27.1502, -34.3609 ) ]
 }
 tracks/18/type = "value"
@@ -258,7 +360,7 @@ tracks/19/keys = {
 "values": [ Vector2( 1.51509, 8.99323 ), Vector2( 2.53752, 11.0223 ), Vector2( 1.51509, 8.99323 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -334,7 +436,7 @@ tracks/5/keys = {
 "values": [ 62.0598, 125.491 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("evil/legs_back/right_outer:position")
+tracks/6/path = NodePath("evil/legs_back/right_outer:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -343,10 +445,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 51.6812, -65.9434 ), Vector2( 56.9655, -33.6163 ) ]
+"values": [ 5.47319, -15.2428 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("evil/legs_back/right_outer:rotation_degrees")
+tracks/7/path = NodePath("evil/legs_back/right_outer:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -355,7 +457,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 5.47319, -15.2428 ]
+"values": [ Vector2( 51.6812, -65.9434 ), Vector2( 56.9655, -33.6163 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("evil/legs_front/left_upper:position")
@@ -454,7 +556,7 @@ tracks/15/keys = {
 "values": [ -9.56476, -9.56476 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/eyes/right:position")
@@ -577,7 +679,7 @@ tracks/9/keys = {
 "values": [ Vector2( -42.1489, -28.85 ), Vector2( -41.7368, -36.8658 ), Vector2( -46.8917, -43.7223 ), Vector2( -66.698, -60.4232 ), Vector2( -56.631, -63.953 ), Vector2( -68.7681, -57.1664 ), Vector2( -62.4817, -52.8008 ), Vector2( -63.2535, -46.1982 ), Vector2( -60.6445, -36.8798 ), Vector2( -60.7569, -28.155 ), Vector2( -70.8541, -30.4679 ), Vector2( -70.816, -28.1465 ), Vector2( -67.4816, -35.6315 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("evil/legs_back/right_outer:position")
+tracks/10/path = NodePath("evil/legs_back/right_outer:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -586,7 +688,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.4, 1.8, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 29.1698, -28.2488 ), Vector2( 32.8907, -39.4857 ), Vector2( 30.6029, -48.4286 ), Vector2( 46.7161, -55.9293 ), Vector2( 51.0674, -57.1249 ), Vector2( 53.8186, -58.9806 ), Vector2( 53.8186, -58.9806 ), Vector2( 52.9915, -52.4938 ), Vector2( 49.8408, -46.4681 ), Vector2( 48.4724, -45.077 ), Vector2( 59.6835, -39.0643 ), Vector2( 61.1017, -37.2124 ) ]
+"values": [ Vector2( 0.0144502, 0.032467 ), Vector2( 0.0144502, 0.040687 ), Vector2( 0.0144502, 0.0499258 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ) ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("evil/legs_back/right_outer:rotation_degrees")
@@ -601,7 +703,7 @@ tracks/11/keys = {
 "values": [ -143.914, -149.497, -169.006, -148.201, -133.82, -107.038, -71.7376, -36.9466, -35.3909, -44.4362, -18.7478 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("evil/legs_back/right_outer:scale")
+tracks/12/path = NodePath("evil/legs_back/right_outer:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -610,7 +712,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.4, 1.8, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 0.0144502, 0.032467 ), Vector2( 0.0144502, 0.040687 ), Vector2( 0.0144502, 0.0499258 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ), Vector2( 0.0144502, 0.0594606 ) ]
+"values": [ Vector2( 29.1698, -28.2488 ), Vector2( 32.8907, -39.4857 ), Vector2( 30.6029, -48.4286 ), Vector2( 46.7161, -55.9293 ), Vector2( 51.0674, -57.1249 ), Vector2( 53.8186, -58.9806 ), Vector2( 53.8186, -58.9806 ), Vector2( 52.9915, -52.4938 ), Vector2( 49.8408, -46.4681 ), Vector2( 48.4724, -45.077 ), Vector2( 59.6835, -39.0643 ), Vector2( 61.1017, -37.2124 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("evil/legs_back/right_upper3:scale")
@@ -945,11 +1047,11 @@ tracks/40/enabled = true
 tracks/40/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
+"update": 1,
 "values": [ Vector2( 3.54864, 7.31672 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -1001,7 +1103,7 @@ tracks/3/keys = {
 "values": [ Vector2( 3.0255, 9.81036 ), Vector2( 3.02431, 8.10388 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/teeth/top:position")
@@ -1052,7 +1154,7 @@ tracks/3/keys = {
 "values": [ Vector2( 0.0936791, 0.0175937 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/eyes/left:position")
@@ -1079,7 +1181,7 @@ tracks/1/keys = {
 "values": [ Vector2( 5.19742, -6.5474 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/eyes/left:position")
@@ -1106,7 +1208,7 @@ tracks/1/keys = {
 "values": [ Vector2( 14.4373, -13.5311 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/eyes/left:position")
@@ -1133,7 +1235,7 @@ tracks/1/keys = {
 "values": [ Vector2( 11.2021, -13.5191 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("evil/teeth/top:position")
@@ -1301,7 +1403,6 @@ scale = Vector2( 0.0147294, 0.0285752 )
 texture = ExtResource( 1 )
 
 [node name="right_outer" type="Sprite" parent="evil/legs_front"]
-visible = false
 position = Vector2( 40.6305, 22.4459 )
 rotation = -0.627226
 scale = Vector2( 0.0144502, 0.0460686 )
@@ -1314,7 +1415,6 @@ scale = Vector2( 0.0147294, 0.0285752 )
 texture = ExtResource( 1 )
 
 [node name="left_outer" type="Sprite" parent="evil/legs_front"]
-visible = false
 position = Vector2( -42.2289, 27.7835 )
 rotation = -5.79167
 scale = Vector2( 0.0144502, 0.0460686 )
@@ -1374,14 +1474,15 @@ process_material = SubResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 2 )
-anims/Rush = SubResource( 3 )
-anims/Transform = SubResource( 4 )
+anims/Flail = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Rush = SubResource( 4 )
+anims/Transform = SubResource( 5 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/Chomp = SubResource( 5 )
-anims/Close = SubResource( 6 )
-anims/Look_down_left = SubResource( 7 )
-anims/Look_down_right = SubResource( 8 )
-anims/Look_forward = SubResource( 9 )
-anims/Open = SubResource( 10 )
+anims/Chomp = SubResource( 6 )
+anims/Close = SubResource( 7 )
+anims/Look_down_left = SubResource( 8 )
+anims/Look_down_right = SubResource( 9 )
+anims/Look_forward = SubResource( 10 )
+anims/Open = SubResource( 11 )

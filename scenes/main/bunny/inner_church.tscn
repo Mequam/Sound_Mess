@@ -6,8 +6,9 @@
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=7]
 [ext_resource path="res://triangles/right_triangle.png" type="Texture" id=8]
 [ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny_boss.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/bunny_boss.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=12]
+
 
 [node name="inner_church_bunny" type="TileMap"]
 cell_y_sort = true

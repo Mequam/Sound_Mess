@@ -15,8 +15,10 @@
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/assets/architecture/bunny/well.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/assets/hill.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/assets/bunny/bunny_scare_crow.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/assets/architecture/bunny/bunny_scare_crow.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=18]
+
+
 
 [node name="outer_fields" type="TileMap"]
 cell_y_sort = true

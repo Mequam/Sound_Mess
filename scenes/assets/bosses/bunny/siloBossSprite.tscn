@@ -1,0 +1,2932 @@
+[gd_scene load_steps=63 format=2]
+
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake1/shake2.png" type="Texture" id=1]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake0/shake2.png" type="Texture" id=2]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake4/shake1.png" type="Texture" id=3]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake2/shake0.png" type="Texture" id=4]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake1/shake3.png" type="Texture" id=5]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake3/shake3.png" type="Texture" id=6]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake4/shake0.png" type="Texture" id=7]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake1/shake0.png" type="Texture" id=8]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake4/shake3.png" type="Texture" id=9]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/siloBackGround.png" type="Texture" id=10]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake0/shake3.png" type="Texture" id=11]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake2/shake2.png" type="Texture" id=12]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake2/shake3.png" type="Texture" id=13]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake0/shake0.png" type="Texture" id=14]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake3/shake0.png" type="Texture" id=15]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake2/shake1.png" type="Texture" id=16]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake3/shake1.png" type="Texture" id=17]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake4/shake4.png" type="Texture" id=18]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake0/shake1.png" type="Texture" id=19]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake1/shake1.png" type="Texture" id=20]
+[ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake3/shake2.png" type="Texture" id=21]
+[ext_resource path="res://assets/arcitecture/bunny/silo_bottom.png" type="Texture" id=22]
+[ext_resource path="res://scripts/animationScript/siloBossAnim.gd" type="Script" id=23]
+[ext_resource path="res://scenes/assets/evil_carrot_flail_arms.tscn" type="PackedScene" id=25]
+[ext_resource path="res://triangles/long_triangle.png" type="Texture" id=26]
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=27]
+
+[sub_resource type="ParticlesMaterial" id=17]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 78.8
+gravity = Vector3( 0, 600, 0 )
+initial_velocity = 300.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.05
+color = Color( 1, 0.67451, 0, 1 )
+
+[sub_resource type="Animation" id=19]
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.63517, -10.041 ), Vector2( 1.86442, -4.60627 ), Vector2( 2.09368, 0.828459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.879742, 11.7041 ), Vector2( 1.47506, 3.13041 ), Vector2( 2.07037, -5.44327 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0756855, 0.0823836 ), Vector2( 0.0936791, 0.0517217 ), Vector2( 0.0936791, 0.0175937 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.0255, 9.81036 ), Vector2( 3.02431, 8.10388 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.09368, 0.828459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.07037, -5.44327 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.28577, 6.84668 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0936791, 0.0175937 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -16.344, -11.6245 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 5.19742, -6.5474 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.37915, -7.48078 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 14.4373, -13.5311 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -11.6739, -15.5606 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 11.2021, -13.5191 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 1.63517, -10.041 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.879742, 11.7041 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.28879, 10.2736 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0880359, 0.0784981 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.63517, -10.041 ), Vector2( 1.86442, -4.60627 ), Vector2( 2.09368, 0.828459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.879742, 11.7041 ), Vector2( 1.47506, 3.13041 ), Vector2( 2.07037, -5.44327 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0756855, 0.0823836 ), Vector2( 0.0936791, 0.0517217 ), Vector2( 0.0936791, 0.0175937 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.0255, 9.81036 ), Vector2( 3.02431, 8.10388 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.09368, 0.828459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.07037, -5.44327 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.28577, 6.84668 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0936791, 0.0175937 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -16.344, -11.6245 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 5.19742, -6.5474 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.37915, -7.48078 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 14.4373, -13.5311 ) ]
+}
+
+[sub_resource type="Animation" id=35]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -11.6739, -15.5606 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 11.2021, -13.5191 ) ]
+}
+
+[sub_resource type="Animation" id=36]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 1.63517, -10.041 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.879742, 11.7041 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.28879, 10.2736 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0880359, 0.0784981 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.63517, -10.041 ), Vector2( 1.86442, -4.60627 ), Vector2( 2.09368, 0.828459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.879742, 11.7041 ), Vector2( 1.47506, 3.13041 ), Vector2( 2.07037, -5.44327 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0756855, 0.0823836 ), Vector2( 0.0936791, 0.0517217 ), Vector2( 0.0936791, 0.0175937 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.0255, 9.81036 ), Vector2( 3.02431, 8.10388 ) ]
+}
+
+[sub_resource type="Animation" id=38]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.09368, 0.828459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.07037, -5.44327 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.28577, 6.84668 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0936791, 0.0175937 ) ]
+}
+
+[sub_resource type="Animation" id=39]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -16.344, -11.6245 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 5.19742, -6.5474 ) ]
+}
+
+[sub_resource type="Animation" id=40]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.37915, -7.48078 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 14.4373, -13.5311 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -11.6739, -15.5606 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 11.2021, -13.5191 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 1.63517, -10.041 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.879742, 11.7041 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.28879, 10.2736 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0880359, 0.0784981 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Shake1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Shake3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Shake4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Shake2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 19 ), ExtResource( 2 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Shake",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=11]
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.63517, -10.041 ), Vector2( 1.86442, -4.60627 ), Vector2( 2.09368, 0.828459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.879742, 11.7041 ), Vector2( 1.47506, 3.13041 ), Vector2( 2.07037, -5.44327 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0756855, 0.0823836 ), Vector2( 0.0936791, 0.0517217 ), Vector2( 0.0936791, 0.0175937 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.0255, 9.81036 ), Vector2( 3.02431, 8.10388 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.09368, 0.828459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.07037, -5.44327 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.28577, 6.84668 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0936791, 0.0175937 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -16.344, -11.6245 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 5.19742, -6.5474 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.37915, -7.48078 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 14.4373, -13.5311 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -11.6739, -15.5606 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 11.2021, -13.5191 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 1.63517, -10.041 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.879742, 11.7041 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.28879, 10.2736 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0880359, 0.0784981 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.63517, -10.041 ), Vector2( 1.86442, -4.60627 ), Vector2( 2.09368, 0.828459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.879742, 11.7041 ), Vector2( 1.47506, 3.13041 ), Vector2( 2.07037, -5.44327 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0756855, 0.0823836 ), Vector2( 0.0936791, 0.0517217 ), Vector2( 0.0936791, 0.0175937 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 3.0255, 9.81036 ), Vector2( 3.02431, 8.10388 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.09368, 0.828459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.07037, -5.44327 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.28577, 6.84668 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0936791, 0.0175937 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -16.344, -11.6245 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 5.19742, -6.5474 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.37915, -7.48078 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 14.4373, -13.5311 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/eyes/left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -11.6739, -15.5606 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/eyes/right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 11.2021, -13.5191 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("evil/teeth/top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 1.63517, -10.041 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("evil/teeth/bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.879742, 11.7041 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("evil/teeth/black_mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.28879, 10.2736 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("evil/teeth/black_mouth:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0880359, 0.0784981 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Shake"
+tracks/0/type = "value"
+tracks/0/path = NodePath("siloPos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("siloPos:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("siloPos:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("siloPos/Carrot1_legs_front:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("siloPos/Carrot1_legs_back:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Shake1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("siloPos/Carrot1_legs_back:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("siloPos/Carrot1_legs_front/right_upper:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("siloPos/Carrot1_legs_front/right_outer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("siloPos/Carrot1_legs_front/left_upper:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("siloPos/Carrot1_legs_front/left_outer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -37.0957, 4.30945 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("siloPos/Carrot1_legs_front/left_outer:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -226.159 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("siloPos/Carrot1_legs_front/left_outer:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0144502, 0.0460686 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("siloPos/Carrot1_legs_front/right_outer:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 21.7183, 7.43506 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("siloPos/Carrot1_legs_front/right_outer:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -119.704 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("siloPos/Carrot1_legs_front/right_outer:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0144502, 0.0460686 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Shake2"
+
+[sub_resource type="Animation" id=18]
+resource_name = "shake4"
+tracks/0/type = "value"
+tracks/0/path = NodePath("siloPos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -44.545 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("siloPos:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 15.6584 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("siloPos:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("siloPos/Carrots/Carrot1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 126.717, -56.9753 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("siloPos/Carrots/Carrot1:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 43.019 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("siloPos/Carrots/Carrot1/evil:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("siloPos/Carrot1_legs_front/left_outer:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -25.5396, 54.938 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("siloPos/Carrot1_legs_front/left_outer:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -365.239 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("siloPos/Carrot1_legs_front/left_outer:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0144502, 0.0460686 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("siloPos/Carrot1_legs_front/left_upper:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -19.1167, 26.0503 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("siloPos/Carrot1_legs_front/left_upper:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -140.766 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("siloPos/Carrot1_legs_front/left_upper:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0147294, 0.0285752 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("siloPos/Carrot1_legs_front/right_outer:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 46.9087, 16.5996 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("siloPos/Carrot1_legs_front/right_outer:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -72.1059 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("siloPos/Carrot1_legs_front/right_outer:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0144502, 0.0460686 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("siloPos/Carrot1_legs_front/right_upper:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 16.334, 14.5651 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("siloPos/Carrot1_legs_front/right_upper:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 69.1781 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("siloPos/Carrot1_legs_front/right_upper:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0147294, 0.0285752 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("siloPos/Carrot1_legs_back/right_outer:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 53.6987, -24.1384 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("siloPos/Carrot1_legs_back/right_outer:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -76.7251 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("siloPos/Carrot1_legs_back/right_outer:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0144502, 0.0461622 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("siloPos/Carrot1_legs_back/right_outer2:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -55.0205, -49.1227 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("siloPos/Carrot1_legs_back/right_outer2:rotation_degrees")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 132.53 ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("siloPos/Carrot1_legs_back/right_outer2:scale")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0164145, 0.0576335 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("siloPos/Carrot1_legs_back/left_upper:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -27.0738, -21.5973 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("siloPos/Carrot1_legs_back/left_upper:rotation_degrees")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -38.8908 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("siloPos/Carrot1_legs_back/left_upper:scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.015, 0.0322026 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("siloPos/Carrot1_legs_back/right_upper3:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 22.5589, -17.2666 ) ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("siloPos/Carrot1_legs_back/right_upper3:rotation_degrees")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 47.0839 ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("siloPos/Carrot1_legs_back/right_upper3:scale")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0147294, 0.0378288 ) ]
+}
+
+[node name="siloBossSprite" type="Node2D"]
+script = ExtResource( 23 )
+
+[node name="siloPos" type="Node2D" parent="."]
+
+[node name="siloBackGround" type="Sprite" parent="siloPos"]
+modulate = Color( 0.694118, 0.54902, 0.356863, 1 )
+position = Vector2( 3.27008, -196.085 )
+texture = ExtResource( 10 )
+
+[node name="Carrots" type="Node2D" parent="siloPos"]
+scale = Vector2( 1, 1 )
+
+[node name="Carrot1" type="Node2D" parent="siloPos/Carrots"]
+position = Vector2( 126.717, -56.9753 )
+rotation = 0.750823
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="body" type="Node2D" parent="siloPos/Carrots/Carrot1"]
+modulate = Color( 1, 0.643137, 0.298039, 1 )
+position = Vector2( -3.82954, 7.93135 )
+
+[node name="body_main" type="Sprite" parent="siloPos/Carrots/Carrot1/body"]
+position = Vector2( -0.132164, 0.909485 )
+scale = Vector2( 0.0922039, 0.0841366 )
+texture = ExtResource( 26 )
+
+[node name="stripes" type="Node2D" parent="siloPos/Carrots/Carrot1/body"]
+modulate = Color( 0.776471, 0.776471, 0.776471, 1 )
+
+[node name="stripe" type="Sprite" parent="siloPos/Carrots/Carrot1/body/stripes"]
+position = Vector2( -0.226765, -22.4226 )
+scale = Vector2( 0.0779681, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe2" type="Sprite" parent="siloPos/Carrots/Carrot1/body/stripes"]
+position = Vector2( 0.191366, -11.6514 )
+scale = Vector2( 0.0692391, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe3" type="Sprite" parent="siloPos/Carrots/Carrot1/body/stripes"]
+position = Vector2( -0.293931, -0.974811 )
+scale = Vector2( 0.0496515, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe4" type="Sprite" parent="siloPos/Carrots/Carrot1/body/stripes"]
+position = Vector2( 0.514903, 10.0253 )
+scale = Vector2( 0.0341165, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="leaves" type="Node2D" parent="siloPos/Carrots/Carrot1"]
+modulate = Color( 0.47451, 1, 0.431373, 1 )
+position = Vector2( -1.37411, -30.991 )
+
+[node name="back_leaf" type="Sprite" parent="siloPos/Carrots/Carrot1/leaves"]
+position = Vector2( -3.16312, -8.72552 )
+rotation = -0.118051
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="mid_leaf" type="Sprite" parent="siloPos/Carrots/Carrot1/leaves"]
+position = Vector2( -11.1967, -5.86319 )
+rotation = -0.902368
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="front_leaf" type="Sprite" parent="siloPos/Carrots/Carrot1/leaves"]
+position = Vector2( 3.99008, -7.88928 )
+rotation = 0.755242
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="evil" type="Node2D" parent="siloPos/Carrots/Carrot1"]
+position = Vector2( -4.08028, 2.93351 )
+rotation = 0.00371674
+
+[node name="eyes" type="Node2D" parent="siloPos/Carrots/Carrot1/evil"]
+modulate = Color( 1, 0.498039, 0.486275, 1 )
+position = Vector2( 0.682977, -0.993382 )
+
+[node name="right" type="Sprite" parent="siloPos/Carrots/Carrot1/evil/eyes"]
+position = Vector2( 4.03162, -15.1435 )
+rotation = 1.5708
+scale = Vector2( 0.020682, 0.0227239 )
+texture = ExtResource( 27 )
+
+[node name="left" type="Sprite" parent="siloPos/Carrots/Carrot1/evil/eyes"]
+position = Vector2( -9.58833, -12.5871 )
+rotation = -1.5708
+scale = Vector2( 0.0208664, 0.0201249 )
+texture = ExtResource( 27 )
+
+[node name="teeth" type="Node2D" parent="siloPos/Carrots/Carrot1/evil"]
+modulate = Color( 1, 0.92549, 0.533333, 1 )
+position = Vector2( -1.70216, 1.14394 )
+
+[node name="black_mouth" type="Sprite" parent="siloPos/Carrots/Carrot1/evil/teeth"]
+modulate = Color( 0.2, 0.2, 0.2, 1 )
+position = Vector2( 3.02431, 8.10388 )
+rotation = -0.00371674
+scale = Vector2( 0.0756855, 0.0823836 )
+texture = ExtResource( 27 )
+
+[node name="top" type="Node2D" parent="siloPos/Carrots/Carrot1/evil/teeth"]
+position = Vector2( 1.63517, -10.041 )
+
+[node name="even_triangle" type="Sprite" parent="siloPos/Carrots/Carrot1/evil/teeth/top"]
+position = Vector2( -15.2024, 5.1759 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle2" type="Sprite" parent="siloPos/Carrots/Carrot1/evil/teeth/top"]
+position = Vector2( 0.0786905, 5.40906 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle3" type="Sprite" parent="siloPos/Carrots/Carrot1/evil/teeth/top"]
+position = Vector2( 15.6809, 5.85754 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="bottom" type="Node2D" parent="siloPos/Carrots/Carrot1/evil/teeth"]
+position = Vector2( 0.879742, 11.7041 )
+
+[node name="even_triangle4" type="Sprite" parent="siloPos/Carrots/Carrot1/evil/teeth/bottom"]
+position = Vector2( -7.29478, 13.0438 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle5" type="Sprite" parent="siloPos/Carrots/Carrot1/evil/teeth/bottom"]
+position = Vector2( 9.80331, 11.79 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="spew" type="Particles2D" parent="siloPos/Carrots/Carrot1/evil"]
+position = Vector2( -3.17125, -49.9022 )
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.82
+process_material = SubResource( 17 )
+texture = ExtResource( 27 )
+
+[node name="leaves2" type="Node2D" parent="siloPos/Carrots"]
+modulate = Color( 0.47451, 1, 0.431373, 1 )
+position = Vector2( -63.8271, -36.4373 )
+rotation = -1.20374
+scale = Vector2( 1, 1 )
+
+[node name="back_leaf" type="Sprite" parent="siloPos/Carrots/leaves2"]
+position = Vector2( -3.16312, -8.72552 )
+rotation = -0.118051
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="mid_leaf" type="Sprite" parent="siloPos/Carrots/leaves2"]
+position = Vector2( -11.1967, -5.86319 )
+rotation = -0.902368
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="front_leaf" type="Sprite" parent="siloPos/Carrots/leaves2"]
+position = Vector2( 3.99008, -7.88928 )
+rotation = 0.755242
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="flailArmsTopLeft" type="Node2D" parent="siloPos/Carrots"]
+position = Vector2( -74.6736, -262.054 )
+rotation = -0.790988
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="body" type="Node2D" parent="siloPos/Carrots/flailArmsTopLeft"]
+modulate = Color( 1, 0.643137, 0.298039, 1 )
+position = Vector2( -0.440125, -17.1649 )
+
+[node name="body_main" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/body"]
+position = Vector2( -0.132164, 0.909485 )
+scale = Vector2( 0.0922039, 0.0841366 )
+texture = ExtResource( 26 )
+
+[node name="stripes" type="Node2D" parent="siloPos/Carrots/flailArmsTopLeft/body"]
+modulate = Color( 0.776471, 0.776471, 0.776471, 1 )
+
+[node name="stripe" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/body/stripes"]
+position = Vector2( -0.226765, -22.4226 )
+scale = Vector2( 0.0779681, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe2" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/body/stripes"]
+position = Vector2( 0.191366, -11.6514 )
+scale = Vector2( 0.0692391, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe3" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/body/stripes"]
+position = Vector2( -0.293931, -0.974811 )
+scale = Vector2( 0.0496515, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe4" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/body/stripes"]
+position = Vector2( 0.514903, 10.0253 )
+scale = Vector2( 0.0341165, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="leaves" type="Node2D" parent="siloPos/Carrots/flailArmsTopLeft"]
+modulate = Color( 0.47451, 1, 0.431373, 1 )
+position = Vector2( 2.0153, -56.0872 )
+
+[node name="back_leaf" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/leaves"]
+position = Vector2( -3.16312, -8.72552 )
+rotation = -0.118051
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="mid_leaf" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/leaves"]
+position = Vector2( -11.1967, -5.86319 )
+rotation = -0.902368
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="front_leaf" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/leaves"]
+position = Vector2( 3.99008, -7.88928 )
+rotation = 0.755242
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="evil" type="Node2D" parent="siloPos/Carrots/flailArmsTopLeft"]
+position = Vector2( 2.99368, 35.3254 )
+rotation = 0.00371674
+
+[node name="eyes" type="Node2D" parent="siloPos/Carrots/flailArmsTopLeft/evil"]
+modulate = Color( 1, 0.498039, 0.486275, 1 )
+position = Vector2( -2.09928, -58.9909 )
+
+[node name="right" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/evil/eyes"]
+position = Vector2( 11.1685, -20.4684 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 27 )
+
+[node name="left" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/evil/eyes"]
+position = Vector2( -12.6532, -15.8079 )
+rotation = -1.5708
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 27 )
+
+[node name="teeth" type="Node2D" parent="siloPos/Carrots/flailArmsTopLeft/evil"]
+modulate = Color( 1, 0.92549, 0.533333, 1 )
+position = Vector2( -5.33267, -57.4293 )
+
+[node name="black_mouth" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/evil/teeth"]
+modulate = Color( 0.2, 0.2, 0.2, 1 )
+position = Vector2( 3.02431, 8.10388 )
+rotation = -0.00371674
+scale = Vector2( 0.0936791, 0.0175937 )
+texture = ExtResource( 27 )
+
+[node name="top" type="Node2D" parent="siloPos/Carrots/flailArmsTopLeft/evil/teeth"]
+position = Vector2( 2.09368, 0.828459 )
+
+[node name="even_triangle" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/evil/teeth/top"]
+position = Vector2( -15.2024, 5.1759 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle2" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/evil/teeth/top"]
+position = Vector2( 0.0786905, 5.40906 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle3" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/evil/teeth/top"]
+position = Vector2( 15.6809, 5.85754 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="bottom" type="Node2D" parent="siloPos/Carrots/flailArmsTopLeft/evil/teeth"]
+position = Vector2( 2.07037, -5.44327 )
+
+[node name="even_triangle4" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/evil/teeth/bottom"]
+position = Vector2( -7.29478, 13.0438 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle5" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/evil/teeth/bottom"]
+position = Vector2( 9.80331, 11.79 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="siloPos/Carrots/flailArmsTopLeft"]
+anims/Chomp = SubResource( 19 )
+anims/Close = SubResource( 20 )
+anims/Look_down_left = SubResource( 21 )
+anims/Look_down_right = SubResource( 22 )
+anims/Look_forward = SubResource( 23 )
+anims/Open = SubResource( 24 )
+
+[node name="rightCarrotTop3" type="Node2D" parent="siloPos/Carrots"]
+position = Vector2( -83.7627, -394.517 )
+rotation = -0.55056
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="body" type="Node2D" parent="siloPos/Carrots/rightCarrotTop3"]
+modulate = Color( 1, 0.643137, 0.298039, 1 )
+position = Vector2( -0.440125, -17.1649 )
+
+[node name="body_main" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/body"]
+position = Vector2( -0.132164, 0.909485 )
+scale = Vector2( 0.0922039, 0.0841366 )
+texture = ExtResource( 26 )
+
+[node name="stripes" type="Node2D" parent="siloPos/Carrots/rightCarrotTop3/body"]
+modulate = Color( 0.776471, 0.776471, 0.776471, 1 )
+
+[node name="stripe" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/body/stripes"]
+position = Vector2( -0.226765, -22.4226 )
+scale = Vector2( 0.0779681, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe2" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/body/stripes"]
+position = Vector2( 0.191366, -11.6514 )
+scale = Vector2( 0.0692391, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe3" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/body/stripes"]
+position = Vector2( -0.293931, -0.974811 )
+scale = Vector2( 0.0496515, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe4" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/body/stripes"]
+position = Vector2( 0.514903, 10.0253 )
+scale = Vector2( 0.0341165, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="leaves" type="Node2D" parent="siloPos/Carrots/rightCarrotTop3"]
+modulate = Color( 0.47451, 1, 0.431373, 1 )
+position = Vector2( 2.0153, -56.0872 )
+
+[node name="back_leaf" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/leaves"]
+position = Vector2( -3.16312, -8.72552 )
+rotation = -0.118051
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="mid_leaf" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/leaves"]
+position = Vector2( -11.1967, -5.86319 )
+rotation = -0.902368
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="front_leaf" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/leaves"]
+position = Vector2( 3.99008, -7.88928 )
+rotation = 0.755242
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="evil" type="Node2D" parent="siloPos/Carrots/rightCarrotTop3"]
+position = Vector2( 2.99368, 35.3254 )
+rotation = 0.00371674
+
+[node name="eyes" type="Node2D" parent="siloPos/Carrots/rightCarrotTop3/evil"]
+modulate = Color( 1, 0.498039, 0.486275, 1 )
+position = Vector2( -2.09928, -58.9909 )
+
+[node name="right" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/evil/eyes"]
+position = Vector2( 11.1685, -20.4684 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 27 )
+
+[node name="left" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/evil/eyes"]
+position = Vector2( -13.1074, -15.9353 )
+rotation = -1.5708
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 27 )
+
+[node name="teeth" type="Node2D" parent="siloPos/Carrots/rightCarrotTop3/evil"]
+modulate = Color( 1, 0.92549, 0.533333, 1 )
+position = Vector2( -5.33267, -57.4293 )
+
+[node name="black_mouth" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/evil/teeth"]
+modulate = Color( 0.2, 0.2, 0.2, 1 )
+position = Vector2( 3.02431, 8.10388 )
+rotation = -0.00371674
+scale = Vector2( 0.0936791, 0.0175937 )
+texture = ExtResource( 27 )
+
+[node name="top" type="Node2D" parent="siloPos/Carrots/rightCarrotTop3/evil/teeth"]
+position = Vector2( 2.09368, 0.828459 )
+
+[node name="even_triangle" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/evil/teeth/top"]
+position = Vector2( -15.2024, 5.1759 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle2" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/evil/teeth/top"]
+position = Vector2( 0.0786905, 5.40906 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle3" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/evil/teeth/top"]
+position = Vector2( 15.6809, 5.85754 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="bottom" type="Node2D" parent="siloPos/Carrots/rightCarrotTop3/evil/teeth"]
+position = Vector2( 2.07037, -5.44327 )
+
+[node name="even_triangle4" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/evil/teeth/bottom"]
+position = Vector2( -7.29478, 13.0438 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle5" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/evil/teeth/bottom"]
+position = Vector2( 9.80331, 11.79 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="siloPos/Carrots/rightCarrotTop3"]
+anims/Chomp = SubResource( 31 )
+anims/Close = SubResource( 32 )
+anims/Look_down_left = SubResource( 33 )
+anims/Look_down_right = SubResource( 34 )
+anims/Look_forward = SubResource( 35 )
+anims/Open = SubResource( 36 )
+
+[node name="middleCarrot" type="Node2D" parent="siloPos/Carrots"]
+position = Vector2( 7.15489, -220.048 )
+rotation = -0.18457
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="body" type="Node2D" parent="siloPos/Carrots/middleCarrot"]
+modulate = Color( 1, 0.643137, 0.298039, 1 )
+position = Vector2( -0.440125, -17.1649 )
+
+[node name="body_main" type="Sprite" parent="siloPos/Carrots/middleCarrot/body"]
+position = Vector2( -0.132164, 0.909485 )
+scale = Vector2( 0.0922039, 0.0841366 )
+texture = ExtResource( 26 )
+
+[node name="stripes" type="Node2D" parent="siloPos/Carrots/middleCarrot/body"]
+modulate = Color( 0.776471, 0.776471, 0.776471, 1 )
+
+[node name="stripe" type="Sprite" parent="siloPos/Carrots/middleCarrot/body/stripes"]
+position = Vector2( -0.226765, -22.4226 )
+scale = Vector2( 0.0779681, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe2" type="Sprite" parent="siloPos/Carrots/middleCarrot/body/stripes"]
+position = Vector2( 0.191366, -11.6514 )
+scale = Vector2( 0.0692391, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe3" type="Sprite" parent="siloPos/Carrots/middleCarrot/body/stripes"]
+position = Vector2( -0.293931, -0.974811 )
+scale = Vector2( 0.0496515, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe4" type="Sprite" parent="siloPos/Carrots/middleCarrot/body/stripes"]
+position = Vector2( 0.514903, 10.0253 )
+scale = Vector2( 0.0341165, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="leaves" type="Node2D" parent="siloPos/Carrots/middleCarrot"]
+modulate = Color( 0.47451, 1, 0.431373, 1 )
+position = Vector2( 2.0153, -56.0872 )
+
+[node name="back_leaf" type="Sprite" parent="siloPos/Carrots/middleCarrot/leaves"]
+position = Vector2( -3.16312, -8.72552 )
+rotation = -0.118051
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="mid_leaf" type="Sprite" parent="siloPos/Carrots/middleCarrot/leaves"]
+position = Vector2( -11.1967, -5.86319 )
+rotation = -0.902368
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="front_leaf" type="Sprite" parent="siloPos/Carrots/middleCarrot/leaves"]
+position = Vector2( 3.99008, -7.88928 )
+rotation = 0.755242
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="evil" type="Node2D" parent="siloPos/Carrots/middleCarrot"]
+position = Vector2( 2.99368, 35.3254 )
+rotation = 0.00371674
+
+[node name="eyes" type="Node2D" parent="siloPos/Carrots/middleCarrot/evil"]
+modulate = Color( 1, 0.498039, 0.486275, 1 )
+position = Vector2( -2.09928, -58.9909 )
+
+[node name="right" type="Sprite" parent="siloPos/Carrots/middleCarrot/evil/eyes"]
+position = Vector2( 11.1685, -20.4684 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 27 )
+
+[node name="left" type="Sprite" parent="siloPos/Carrots/middleCarrot/evil/eyes"]
+position = Vector2( -13.1074, -15.9353 )
+rotation = -1.5708
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 27 )
+
+[node name="teeth" type="Node2D" parent="siloPos/Carrots/middleCarrot/evil"]
+modulate = Color( 1, 0.92549, 0.533333, 1 )
+position = Vector2( -5.33267, -57.4293 )
+
+[node name="black_mouth" type="Sprite" parent="siloPos/Carrots/middleCarrot/evil/teeth"]
+modulate = Color( 0.2, 0.2, 0.2, 1 )
+position = Vector2( 3.02431, 8.10388 )
+rotation = -0.00371674
+scale = Vector2( 0.0936791, 0.0175937 )
+texture = ExtResource( 27 )
+
+[node name="top" type="Node2D" parent="siloPos/Carrots/middleCarrot/evil/teeth"]
+position = Vector2( 2.09368, 0.828459 )
+
+[node name="even_triangle" type="Sprite" parent="siloPos/Carrots/middleCarrot/evil/teeth/top"]
+position = Vector2( -15.2024, 5.1759 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle2" type="Sprite" parent="siloPos/Carrots/middleCarrot/evil/teeth/top"]
+position = Vector2( 0.0786905, 5.40906 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle3" type="Sprite" parent="siloPos/Carrots/middleCarrot/evil/teeth/top"]
+position = Vector2( 15.6809, 5.85754 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="bottom" type="Node2D" parent="siloPos/Carrots/middleCarrot/evil/teeth"]
+position = Vector2( 2.07037, -5.44327 )
+
+[node name="even_triangle4" type="Sprite" parent="siloPos/Carrots/middleCarrot/evil/teeth/bottom"]
+position = Vector2( -7.29478, 13.0438 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle5" type="Sprite" parent="siloPos/Carrots/middleCarrot/evil/teeth/bottom"]
+position = Vector2( 9.80331, 11.79 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="siloPos/Carrots/middleCarrot"]
+anims/Chomp = SubResource( 37 )
+anims/Close = SubResource( 38 )
+anims/Look_down_left = SubResource( 39 )
+anims/Look_down_right = SubResource( 40 )
+anims/Look_forward = SubResource( 41 )
+anims/Open = SubResource( 42 )
+
+[node name="siloSpriteAnimation" type="AnimatedSprite" parent="siloPos"]
+modulate = Color( 0.694118, 0.54902, 0.356863, 1 )
+position = Vector2( 4.57501, -199.444 )
+frames = SubResource( 1 )
+animation = "Shake4"
+frame = 3
+
+[node name="Carrot1_legs_back" type="Node2D" parent="siloPos"]
+visible = false
+position = Vector2( 106.228, -41.3039 )
+rotation = 0.754539
+
+[node name="right_outer" type="Sprite" parent="siloPos/Carrot1_legs_back"]
+position = Vector2( 53.6987, -24.1384 )
+rotation = -1.3391
+scale = Vector2( 0.0144502, 0.0461622 )
+texture = ExtResource( 26 )
+
+[node name="right_outer2" type="Sprite" parent="siloPos/Carrot1_legs_back"]
+position = Vector2( -55.0205, -49.1227 )
+rotation = 2.31308
+scale = Vector2( 0.0164145, 0.0576335 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/Carrot1_legs_back"]
+position = Vector2( -27.0738, -21.5973 )
+rotation = -0.678773
+scale = Vector2( 0.015, 0.0322026 )
+texture = ExtResource( 26 )
+
+[node name="right_upper3" type="Sprite" parent="siloPos/Carrot1_legs_back"]
+position = Vector2( 22.5589, -17.2666 )
+rotation = 0.821769
+scale = Vector2( 0.0147294, 0.0378288 )
+texture = ExtResource( 26 )
+
+[node name="Carrot1_legs_front" type="Node2D" parent="siloPos"]
+visible = false
+position = Vector2( 118.228, -52.3039 )
+rotation = 0.754539
+
+[node name="right_upper" type="Sprite" parent="siloPos/Carrot1_legs_front"]
+position = Vector2( 16.334, 14.5651 )
+rotation = 1.20739
+scale = Vector2( 0.0147294, 0.0285752 )
+texture = ExtResource( 26 )
+
+[node name="right_outer" type="Sprite" parent="siloPos/Carrot1_legs_front"]
+position = Vector2( 46.9087, 16.5996 )
+rotation = -1.25849
+scale = Vector2( 0.0144502, 0.0460686 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/Carrot1_legs_front"]
+position = Vector2( -19.1167, 26.0503 )
+rotation = -2.45683
+scale = Vector2( 0.0147294, 0.0285752 )
+texture = ExtResource( 26 )
+
+[node name="left_outer" type="Sprite" parent="siloPos/Carrot1_legs_front"]
+position = Vector2( -25.5396, 54.938 )
+rotation = -6.37463
+scale = Vector2( 0.0144502, 0.0460686 )
+texture = ExtResource( 26 )
+
+[node name="Carrot_Top_left_leg_back" type="Node2D" parent="siloPos"]
+position = Vector2( -89.641, -423.653 )
+rotation = -0.813391
+
+[node name="right_outer" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
+position = Vector2( 39.8369, -50.2422 )
+rotation = -2.85993
+scale = Vector2( 0.0144502, 0.0554987 )
+texture = ExtResource( 26 )
+
+[node name="right_outer2" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
+position = Vector2( -62.1104, -54.9888 )
+rotation = 2.56899
+scale = Vector2( 0.0164145, 0.0576335 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
+position = Vector2( -35.1133, -24.5166 )
+rotation = -1.10769
+scale = Vector2( 0.015, 0.0322026 )
+texture = ExtResource( 26 )
+
+[node name="right_upper3" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
+position = Vector2( 22.5589, -17.2666 )
+rotation = 0.821769
+scale = Vector2( 0.0147294, 0.0378288 )
+texture = ExtResource( 26 )
+
+[node name="Carrot_Top_left_leg_front" type="Node2D" parent="siloPos"]
+position = Vector2( -94.4934, -412.422 )
+rotation = 3.13125
+
+[node name="right_upper" type="Sprite" parent="siloPos/Carrot_Top_left_leg_front"]
+position = Vector2( 25.2227, -8.66113 )
+rotation = 0.754572
+scale = Vector2( 0.0147294, 0.0285752 )
+texture = ExtResource( 26 )
+
+[node name="right_outer" type="Sprite" parent="siloPos/Carrot_Top_left_leg_front"]
+position = Vector2( 17.6738, -36.041 )
+rotation = -4.01043
+scale = Vector2( 0.0144502, 0.0460686 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/Carrot_Top_left_leg_front"]
+position = Vector2( -20.1914, 18.3796 )
+rotation = -1.46134
+scale = Vector2( 0.0147294, 0.0285752 )
+texture = ExtResource( 26 )
+
+[node name="left_outer" type="Sprite" parent="siloPos/Carrot_Top_left_leg_front"]
+position = Vector2( -38.7461, -2.59375 )
+rotation = -3.6619
+scale = Vector2( 0.0144502, 0.0460686 )
+texture = ExtResource( 26 )
+
+[node name="Carrot_Mid_leg_back" type="Node2D" parent="siloPos"]
+position = Vector2( 8.7525, -241.943 )
+rotation = -0.00416341
+
+[node name="right_outer" type="Sprite" parent="siloPos/Carrot_Mid_leg_back"]
+position = Vector2( 31.4219, -58.186 )
+rotation = -2.85993
+scale = Vector2( 0.0144502, 0.0554987 )
+texture = ExtResource( 26 )
+
+[node name="right_outer2" type="Sprite" parent="siloPos/Carrot_Mid_leg_back"]
+position = Vector2( -51.2778, -55.8398 )
+rotation = 2.70211
+scale = Vector2( 0.0164145, 0.0576335 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/Carrot_Mid_leg_back"]
+position = Vector2( -34.2588, -23.0723 )
+rotation = -0.642165
+scale = Vector2( 0.015, 0.0322026 )
+texture = ExtResource( 26 )
+
+[node name="right_upper3" type="Sprite" parent="siloPos/Carrot_Mid_leg_back"]
+position = Vector2( 15.1865, -26.5776 )
+rotation = 0.509447
+scale = Vector2( 0.0147294, 0.0378288 )
+texture = ExtResource( 26 )
+
+[node name="Carrot_Mid_leg_front" type="Node2D" parent="siloPos"]
+position = Vector2( 3.90012, -230.713 )
+rotation = 3.83937
+
+[node name="right_upper" type="Sprite" parent="siloPos/Carrot_Mid_leg_front"]
+position = Vector2( 25.2227, -8.66113 )
+rotation = 0.754572
+scale = Vector2( 0.0147294, 0.0285752 )
+texture = ExtResource( 26 )
+
+[node name="right_outer" type="Sprite" parent="siloPos/Carrot_Mid_leg_front"]
+position = Vector2( 17.6738, -36.041 )
+rotation = -4.01043
+scale = Vector2( 0.0144502, 0.0460686 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/Carrot_Mid_leg_front"]
+position = Vector2( -20.1914, 18.3796 )
+rotation = -1.46134
+scale = Vector2( 0.0147294, 0.0285752 )
+texture = ExtResource( 26 )
+
+[node name="left_outer" type="Sprite" parent="siloPos/Carrot_Mid_leg_front"]
+position = Vector2( -38.7461, -2.59375 )
+rotation = -3.6619
+scale = Vector2( 0.0144502, 0.0460686 )
+texture = ExtResource( 26 )
+
+[node name="leftCarrot" type="Node2D" parent="siloPos"]
+position = Vector2( -75.8268, -40.694 )
+rotation = -1.24836
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="body" type="Node2D" parent="siloPos/leftCarrot"]
+modulate = Color( 1, 0.643137, 0.298039, 1 )
+position = Vector2( -0.440125, -17.1649 )
+
+[node name="body_main" type="Sprite" parent="siloPos/leftCarrot/body"]
+position = Vector2( -0.132164, 0.909485 )
+scale = Vector2( 0.0922039, 0.0841366 )
+texture = ExtResource( 26 )
+
+[node name="stripes" type="Node2D" parent="siloPos/leftCarrot/body"]
+modulate = Color( 0.776471, 0.776471, 0.776471, 1 )
+
+[node name="stripe" type="Sprite" parent="siloPos/leftCarrot/body/stripes"]
+position = Vector2( -0.226765, -22.4226 )
+scale = Vector2( 0.0779681, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe2" type="Sprite" parent="siloPos/leftCarrot/body/stripes"]
+position = Vector2( 0.191366, -11.6514 )
+scale = Vector2( 0.0692391, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe3" type="Sprite" parent="siloPos/leftCarrot/body/stripes"]
+position = Vector2( -0.293931, -0.974811 )
+scale = Vector2( 0.0496515, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe4" type="Sprite" parent="siloPos/leftCarrot/body/stripes"]
+position = Vector2( 0.514903, 10.0253 )
+scale = Vector2( 0.0341165, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="leaves" type="Node2D" parent="siloPos/leftCarrot"]
+modulate = Color( 0.47451, 1, 0.431373, 1 )
+position = Vector2( 2.0153, -56.0872 )
+
+[node name="back_leaf" type="Sprite" parent="siloPos/leftCarrot/leaves"]
+position = Vector2( -3.16312, -8.72552 )
+rotation = -0.118051
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="mid_leaf" type="Sprite" parent="siloPos/leftCarrot/leaves"]
+position = Vector2( -11.1967, -5.86319 )
+rotation = -0.902368
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="front_leaf" type="Sprite" parent="siloPos/leftCarrot/leaves"]
+position = Vector2( 3.99008, -7.88928 )
+rotation = 0.755242
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="evil" type="Node2D" parent="siloPos/leftCarrot"]
+position = Vector2( 2.99368, 35.3254 )
+rotation = 0.00371674
+
+[node name="eyes" type="Node2D" parent="siloPos/leftCarrot/evil"]
+modulate = Color( 1, 0.498039, 0.486275, 1 )
+position = Vector2( -2.09928, -58.9909 )
+
+[node name="right" type="Sprite" parent="siloPos/leftCarrot/evil/eyes"]
+position = Vector2( 11.1685, -20.4684 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 27 )
+
+[node name="left" type="Sprite" parent="siloPos/leftCarrot/evil/eyes"]
+position = Vector2( -12.6532, -15.8079 )
+rotation = -1.5708
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 27 )
+
+[node name="legs_back" type="Node2D" parent="siloPos/leftCarrot/evil"]
+
+[node name="right_outer" type="Sprite" parent="siloPos/leftCarrot/evil/legs_back"]
+position = Vector2( 78.4824, -93.7289 )
+rotation = -2.03193
+scale = Vector2( 0.0144502, 0.0594606 )
+texture = ExtResource( 26 )
+
+[node name="right_outer2" type="Sprite" parent="siloPos/leftCarrot/evil/legs_back"]
+position = Vector2( -84.5497, -37.1985 )
+rotation = 0.83641
+scale = Vector2( 0.0161373, 0.0717195 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/leftCarrot/evil/legs_back"]
+position = Vector2( -41.4004, -61.9281 )
+rotation = -1.86413
+scale = Vector2( 0.015, 0.0492133 )
+texture = ExtResource( 26 )
+
+[node name="right_upper3" type="Sprite" parent="siloPos/leftCarrot/evil/legs_back"]
+position = Vector2( 32.5625, -79.0892 )
+rotation = 1.39981
+scale = Vector2( 0.0147294, 0.0524029 )
+texture = ExtResource( 26 )
+
+[node name="legs_front" type="Node2D" parent="siloPos/leftCarrot/evil"]
+
+[node name="right_upper" type="Sprite" parent="siloPos/leftCarrot/evil/legs_front"]
+position = Vector2( 33.0605, -62.2462 )
+rotation = 1.73038
+scale = Vector2( 0.0147294, 0.0471613 )
+texture = ExtResource( 26 )
+
+[node name="right_outer" type="Sprite" parent="siloPos/leftCarrot/evil/legs_front"]
+position = Vector2( 61.4922, -39.9045 )
+rotation = -0.238269
+scale = Vector2( 0.0144502, 0.0460686 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/leftCarrot/evil/legs_front"]
+position = Vector2( -30.3924, -50.9386 )
+rotation = -1.9938
+scale = Vector2( 0.014113, 0.0434229 )
+texture = ExtResource( 26 )
+
+[node name="left_outer" type="Sprite" parent="siloPos/leftCarrot/evil/legs_front"]
+position = Vector2( -53.8822, -22.4942 )
+rotation = -5.98288
+scale = Vector2( 0.0144502, 0.0460686 )
+texture = ExtResource( 26 )
+
+[node name="teeth" type="Node2D" parent="siloPos/leftCarrot/evil"]
+modulate = Color( 1, 0.92549, 0.533333, 1 )
+position = Vector2( -5.33267, -57.4293 )
+
+[node name="black_mouth" type="Sprite" parent="siloPos/leftCarrot/evil/teeth"]
+modulate = Color( 0.2, 0.2, 0.2, 1 )
+position = Vector2( 3.02431, 8.10388 )
+rotation = -0.00371674
+scale = Vector2( 0.0936791, 0.0175937 )
+texture = ExtResource( 27 )
+
+[node name="top" type="Node2D" parent="siloPos/leftCarrot/evil/teeth"]
+position = Vector2( 2.09368, 0.828459 )
+
+[node name="even_triangle" type="Sprite" parent="siloPos/leftCarrot/evil/teeth/top"]
+position = Vector2( -15.2024, 5.1759 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle2" type="Sprite" parent="siloPos/leftCarrot/evil/teeth/top"]
+position = Vector2( 0.0786905, 5.40906 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle3" type="Sprite" parent="siloPos/leftCarrot/evil/teeth/top"]
+position = Vector2( 15.6809, 5.85754 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="bottom" type="Node2D" parent="siloPos/leftCarrot/evil/teeth"]
+position = Vector2( 2.07037, -5.44327 )
+
+[node name="even_triangle4" type="Sprite" parent="siloPos/leftCarrot/evil/teeth/bottom"]
+position = Vector2( -7.29478, 13.0438 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle5" type="Sprite" parent="siloPos/leftCarrot/evil/teeth/bottom"]
+position = Vector2( 9.80331, 11.79 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="siloPos/leftCarrot"]
+anims/Chomp = SubResource( 11 )
+anims/Close = SubResource( 12 )
+anims/Look_down_left = SubResource( 13 )
+anims/Look_down_right = SubResource( 14 )
+anims/Look_forward = SubResource( 15 )
+anims/Open = SubResource( 16 )
+
+[node name="rightCarrotTop" type="Node2D" parent="siloPos"]
+position = Vector2( 77.775, -188.636 )
+rotation = 1.03428
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="body" type="Node2D" parent="siloPos/rightCarrotTop"]
+modulate = Color( 1, 0.643137, 0.298039, 1 )
+position = Vector2( -0.440125, -17.1649 )
+
+[node name="body_main" type="Sprite" parent="siloPos/rightCarrotTop/body"]
+position = Vector2( -0.132164, 0.909485 )
+scale = Vector2( 0.0922039, 0.0841366 )
+texture = ExtResource( 26 )
+
+[node name="stripes" type="Node2D" parent="siloPos/rightCarrotTop/body"]
+modulate = Color( 0.776471, 0.776471, 0.776471, 1 )
+
+[node name="stripe" type="Sprite" parent="siloPos/rightCarrotTop/body/stripes"]
+position = Vector2( -0.226765, -22.4226 )
+scale = Vector2( 0.0779681, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe2" type="Sprite" parent="siloPos/rightCarrotTop/body/stripes"]
+position = Vector2( 0.191366, -11.6514 )
+scale = Vector2( 0.0692391, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe3" type="Sprite" parent="siloPos/rightCarrotTop/body/stripes"]
+position = Vector2( -0.293931, -0.974811 )
+scale = Vector2( 0.0496515, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="stripe4" type="Sprite" parent="siloPos/rightCarrotTop/body/stripes"]
+position = Vector2( 0.514903, 10.0253 )
+scale = Vector2( 0.0341165, 0.0130541 )
+texture = ExtResource( 26 )
+
+[node name="leaves" type="Node2D" parent="siloPos/rightCarrotTop"]
+modulate = Color( 0.47451, 1, 0.431373, 1 )
+position = Vector2( 2.0153, -56.0872 )
+
+[node name="back_leaf" type="Sprite" parent="siloPos/rightCarrotTop/leaves"]
+position = Vector2( -3.16312, -8.72552 )
+rotation = -0.118051
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="mid_leaf" type="Sprite" parent="siloPos/rightCarrotTop/leaves"]
+position = Vector2( -11.1967, -5.86319 )
+rotation = -0.902368
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="front_leaf" type="Sprite" parent="siloPos/rightCarrotTop/leaves"]
+position = Vector2( 3.99008, -7.88928 )
+rotation = 0.755242
+scale = Vector2( 0.0337195, 0.0424369 )
+texture = ExtResource( 26 )
+
+[node name="evil" type="Node2D" parent="siloPos/rightCarrotTop"]
+position = Vector2( 2.99368, 35.3254 )
+rotation = 0.00371674
+
+[node name="eyes" type="Node2D" parent="siloPos/rightCarrotTop/evil"]
+modulate = Color( 1, 0.498039, 0.486275, 1 )
+position = Vector2( -2.09928, -58.9909 )
+
+[node name="right" type="Sprite" parent="siloPos/rightCarrotTop/evil/eyes"]
+position = Vector2( 11.1685, -20.4684 )
+rotation = 1.5708
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 27 )
+
+[node name="left" type="Sprite" parent="siloPos/rightCarrotTop/evil/eyes"]
+position = Vector2( -12.6532, -15.8079 )
+rotation = -1.5708
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 27 )
+
+[node name="legs_back" type="Node2D" parent="siloPos/rightCarrotTop/evil"]
+
+[node name="right_outer" type="Sprite" parent="siloPos/rightCarrotTop/evil/legs_back"]
+position = Vector2( 79.6909, -58.0515 )
+rotation = -1.13952
+scale = Vector2( 0.0144502, 0.0594606 )
+texture = ExtResource( 26 )
+
+[node name="right_outer2" type="Sprite" parent="siloPos/rightCarrotTop/evil/legs_back"]
+position = Vector2( -76.9937, -117.17 )
+rotation = 2.5453
+scale = Vector2( 0.0161373, 0.0717195 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/rightCarrotTop/evil/legs_back"]
+position = Vector2( -40.8643, -80.9351 )
+rotation = -1.09405
+scale = Vector2( 0.015, 0.0492133 )
+texture = ExtResource( 26 )
+
+[node name="right_upper3" type="Sprite" parent="siloPos/rightCarrotTop/evil/legs_back"]
+position = Vector2( 31.9336, -74.7441 )
+rotation = 1.78792
+scale = Vector2( 0.0147294, 0.0524029 )
+texture = ExtResource( 26 )
+
+[node name="legs_front" type="Node2D" parent="siloPos/rightCarrotTop/evil"]
+
+[node name="right_upper" type="Sprite" parent="siloPos/rightCarrotTop/evil/legs_front"]
+position = Vector2( 33.0605, -62.2462 )
+rotation = 1.73038
+scale = Vector2( 0.0147294, 0.0471613 )
+texture = ExtResource( 26 )
+
+[node name="right_outer" type="Sprite" parent="siloPos/rightCarrotTop/evil/legs_front"]
+position = Vector2( 64.3967, -47.0144 )
+rotation = -0.921997
+scale = Vector2( 0.0144502, 0.0460686 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/rightCarrotTop/evil/legs_front"]
+position = Vector2( -30.3924, -50.9386 )
+rotation = -1.9938
+scale = Vector2( 0.014113, 0.0434229 )
+texture = ExtResource( 26 )
+
+[node name="left_outer" type="Sprite" parent="siloPos/rightCarrotTop/evil/legs_front"]
+position = Vector2( -53.8822, -22.4942 )
+rotation = -5.98288
+scale = Vector2( 0.0144502, 0.0460686 )
+texture = ExtResource( 26 )
+
+[node name="teeth" type="Node2D" parent="siloPos/rightCarrotTop/evil"]
+modulate = Color( 1, 0.92549, 0.533333, 1 )
+position = Vector2( -5.33267, -57.4293 )
+
+[node name="black_mouth" type="Sprite" parent="siloPos/rightCarrotTop/evil/teeth"]
+modulate = Color( 0.2, 0.2, 0.2, 1 )
+position = Vector2( 3.02431, 8.10388 )
+rotation = -0.00371674
+scale = Vector2( 0.0936791, 0.0175937 )
+texture = ExtResource( 27 )
+
+[node name="top" type="Node2D" parent="siloPos/rightCarrotTop/evil/teeth"]
+position = Vector2( 2.09368, 0.828459 )
+
+[node name="even_triangle" type="Sprite" parent="siloPos/rightCarrotTop/evil/teeth/top"]
+position = Vector2( -15.2024, 5.1759 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle2" type="Sprite" parent="siloPos/rightCarrotTop/evil/teeth/top"]
+position = Vector2( 0.0786905, 5.40906 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle3" type="Sprite" parent="siloPos/rightCarrotTop/evil/teeth/top"]
+position = Vector2( 15.6809, 5.85754 )
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="bottom" type="Node2D" parent="siloPos/rightCarrotTop/evil/teeth"]
+position = Vector2( 2.07037, -5.44327 )
+
+[node name="even_triangle4" type="Sprite" parent="siloPos/rightCarrotTop/evil/teeth/bottom"]
+position = Vector2( -7.29478, 13.0438 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="even_triangle5" type="Sprite" parent="siloPos/rightCarrotTop/evil/teeth/bottom"]
+position = Vector2( 9.80331, 11.79 )
+rotation = 3.14159
+scale = Vector2( 0.0311371, 0.0172452 )
+texture = ExtResource( 27 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="siloPos/rightCarrotTop"]
+anims/Chomp = SubResource( 25 )
+anims/Close = SubResource( 26 )
+anims/Look_down_left = SubResource( 27 )
+anims/Look_down_right = SubResource( 28 )
+anims/Look_forward = SubResource( 29 )
+anims/Open = SubResource( 30 )
+
+[node name="flail_arms" parent="siloPos" instance=ExtResource( 25 )]
+position = Vector2( -77.6749, -264.585 )
+rotation = -0.609867
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Shake = SubResource( 2 )
+anims/Shake1 = SubResource( 3 )
+anims/Shake2 = SubResource( 4 )
+anims/shake4 = SubResource( 18 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
