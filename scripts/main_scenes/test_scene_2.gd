@@ -19,8 +19,12 @@ func _ready():
 	#$DialogChoiceList.init()
 	.init()
 
+var space_pressed_count = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_key_pressed(KEY_SPACE):
-		#start the corruption of the boss sprite
-		$siloBossSprite.start_corruption()
+		if space_pressed_count == 0:
+			#start the corruption of the boss sprite
+			$siloBossSprite.start_corruption()
+	if Input.is_key_pressed(KEY_0):
+		$siloBossSprite/AnimationPlayer.play("Walk")
