@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake1/shake2.png" type="Texture" id=1]
 [ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake0/shake2.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://assets/animations/enemies/bunny/bosses/silo_monster/shake/shake3/shake2.png" type="Texture" id=21]
 [ext_resource path="res://assets/arcitecture/bunny/silo_bottom.png" type="Texture" id=22]
 [ext_resource path="res://scripts/animationScript/siloBossAnim.gd" type="Script" id=23]
+[ext_resource path="res://scenes/assets/carrot_crop_dirt.tscn" type="PackedScene" id=24]
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=26]
 [ext_resource path="res://triangles/even_triangle.png" type="Texture" id=27]
 
@@ -1505,6 +1506,286 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=39]
+resource_name = "CrouchFrame"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("siloPos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 6.54332, -11.5152 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("siloPos:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3.58528 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("siloPos/leftCarrot/legs_front/left_upper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -28.1844, -52.2061 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("siloPos/leftCarrot/legs_front/left_upper:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -114.236 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("siloPos/leftCarrot/legs_front/left_upper:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0217501, 0.0313378 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("siloPos/leftCarrot/legs_front/left_outer:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -60.6086, -36.8226 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("siloPos/leftCarrot/legs_front/left_outer:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -294.227 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("siloPos/leftCarrot/legs_back/left_upper:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -35.1401, -68.0615 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("siloPos/leftCarrot/legs_back/left_upper:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -52.8052 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("siloPos/leftCarrot/legs_back/right_outer2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -75.1038, -66.444 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("siloPos/leftCarrot/legs_back/right_outer2:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 57.1693 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("siloPos/Carrot1_legs_front/right_outer:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 56.2129, 12.865 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("siloPos/Carrot1_legs_front/right_outer:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1.92012 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("siloPos/Carrot1_legs_front/right_upper:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 39.0264, -15.0566 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("siloPos/Carrot1_legs_front/right_upper:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 105.302 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("siloPos/Carrots/rightCarrotTop4/leaves:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -18.9035, 33.441, 0.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("siloPos/rightCarrotTop/leaves:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -39.3174, 32.9214, 0.0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("siloPos/Carrots/rightCarrotTop3/leaves:rotation_degrees")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 19.717, -28.1608, 0.0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("siloPos/Carrots/flailArmsTopLeft/leaves:rotation_degrees")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 21.7057, -16.305, 0.0 ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("siloPos/leftCarrot/leaves:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 33.2951, -24.0952, 0.0 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("dirt_front:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("shadow:scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.473179, 0.104613 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("shadow:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 14.8691, 8.11834 ) ]
+}
+
+[sub_resource type="Animation" id=40]
 tracks/0/type = "value"
 tracks/0/path = NodePath("siloPos:position")
 tracks/0/interp = 1
@@ -1745,8 +2026,20 @@ tracks/19/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/20/type = "value"
+tracks/20/path = NodePath("dirt_front:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=41]
 tracks/0/type = "value"
 tracks/0/path = NodePath("siloPos/Carrot1_legs_back:visible")
 tracks/0/interp = 1
@@ -2288,7 +2581,7 @@ tracks/44/keys = {
 "values": [ Vector2( -66.4804, -367.687 ), Vector2( -77.1832, -382.552 ), Vector2( -89.6699, -403.958 ) ]
 }
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=42]
 length = 0.32
 tracks/0/type = "value"
 tracks/0/path = NodePath("siloPos/Carrots/flailArmsTopLeft:visible")
@@ -3059,8 +3352,7 @@ tracks/63/keys = {
 "values": [ 0.0, -25.4385, -4.92248 ]
 }
 
-[sub_resource type="Animation" id=42]
-resource_name = "Shake3"
+[sub_resource type="Animation" id=43]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("siloPos/Carrot_Mid_leg_back/right_outer:position")
@@ -3519,8 +3811,7 @@ tracks/37/keys = {
 "values": [ Vector2( 0.0281935, 0.0414021 ), Vector2( 0.0296842, 0.0414021 ) ]
 }
 
-[sub_resource type="Animation" id=43]
-resource_name = "Shake4"
+[sub_resource type="Animation" id=44]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("siloPos/Carrots/rightCarrotTop4:position")
@@ -4015,8 +4306,579 @@ tracks/40/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=44]
-resource_name = "Walk"
+[sub_resource type="Animation" id=47]
+resource_name = "SmashFrame1"
+length = 0.6
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("siloPos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -12.773, -30.3454 ), Vector2( -98.6668, -45.6769 ), Vector2( -179.331, -103.444 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("siloPos:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 19.0753, -11.351, -89.4602 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("siloPos/Carrot1_legs_front/right_outer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 60.9104, -22.7821 ), Vector2( 56.8325, 29.3131 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("siloPos/Carrot1_legs_front/right_outer:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -66.8971, -52.4204 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("siloPos/Carrot1_legs_front/right_upper:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 21.0989, -9.34082 ), Vector2( 25.7012, 4.6499 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("siloPos/Carrot1_legs_front/right_upper:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 33.5502, 124.88 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("siloPos/Carrot1_legs_back/right_outer:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 52.0049, -49.3719 ), Vector2( 60.7285, -7.21289 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("siloPos/Carrot1_legs_back/right_outer:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -51.8907, -51.8907 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("siloPos/Carrot1_legs_back/right_upper3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 26.8126, -43.6069 ), Vector2( 31.7764, -26.6652 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("siloPos/Carrot1_legs_back/right_upper3:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 40.7772, 120.862 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("siloPos:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.3, 0.325, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 0.9 ), Vector2( 0.9, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("siloPos/leftCarrot/legs_front/left_upper:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1, 0.275, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -31.7253, -50.6121 ), Vector2( -31.7253, -50.6121 ), Vector2( -35.0862, -54.2493 ), Vector2( -27.8499, -36.7395 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("siloPos/leftCarrot/legs_front/left_upper:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 0.275, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -114.236, -132.423, -111.292, -167.703 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("siloPos/leftCarrot/legs_front/left_outer:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.275, 0.325, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -62.0312, -27.3418 ), Vector2( -56.7125, -19.5869 ), Vector2( -69.7979, -32.0186 ), Vector2( -67.8228, -33.9247 ), Vector2( -28.0698, 7.46043 ), Vector2( -26.1973, 2.49023 ), Vector2( -35.6113, 5.94968 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("siloPos/leftCarrot/legs_front/left_outer:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.275, 0.325, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -315.285, -328.63, -283.994, -306.579, -363.84, -376.055, -356.118 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("siloPos/leftCarrot/legs_front/right_upper:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0.325 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 19.4688, -44.2744 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("siloPos/leftCarrot/legs_front/right_upper:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0.325 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 153.205 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("siloPos/leftCarrot/legs_front/right_outer:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0.325, 0.375, 0.425 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 31.3594, -14.9374 ), Vector2( 26.2012, -15.4034 ), Vector2( 27.2617, -15.5519 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("siloPos/leftCarrot/legs_front/right_outer:rotation_degrees")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0.325, 0.375, 0.425 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -22.5873, -0.380648, -12.8507 ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("siloPos/leftCarrot/legs_back/right_upper3:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 24.6196, -90.637 ), Vector2( 24.6196, -90.637 ), Vector2( 24.6196, -90.637 ), Vector2( 30.3887, -64.9084 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("siloPos/leftCarrot/legs_back/right_upper3:rotation_degrees")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 34.8267, 27.7352, 40.8227, 130.22 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("siloPos/leftCarrot/legs_back/right_outer:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 41.0735, -124.933 ), Vector2( 33.0391, -128.247 ), Vector2( 51.1367, -117.073 ), Vector2( 35.3543, -127.344 ), Vector2( 57.2754, -110.564 ), Vector2( 44.7192, -124.72 ), Vector2( 51.3789, -31.4843 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("siloPos/leftCarrot/legs_back/right_outer:rotation_degrees")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -158.116, -179.193, -116.769, -191.238, -104.713, -158.438, -26.5388 ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("siloPos/leftCarrot/legs_back/left_upper:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.25, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -36.2163, -85.49 ), Vector2( -29.5712, -87.5669 ), Vector2( -33.6299, -84.9248 ), Vector2( -33.6299, -84.9248 ), Vector2( -34.5393, -54.4014 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("siloPos/leftCarrot/legs_back/left_upper:rotation_degrees")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.25, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -37.4688, -15.5378, -37.7446, -55.8301, -153.173 ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("siloPos/leftCarrot/legs_back/right_outer2:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -47.2275, -124.196 ), Vector2( -30.1069, -127.334 ), Vector2( -41.4414, -121.432 ), Vector2( -62.772, -112.076 ), Vector2( -49.1401, -120.995 ), Vector2( -59.1282, -115.479 ), Vector2( -52.7214, -16.3175 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("siloPos/leftCarrot/legs_back/right_outer2:rotation_degrees")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 0.025, 0.05, 0.1, 0.15, 0.2, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 184.058, 148.929, 189.464, 189.464, 124.434, 167.717, 14.4921 ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("siloPos/leftCarrot/evil/eyes:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.325 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -12.4833, -52.955 ), Vector2( 7.98423, -53.7501 ), Vector2( -12.4833, -52.955 ), Vector2( 7.98423, -53.7501 ), Vector2( -12.4833, -52.955 ), Vector2( 7.98423, -53.7501 ), Vector2( -2.31908, -61.6807 ) ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("siloPos/leftCarrot/evil/eyes:scale")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 0.325 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 0.75, 0.75 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("dirt_front:visible")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0, 0.325 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("siloPos/Carrots/rightCarrotTop3/leaves:rotation_degrees")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 67.1858, -17.3897, 0.0 ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("siloPos/Carrots/rightCarrotTop4/leaves:rotation_degrees")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 61.1659, -16.9755, 0.0 ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("siloPos/Carrots/flailArmsTopLeft/leaves:rotation_degrees")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 58.7737, -34.7561, 0.0 ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("siloPos/Carrots/Carrot1/leaves:rotation_degrees")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 71.6249, -15.556, 0.0 ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("siloPos/rightCarrotTop/leaves:rotation_degrees")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 47.1138, -36.9822, 0.0 ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("shadow:scale")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.473179, 0.104613 ) ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("shadow:visible")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "SmashFrame2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("siloPos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -18.4362, -69.9881 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("siloPos:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -25.8915 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("siloPos/Carrot1_legs_front/right_upper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 25.7012, 4.6499 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("siloPos/Carrot1_legs_front/right_outer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 56.8325, 29.3131 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("siloPos/Carrot1_legs_front/right_outer:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -52.4204 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("siloPos/Carrot1_legs_front/right_upper:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 124.88 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("siloPos/Carrot1_legs_back/right_upper3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 31.7764, -26.6652 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("siloPos/Carrot1_legs_back/right_upper3:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 120.862 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("siloPos/Carrot1_legs_back/right_outer:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 60.7285, -7.21289 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("siloPos/Carrot1_legs_back/right_outer:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -51.8907 ]
+}
+
+[sub_resource type="Animation" id=45]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -4029,7 +4891,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 23.126, -5.54651 ), Vector2( 31.8863, -3.23094 ) ]
+"values": [ Vector2( 32.8672, -11.571 ), Vector2( 31.8863, -3.23094 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("siloPos/Carrot1_legs_front/right_upper:rotation_degrees")
@@ -4041,7 +4903,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 116.477, 106.532 ]
+"values": [ 97.9771, 106.532 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("siloPos/Carrot1_legs_front/right_upper:scale")
@@ -4053,7 +4915,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 0.0296842, 0.0414021 ), Vector2( 0.0285448, 0.0528335 ) ]
+"values": [ Vector2( 0.0219907, 0.0414021 ), Vector2( 0.0285448, 0.0528335 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("siloPos/Carrot1_legs_front/right_outer:position")
@@ -4065,7 +4927,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 54.8223, 15.2356 ), Vector2( 80.0486, 16.6797 ) ]
+"values": [ Vector2( 60.1953, 15.5663 ), Vector2( 80.0486, 16.6797 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("siloPos/Carrot1_legs_front/right_outer:rotation_degrees")
@@ -4077,7 +4939,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ -53.2831, -66.8971 ]
+"values": [ -20.4833, -66.8971 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("siloPos/Carrot1_legs_front/right_outer:scale")
@@ -4089,7 +4951,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 0.0253738, 0.047896 ), Vector2( 0.0253738, 0.064553 ) ]
+"values": [ Vector2( 0.0218752, 0.047896 ), Vector2( 0.0253738, 0.064553 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("siloPos:position")
@@ -4919,10 +5781,261 @@ tracks/74/keys = {
 "update": 1,
 "values": [ 55.7612, -20.3942, 40.0642, 0.0 ]
 }
+tracks/75/type = "value"
+tracks/75/path = NodePath("siloPos/leftCarrot/leaves:rotation_degrees")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 55.4073, -23.2355, 23.6001, 0.0 ]
+}
+tracks/76/type = "value"
+tracks/76/path = NodePath("siloPos/leftCarrot/legs_back/right_outer:position")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 70.9238, -81.4958 ), Vector2( 64.0078, -99.1648 ), Vector2( 71.2559, -89.3013 ) ]
+}
+tracks/77/type = "value"
+tracks/77/path = NodePath("siloPos/leftCarrot/legs_back/right_outer:rotation_degrees")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -87.1809, -125.992, -90.3711 ]
+}
+tracks/78/type = "value"
+tracks/78/path = NodePath("siloPos/leftCarrot/legs_back/right_outer:scale")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0144502, 0.0478238 ), Vector2( 0.0144502, 0.0478238 ) ]
+}
+tracks/79/type = "value"
+tracks/79/path = NodePath("siloPos/leftCarrot/legs_back/right_upper3:position")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 30.0904, -78.6623 ), Vector2( 30.5869, -80.8506 ) ]
+}
+tracks/80/type = "value"
+tracks/80/path = NodePath("siloPos/leftCarrot/legs_back/right_upper3:rotation_degrees")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 80.2032, 68.1272 ]
+}
+tracks/81/type = "value"
+tracks/81/path = NodePath("siloPos/leftCarrot/legs_back/right_upper3:scale")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0147294, 0.0457219 ) ]
+}
+tracks/82/type = "value"
+tracks/82/path = NodePath("siloPos/Carrot1_legs_back/left_upper:position")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -32.4443, -38.8475 ), Vector2( -32.4443, -38.8475 ) ]
+}
+tracks/83/type = "value"
+tracks/83/path = NodePath("siloPos/Carrot1_legs_back/left_upper:rotation_degrees")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -42.5358, -52.0727 ]
+}
+tracks/84/type = "value"
+tracks/84/path = NodePath("siloPos/Carrot1_legs_back/right_outer2:position")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -50.1226, -66.2878 ), Vector2( -62.6201, -50.6631 ), Vector2( -62.6182, -52.4481 ) ]
+}
+tracks/85/type = "value"
+tracks/85/path = NodePath("siloPos/Carrot1_legs_back/right_outer2:rotation_degrees")
+tracks/85/interp = 1
+tracks/85/loop_wrap = true
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 155.434, 87.1759, 96.3338 ]
+}
+tracks/86/type = "value"
+tracks/86/path = NodePath("siloPos/Carrot1_legs_back/right_upper3:position")
+tracks/86/interp = 1
+tracks/86/loop_wrap = true
+tracks/86/imported = false
+tracks/86/enabled = true
+tracks/86/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 33.7896, -40.7935 ) ]
+}
+tracks/87/type = "value"
+tracks/87/path = NodePath("siloPos/Carrot1_legs_back/right_upper3:rotation_degrees")
+tracks/87/interp = 1
+tracks/87/loop_wrap = true
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 67.0325 ]
+}
+tracks/88/type = "value"
+tracks/88/path = NodePath("siloPos/Carrot1_legs_back/right_outer:position")
+tracks/88/interp = 1
+tracks/88/loop_wrap = true
+tracks/88/imported = false
+tracks/88/enabled = true
+tracks/88/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 64.8706, -40.2293 ) ]
+}
+tracks/89/type = "value"
+tracks/89/path = NodePath("siloPos/Carrot1_legs_back/right_outer:rotation_degrees")
+tracks/89/interp = 1
+tracks/89/loop_wrap = true
+tracks/89/imported = false
+tracks/89/enabled = true
+tracks/89/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -51.8907 ]
+}
+tracks/90/type = "value"
+tracks/90/path = NodePath("siloPos/leftCarrot/evil/eyes:position")
+tracks/90/interp = 1
+tracks/90/loop_wrap = true
+tracks/90/imported = false
+tracks/90/enabled = true
+tracks/90/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -2.09928, -58.9909 ) ]
+}
+tracks/91/type = "value"
+tracks/91/path = NodePath("siloPos/leftCarrot/evil/eyes:scale")
+tracks/91/interp = 1
+tracks/91/loop_wrap = true
+tracks/91/imported = false
+tracks/91/enabled = true
+tracks/91/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/92/type = "value"
+tracks/92/path = NodePath("dirt_front:visible")
+tracks/92/interp = 1
+tracks/92/loop_wrap = true
+tracks/92/imported = false
+tracks/92/enabled = true
+tracks/92/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/93/type = "value"
+tracks/93/path = NodePath("shadow:scale")
+tracks/93/interp = 1
+tracks/93/loop_wrap = true
+tracks/93/imported = false
+tracks/93/enabled = true
+tracks/93/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.486165, 0.09 ), Vector2( 0.468698, 0.104613 ) ]
+}
+tracks/94/type = "value"
+tracks/94/path = NodePath("shadow:visible")
+tracks/94/interp = 1
+tracks/94/loop_wrap = true
+tracks/94/imported = false
+tracks/94/enabled = true
+tracks/94/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/95/type = "value"
+tracks/95/path = NodePath("shadow:position")
+tracks/95/interp = 1
+tracks/95/loop_wrap = true
+tracks/95/imported = false
+tracks/95/enabled = true
+tracks/95/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 4.76694, -7.59613 ), Vector2( -5.33526, -5.3511 ) ]
+}
 
-[sub_resource type="Animation" id=45]
-resource_name = "Monch"
-length = 0.34
+[sub_resource type="Animation" id=46]
+length = 0.354
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("siloPos/Carrots/middleCarrot/evil/teeth/black_mouth:position")
@@ -5179,6 +6292,9 @@ tracks/20/keys = {
 
 [node name="siloBossSprite" type="Node2D"]
 script = ExtResource( 23 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -231.103 ]
+}
 
 [node name="siloPos" type="Node2D" parent="."]
 
@@ -5232,7 +6348,6 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/Carrots/Carrot1"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( -1.37411, -30.991 )
-rotation = 1.11033
 
 [node name="back_leaf" type="Sprite" parent="siloPos/Carrots/Carrot1/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -5392,7 +6507,6 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/Carrots/flailArmsTopLeft"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( 2.0153, -56.0872 )
-rotation = 0.961676
 
 [node name="back_leaf" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -5486,8 +6600,8 @@ anims/Open = SubResource( 7 )
 
 [node name="rightCarrotTop3" type="Node2D" parent="siloPos/Carrots"]
 visible = false
-position = Vector2( -89.6699, -403.958 )
-rotation = -0.550561
+position = Vector2( -92.8248, -413.814 )
+rotation = -0.368643
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
@@ -5527,7 +6641,6 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/Carrots/rightCarrotTop3"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( 2.0153, -56.0872 )
-rotation = 0.607375
 
 [node name="back_leaf" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -5542,7 +6655,7 @@ scale = Vector2( 0.0337195, 0.0424369 )
 texture = ExtResource( 26 )
 
 [node name="front_leaf" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/leaves"]
-position = Vector2( 3.99008, -7.88928 )
+position = Vector2( 3.99011, -7.88965 )
 rotation = 0.755242
 scale = Vector2( 0.0337195, 0.0424369 )
 texture = ExtResource( 26 )
@@ -5662,7 +6775,6 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/Carrots/rightCarrotTop4"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( 4.72816, -58.0532 )
-rotation = 0.615231
 
 [node name="back_leaf" type="Sprite" parent="siloPos/Carrots/rightCarrotTop4/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -5824,7 +6936,6 @@ rotation = 0.00371674
 [node name="eyes" type="Node2D" parent="siloPos/Carrots/middleCarrot/evil"]
 modulate = Color( 1, 0.498039, 0.486275, 1 )
 position = Vector2( -10.8006, -59.1037 )
-scale = Vector2( 0.5, 0.5 )
 
 [node name="right" type="Sprite" parent="siloPos/Carrots/middleCarrot/evil/eyes"]
 position = Vector2( 11.1685, -20.4684 )
@@ -5902,26 +7013,26 @@ position = Vector2( 106.228, -41.3039 )
 rotation = 0.754539
 
 [node name="right_outer" type="Sprite" parent="siloPos/Carrot1_legs_back"]
-position = Vector2( 48.3452, -56.2021 )
-rotation = -1.45351
+position = Vector2( 60.7285, -7.21289 )
+rotation = -0.905663
 scale = Vector2( 0.0144502, 0.040391 )
 texture = ExtResource( 26 )
 
 [node name="right_outer2" type="Sprite" parent="siloPos/Carrot1_legs_back"]
-position = Vector2( -60.724, -52.2596 )
-rotation = 2.04434
+position = Vector2( -50.1226, -66.2878 )
+rotation = 2.71283
 scale = Vector2( 0.0164145, 0.0369771 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/Carrot1_legs_back"]
-position = Vector2( -33.3711, -33.9553 )
-rotation = -0.842641
+position = Vector2( -32.4443, -38.8475 )
+rotation = -0.74239
 scale = Vector2( 0.015, 0.0425448 )
 texture = ExtResource( 26 )
 
 [node name="right_upper3" type="Sprite" parent="siloPos/Carrot1_legs_back"]
-position = Vector2( 21.3573, -42.6733 )
-rotation = 0.550068
+position = Vector2( 31.7764, -26.6652 )
+rotation = 2.10943
 scale = Vector2( 0.0147294, 0.0402623 )
 texture = ExtResource( 26 )
 
@@ -5931,15 +7042,15 @@ position = Vector2( 118.228, -52.3039 )
 rotation = 0.754539
 
 [node name="right_upper" type="Sprite" parent="siloPos/Carrot1_legs_front"]
-position = Vector2( 21.2793, -7.21336 )
-rotation = 2.03291
-scale = Vector2( 0.0281935, 0.0414021 )
+position = Vector2( 25.7012, 4.6499 )
+rotation = 2.17957
+scale = Vector2( 0.0219907, 0.0414021 )
 texture = ExtResource( 26 )
 
 [node name="right_outer" type="Sprite" parent="siloPos/Carrot1_legs_front"]
-position = Vector2( 45.3008, 21.0853 )
-rotation = -0.402499
-scale = Vector2( 0.0141144, 0.047896 )
+position = Vector2( 56.8325, 29.3131 )
+rotation = -0.914909
+scale = Vector2( 0.0218752, 0.047896 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/Carrot1_legs_front"]
@@ -5960,25 +7071,25 @@ position = Vector2( -89.641, -423.653 )
 rotation = -0.813391
 
 [node name="right_outer" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
-position = Vector2( 24.5967, 40.9619 )
-rotation = 0.183188
+position = Vector2( 24.5239, 34.7178 )
+rotation = 0.453527
 scale = Vector2( 0.0144502, 0.0512011 )
 texture = ExtResource( 26 )
 
 [node name="right_outer2" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
-position = Vector2( -53.2588, 14.3926 )
-rotation = 0.0526435
+position = Vector2( -48.835, 8.03857 )
+rotation = 0.200756
 scale = Vector2( 0.0201592, 0.0697939 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
-position = Vector2( -31.6455, -19.9062 )
-rotation = -1.83738
+position = Vector2( -25.1084, -29.123 )
+rotation = -2.05666
 scale = Vector2( 0.0200006, 0.0418856 )
 texture = ExtResource( 26 )
 
 [node name="right_upper3" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
-position = Vector2( 17.0352, 0.941895 )
+position = Vector2( 25.7871, -4.27637 )
 rotation = 2.67189
 scale = Vector2( 0.0198877, 0.0417055 )
 texture = ExtResource( 26 )
@@ -5995,7 +7106,7 @@ rotation = 0.266057
 
 [node name="right_outer" type="Sprite" parent="siloPos/carrotTopRightFront"]
 position = Vector2( 17.1465, 7.75195 )
-rotation = 0.66432
+rotation = 0.664319
 scale = Vector2( 0.0138344, 0.0356807 )
 texture = ExtResource( 26 )
 
@@ -6013,7 +7124,7 @@ texture = ExtResource( 26 )
 
 [node name="right_upper3" type="Sprite" parent="siloPos/carrotTopRightFront"]
 position = Vector2( 33.2939, -22.8301 )
-rotation = 3.46143
+rotation = 3.46142
 scale = Vector2( 0.0147294, 0.0375777 )
 texture = ExtResource( 26 )
 
@@ -6023,27 +7134,27 @@ position = Vector2( 8.7525, -241.943 )
 rotation = -0.00416341
 
 [node name="right_outer" type="Sprite" parent="siloPos/Carrot_Mid_leg_back"]
-position = Vector2( 16.895, -34.1631 )
-rotation = -2.85993
-scale = Vector2( 0.0144502, 0.0221086 )
+position = Vector2( 9.53125, -62.1606 )
+rotation = -3.85573
+scale = Vector2( 0.0144502, 0.028507 )
 texture = ExtResource( 26 )
 
 [node name="right_outer2" type="Sprite" parent="siloPos/Carrot_Mid_leg_back"]
-position = Vector2( -39.9529, -35.6171 )
-rotation = 2.70212
-scale = Vector2( 0.0164145, 0.0242184 )
+position = Vector2( -47.5454, -37.7456 )
+rotation = 3.95563
+scale = Vector2( 0.0184373, 0.0404424 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/Carrot_Mid_leg_back"]
-position = Vector2( -30.7177, -18.3377 )
-rotation = -0.642164
-scale = Vector2( 0.015, 0.0164572 )
+position = Vector2( -43.2578, -18.5614 )
+rotation = -1.46889
+scale = Vector2( 0.015, 0.0348112 )
 texture = ExtResource( 26 )
 
 [node name="right_upper3" type="Sprite" parent="siloPos/Carrot_Mid_leg_back"]
-position = Vector2( 9.68588, -16.731 )
-rotation = 0.509448
-scale = Vector2( 0.0147294, 0.0117018 )
+position = Vector2( 11.0381, -35.9761 )
+rotation = 0.530845
+scale = Vector2( 0.0147294, 0.0334858 )
 texture = ExtResource( 26 )
 
 [node name="Carrot_Mid_leg_front" type="Node2D" parent="siloPos"]
@@ -6052,27 +7163,27 @@ position = Vector2( 3.90012, -230.713 )
 rotation = 3.83937
 
 [node name="right_upper" type="Sprite" parent="siloPos/Carrot_Mid_leg_front"]
-position = Vector2( 15.8193, -11.2324 )
-rotation = 0.292775
-scale = Vector2( 0.0175599, 0.0185637 )
+position = Vector2( 30.0166, -4.21826 )
+rotation = 1.43045
+scale = Vector2( 0.0175599, 0.040829 )
 texture = ExtResource( 26 )
 
 [node name="right_outer" type="Sprite" parent="siloPos/Carrot_Mid_leg_front"]
-position = Vector2( 18.3486, -28.7891 )
-rotation = -3.16481
-scale = Vector2( 0.0129892, 0.0191326 )
+position = Vector2( 33.3973, -21.8301 )
+rotation = -4.10679
+scale = Vector2( 0.0192982, 0.0372419 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/Carrot_Mid_leg_front"]
-position = Vector2( -10.5705, 19.4369 )
-rotation = -1.46134
-scale = Vector2( 0.0147294, 0.0202188 )
+position = Vector2( -17.7324, 18.3284 )
+rotation = -1.48631
+scale = Vector2( 0.0147294, 0.0285752 )
 texture = ExtResource( 26 )
 
 [node name="left_outer" type="Sprite" parent="siloPos/Carrot_Mid_leg_front"]
-position = Vector2( -26.7355, 11.8868 )
+position = Vector2( -39.042, 4.21582 )
 rotation = -3.66189
-scale = Vector2( 0.0152429, 0.0151007 )
+scale = Vector2( 0.0151194, 0.0337058 )
 texture = ExtResource( 26 )
 
 [node name="leftCarrot" type="Node2D" parent="siloPos"]
@@ -6082,62 +7193,6 @@ rotation = -1.24836
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
-
-[node name="legs_back" type="Node2D" parent="siloPos/leftCarrot"]
-position = Vector2( 2.99369, 35.3254 )
-rotation = 0.00371674
-
-[node name="right_outer" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
-position = Vector2( 67.0205, -91.9907 )
-rotation = -2.03193
-scale = Vector2( 0.0144502, 0.0478238 )
-texture = ExtResource( 26 )
-
-[node name="right_outer2" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
-position = Vector2( -81.1479, -54.6785 )
-rotation = 1.32734
-scale = Vector2( 0.01998, 0.0540007 )
-texture = ExtResource( 26 )
-
-[node name="left_upper" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
-position = Vector2( -39.8318, -63.8706 )
-rotation = -1.86413
-scale = Vector2( 0.0208706, 0.0437185 )
-texture = ExtResource( 26 )
-
-[node name="right_upper3" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
-position = Vector2( 30.0904, -78.6623 )
-rotation = 1.39981
-scale = Vector2( 0.0147294, 0.0457219 )
-texture = ExtResource( 26 )
-
-[node name="legs_front" type="Node2D" parent="siloPos/leftCarrot"]
-position = Vector2( 2.99369, 35.3254 )
-rotation = 0.00371674
-
-[node name="right_upper" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
-position = Vector2( 37.1608, -59.7172 )
-rotation = 1.73038
-scale = Vector2( 0.0207688, 0.0331911 )
-texture = ExtResource( 26 )
-
-[node name="right_outer" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
-position = Vector2( 65.7877, -45.8464 )
-rotation = -0.706693
-scale = Vector2( 0.0144502, 0.0359803 )
-texture = ExtResource( 26 )
-
-[node name="left_upper" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
-position = Vector2( -33.575, -49.7794 )
-rotation = -1.99379
-scale = Vector2( 0.0217501, 0.0470812 )
-texture = ExtResource( 26 )
-
-[node name="left_outer" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
-position = Vector2( -70.065, -26.5433 )
-rotation = -5.45485
-scale = Vector2( 0.0181232, 0.0550026 )
-texture = ExtResource( 26 )
 
 [node name="body" type="Node2D" parent="siloPos/leftCarrot"]
 modulate = Color( 1, 0.643137, 0.298039, 1 )
@@ -6199,7 +7254,8 @@ rotation = 0.00371674
 
 [node name="eyes" type="Node2D" parent="siloPos/leftCarrot/evil"]
 modulate = Color( 1, 0.498039, 0.486275, 1 )
-position = Vector2( -2.09928, -58.9909 )
+position = Vector2( -2.31908, -61.6807 )
+scale = Vector2( 0.75, 0.75 )
 
 [node name="right" type="Sprite" parent="siloPos/leftCarrot/evil/eyes"]
 position = Vector2( 11.1685, -20.4684 )
@@ -6257,6 +7313,64 @@ rotation = 3.14159
 scale = Vector2( 0.0311371, 0.0172452 )
 texture = ExtResource( 27 )
 
+[node name="legs_back" type="Node2D" parent="siloPos/leftCarrot"]
+position = Vector2( 2.99369, 35.3254 )
+rotation = 0.00371675
+scale = Vector2( 1, 1 )
+
+[node name="right_outer" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
+position = Vector2( 51.3789, -31.4843 )
+rotation = -0.463189
+scale = Vector2( 0.0144502, 0.0478238 )
+texture = ExtResource( 26 )
+
+[node name="right_outer2" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
+position = Vector2( -52.7214, -16.3175 )
+rotation = 0.252934
+scale = Vector2( 0.0248307, 0.0624875 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
+position = Vector2( -34.5393, -54.4014 )
+rotation = -2.67338
+scale = Vector2( 0.0246919, 0.0451399 )
+texture = ExtResource( 26 )
+
+[node name="right_upper3" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
+position = Vector2( 30.3887, -64.9084 )
+rotation = 2.27276
+scale = Vector2( 0.0147294, 0.0457219 )
+texture = ExtResource( 26 )
+
+[node name="legs_front" type="Node2D" parent="siloPos/leftCarrot"]
+position = Vector2( 2.99369, 35.3254 )
+rotation = 0.00371675
+scale = Vector2( 1, 1 )
+
+[node name="right_upper" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
+position = Vector2( 19.4688, -44.2744 )
+rotation = 2.67394
+scale = Vector2( 0.0207688, 0.0331911 )
+texture = ExtResource( 26 )
+
+[node name="right_outer" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
+position = Vector2( 27.2617, -15.5519 )
+rotation = -0.224287
+scale = Vector2( 0.0144502, 0.0359803 )
+texture = ExtResource( 26 )
+
+[node name="left_upper" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
+position = Vector2( -27.8499, -36.7395 )
+rotation = -2.92696
+scale = Vector2( 0.0217501, 0.0313378 )
+texture = ExtResource( 26 )
+
+[node name="left_outer" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
+position = Vector2( -35.6113, 5.94968 )
+rotation = -6.21544
+scale = Vector2( 0.0181232, 0.0550026 )
+texture = ExtResource( 26 )
+
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="siloPos/leftCarrot"]
 anims/Chomp = SubResource( 27 )
 anims/Close = SubResource( 28 )
@@ -6308,7 +7422,6 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/rightCarrotTop"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( 2.0153, -56.0872 )
-rotation = 0.687215
 
 [node name="back_leaf" type="Sprite" parent="siloPos/rightCarrotTop/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -6352,7 +7465,7 @@ texture = ExtResource( 27 )
 
 [node name="right_outer" type="Sprite" parent="siloPos/rightCarrotTop/evil/legs_back"]
 position = Vector2( 52.5305, -78.8372 )
-rotation = -0.638381
+rotation = -0.638382
 scale = Vector2( 0.0144502, 0.0505334 )
 texture = ExtResource( 26 )
 
@@ -6396,7 +7509,7 @@ texture = ExtResource( 26 )
 
 [node name="left_outer" type="Sprite" parent="siloPos/rightCarrotTop/evil/legs_front"]
 position = Vector2( -78.8516, -21.9755 )
-rotation = -5.56831
+rotation = -5.56832
 scale = Vector2( 0.0144502, 0.0512166 )
 texture = ExtResource( 26 )
 
@@ -6458,45 +7571,53 @@ position = Vector2( -71.0007, -237.888 )
 rotation = -0.609867
 
 [node name="right_outer" type="Sprite" parent="siloPos/legs_back"]
-position = Vector2( 35.9692, -117.263 )
-rotation = -2.70449
+position = Vector2( 35.4268, -114.713 )
+rotation = -2.59602
 scale = Vector2( 0.0161524, 0.0434762 )
 texture = ExtResource( 26 )
 
 [node name="right_outer2" type="Sprite" parent="siloPos/legs_back"]
-position = Vector2( -39.9619, -121.273 )
-rotation = 3.05028
+position = Vector2( -21.4231, -115.689 )
+rotation = 3.4817
 scale = Vector2( 0.0144502, 0.0431129 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/legs_back"]
-position = Vector2( -28.9463, -82.8806 )
-rotation = -0.504631
+position = Vector2( -21.0381, -79.2336 )
+rotation = -0.336627
 scale = Vector2( 0.015, 0.0527068 )
 texture = ExtResource( 26 )
 
 [node name="right_upper3" type="Sprite" parent="siloPos/legs_back"]
-position = Vector2( 23.4118, -81.3084 )
-rotation = 0.140398
+position = Vector2( 21.1411, -80.2969 )
+rotation = 0.171197
 scale = Vector2( 0.0147294, 0.0445177 )
 texture = ExtResource( 26 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Shake = SubResource( 39 )
-anims/Shake1 = SubResource( 40 )
-anims/Shake2 = SubResource( 41 )
-anims/Shake3 = SubResource( 42 )
-anims/Shake4 = SubResource( 43 )
-anims/Walk = SubResource( 44 )
+anims/CrouchFrame = SubResource( 39 )
+anims/Shake = SubResource( 40 )
+anims/Shake1 = SubResource( 41 )
+anims/Shake2 = SubResource( 42 )
+anims/Shake3 = SubResource( 43 )
+anims/Shake4 = SubResource( 44 )
+anims/SmashFrame1 = SubResource( 47 )
+anims/SmashFrame2 = SubResource( 48 )
+anims/Walk = SubResource( 45 )
 
 [node name="shadow" type="Sprite" parent="."]
 visible = false
 modulate = Color( 0.3, 0.3, 0.3, 0.54902 )
-position = Vector2( 6.5079, -4.41775 )
-scale = Vector2( 0.520417, 0.12182 )
+position = Vector2( 14.8691, 8.11834 )
+scale = Vector2( 0.473179, 0.104613 )
 z_index = -1
 texture = ExtResource( 27 )
 
 [node name="MiddleCarrot" type="AnimationPlayer" parent="."]
-anims/Monch = SubResource( 45 )
+anims/Monch = SubResource( 46 )
+
+[node name="dirt_front" parent="." instance=ExtResource( 24 )]
+visible = false
+position = Vector2( -229.937, 13.5216 )
+z_index = 0
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
