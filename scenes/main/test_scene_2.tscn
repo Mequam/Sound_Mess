@@ -1,9 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/instance/entities/SingingTree.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/main_scenes/test_scene_2.gd" type="Script" id=3]
-[ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/instance/dialog/testDialog.tscn" type="PackedScene" id=7]
@@ -15,8 +13,8 @@
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/instance/switches/bunnyDoorSwitch.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/instance/switches/singingSwitch.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/assets/architecture/bunny/FermentationBody.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/assets/bosses/bunny/siloBossSprite.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/SiloBoss.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=17]
 
 [node name="test_space" type="TileMap"]
 cell_y_sort = true
@@ -28,17 +26,6 @@ tile_data = PoolIntArray( -65540, 2, 0, -65539, 2, 0, -5, 20, 0, -4, 0, 0, -3, 0
 
 [node name="Met" parent="." instance=ExtResource( 6 )]
 position = Vector2( 116.487, -150.542 )
-
-[node name="SingingTree" parent="." instance=ExtResource( 2 )]
-position = Vector2( 58.8416, -302.229 )
-scale = Vector2( 0.8, 0.8 )
-
-[node name="door_way" parent="SingingTree" instance=ExtResource( 4 )]
-position = Vector2( 782.791, 21.376 )
-scale = Vector2( 6, 4 )
-
-[node name="evil_carrot" parent="." instance=ExtResource( 8 )]
-position = Vector2( -196.081, -354.433 )
 
 [node name="bunnyDoorSwitch" parent="." instance=ExtResource( 14 )]
 position = Vector2( -1075.66, 112.077 )
@@ -66,9 +53,12 @@ position = Vector2( -407.54, -200.773 )
 [node name="player" parent="." instance=ExtResource( 5 )]
 position = Vector2( -521.411, -101.885 )
 
-[node name="RigidBody2D" parent="." instance=ExtResource( 16 )]
-position = Vector2( -749.805, -462.454 )
+[node name="SiloBoss" parent="." instance=ExtResource( 16 )]
+position = Vector2( -168.265, -101.594 )
 
-[node name="siloBossSprite" parent="." instance=ExtResource( 17 )]
-position = Vector2( -65.9258, -71.9187 )
+[node name="tall_grass" parent="." instance=ExtResource( 17 )]
+position = Vector2( -583.68, -145.92 )
+
+[node name="evil_carrot2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -414.25, -324.287 )
 [connection signal="completed_dialog" from="bunnyDoorSwitch/singingSwitch/DialogChoiceList" to="bunnyDoorSwitch/singingSwitch" method="_on_DialogChoiceList_completed_dialog"]

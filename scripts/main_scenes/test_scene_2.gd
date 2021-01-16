@@ -1,22 +1,12 @@
 extends "res://scripts/abstracts/scene.gd"
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+#this is the testing script for new features, it is 
+#not inteanded to be clean, maintained or the like
+#thik of it like chicken scratch.... but code
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_path = "res://scenes/main/test_scene_2.tscn"
-	$SingingTree/door_way.door_name="A"
-	$SingingTree/door_way.new_scene = "res://scenes/main/test_2d_space.tscn"
-	
-	$SingingTree/JuteBox.song = [[4,1],[8,null]]
-	$SingingTree/JuteBox.max_beat = 12
-	$SingingTree/JuteBox.singing = true
-	#$DialogChoiceList.sub_beat = $Met/Met.wait_time
-	#$DialogChoiceList.init()
 	.init()
 
 var space_pressed_count = 0
@@ -24,7 +14,4 @@ var space_pressed_count = 0
 func _process(delta):
 	if Input.is_key_pressed(KEY_SPACE):
 		if space_pressed_count == 0:
-			#start the corruption of the boss sprite
-			$siloBossSprite.start_corruption()
-	if Input.is_key_pressed(KEY_0):
-		$siloBossSprite/AnimationPlayer.play("Walk")
+			$SiloBoss.corrupt()

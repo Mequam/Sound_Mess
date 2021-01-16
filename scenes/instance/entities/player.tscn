@@ -15,29 +15,30 @@ collision_mask = 60
 script = ExtResource( 1 )
 
 [node name="avatar" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1.42365, 5.03067 )
+position = Vector2( 0.629948, 0.268478 )
 scale = Vector2( 0.2, 0.2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.628159, -2.11263 )
+position = Vector2( -0.165543, -6.87482 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 1.42365, 5.03067 )
+position = Vector2( 0.629948, 0.268478 )
 current = true
 zoom = Vector2( 1.5, 1.5 )
 limit_smoothed = true
 smoothing_enabled = true
 
 [node name="NotePlayer" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1.42365, 5.03067 )
+position = Vector2( 0.629948, 0.268478 )
 
 [node name="SpeechBubble" parent="." instance=ExtResource( 3 )]
-position = Vector2( 64.9197, -81.8796 )
+visible = false
+position = Vector2( 64.126, -86.6418 )
 z_index = 4
 
 [node name="health_bar" parent="." instance=ExtResource( 4 )]
-position = Vector2( -37.8535, -119.604 )
+position = Vector2( -38.6472, -124.366 )
 script = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="health_bar"]

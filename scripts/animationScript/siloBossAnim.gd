@@ -5,7 +5,7 @@ extends Node2D
 func start_corruption():
 	#play the shaking animation
 	$siloPos/siloSpriteAnimation.playing = true
-	play("Shake")
+	play("Transform")
 #syntactic sugar to connect the carrot animation player to a local function
 
 
@@ -14,7 +14,7 @@ func play(anim : String) -> void:
 	$siloPos/siloSpriteAnimation.play(anim)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if (anim_name == "Shake"):
+	if (anim_name == "Transform"):
 		play("Shake1")
 	elif (anim_name == "Shake1"):
 		play("Shake2")

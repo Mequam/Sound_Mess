@@ -144,7 +144,7 @@ func move_2d(delta,input_number,flavor):
 
 #decide what to do with the thing we hit
 func collision_action(collision):
-	if (!collision.collider.is_in_group("enemies") and collision.collider.has_method("on_col")):
+	if (collision.collider.is_in_group("enemies") and collision.collider.has_method("on_col")):
 		collision.collider.on_col(self,1)
 
 #this function takes a vector 2 and sets the player up for attacking
