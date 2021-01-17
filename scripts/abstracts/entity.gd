@@ -2,6 +2,9 @@ extends KinematicBody2D
 #this script is ment to code behavior of any knimatic body that moves 
 #around and has a health bar
 
+#emitted when the entity dies
+signal die
+
 #add entities to the entity group
 func _ready() -> void:
 	add_to_group("entities")
@@ -11,9 +14,12 @@ func _ready() -> void:
 #this is intended to be called by entities when they hit us
 func on_col(obj,dmg : int) -> void:
 	take_damage(dmg)
+
 #generic function called when the entity dies
 func die() -> void:
+	emit_signal("die",self)
 	queue_free()
+
 #setter getters for hp note we do not store the hp value in this node
 #instead it comes from the health bar which is our child
 func set_hp(val : int) -> void:

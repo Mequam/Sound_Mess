@@ -7,11 +7,14 @@ extends "res://scripts/abstracts/scene.gd"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_path = "res://scenes/main/test_scene_2.tscn"
+	$FallingCarrot.speed = 400
+	$FallingCarrot.move_vec = Vector2(0,1)
+	$FallingCarrot.fall()
 	.init()
 
-var space_pressed_count = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_key_pressed(KEY_SPACE):
-		if space_pressed_count == 0:
-			$SiloBoss.corrupt()
+		$SiloBoss.corrupt()
+	elif Input.is_key_pressed(KEY_0):
+		$SiloBoss.mode = "shake"

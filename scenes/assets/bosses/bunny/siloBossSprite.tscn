@@ -980,14 +980,14 @@ tracks/3/keys = {
 
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 15 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Shake3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "Shake4",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 13 ) ],
@@ -1005,9 +1005,9 @@ animations = [ {
 "name": "Shake1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Shake4",
 "speed": 5.0
 } ]
 
@@ -4729,7 +4729,7 @@ tracks/40/keys = {
 }
 
 [sub_resource type="Animation" id=45]
-resource_name = "SmashFrame1"
+resource_name = "Smash"
 length = 0.6
 step = 0.025
 tracks/0/type = "value"
@@ -6966,7 +6966,7 @@ tracks/20/keys = {
 "values": [ Vector2( -10.8006, -59.1037 ), Vector2( 1.40382, -60.6861 ), Vector2( -10.8006, -59.1037 ), Vector2( 1.40382, -60.6861 ) ]
 }
 
-[sub_resource type="Animation" id=55]
+[sub_resource type="Animation" id=50]
 resource_name = "BottomLookDown"
 length = 0.001
 tracks/0/type = "value"
@@ -6994,7 +6994,7 @@ tracks/1/keys = {
 "values": [ Vector2( -10.5555, -55.2422 ) ]
 }
 
-[sub_resource type="Animation" id=53]
+[sub_resource type="Animation" id=51]
 resource_name = "BottomLookLeft"
 length = 0.001
 tracks/0/type = "value"
@@ -7022,7 +7022,7 @@ tracks/1/keys = {
 "values": [ Vector2( -8.66932, -63.4369 ) ]
 }
 
-[sub_resource type="Animation" id=54]
+[sub_resource type="Animation" id=52]
 resource_name = "BottomLookRight"
 length = 0.001
 tracks/0/type = "value"
@@ -7050,8 +7050,7 @@ tracks/1/keys = {
 "values": [ Vector2( 12.9268, 14.3514 ) ]
 }
 
-[sub_resource type="Animation" id=52]
-resource_name = "MidLookLeft"
+[sub_resource type="Animation" id=53]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("siloPos/Carrots/flailArmsTopLeft/evil/eyes:position")
@@ -7078,8 +7077,7 @@ tracks/1/keys = {
 "values": [ Vector2( 10.9036, -55.3087 ) ]
 }
 
-[sub_resource type="Animation" id=50]
-resource_name = "NoramalLook"
+[sub_resource type="Animation" id=54]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("siloPos/Carrots/rightCarrotTop3/evil/eyes:position")
@@ -7154,8 +7152,7 @@ tracks/5/keys = {
 "values": [ Vector2( 3.84489, 11.9209 ) ]
 }
 
-[sub_resource type="Animation" id=51]
-resource_name = "TopLookLeft"
+[sub_resource type="Animation" id=55]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("siloPos/Carrots/rightCarrotTop3/evil/eyes:position")
@@ -7189,8 +7186,6 @@ __meta__ = {
 }
 
 [node name="siloPos" type="Node2D" parent="."]
-position = Vector2( 5.045, -25 )
-rotation = 0.09112
 
 [node name="siloBackGround" type="Sprite" parent="siloPos"]
 modulate = Color( 0.694118, 0.54902, 0.356863, 1 )
@@ -7200,6 +7195,7 @@ texture = ExtResource( 10 )
 [node name="Carrots" type="Node2D" parent="siloPos"]
 
 [node name="Carrot1" type="Node2D" parent="siloPos/Carrots"]
+visible = false
 position = Vector2( 124.02, -56.6711 )
 rotation = 0.750823
 __meta__ = {
@@ -7241,7 +7237,7 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/Carrots/Carrot1"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( -1.37411, -30.991 )
-rotation = -0.665257
+rotation = 1.25009
 
 [node name="back_leaf" type="Sprite" parent="siloPos/Carrots/Carrot1/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -7360,6 +7356,7 @@ scale = Vector2( 0.0337195, 0.0424369 )
 texture = ExtResource( 26 )
 
 [node name="flailArmsTopLeft" type="Node2D" parent="siloPos/Carrots"]
+visible = false
 position = Vector2( -74.6736, -262.054 )
 rotation = -0.790988
 __meta__ = {
@@ -7401,7 +7398,7 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/Carrots/flailArmsTopLeft"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( 2.0153, -56.0872 )
-rotation = 0.257158
+rotation = 1.02579
 
 [node name="back_leaf" type="Sprite" parent="siloPos/Carrots/flailArmsTopLeft/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -7494,8 +7491,9 @@ anims/Look_forward = SubResource( 6 )
 anims/Open = SubResource( 7 )
 
 [node name="rightCarrotTop3" type="Node2D" parent="siloPos/Carrots"]
-position = Vector2( -89.9541, -397.706 )
-rotation = -0.671835
+visible = false
+position = Vector2( -92.8248, -413.814 )
+rotation = -0.368643
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
@@ -7535,7 +7533,7 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/Carrots/rightCarrotTop3"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( 2.0153, -56.0872 )
-rotation = 0.422755
+rotation = 1.17261
 
 [node name="back_leaf" type="Sprite" parent="siloPos/Carrots/rightCarrotTop3/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -7628,6 +7626,7 @@ anims/Look_forward = SubResource( 12 )
 anims/Open = SubResource( 13 )
 
 [node name="rightCarrotTop4" type="Node2D" parent="siloPos/Carrots"]
+visible = false
 position = Vector2( 90.5763, -393.486 )
 rotation = 0.378815
 __meta__ = {
@@ -7669,6 +7668,7 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/Carrots/rightCarrotTop4"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( 4.72816, -58.0532 )
+rotation = 1.06755
 
 [node name="back_leaf" type="Sprite" parent="siloPos/Carrots/rightCarrotTop4/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -7802,7 +7802,7 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/Carrots/middleCarrot"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( 2.0153, -56.0872 )
-rotation = -0.355946
+rotation = 0.973217
 
 [node name="back_leaf" type="Sprite" parent="siloPos/Carrots/middleCarrot/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -7823,6 +7823,7 @@ scale = Vector2( 0.0337195, 0.0424369 )
 texture = ExtResource( 26 )
 
 [node name="evil" type="Node2D" parent="siloPos/Carrots/middleCarrot"]
+visible = false
 position = Vector2( 2.99368, 35.3254 )
 rotation = 0.00371674
 
@@ -7898,50 +7899,52 @@ anims/Open = SubResource( 25 )
 modulate = Color( 0.694118, 0.54902, 0.356863, 1 )
 position = Vector2( 0.75, -199.863 )
 frames = SubResource( 26 )
-animation = "Shake4"
+animation = "Idle"
 
 [node name="Carrot1_legs_back" type="Node2D" parent="siloPos"]
+visible = false
 position = Vector2( 106.228, -41.3039 )
 rotation = 0.754539
 
 [node name="right_outer" type="Sprite" parent="siloPos/Carrot1_legs_back"]
-position = Vector2( 64.8706, -40.2293 )
+position = Vector2( 52.0049, -49.3719 )
 rotation = -0.905664
 scale = Vector2( 0.0144502, 0.040391 )
 texture = ExtResource( 26 )
 
 [node name="right_outer2" type="Sprite" parent="siloPos/Carrot1_legs_back"]
-position = Vector2( -62.6201, -50.6631 )
-rotation = 1.52151
+position = Vector2( -50.1226, -66.2878 )
+rotation = 2.71284
 scale = Vector2( 0.0164145, 0.0369771 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/Carrot1_legs_back"]
 position = Vector2( -32.4443, -38.8475 )
-rotation = -0.90884
+rotation = -0.74239
 scale = Vector2( 0.015, 0.0425448 )
 texture = ExtResource( 26 )
 
 [node name="right_upper3" type="Sprite" parent="siloPos/Carrot1_legs_back"]
-position = Vector2( 33.7896, -40.7935 )
-rotation = 1.16994
+position = Vector2( 26.8126, -43.6069 )
+rotation = 0.711696
 scale = Vector2( 0.0147294, 0.0402623 )
 texture = ExtResource( 26 )
 
 [node name="Carrot1_legs_front" type="Node2D" parent="siloPos"]
+visible = false
 position = Vector2( 118.228, -52.3039 )
 rotation = 0.754539
 
 [node name="right_upper" type="Sprite" parent="siloPos/Carrot1_legs_front"]
-position = Vector2( 32.8672, -11.571 )
-rotation = 1.71002
-scale = Vector2( 0.0285448, 0.0528335 )
+position = Vector2( 21.0989, -9.34082 )
+rotation = 0.585561
+scale = Vector2( 0.0219907, 0.0414021 )
 texture = ExtResource( 26 )
 
 [node name="right_outer" type="Sprite" parent="siloPos/Carrot1_legs_front"]
-position = Vector2( 60.1953, 15.5663 )
-rotation = -0.357501
-scale = Vector2( 0.0253738, 0.064553 )
+position = Vector2( 60.9104, -22.7821 )
+rotation = -1.16757
+scale = Vector2( 0.0218752, 0.047896 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/Carrot1_legs_front"]
@@ -7957,44 +7960,47 @@ scale = Vector2( 0.0144502, 0.0362537 )
 texture = ExtResource( 26 )
 
 [node name="Carrot_Top_left_leg_back" type="Node2D" parent="siloPos"]
+visible = false
 position = Vector2( -89.641, -423.653 )
 rotation = -0.813391
 
 [node name="right_outer" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
-position = Vector2( 24.0801, 32.6851 )
-rotation = 0.0766393
+position = Vector2( 24.5239, 34.7178 )
+rotation = 0.453527
 scale = Vector2( 0.0144502, 0.0512011 )
 texture = ExtResource( 26 )
 
 [node name="right_outer2" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
-position = Vector2( -52, 6.01184 )
-rotation = -0.665815
+position = Vector2( -48.835, 8.03857 )
+rotation = 0.200756
 scale = Vector2( 0.0201592, 0.0697939 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
-position = Vector2( -48.791, -20.7451 )
-rotation = -1.47908
+position = Vector2( -25.1084, -29.123 )
+rotation = -2.05666
 scale = Vector2( 0.0200006, 0.0418856 )
 texture = ExtResource( 26 )
 
 [node name="right_upper3" type="Sprite" parent="siloPos/Carrot_Top_left_leg_back"]
-position = Vector2( 15.9492, -2.91016 )
+position = Vector2( 25.7871, -4.27637 )
 rotation = 2.67189
 scale = Vector2( 0.0198877, 0.0417055 )
 texture = ExtResource( 26 )
 
 [node name="Carrot_Top_left_leg_front" type="Node2D" parent="siloPos"]
+visible = false
 position = Vector2( -94.4934, -412.422 )
 rotation = 3.13125
 
 [node name="carrotTopRightFront" type="Node2D" parent="siloPos"]
+visible = false
 position = Vector2( 99.4811, -392.05 )
 rotation = 0.266057
 
 [node name="right_outer" type="Sprite" parent="siloPos/carrotTopRightFront"]
 position = Vector2( 25.7266, 1.31543 )
-rotation = 0.317021
+rotation = 0.317022
 scale = Vector2( 0.0138344, 0.0356807 )
 texture = ExtResource( 26 )
 
@@ -8017,6 +8023,7 @@ scale = Vector2( 0.0147294, 0.0375777 )
 texture = ExtResource( 26 )
 
 [node name="Carrot_Mid_leg_back" type="Node2D" parent="siloPos"]
+visible = false
 position = Vector2( 8.7525, -241.943 )
 rotation = -0.00416341
 
@@ -8045,6 +8052,7 @@ scale = Vector2( 0.0147294, 0.0334858 )
 texture = ExtResource( 26 )
 
 [node name="Carrot_Mid_leg_front" type="Node2D" parent="siloPos"]
+visible = false
 position = Vector2( 3.90012, -230.713 )
 rotation = 3.83937
 
@@ -8073,6 +8081,7 @@ scale = Vector2( 0.0151194, 0.0337058 )
 texture = ExtResource( 26 )
 
 [node name="leftCarrot" type="Node2D" parent="siloPos"]
+visible = false
 position = Vector2( -85.1812, -37.1304 )
 rotation = -1.24836
 __meta__ = {
@@ -8114,7 +8123,7 @@ texture = ExtResource( 26 )
 [node name="leaves" type="Node2D" parent="siloPos/leftCarrot"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( 2.0153, -56.0872 )
-rotation = -0.405536
+rotation = 0.96704
 
 [node name="back_leaf" type="Sprite" parent="siloPos/leftCarrot/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -8140,7 +8149,8 @@ rotation = 0.00371674
 
 [node name="eyes" type="Node2D" parent="siloPos/leftCarrot/evil"]
 modulate = Color( 1, 0.498039, 0.486275, 1 )
-position = Vector2( -10.5555, -55.2422 )
+position = Vector2( -12.4833, -52.955 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="right" type="Sprite" parent="siloPos/leftCarrot/evil/eyes"]
 position = Vector2( 11.1685, -20.4684 )
@@ -8203,26 +8213,26 @@ position = Vector2( 2.99369, 35.3254 )
 rotation = 0.00371675
 
 [node name="right_outer" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
-position = Vector2( 64.0078, -99.1648 )
-rotation = -2.19898
+position = Vector2( 41.0735, -124.933 )
+rotation = -2.75964
 scale = Vector2( 0.0144502, 0.0478238 )
 texture = ExtResource( 26 )
 
 [node name="right_outer2" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
-position = Vector2( -81.1479, -54.6785 )
-rotation = 1.32734
-scale = Vector2( 0.01998, 0.0540007 )
+position = Vector2( -47.2275, -124.196 )
+rotation = 3.21242
+scale = Vector2( 0.0248307, 0.0624875 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
-position = Vector2( -39.8318, -63.8706 )
-rotation = -1.86413
-scale = Vector2( 0.0208706, 0.0437185 )
+position = Vector2( -36.2163, -85.49 )
+rotation = -0.653954
+scale = Vector2( 0.0246919, 0.0451399 )
 texture = ExtResource( 26 )
 
 [node name="right_upper3" type="Sprite" parent="siloPos/leftCarrot/legs_back"]
-position = Vector2( 30.5869, -80.8506 )
-rotation = 1.18904
+position = Vector2( 24.6196, -90.637 )
+rotation = 0.607841
 scale = Vector2( 0.0147294, 0.0457219 )
 texture = ExtResource( 26 )
 
@@ -8231,26 +8241,26 @@ position = Vector2( 2.99369, 35.3254 )
 rotation = 0.00371675
 
 [node name="right_upper" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
-position = Vector2( 37.1608, -59.7172 )
-rotation = 1.73038
+position = Vector2( 19.4688, -44.2744 )
+rotation = 2.67393
 scale = Vector2( 0.0207688, 0.0331911 )
 texture = ExtResource( 26 )
 
 [node name="right_outer" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
-position = Vector2( 65.7877, -45.8464 )
-rotation = -0.706693
+position = Vector2( 27.2617, -15.5519 )
+rotation = -0.224287
 scale = Vector2( 0.0144502, 0.0359803 )
 texture = ExtResource( 26 )
 
 [node name="left_upper" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
-position = Vector2( -33.575, -49.7794 )
+position = Vector2( -31.7253, -50.6121 )
 rotation = -1.99379
 scale = Vector2( 0.0217501, 0.0470812 )
 texture = ExtResource( 26 )
 
 [node name="left_outer" type="Sprite" parent="siloPos/leftCarrot/legs_front"]
-position = Vector2( -75.808, -29.0826 )
-rotation = -5.13523
+position = Vector2( -62.0312, -27.3418 )
+rotation = -5.50276
 scale = Vector2( 0.0181232, 0.0550026 )
 texture = ExtResource( 26 )
 
@@ -8263,8 +8273,9 @@ anims/Look_forward = SubResource( 31 )
 anims/Open = SubResource( 32 )
 
 [node name="rightCarrotTop" type="Node2D" parent="siloPos"]
+visible = false
 position = Vector2( 77.775, -188.636 )
-rotation = 1.03428
+rotation = 1.49182
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
@@ -8272,7 +8283,7 @@ __meta__ = {
 [node name="leaves" type="Node2D" parent="siloPos/rightCarrotTop"]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
 position = Vector2( -12.7484, -61.2536 )
-rotation = 0.608255
+rotation = 0.822291
 
 [node name="back_leaf" type="Sprite" parent="siloPos/rightCarrotTop/leaves"]
 position = Vector2( -3.16312, -8.72552 )
@@ -8296,7 +8307,6 @@ texture = ExtResource( 26 )
 modulate = Color( 1, 0.643137, 0.298039, 1 )
 position = Vector2( -15.2038, -22.3313 )
 rotation = 9.31323e-10
-scale = Vector2( 1, 1 )
 
 [node name="body_main" type="Sprite" parent="siloPos/rightCarrotTop/body"]
 position = Vector2( -0.132164, 0.909485 )
@@ -8453,18 +8463,19 @@ anims/Look_forward = SubResource( 37 )
 anims/Open = SubResource( 38 )
 
 [node name="legs_back" type="Node2D" parent="siloPos"]
+visible = false
 position = Vector2( -71.0007, -237.888 )
 rotation = -0.609867
 
 [node name="right_outer" type="Sprite" parent="siloPos/legs_back"]
-position = Vector2( 34.4834, -115.969 )
-rotation = -2.68951
+position = Vector2( 28.6873, -117.199 )
+rotation = -2.92421
 scale = Vector2( 0.0161524, 0.0434762 )
 texture = ExtResource( 26 )
 
 [node name="right_outer2" type="Sprite" parent="siloPos/legs_back"]
-position = Vector2( -48.5049, -109.527 )
-rotation = 2.71144
+position = Vector2( -51.123, -106.185 )
+rotation = 2.41688
 scale = Vector2( 0.0144502, 0.0431129 )
 texture = ExtResource( 26 )
 
@@ -8487,15 +8498,16 @@ anims/Shake1 = SubResource( 41 )
 anims/Shake2 = SubResource( 42 )
 anims/Shake3 = SubResource( 43 )
 anims/Shake4 = SubResource( 44 )
-anims/SmashFrame1 = SubResource( 45 )
+anims/Smash = SubResource( 45 )
 anims/SmashFrame2 = SubResource( 46 )
 anims/Transform = SubResource( 47 )
 anims/Walk = SubResource( 48 )
 
 [node name="shadow" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0.3, 0.3, 0.3, 0.54902 )
-position = Vector2( -5.33526, -5.3511 )
-scale = Vector2( 0.468698, 0.104613 )
+position = Vector2( 4.76694, -7.59613 )
+scale = Vector2( 0.473179, 0.104613 )
 z_index = -1
 texture = ExtResource( 27 )
 
@@ -8508,10 +8520,10 @@ position = Vector2( -229.937, 13.5216 )
 z_index = 0
 
 [node name="NoteDetails" type="AnimationPlayer" parent="."]
-anims/BottomLookDown = SubResource( 55 )
-anims/BottomLookLeft = SubResource( 53 )
-anims/BottomLookRight = SubResource( 54 )
-anims/MidLookLeft = SubResource( 52 )
-anims/NoramalLook = SubResource( 50 )
-anims/TopLookLeft = SubResource( 51 )
+anims/BottomLookDown = SubResource( 50 )
+anims/BottomLookLeft = SubResource( 51 )
+anims/BottomLookRight = SubResource( 52 )
+anims/MidLookLeft = SubResource( 53 )
+anims/NoramalLook = SubResource( 54 )
+anims/TopLookLeft = SubResource( 55 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

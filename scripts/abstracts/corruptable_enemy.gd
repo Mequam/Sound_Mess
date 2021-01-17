@@ -12,6 +12,7 @@ func _ready():
 #overload the parent behavior to save our state on death
 #corruptable enemys do not save when they die
 func die()->void:
+	emit_signal("die",self)
 	queue_free()
 
 func anim_finished(anim):

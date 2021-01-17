@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/instance/FallingCarrot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/main_scenes/test_scene_2.gd" type="Script" id=3]
 [ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=6]
@@ -22,7 +23,7 @@ format = 1
 script = ExtResource( 3 )
 
 [node name="TS1" parent="." instance=ExtResource( 1 )]
-tile_data = PoolIntArray( -65540, 2, 0, -65539, 2, 0, -5, 20, 0, -4, 0, 0, -3, 0, 0, -2, 1, 0, 65531, 15, 0, 65532, 0, 0, 65533, 0, 0, 65534, 1, 0, 65535, 11, 0, 131067, 15, 0, 131068, 0, 0, 131069, 3, 0, 131070, 2, 0, 131071, 0, 0, 65536, 1, 0, 196602, 2, 0, 196603, 15, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 1, 0, 262138, 0, 0, 262139, 18, 0, 262140, 0, 0, 262141, 0, 0, 262142, 1, 0, 327673, 2, 0, 327674, 0, 0, 327675, 15, 0, 327676, 0, 0, 327677, 1, 0, 393209, 0, 0, 393210, 0, 0, 393211, 17, 0, 458745, 0, 0, 458746, 3, 0, 458747, 2, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 1, 0, 589819, 0, 0, 589820, 1, 0 )
+tile_data = PoolIntArray( -65540, 2, 0, -65539, 2, 0, -5, 20, 0, -4, 0, 0, -3, 0, 0, -2, 1, 0, 65531, 15, 0, 65532, 0, 0, 65533, 0, 0, 65534, 1, 0, 65535, 11, 0, 131067, 15, 0, 131068, 0, 0, 131069, 3, 0, 131070, 2, 0, 131071, 0, 0, 65536, 1, 0, 196603, 15, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 1, 0, 262138, 0, 0, 262139, 18, 0, 262140, 0, 0, 262141, 0, 0, 262142, 1, 0, 327674, 0, 0, 327675, 15, 0, 327676, 0, 0, 327677, 1, 0, 393209, 0, 0, 393210, 0, 0, 393211, 17, 0, 458745, 0, 0, 458746, 3, 0, 458747, 2, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 1, 0, 589819, 0, 0, 589820, 1, 0 )
 
 [node name="Met" parent="." instance=ExtResource( 6 )]
 position = Vector2( 116.487, -150.542 )
@@ -51,14 +52,17 @@ script = ExtResource( 9 )
 position = Vector2( -407.54, -200.773 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -521.411, -101.885 )
+position = Vector2( -2564.66, -367.627 )
 
 [node name="SiloBoss" parent="." instance=ExtResource( 16 )]
-position = Vector2( -168.265, -101.594 )
+position = Vector2( -2471.4, -502.249 )
 
 [node name="tall_grass" parent="." instance=ExtResource( 17 )]
 position = Vector2( -583.68, -145.92 )
 
 [node name="evil_carrot2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -414.25, -324.287 )
+
+[node name="FallingCarrot" parent="." instance=ExtResource( 2 )]
+position = Vector2( -138.361, -425.075 )
 [connection signal="completed_dialog" from="bunnyDoorSwitch/singingSwitch/DialogChoiceList" to="bunnyDoorSwitch/singingSwitch" method="_on_DialogChoiceList_completed_dialog"]

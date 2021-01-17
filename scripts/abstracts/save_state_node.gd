@@ -10,8 +10,11 @@ func serialize() -> Dictionary:
 func get_save_path() -> String:
 	#cache the parent
 	var parent = get_parent()
-	#get the path that this particular node will save to
-	return "user://game" + get_game_save_file() +"/"+ parent.owner.name +"-" + parent.name + ".dat"
+	if (parent and parent.owner):
+		#get the path that this particular node will save to
+		return "user://game" + get_game_save_file() +"/"+ parent.owner.name +"-" + parent.name + ".dat"
+	else:
+		return ""
 func get_game_save_file() -> String:
 	return str(Globals.game_save_id)
 #saves the data at the custom created path

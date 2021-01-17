@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/assets/evil_carrot_sprite.tscn" type="PackedScene" id=1]
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fall"
+length = 0.61
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Carrot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.901603, -278.741 ), Vector2( 3.42144, -330.398 ), Vector2( 2.07782, -278.133 ), Vector2( -0.161554, -191.024 ), Vector2( -7.64036, -9.81518 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Carrot:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 35.5273, 91.3618, 133.0, 182.164, 221.664, 266.14, 309.052, 0.0, 35.5273, 91.3618, 133.0, 182.164 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shadow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.50157, 0.335066 ), Vector2( 1.60862, 1.91921 ), Vector2( 1.04939, 1.66568 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Shadow:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.319216, 0.103061 ), Vector2( 0.268815, 0.0697955 ), Vector2( 0.220676, 0.0563076 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[node name="FallingCarrotSprite" type="Node2D"]
+
+[node name="Shadow" type="Sprite" parent="."]
+modulate = Color( 0.47451, 0.47451, 0.47451, 0.698039 )
+position = Vector2( 0.50157, 0.335066 )
+scale = Vector2( 0.319216, 0.103061 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Carrot" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0.901603, -278.741 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fall = SubResource( 1 )
