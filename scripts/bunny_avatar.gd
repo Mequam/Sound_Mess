@@ -12,9 +12,9 @@ func run_seven(to_move,delta):
 	return 2
 func run_six(to_move,delta):
 	#constant that tells us how far we move
-	var burrow_distance = 1.75
+	var burrow_distance = 1.5
 	
-	$Sprite.burrow_dir(to_move,burrow_distance*333.33)
+	$Sprite.burrow_dir(to_move,burrow_distance*333.33*1.5)
 	var parent = get_parent()
 	#you do not collide with burrow terrain
 	if (parent.collision_mask & int(pow(2,5)) != 0):

@@ -60,9 +60,9 @@ func RythomToSpeed():
 	elif (rythom_score < 2):
 		return  30
 	elif (rythom_score < 3):
-		return 60
+		return 90
 	else:
-		return 60
+		return 90
 
 
 #this function checks wether or not the given delta beat falls close enough to

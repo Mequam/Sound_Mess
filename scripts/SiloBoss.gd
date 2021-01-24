@@ -32,8 +32,15 @@ var came_from : String
 #stores our initial position that we return to
 var init_pos : Vector2
 func set_mode(val : String) -> void:
-	#in every mode inner_beat gets re-set	
-	inner_beat = 0
+	#make sure that we stop the notes from playing
+	$NotePlayer.stop()
+	
+	#the inner beat is used to keep track of the musical note that we are on
+	#the rush and return values have the same continued music
+	if val != "ret":
+		#in every mode inner_beat gets re-set	
+		print("[silo boss] resetting inner beat")
+		inner_beat = 0
 	#store the old mode
 	
 	#ret is a transition mode,
@@ -106,6 +113,7 @@ func corrupt() -> void:
 #the last animation
 func anim_finished(anim : String)->void:
 	if anim == "Shake4":
+		$health_bar.visible = true
 		add_to_group("enemies")
 		set_mode("evil")
 	elif anim == "Smash":
@@ -120,47 +128,92 @@ func anim_finished(anim : String)->void:
 #of the enemy to the music
 func play_note(inner_beat) -> void:
 	match mode:
+		"smashing":
+			#climb up then rappidly smash down the notes to the root
+			match (inner_beat):
+				0:
+					$NotePlayer.play_note(-7)
+				1:
+					$NotePlayer.play_note(0)
+				2:
+					$NotePlayer.play_note(-7)
+				_:
+					$NotePlayer.stop()
+		"smash":
+			#simple looped arpegio
+			match (inner_beat%3):
+				0:
+					$NotePlayer.play_note(-7)
+				1:
+					$NotePlayer.play_note(-5)
+				2:
+					$NotePlayer.play_note(-3)
+				_:
+					$NotePlayer.stop()
+		"move":
+			#calls back to the initial 1-5 (0-4) call of the carrots,
+			#but loops up and down a ton to add more complexity
+			if sub_mode == "rush" or sub_mode == "ret":
+					match (inner_beat%8):
+						0:
+							$NotePlayer.play_note(-7)
+						1:
+							$NotePlayer.play_note(-5)
+						2:
+							$NotePlayer.play_note(-3)
+						3:
+							$NotePlayer.play_note(-5)
+						4:
+							$NotePlayer.play_note(-7)
+						5:
+							$NotePlayer.play_note(-5)
+						6:
+							$NotePlayer.play_note(-4)
+						7:
+							$NotePlayer.play_note(-2)
+						_:
+							$NotePlayer.stop()
 		"shake":
 			match (inner_beat%6):
 				0:
-					$NotePlayer.play_note(4)
+					$NotePlayer.play_note(-3)
 				1:
-					$NotePlayer.play_note(3)
+					$NotePlayer.play_note(-4)
 				2:
-					$NotePlayer.play_note(4)
+					$NotePlayer.play_note(-3)
 				3:
-					$NotePlayer.play_note(0)
+					$NotePlayer.play_note(-7)
 				4:
-					$NotePlayer.play_note(1)
+					$NotePlayer.play_note(-6)
 				5:
-					$NotePlayer.play_note(0)
+					$NotePlayer.play_note(-7)
 				_:
 					$NotePlayer.stop()
 		"idle":
 			match inner_beat:
 				0:
-					$NotePlayer.play_note(4)
+					$NotePlayer.play_note(-3)
 					$Sprite/NoteDetails.play("TopLookLeft")
 				2:
-					$NotePlayer.play_note(3)
+					$NotePlayer.play_note(-4)
 					$Sprite/NoteDetails.play("MidLookLeft")
 				4:
-					$NotePlayer.play_note(4)
+					$NotePlayer.play_note(-3)
 					$Sprite/NoteDetails.play("NoramalLook")
 				6:
-					$NotePlayer.play_note(0)
+					$NotePlayer.play_note(-7)
 					$Sprite/NoteDetails.play("BottomLookLeft")
 				8:
-					$NotePlayer.play_note(1)
+					$NotePlayer.play_note(-6)
 					$Sprite/NoteDetails.play("BottomLookRight")
 				10:
-					$NotePlayer.play_note(0)
+					$NotePlayer.play_note(-7)
 					$Sprite/NoteDetails.play("BottomLookLeft")
 				12:
-					$NotePlayer.play_note(3)
+					$NotePlayer.play_note(-4)
 					$Sprite/NoteDetails.play("BottomLookDown")
 				14:
-					$NotePlayer.play_note(0)
+					$NotePlayer.play_note(-7)
 					$Sprite/NoteDetails.play("NoramalLook")
 				_:
 					$NotePlayer.stop()
@@ -168,6 +221,7 @@ func run(player_pos : Vector2,beat)-> void:
 	#run the display that is dependent on the 
 	#note player
 	play_note(inner_beat)
+	inner_beat += 1
 	#run the AI
 	match mode:
 		"smash":
@@ -180,7 +234,7 @@ func run(player_pos : Vector2,beat)-> void:
 				$Sprite.scale.x = abs($Sprite.scale.x)
 				target_pos = player_pos + offset
 			var col = dmg_mv((target_pos-position).normalized()*speed*1.78,2)
-			if player_in_smash_zone:
+			if player_in_smash_zone or inner_beat > 16:
 				set_mode("smashing")
 		"move":
 			#move in the last scene direction of the player
@@ -202,14 +256,11 @@ func run(player_pos : Vector2,beat)-> void:
 							_:
 								set_mode("idle")
 		"idle":
-			inner_beat += 1
 			if inner_beat > 15: 
-				print("[silo boss] carrot count " + str(carrotCount))
-				print("[silo boss] came from " + str(came_from))
 				match came_from:
 					"rush":
 						#if we are on low health ease conditions on the carrot spawning
-						if ($health_bar.hp <= 5 and carrotCount < 10) or carrotCount < 5:
+						if ($health_bar.hp <= 5 and carrotCount < 5) or carrotCount < 2:
 							set_mode("shake")
 						else:
 							set_mode("smash")
@@ -223,12 +274,12 @@ func run(player_pos : Vector2,beat)-> void:
 			#spawn ALL the carrots
 			if $health_bar.hp <= 5 or (inner_beat % 2) == 0:
 				spawn_carrot()
-			inner_beat += 1
 			if inner_beat > 15:
 				set_mode("idle")
 				
 func _ready():
-	$health_bar.hp = 10
+	$health_bar.hp = 20
+	$health_bar.visible = false
 	init_pos = position
 
 #used to determine whether or not we can smash the player

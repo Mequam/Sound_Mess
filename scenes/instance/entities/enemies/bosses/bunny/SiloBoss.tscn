@@ -6,13 +6,15 @@
 [ext_resource path="res://scenes/instance/NotePlayer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/instance/health_bar.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 208.654, 45.3872 )
-
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 208.654, 25.532 )
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 115.696, 25.7035 )
 
 [node name="SiloBoss" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 9
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." instance=ExtResource( 1 )]
@@ -23,15 +25,16 @@ position = Vector2( -0.620728, 1.90598 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/smashZone"]
 position = Vector2( -374, -32 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.762146, -19.6328 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="save_state_node" parent="." instance=ExtResource( 3 )]
 
 [node name="NotePlayer" parent="." instance=ExtResource( 4 )]
+volume_db = -7.0
 
 [node name="health_bar" parent="." instance=ExtResource( 5 )]
 position = Vector2( -121.155, -548.623 )

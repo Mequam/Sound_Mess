@@ -50,6 +50,8 @@ position = Vector2( 0.414032, 1.15715 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 4 )]
 position = Vector2( -8, 20 )
+volume_db = -13.0
+bus = "generic_enemy"
 
 [node name="dirt_front" parent="." instance=ExtResource( 6 )]
 
