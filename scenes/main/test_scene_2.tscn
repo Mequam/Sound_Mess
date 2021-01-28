@@ -49,20 +49,32 @@ position = Vector2( -1224.34, 302.722 )
 script = ExtResource( 9 )
 
 [node name="Spider_Enemy" parent="." instance=ExtResource( 13 )]
-position = Vector2( -407.54, -200.773 )
+position = Vector2( -693.445, -25.8666 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1955.56, -854.099 )
+position = Vector2( 1245.37, -902.127 )
 
 [node name="SiloBoss" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2134.7, -1038.24 )
+position = Vector2( 1755.84, -773.858 )
 
 [node name="tall_grass" parent="." instance=ExtResource( 17 )]
-position = Vector2( -583.68, -145.92 )
+position = Vector2( -212.228, -47.5012 )
+
+[node name="tall_grass2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 879.904, -555.469 )
+
+[node name="tall_grass3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1019.59, -641.189 )
+
+[node name="tall_grass4" parent="." instance=ExtResource( 17 )]
+position = Vector2( 844.981, -691.986 )
+
+[node name="tall_grass5" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1130.71, -714.21 )
 
 [node name="evil_carrot2" parent="." instance=ExtResource( 8 )]
-position = Vector2( -414.25, -324.287 )
+position = Vector2( 255.104, -95.5632 )
 
 [node name="FallingCarrot" parent="." instance=ExtResource( 2 )]
-position = Vector2( -138.361, -425.075 )
+position = Vector2( 1014.09, -1002.89 )
 [connection signal="completed_dialog" from="bunnyDoorSwitch/singingSwitch/DialogChoiceList" to="bunnyDoorSwitch/singingSwitch" method="_on_DialogChoiceList_completed_dialog"]

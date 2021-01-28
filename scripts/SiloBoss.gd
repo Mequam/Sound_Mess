@@ -2,6 +2,10 @@ extends "res://scripts/abstracts/corruptable_enemy.gd"
 #this is the blue-print for the falling carrots that we throw while in shake mode
 var thrownCarrot = preload("res://scenes/instance/FallingCarrot.tscn")
 
+func on_col(node : Node,dmg : int) -> void:
+	#we ignore carrot based monch damage
+	if not node.is_in_group("carrot"):
+		.on_col(node,dmg)
 #this is used so we can re-use the same behavior for different modes
 #while changing a thing or too with the exist states
 var sub_mode : String
@@ -32,6 +36,9 @@ var came_from : String
 #stores our initial position that we return to
 var init_pos : Vector2
 func set_mode(val : String) -> void:
+	if val == "shake_move":
+		print("[silo boss] setting shake move!")
+
 	#make sure that we stop the notes from playing
 	$NotePlayer.stop()
 	
@@ -39,7 +46,6 @@ func set_mode(val : String) -> void:
 	#the rush and return values have the same continued music
 	if val != "ret":
 		#in every mode inner_beat gets re-set	
-		print("[silo boss] resetting inner beat")
 		inner_beat = 0
 	#store the old mode
 	
@@ -76,11 +82,13 @@ func set_mode(val : String) -> void:
 		$Sprite/AnimationPlayer.play("Walk",-1,1.5)
 	elif val == "smashing":
 		$Sprite/AnimationPlayer.play("Smash")
+	elif val == "shake_move":
+		val = "move"
+		sub_mode = "shake_move"
 	if val == "move":
 		$Sprite/AnimationPlayer.play("Walk")
 	mode = val
 	.set_mode(val)
-	print("[silo boss] mode set to " + str(mode))
 
 func spawn_carrot()->void:
 	var carrot = thrownCarrot.instance()
@@ -119,9 +127,10 @@ func anim_finished(anim : String)->void:
 	elif anim == "Smash":
 		#TODO: there has got to be a cleaner way to impliment
 		#this smash feature
-		if player_in_smash_zone:
-			for node in get_tree().get_nodes_in_group("player"):
-				node.on_col(self,3)
+		if get_player_in_smash_zone():
+			print("[silo boss] calling damage on " + node_in_smash_zone.name)
+			#call the damage routine on the node we hit
+			node_in_smash_zone.on_col(self,3)
 		set_mode("ret")
 		#we have a few options here
 #this function is in charge of playing music and updating the display
@@ -153,26 +162,25 @@ func play_note(inner_beat) -> void:
 		"move":
 			#calls back to the initial 1-5 (0-4) call of the carrots,
 			#but loops up and down a ton to add more complexity
-			if sub_mode == "rush" or sub_mode == "ret":
-					match (inner_beat%8):
-						0:
-							$NotePlayer.play_note(-7)
-						1:
-							$NotePlayer.play_note(-5)
-						2:
-							$NotePlayer.play_note(-3)
-						3:
-							$NotePlayer.play_note(-5)
-						4:
-							$NotePlayer.play_note(-7)
-						5:
-							$NotePlayer.play_note(-5)
-						6:
-							$NotePlayer.play_note(-4)
-						7:
-							$NotePlayer.play_note(-2)
-						_:
-							$NotePlayer.stop()
+				match (inner_beat%8):
+					0:
+						$NotePlayer.play_note(-7)
+					1:
+						$NotePlayer.play_note(-5)
+					2:
+						$NotePlayer.play_note(-3)
+					3:
+						$NotePlayer.play_note(-5)
+					4:
+						$NotePlayer.play_note(-7)
+					5:
+						$NotePlayer.play_note(-5)
+					6:
+						$NotePlayer.play_note(-4)
+					7:
+						$NotePlayer.play_note(-2)
+					_:
+						$NotePlayer.stop()
 		"shake":
 			match (inner_beat%6):
 				0:
@@ -217,6 +225,11 @@ func play_note(inner_beat) -> void:
 					$Sprite/NoteDetails.play("NoramalLook")
 				_:
 					$NotePlayer.stop()
+
+#used to alternate wheather or not we run the shake-move attack
+#we only run it if this is true among other conditions
+var run_shake_move = false
+
 func run(player_pos : Vector2,beat)-> void:
 	#run the display that is dependent on the 
 	#note player
@@ -227,20 +240,43 @@ func run(player_pos : Vector2,beat)-> void:
 		"smash":
 			var target_pos : Vector2
 			var offset : Vector2 = Vector2(300,0)
+			var correctional_mult = 1
+			#how far away from the player we are
+			var distSquared = position.distance_squared_to(target_pos)
+			
+			#look at the player
 			if player_pos.x > position.x:
 				$Sprite.scale.x =  abs($Sprite.scale.x)*(-1)
 				target_pos = player_pos - offset
 			else:
 				$Sprite.scale.x = abs($Sprite.scale.x)
 				target_pos = player_pos + offset
-			var col = dmg_mv((target_pos-position).normalized()*speed*1.78,2)
-			if player_in_smash_zone or inner_beat > 16:
+			
+			#a vector from us to the target
+			var vec_at_target = (target_pos-position)
+			#our speed vector
+			var move_vec = vec_at_target.normalized()*speed*1.78
+			
+			var to_move = move_vec
+			#if we are going to over jump the point, don't
+			if move_vec.length_squared() > vec_at_target.length_squared():
+				to_move = vec_at_target
+			
+			var col = dmg_mv(to_move,2)
+			
+			if get_player_in_smash_zone() or inner_beat > 16:
+				if inner_beat > 16 and not player_in_smash_zone:
+					print("[silo boss] the player was not hittable")
+				else:
+					print("[silo boss] hit the player")
 				set_mode("smashing")
 		"move":
 			#move in the last scene direction of the player
 			var col = dmg_mv(get_moveDir()*speed,2)
 			if col or position.distance_squared_to(get_movePos()) < speed*speed*.25:
 				match sub_mode:
+					"shake_move":
+						set_mode("shake")
 					"rush":
 						if $health_bar.hp < 5:
 							set_mode("shake")
@@ -268,14 +304,22 @@ func run(player_pos : Vector2,beat)-> void:
 						set_movePos(player_pos)
 						set_mode("rush")
 					_:
-						set_movePos(player_pos)
-						set_mode("rush")
+						if run_shake_move:
+							set_movePos(position+Vector2(0,-500))
+							set_mode("shake_move")
+						else:
+							set_movePos(player_pos)
+							set_mode("rush")
+						run_shake_move = not run_shake_move
 		"shake":
 			#spawn ALL the carrots
 			if $health_bar.hp <= 5 or (inner_beat % 2) == 0:
 				spawn_carrot()
 			if inner_beat > 15:
-				set_mode("idle")
+				if came_from == "shake_move":
+					set_mode("ret")
+				else:
+					set_mode("idle")
 				
 func _ready():
 	$health_bar.hp = 20
@@ -283,10 +327,17 @@ func _ready():
 	init_pos = position
 
 #used to determine whether or not we can smash the player
-var player_in_smash_zone : bool = false
+var player_in_smash_zone : bool setget set_player_in_smash_zone,get_player_in_smash_zone
+func set_player_in_smash_zone(val : bool) -> void:
+	pass
+func get_player_in_smash_zone() -> bool:
+	return (node_in_smash_zone != null)
+
+var node_in_smash_zone : Node2D = null
 func _on_smashZone_body_entered(body):
 	if body.name and body.name == "player":
-		player_in_smash_zone = true
+		print("[silo boss] player in smash zone!")
+		node_in_smash_zone = body
 func _on_smashZone_body_exited(body):
 	if body.name and body.name == "player":
-		player_in_smash_zone = false
+		node_in_smash_zone = null

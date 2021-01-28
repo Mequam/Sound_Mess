@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/instance/health_bar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 208.654, 25.532 )
+extents = Vector2( 256.949, 39.3159 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 115.696, 25.7035 )
@@ -24,7 +24,7 @@ position = Vector2( 0.620728, -1.90598 )
 position = Vector2( -0.620728, 1.90598 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/smashZone"]
-position = Vector2( -374, -32 )
+position = Vector2( -376, -5.76212 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

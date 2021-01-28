@@ -19,12 +19,12 @@ collision_mask = 0
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -8.18039, 18.099 )
+position = Vector2( -0.498551, 16.7023 )
 shape = SubResource( 1 )
 
 [node name="dirt_back" type="Node2D" parent="."]
 modulate = Color( 0.490196, 0.4, 0, 1 )
-position = Vector2( -6.01376, -34.4013 )
+position = Vector2( 1.66808, -35.798 )
 z_index = -1
 
 [node name="even_triangle36" type="Sprite" parent="dirt_back"]
@@ -46,17 +46,18 @@ scale = Vector2( 0.0715628, 0.0550651 )
 texture = ExtResource( 5 )
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0.414032, 1.15715 )
+position = Vector2( 8.09587, -0.23954 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 4 )]
-position = Vector2( -8, 20 )
+position = Vector2( -0.318161, 18.6033 )
 volume_db = -13.0
 bus = "generic_enemy"
 
 [node name="dirt_front" parent="." instance=ExtResource( 6 )]
+position = Vector2( -0.318161, 18.6033 )
 
 [node name="health_bar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2.75766, -83.5223 )
+position = Vector2( 10.4395, -84.919 )
 
 [node name="save_state_node" parent="." instance=ExtResource( 7 )]
 script = ExtResource( 8 )

@@ -904,7 +904,7 @@ tracks/28/keys = {
 "times": PoolRealArray( 1, 1.4, 1.8, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 0.926575, 35.6734 ), Vector2( 0.555945, 21.404 ), Vector2( 0.996077, -2.8029 ), Vector2( -0.440125, -17.1649 ) ]
+"values": [ Vector2( 0.926575, 35.6734 ), Vector2( 0.555945, 21.404 ), Vector2( 0.996077, -2.8029 ), Vector2( -0.814705, -34.0209 ) ]
 }
 tracks/29/type = "value"
 tracks/29/path = NodePath("leaves:position")
@@ -916,7 +916,7 @@ tracks/29/keys = {
 "times": PoolRealArray( 1, 1.4, 1.8, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 4.6329, -6.37608 ), Vector2( 4.81822, -20.2748 ), Vector2( 0.857091, -51.0836 ), Vector2( 2.0153, -56.0872 ) ]
+"values": [ Vector2( 4.6329, -6.37608 ), Vector2( 4.81822, -20.2748 ), Vector2( 0.857091, -51.0836 ), Vector2( 1.64072, -72.9431 ) ]
 }
 tracks/30/type = "value"
 tracks/30/path = NodePath("leaves/front_leaf:rotation_degrees")
@@ -961,10 +961,10 @@ tracks/33/loop_wrap = true
 tracks/33/imported = false
 tracks/33/enabled = true
 tracks/33/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 2.99368, 35.3254 ) ]
+"values": [ Vector2( 2.99368, 35.3254 ), Vector2( 2.6191, 18.4695 ) ]
 }
 tracks/34/type = "value"
 tracks/34/path = NodePath("evil/teeth:position")
@@ -1330,19 +1330,19 @@ position = Vector2( 4.6329, -6.37608 )
 
 [node name="back_leaf" type="Sprite" parent="leaves"]
 position = Vector2( -3.16312, -8.72552 )
-rotation = 0.162232
+rotation = -0.0698474
 scale = Vector2( 0.0337195, 0.0424369 )
 texture = ExtResource( 1 )
 
 [node name="mid_leaf" type="Sprite" parent="leaves"]
 position = Vector2( -11.1967, -5.86319 )
-rotation = -0.56064
+rotation = -0.800968
 scale = Vector2( 0.0337195, 0.0424369 )
 texture = ExtResource( 1 )
 
 [node name="front_leaf" type="Sprite" parent="leaves"]
 position = Vector2( 3.99008, -7.88928 )
-rotation = 0.519096
+rotation = 0.24957
 scale = Vector2( 0.0337195, 0.0424369 )
 texture = ExtResource( 1 )
 
@@ -1403,6 +1403,7 @@ scale = Vector2( 0.0147294, 0.0285752 )
 texture = ExtResource( 1 )
 
 [node name="right_outer" type="Sprite" parent="evil/legs_front"]
+visible = false
 position = Vector2( 40.6305, 22.4459 )
 rotation = -0.627226
 scale = Vector2( 0.0144502, 0.0460686 )
@@ -1415,6 +1416,7 @@ scale = Vector2( 0.0147294, 0.0285752 )
 texture = ExtResource( 1 )
 
 [node name="left_outer" type="Sprite" parent="evil/legs_front"]
+visible = false
 position = Vector2( -42.2289, 27.7835 )
 rotation = -5.79167
 scale = Vector2( 0.0144502, 0.0460686 )

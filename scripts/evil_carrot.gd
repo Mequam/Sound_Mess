@@ -49,6 +49,7 @@ func play_note(mode):
 			if (inner_beat >= 5):
 				inner_beat = 0
 func _ready():
+	add_to_group("carrot")
 	$Sprite/body.z_index = -1
 	$Sprite/evil.z_index = -1
 	$NotePlayer.mode = 6

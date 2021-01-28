@@ -76,7 +76,6 @@ func checkInputRythom():
 		#check to see if the note distance goes through 16th notes
 		var target = sub_beat*pow(2,i)
 		var beat_err = target/6
-		#print("checking " + str(delta) + " == "  + str(target) +    "+- " + str(beat_err))
 		if (target-beat_err <= delta and delta <= target+beat_err):
 			#print("in time with " + str(i))
 			return i
