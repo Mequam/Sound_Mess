@@ -65,7 +65,7 @@ func play_modal_animation(mode):
 
 #returns true if we can see the target
 func can_see(target_pos):
-	return position.distance_to(target_pos) <= 1000 and target_pos.y-position.y <= 20*scale.y and target_pos.y-position.y >= -20*scale.y  
+	return position.distance_to(target_pos) <= 1000 and target_pos.y-position.y <= 25*scale.y and target_pos.y-position.y >= -25*scale.y  
 
 #makes the spider look for a target and change modes accordingly
 func look(target_pos):

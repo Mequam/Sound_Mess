@@ -21,7 +21,7 @@ func main_ready()->void:
 		$Sprite/AnimationPlayer.connect("animation_finished",self,"anim_finished")
 	$save_state_node.load_data()
 	
-	$NotePlayer.mode = 6
+	$NotePlayer.mode = 5
 	
 	#call the parent ready
 	.main_ready()
