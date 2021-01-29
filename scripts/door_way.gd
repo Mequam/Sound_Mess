@@ -1,4 +1,11 @@
-extends Area2D
+extends "res://scripts/abstracts/generic_area.gd"
+
+#we are not in the game
+func gen_col_layer()->int:
+	return 0
+#we allways fire when the player enters
+func gen_col_mask()->int:
+	return col_math.ConstLayer.PLAYER
 
 #this script runs the dorrs that connect
 #different scenes together

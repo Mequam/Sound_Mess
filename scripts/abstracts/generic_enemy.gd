@@ -13,6 +13,16 @@ func set_mode(val)->void:
 func get_mode()->String:
 	return mode
 
+#these functions generate the collision layer that every
+#enemy is part of by default
+func gen_col_layer()->int:
+	return (.gen_col_layer() | 
+			col_math.ConstLayer.ALL_ENEMIES | 
+			col_math.Layer.ENEMY)
+func gen_col_mask() -> int:
+	return (.gen_col_mask() | 
+			col_math.Layer.PLAYER | 
+			col_math.Layer.TERRAIN)
 #generic enemy ready function
 func main_ready()->void:
 	add_to_group("enemies")
@@ -21,7 +31,9 @@ func main_ready()->void:
 		$Sprite/AnimationPlayer.connect("animation_finished",self,"anim_finished")
 	$save_state_node.load_data()
 	
-	$NotePlayer.mode = 5
+	#set the note player up properly
+	$NotePlayer.bus = "generic_enemy"
+	$NotePlayer.mode = 6
 	
 	#call the parent ready
 	.main_ready()

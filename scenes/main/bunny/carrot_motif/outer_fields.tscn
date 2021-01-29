@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/instance/entities/poof_grass.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/main_scenes/outer_fields.gd" type="Script" id=2]
@@ -12,13 +12,13 @@
 [ext_resource path="res://scenes/assets/architecture/bunny/farm_house.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/instance/entities/enemies/evil_carrot.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/assets/clouds.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/assets/architecture/bunny/diming_silo_sprite.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/assets/architecture/bunny/well.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/assets/hill.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/assets/architecture/bunny/bunny_scare_crow.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=18]
-
-
+[ext_resource path="res://scenes/instance/pickups/health_pickup.tscn" type="PackedScene" id=19]
 
 [node name="outer_fields" type="TileMap"]
 cell_y_sort = true
@@ -32,7 +32,7 @@ modulate = Color( 0, 1, 0.576471, 1 )
 tile_data = PoolIntArray( -524287, 2, 0, -524286, 2, 0, -524285, 2, 0, -524284, 2, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458747, 1, 0, -327681, 2, 0, -393216, 2, 0, -393215, 0, 0, -393214, 1, 0, -393212, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 1, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -131074, 2, 0, -131073, 2, 0, -196608, 0, 0, -196607, 1, 0, -65540, 2, 0, -65539, 20, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 3, 0, -4, 0, 0, -3, 15, 0, -2, 0, 0, -1, 3, 0, -65536, 0, 0, -65535, 0, 0, -65534, 1, 0, 65531, 2, 0, 65532, 0, 0, 65533, 15, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 1, 0, 131067, 0, 0, 131068, 0, 0, 131069, 17, 0, 131070, 0, 0, 131071, 1, 0, 65536, 14, 0, 65537, 14, 0, 196603, 0, 0, 196604, 1, 0, 196606, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 1, 0, 262139, 0, 0 )
 
 [node name="collision" parent="tiles" instance=ExtResource( 7 )]
-tile_data = PoolIntArray( -458752, 11, 0, -393216, 11, 0, -393214, 11, 0, -393213, 11, 0, -393211, 11, 0, -262146, 11, 0, -327676, 11, 0, -196610, 11, 0, -131073, 11, 0, -5, 11, 0, -1, 11, 0, 65531, 11, 0, 131066, 11, 0, 131069, 11, 0, 131071, 11, 0, 196602, 11, 0, 196604, 11, 0, 196605, 11, 0, 196607, 11, 0, 262138, 11, 0, 262140, 11, 0, 262142, 11, 0, 327675, 11, 0 )
+tile_data = PoolIntArray( -458752, 11, 0, -393216, 11, 0, -393214, 11, 0, -393213, 11, 0, -393211, 11, 0, -262146, 11, 0, -327678, 11, 0, -327676, 11, 0, -196610, 11, 0, -262141, 11, 0, -131073, 11, 0, -196607, 11, 0, -196606, 11, 0, -5, 11, 0, -1, 11, 0, 65531, 11, 0, 131066, 11, 0, 131069, 11, 0, 131071, 11, 0, 196602, 11, 0, 196604, 11, 0, 196605, 11, 0, 196607, 11, 0, 262138, 11, 0, 262140, 11, 0, 262142, 11, 0, 327675, 11, 0 )
 
 [node name="Met" parent="." instance=ExtResource( 5 )]
 position = Vector2( -119.872, -7.70139 )
@@ -281,5 +281,16 @@ scale = Vector2( 40, 2 )
 position = Vector2( 1436.82, 1028.51 )
 scale = Vector2( 40, 2 )
 
+[node name="side_carrot_path" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1102.15, 800.794 )
+rotation = 1.01536
+scale = Vector2( 1, 15 )
+
 [node name="Tarantula3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 427.529, 1248.79 )
+
+[node name="dimingSiloSprite" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1081.45, 1302.49 )
+
+[node name="health_pickup" parent="." instance=ExtResource( 19 )]
+position = Vector2( 1131.22, 1200.22 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/assets/chimeny.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/assets/architecture/bunny/bunny_door.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/assets/hill_sprite.tscn" type="PackedScene" id=4]
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=5]
 [ext_resource path="res://scenes/assets/windmeel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/abstracts/generic_static.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 97.6871, 6.18604 )
@@ -17,69 +18,72 @@ extents = Vector2( 5.00401, 36.8378 )
 extents = Vector2( 40.7873, 5.29744 )
 
 [node name="chimeny_house" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 7 )
 
 [node name="long_triangle" type="Sprite" parent="."]
 modulate = Color( 0.666667, 0.427451, 0.0117647, 1 )
-position = Vector2( -59.3392, -95.6695 )
+position = Vector2( -59.3392, -134.63 )
 rotation = 3.01964
 scale = Vector2( 0.1, 0.125 )
 texture = ExtResource( 5 )
 
 [node name="hill7" parent="." instance=ExtResource( 4 )]
 modulate = Color( 0, 1, 0.576471, 1 )
-position = Vector2( -1.34454, 10.1529 )
+position = Vector2( -1.34454, -28.808 )
 scale = Vector2( 0.25, 0.45 )
 
 [node name="bunny_door" parent="." instance=ExtResource( 2 )]
-position = Vector2( 9.49445, 21.8987 )
+position = Vector2( 9.49445, -17.0622 )
 scale = Vector2( 2, 2 )
 
 [node name="bunny_window" parent="." instance=ExtResource( 3 )]
-position = Vector2( -21.9064, -64.6592 )
+position = Vector2( -21.9064, -103.62 )
 rotation = -0.330186
 
 [node name="bunny_window2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 29.6453, -46.0433 )
+position = Vector2( 29.6453, -85.0042 )
 rotation = 0.3907
 scale = Vector2( 0.5, 0.5 )
 
 [node name="chimeny4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 13.5053, -137.508 )
+position = Vector2( 13.5053, -176.469 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="chimeny" parent="." instance=ExtResource( 1 )]
-position = Vector2( 41.7436, -110.498 )
+position = Vector2( 41.7436, -149.459 )
 
 [node name="chimeny2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 54.0212, -76.1207 )
+position = Vector2( 54.0212, -115.082 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="chimeny3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 67.5265, -57.7044 )
+position = Vector2( 67.5265, -96.6653 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="windmeel" parent="." instance=ExtResource( 6 )]
-position = Vector2( -63.8421, -140.631 )
+position = Vector2( -63.8421, -179.592 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.902573, -22.5628 )
+position = Vector2( -0.902573, -61.5237 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( -118.311, 11.433 )
+position = Vector2( -118.311, -27.5279 )
 rotation = 0.632473
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2( 117.085, 10.8426 )
+position = Vector2( 117.085, -28.1183 )
 rotation = -0.658751
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2( -89.3227, 34.9888 )
+position = Vector2( -89.3227, -3.97208 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
-position = Vector2( 92.4028, 33.3677 )
+position = Vector2( 92.4028, -5.59317 )
 shape = SubResource( 3 )

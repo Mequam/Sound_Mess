@@ -201,13 +201,6 @@ tracks/2/keys = {
 
 [node name="TreeSprite" type="Node2D"]
 
-[node name="shadow" type="Sprite" parent="."]
-modulate = Color( 0.278431, 0.278431, 0.278431, 0.701961 )
-position = Vector2( -13.1543, 286.351 )
-scale = Vector2( 0.898064, 0.316449 )
-z_index = -1
-texture = ExtResource( 1 )
-
 [node name="trunc" type="Sprite" parent="."]
 position = Vector2( -11.7453, 199.67 )
 rotation = -3.14159

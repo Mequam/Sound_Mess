@@ -1,5 +1,11 @@
-extends Area2D
+extends "res://scripts/abstracts/generic_area.gd"
+
+func gen_col_layer()->int:
+	return col_math.Layer.ENEMY #we are an enemy
+func gen_col_mask()->int:
+	return col_math.Layer.PLAYER | col_math.Layer.ENEMY #we collide with other enemeis
 var inner_beat = 0.0
+
 #the last enemy that enterd our circle
 var inside = null
 var backwords = false

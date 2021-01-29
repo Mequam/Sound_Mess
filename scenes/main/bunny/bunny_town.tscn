@@ -48,7 +48,7 @@ position = Vector2( 167.81, 36.5587 )
 position = Vector2( 372.67, -108.61 )
 
 [node name="transparent_windmill" parent="." instance=ExtResource( 3 )]
-position = Vector2( 68.6177, -201.657 )
+position = Vector2( 68.6177, -199.657 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="hill" parent="." instance=ExtResource( 7 )]
@@ -156,7 +156,7 @@ scale = Vector2( 0.75, 0.75 )
 position = Vector2( 790.369, -83.7176 )
 
 [node name="fence_front" parent="." instance=ExtResource( 11 )]
-position = Vector2( 585.45, 60.9318 )
+position = Vector2( 554.531, 118.014 )
 
 [node name="hill4" parent="." instance=ExtResource( 7 )]
 modulate = Color( 0, 1, 0.576471, 1 )
@@ -412,7 +412,7 @@ rotation = 0.387456
 z_index = 1
 
 [node name="windmill" parent="." instance=ExtResource( 19 )]
-position = Vector2( 3352.25, -279.645 )
+position = Vector2( 3323.74, -308.154 )
 rotation = -0.218397
 scale = Vector2( 0.4, 0.4 )
 

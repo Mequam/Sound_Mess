@@ -7,7 +7,7 @@
 
 [node name="even_triangle" type="Sprite" parent="."]
 modulate = Color( 0.666667, 0.427451, 0.0117647, 1 )
-position = Vector2( -28.0693, 3.78019 )
+position = Vector2( -27.1193, -7.61994 )
 rotation = 2.95624
 scale = Vector2( 0.216551, 0.0915076 )
 z_index = -1
@@ -15,7 +15,7 @@ texture = ExtResource( 1 )
 
 [node name="even_triangle2" type="Sprite" parent="."]
 modulate = Color( 0.666667, 0.427451, 0.0117647, 1 )
-position = Vector2( 18.4813, -2.8699 )
+position = Vector2( 19.4313, -14.27 )
 rotation = 3.18831
 scale = Vector2( 0.216551, 0.0915076 )
 z_index = -1
@@ -23,47 +23,47 @@ texture = ExtResource( 1 )
 
 [node name="even_triangle3" type="Sprite" parent="."]
 modulate = Color( 0.666667, 0.427451, 0.0117647, 1 )
-position = Vector2( 54.5818, -0.0198555 )
+position = Vector2( 55.5318, -11.42 )
 rotation = 2.97183
 scale = Vector2( 0.216551, 0.0915076 )
 z_index = -1
 texture = ExtResource( 1 )
 
 [node name="daisy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1.6634, 8.90045 )
+position = Vector2( 2.61341, -2.49968 )
 
 [node name="daisy2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 58.1401, 26.089 )
+position = Vector2( 59.0901, 14.6889 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="even_triangle5" type="Sprite" parent="."]
 modulate = Color( 0.666667, 0.427451, 0.0117647, 1 )
-position = Vector2( 3.28117, 22.7805 )
+position = Vector2( 4.23118, 11.3804 )
 rotation = 2.97183
 scale = Vector2( 0.216551, 0.0915076 )
 texture = ExtResource( 1 )
 
 [node name="even_triangle6" type="Sprite" parent="."]
 modulate = Color( 0.666667, 0.427451, 0.0117647, 1 )
-position = Vector2( -39.4694, 20.8804 )
+position = Vector2( -38.5194, 9.48027 )
 rotation = 3.24559
 scale = Vector2( 0.216551, 0.0915076 )
 texture = ExtResource( 1 )
 
 [node name="daisy3" parent="." instance=ExtResource( 2 )]
-position = Vector2( -26.5748, 43.2776 )
+position = Vector2( -25.6248, 31.8775 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="even_triangle4" type="Sprite" parent="."]
 modulate = Color( 0.666667, 0.427451, 0.0117647, 1 )
-position = Vector2( 56.4818, 24.6805 )
+position = Vector2( 57.4318, 13.2804 )
 rotation = 3.13975
 scale = Vector2( 0.216551, 0.0915076 )
 texture = ExtResource( 1 )
 
 [node name="even_triangle7" type="Sprite" parent="."]
 modulate = Color( 0.666667, 0.427451, 0.0117647, 1 )
-position = Vector2( -23.3192, 38.9307 )
+position = Vector2( -22.3692, 27.5306 )
 rotation = 2.97183
 scale = Vector2( 0.216551, 0.0915076 )
 texture = ExtResource( 1 )

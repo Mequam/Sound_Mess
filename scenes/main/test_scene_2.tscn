@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/FallingCarrot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/main_scenes/test_scene_2.gd" type="Script" id=3]
+[ext_resource path="res://scenes/instance/entities/PineTreeBody.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/instance/dialog/testDialog.tscn" type="PackedScene" id=7]
@@ -16,6 +17,8 @@
 [ext_resource path="res://scenes/instance/switches/singingSwitch.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/SiloBoss.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/instance/entities/poof_grass.tscn" type="PackedScene" id=19]
 
 [node name="test_space" type="TileMap"]
 cell_y_sort = true
@@ -49,13 +52,13 @@ position = Vector2( -1224.34, 302.722 )
 script = ExtResource( 9 )
 
 [node name="Spider_Enemy" parent="." instance=ExtResource( 13 )]
-position = Vector2( -693.445, -25.8666 )
+position = Vector2( 150.835, -136.456 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1245.37, -902.127 )
+position = Vector2( -467.09, -122.105 )
 
 [node name="SiloBoss" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1755.84, -773.858 )
+position = Vector2( 1755.84, -769.858 )
 
 [node name="tall_grass" parent="." instance=ExtResource( 17 )]
 position = Vector2( -212.228, -47.5012 )
@@ -76,5 +79,14 @@ position = Vector2( 1130.71, -714.21 )
 position = Vector2( 255.104, -95.5632 )
 
 [node name="FallingCarrot" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1014.09, -1002.89 )
+position = Vector2( -891.145, -23.8439 )
+
+[node name="PineTree" parent="." instance=ExtResource( 4 )]
+position = Vector2( -326, -262 )
+
+[node name="Traper_Entity" parent="." instance=ExtResource( 18 )]
+position = Vector2( -309.214, -144.926 )
+
+[node name="poof_grass" parent="." instance=ExtResource( 19 )]
+position = Vector2( -52.3251, -128.434 )
 [connection signal="completed_dialog" from="bunnyDoorSwitch/singingSwitch/DialogChoiceList" to="bunnyDoorSwitch/singingSwitch" method="_on_DialogChoiceList_completed_dialog"]

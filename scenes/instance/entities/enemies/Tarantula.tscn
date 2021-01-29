@@ -12,7 +12,8 @@ radius = 59.0512
 
 [node name="Tarantula" type="KinematicBody2D"]
 scale = Vector2( 0.5, 0.5 )
-collision_layer = 4
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Tarantula_Sprite" parent="." instance=ExtResource( 1 )]

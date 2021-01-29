@@ -9,17 +9,19 @@
 extents = Vector2( 44.0374, 7.50413 )
 
 [node name="PineTree" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.486668, 12.2746 )
+position = Vector2( 1.54613, -6.79574 )
 shape = SubResource( 1 )
 
 [node name="JuteBox" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="Sprite" parent="JuteBox" instance=ExtResource( 3 )]
-position = Vector2( 8.51334, -116.694 )
+position = Vector2( 10.6323, -136.824 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="NotePlayer" parent="JuteBox" instance=ExtResource( 1 )]

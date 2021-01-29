@@ -1,5 +1,4 @@
 extends Node
-
 #this script is for generic gloabal code which needs to be accessible
 #from all of the project.
 

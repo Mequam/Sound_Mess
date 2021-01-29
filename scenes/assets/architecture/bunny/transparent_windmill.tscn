@@ -1,25 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/assets/windmeel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=2]
+[ext_resource path="res://scripts/abstracts/generic_static.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 233.77, 60.1789 )
 
-[node name="transparent_windmill" type="KinematicBody2D"]
+[node name="transparent_windmill" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 3 )
 
 [node name="windmeel" parent="." instance=ExtResource( 1 )]
 modulate = Color( 1, 1, 1, 0.694118 )
-position = Vector2( 33.0936, -999.5 )
+position = Vector2( 35.6134, -1024.7 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="long_triangle" type="Sprite" parent="."]
 modulate = Color( 0.701961, 0.552941, 0.368627, 1 )
-position = Vector2( 30.2159, -461.562 )
+position = Vector2( 32.7357, -486.76 )
 rotation = -3.14159
 scale = Vector2( 1, 1.30006 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 30.2838, -28.4966 )
+position = Vector2( 32.8036, -53.6951 )
 shape = SubResource( 1 )

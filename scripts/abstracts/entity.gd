@@ -4,10 +4,16 @@ extends KinematicBody2D
 
 #emitted when the entity dies
 signal die
+const col_math = preload("res://scripts/col_math.gd")
 
 #add entities to the entity group
 func _ready() -> void:
+	#all entities are in group entities
 	add_to_group("entities")
+	#all entities or their masks
+	collision_layer |= gen_col_layer()
+	collision_mask |= gen_col_mask()
+	#all entities run main_ready
 	main_ready()
 
 #generic on collision function
@@ -36,6 +42,16 @@ func take_damage(amount : int) -> void:
 #function that indicates the player heals
 func heal(amount : int) -> void:
 	set_hp(get_hp()+amount)
+
+#these functions are used to generate or masks for the 
+#collision layer and collision mask
+
+#think of them as saying "all of this class is on layer and collides with"
+#if there are exceptions to this rule they need to be added in inherited code 
+func gen_col_layer()->int:
+	return 0
+func gen_col_mask()->int:
+	return col_math.ConstLayer.TILE_BORDER #all entities collide with the border tile
 
 #this function is designed to be overloadable by
 #child classes and is run one time on _ready

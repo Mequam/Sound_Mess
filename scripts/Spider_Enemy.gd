@@ -21,8 +21,10 @@ func set_mode(val):
 	if (val in ["die","search","patroll","attack"] and mode != "die"): #once we die we dont change modes
 		if (val == "die"):
 			if (mode == "attack"):
-					$NotePlayer.volume_db += 3
+					#the death sound needs to be louder
+					$NotePlayer.volume_db += 6
 					mode = "die"
+					
 					#we are diying now is not the time for collisions!
 					collision_layer = 0
 					collision_mask = 0

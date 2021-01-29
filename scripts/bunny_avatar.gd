@@ -2,6 +2,8 @@ extends "res://scripts/abstracts/avatar.gd"
 var running_7 = false
 var dmg7 = 1
 
+#contains all of the math functions for our game collision
+
 #this function runs when the avatar is loaded by the player
 func load_avatar():
 	set_speech_color(Color(0,1,0.576,0.8),Color(1,0.4,0,0.8))
@@ -16,14 +18,10 @@ func run_six(to_move,delta):
 	
 	$Sprite.burrow_dir(to_move,burrow_distance*333.33*1.5)
 	var parent = get_parent()
-	#you do not collide with burrow terrain
-	if (parent.collision_mask & int(pow(2,5)) != 0):
-		parent.collision_mask -= pow(2,5)
-	#you do not collide with enemies
-	if (parent.collision_mask & int(pow(2,2)) != 0):
-		parent.collision_mask -= pow(2,2)
+	
 	#you are now on the burrow layer
-	parent.collision_layer = 2
+	parent.collision_mask = parent.col_math.shift_collision(parent.gen_col_mask(),1)
+	parent.collision_layer = parent.col_math.shift_collision(parent.gen_col_layer(),1)
 	
 	var player_health_bar = parent.get_node("health_bar")
 	
@@ -36,10 +34,10 @@ func clean_six(to_move,delta):
 		ground_pound(1,100)
 	
 	var parent = get_parent()
-	#make sure that we collide with the burrow layer when we come up
-	parent.collision_mask |= int(pow(2,5))
-	parent.collision_mask |= int(pow(2,2))
-	parent.collision_layer = 1
+	
+	#re-set our collision layer when we come up
+	parent.collision_layer = parent.gen_col_layer()
+	parent.collision_mask = parent.gen_col_mask()
 	
 	var health = parent.get_node("health_bar")
 	#remove our invulnerability and re-enable buffering

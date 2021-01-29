@@ -1,4 +1,8 @@
-extends Area2D
+extends "res://scripts/abstracts/generic_area.gd"
+func gen_col_layer()->int:
+	return col_math.Layer.PICKUPS
+func gen_col_mask()->int:
+	return 0
 
 #this file is a pickup that gives the player health
 func _ready():

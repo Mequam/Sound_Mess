@@ -121,9 +121,9 @@ func corrupt() -> void:
 #the last animation
 func anim_finished(anim : String)->void:
 	if anim == "Shake4":
-		$health_bar.visible = true
-		add_to_group("enemies")
-		set_mode("evil")
+		#we basically just finished a stitched together transform
+		#animation, let the transform inheritience class take over
+		.anim_finished("Transform")
 	elif anim == "Smash":
 		#TODO: there has got to be a cleaner way to impliment
 		#this smash feature

@@ -1,5 +1,6 @@
 extends "res://scripts/abstracts/entity.gd"
 
+
 #timer used to turn off the notes that are playing
 var timeout = 0
 
@@ -52,6 +53,16 @@ func set_rythom_score(val):
 	rythom_score = val
 func get_rythom_score():
 	return rythom_score
+	
+func gen_col_layer()->int:
+	return (.gen_col_layer() | 
+			col_math.Layer.PLAYER | 
+			col_math.ConstLayer.PLAYER)
+func gen_col_mask()->int:
+	return (.gen_col_mask() | 
+			col_math.Layer.ENEMY | 
+			col_math.Layer.TERRAIN | 
+			col_math.Layer.PICKUPS) 
 
 #this function retrives a given speed based on our rythom score
 func RythomToSpeed():
@@ -252,17 +263,16 @@ func on_col(thing,dmg : int=1) -> void:
 func main_ready():
 	$health_bar.sync_disp()
 	
-	get_node("NotePlayer").mode = 5
+	#let the avatar load
+	$avatar.load_avatar()
 	#start our animation cylce
 	$avatar.play_idle()
-	
 	#connect all of our child nodes
 	#get_node("ComboTracker").connect("combo_found",self,"on_combo")
 	add_to_group("player")
+	
+	.main_ready()
 
-func _ready():
-	main_ready()
-	$avatar.load_avatar()
 
 #this functio is called to make sure that the note player is playing or ONE blip
 func limitNotePlayerTime(delta):

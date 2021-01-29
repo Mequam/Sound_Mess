@@ -12,11 +12,12 @@ func anim_finished(anim):
 		$health_bar.hp = 2
 		$dirt_front.queue_free()
 		$dirt_back.queue_free()
-		collision_layer = 4
-		collision_mask = 5
 		$Sprite/body.z_index = 0
 		$Sprite/evil.z_index = 0
 	.anim_finished(anim)
+	
+	#we also collide with other enemeies, om nom nom
+	collision_mask |= col_math.Layer.ENEMY
 func play_note(mode):
 	match mode:
 		"attack":

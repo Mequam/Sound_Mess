@@ -19,24 +19,22 @@ var init_rotation
 var init_position
 var init_eye_scale = []
 var target_pos
+
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func main_ready()->void:
+	#we are a spider after all
+	add_to_group("spiders")
 	#used to keep track of what musical beat we are on
 	inner_beat = 0
-	
 	$health_bar.hp = 2
-	add_to_group("spiders")
-	
 	#we start off looking for somthing to EAT
 	set_mode("Idle")
-	
 	#store the default state for the animated transformations
 	init_rotation = $Tarantula_Sprite/Body/Butt.rotation
 	init_position = $Tarantula_Sprite/Body/Butt.position
 	for eye in $Tarantula_Sprite/Body/Head/eyes.get_children():
 		init_eye_scale.append(eye.scale) 
-	
-	$NotePlayer.mode = 6
+	.main_ready()
 	
 #simple display function that multiplies the size of our eyes
 func multEyeSize(factor):
@@ -152,7 +150,6 @@ func run(player_pos,beat):
 				set_mode("Alert")
 			match inner_beat:
 				0:
-					#print(init_rotation)
 					$NotePlayer.play_note(1)
 					$Tarantula_Sprite/Body/Butt.rotation = init_rotation - PI/10
 					$Tarantula_Sprite/Body/Butt.position = init_position

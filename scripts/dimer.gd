@@ -1,4 +1,10 @@
-extends Area2D
+extends "res://scripts/abstracts/generic_area.gd"
+
+func gen_col_layer():
+	return 0
+#we will only respond to the player
+func gen_col_mask():
+	return col_math.Layer.PLAYER
 
 #this script is for a node that increases the alpha of the parent
 #node when the player enters a certain area

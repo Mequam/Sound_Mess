@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=2]
+[ext_resource path="res://scripts/abstracts/generic_static.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.4044, 2.79552 )
 
 [node name="well" type="StaticBody2D"]
 scale = Vector2( 4, 4 )
+collision_layer = 2147483648
+collision_mask = 0
+script = ExtResource( 3 )
 
 [node name="roof" type="Node2D" parent="."]
 modulate = Color( 0.862745, 0.72549, 0.560784, 1 )

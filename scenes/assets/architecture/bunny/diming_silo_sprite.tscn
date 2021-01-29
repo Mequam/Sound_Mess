@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/instance/dimer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/assets/architecture/bunny/FermentationSprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/abstracts/generic_static.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 118.108, 165.399 )
@@ -10,6 +11,9 @@ extents = Vector2( 118.108, 165.399 )
 extents = Vector2( 117.399, 26.3997 )
 
 [node name="dimingSiloSprite" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 3 )
 
 [node name="FermentationSprite" parent="." instance=ExtResource( 2 )]
 

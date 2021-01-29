@@ -10,6 +10,8 @@
 radius = 49.2369
 
 [node name="health_pickup" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="JuteBox" parent="." instance=ExtResource( 3 )]
