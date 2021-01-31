@@ -1,5 +1,11 @@
-extends Area2D
+extends "res://scripts/abstracts/generic_area.gd"
 
+func gen_col_layer():
+	#we are on the burrow layer
+	return col_math.shift_collision(col_math.Layer.PLAYER,col_math.SuperLayer.BURROW)
+func gen_col_mask():
+	#we hit any enemy on the burrow and above layer
+	return col_math.shift_collision(col_math.Layer.ENEMY,col_math.SuperLayer.BURROW) | col_math.Layer.ENEMY
 var trail = load("res://scenes/assets/burrow/burrow_trail.tscn")
 var speed = 10000
 var dir = Vector2(0,0)
@@ -20,5 +26,4 @@ func _on_Timer_timeout():
 
 func _on_burrow_effect_body_exited(body):
 	if (body.has_method("on_col")):
-		print("calling collision")
 		body.on_col(self,1)

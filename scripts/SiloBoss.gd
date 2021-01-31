@@ -1,10 +1,16 @@
 extends "res://scripts/abstracts/corruptable_enemy.gd"
+#we start off as any old terrain
+func gen_col_layer():
+	return col_math.Layer.TERRAIN
+func gen_col_mask():
+	return 0
+
 #this is the blue-print for the falling carrots that we throw while in shake mode
 var thrownCarrot = preload("res://scenes/instance/FallingCarrot.tscn")
 
 func on_col(node : Node,dmg : int) -> void:
-	#we ignore carrot based monch damage
-	if not node.is_in_group("carrot"):
+	#we ignore carrot based monch damage and dammage when we are terrain
+	if not node.is_in_group("carrot") and collision_layer != col_math.Layer.TERRAIN:
 		.on_col(node,dmg)
 #this is used so we can re-use the same behavior for different modes
 #while changing a thing or too with the exist states
@@ -114,6 +120,8 @@ func _on_carrot_die(carrot):
 func corrupt() -> void:
 	$Sprite/siloPos/siloSpriteAnimation.animation = "Shake"
 	$Sprite/siloPos/siloSpriteAnimation.playing = true
+	#so we can run our transform music
+	add_to_group("enemies")
 	#let the default behavior run
 	.corrupt()
 
@@ -123,6 +131,9 @@ func anim_finished(anim : String)->void:
 	if anim == "Shake4":
 		#we basically just finished a stitched together transform
 		#animation, let the transform inheritience class take over
+		$health_bar.visible = true
+		#stop playing the unstable animation after we transform
+		$Sprite/siloPos/siloSpriteAnimation.playing = false
 		.anim_finished("Transform")
 	elif anim == "Smash":
 		#TODO: there has got to be a cleaner way to impliment
@@ -137,6 +148,14 @@ func anim_finished(anim : String)->void:
 #of the enemy to the music
 func play_note(inner_beat) -> void:
 	match mode:
+		"still":
+			match (inner_beat%4):
+				0:
+					$NotePlayer.play_note(-3)
+				2:
+					$NotePlayer.play_note(-7)
+				_:
+					$NotePlayer.stop()
 		"smashing":
 			#climb up then rappidly smash down the notes to the root
 			match (inner_beat):
@@ -320,11 +339,24 @@ func run(player_pos : Vector2,beat)-> void:
 					set_mode("ret")
 				else:
 					set_mode("idle")
-				
-func _ready():
-	$health_bar.hp = 20
-	$health_bar.visible = false
-	init_pos = position
+func main_ready():
+	var state_dict = $save_state_node.read_data_path($save_state_node.get_save_path())
+	if (not (state_dict.has("dead") and state_dict.dead)):
+		
+		#set up our states
+		$health_bar.hp = 20
+		$health_bar.visible = false
+		init_pos = position
+		
+		#this animation sets us up in a default state that
+		#looks like we have not transformed yet
+		#if we don't play this then we look dead
+		$Sprite/AnimationPlayer.play("TransformStart")
+		$Sprite/siloPos/siloSpriteAnimation.animation = "Idle"
+		
+		#this has the code that puts us into the corruptable group
+		#if this is not run we are basically not an entity
+		.main_ready()
 
 #used to determine whether or not we can smash the player
 var player_in_smash_zone : bool setget set_player_in_smash_zone,get_player_in_smash_zone
@@ -332,7 +364,22 @@ func set_player_in_smash_zone(val : bool) -> void:
 	pass
 func get_player_in_smash_zone() -> bool:
 	return (node_in_smash_zone != null)
-
+#death behavior
+func die()->void:
+	$Sprite/AnimationPlayer.play("Die")
+	#we have to do this manualy because we can't use the
+	#normal entities death here as we don't leave the scene
+	emit_signal("die")
+	remove_from_group("enemies")
+	
+	#we are now part of the terrain
+	collision_layer = col_math.Layer.TERRAIN
+	collision_mask = 0
+	
+	#save our new state
+	$save_state_node.save_data_path_dict(
+		$save_state_node.get_save_path(),{"dead":true}
+		)
 var node_in_smash_zone : Node2D = null
 func _on_smashZone_body_entered(body):
 	if body.name and body.name == "player":

@@ -34,10 +34,11 @@ shape = SubResource( 2 )
 [node name="save_state_node" parent="." instance=ExtResource( 3 )]
 
 [node name="NotePlayer" parent="." instance=ExtResource( 4 )]
-volume_db = -7.0
+position = Vector2( 2.51984, 0 )
+volume_db = 0.0
 
 [node name="health_bar" parent="." instance=ExtResource( 5 )]
-position = Vector2( -121.155, -548.623 )
+position = Vector2( -75.7978, -480.587 )
 [connection signal="area_exited" from="Sprite/smashZone" to="." method="_on_smashZone_area_exited"]
 [connection signal="body_entered" from="Sprite/smashZone" to="." method="_on_smashZone_body_entered"]
 [connection signal="body_exited" from="Sprite/smashZone" to="." method="_on_smashZone_body_exited"]

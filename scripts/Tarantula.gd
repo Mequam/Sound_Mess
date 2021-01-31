@@ -172,6 +172,3 @@ func run(player_pos,beat):
 	inner_beat += 1
 	if (inner_beat == 8.0):
 		inner_beat = 0.0
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

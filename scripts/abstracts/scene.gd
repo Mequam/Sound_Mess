@@ -24,7 +24,7 @@ func _met_timeout():
 			beat = 0
 
 func _ready():
-	pass
+	init()
 func init():
 	add_to_group("main_scene")
 	$player.sub_beat = get_node("Met/Met").wait_time
@@ -52,8 +52,3 @@ func init():
 	for node in get_tree().get_nodes_in_group("dialog_choice_list"):
 			node.sub_beat = $Met/Met.wait_time
 			node.init()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if (get_node("player")):
-#		if (get_node("Met").max_time_samples >= 100):
-			#get_node("player").check_inputs(delta)

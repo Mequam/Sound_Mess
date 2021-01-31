@@ -28,6 +28,7 @@ func run_six(to_move,delta):
 	#make the player invulnerable when they attack
 	player_health_bar.do_buffer = false
 	player_health_bar.inv = true
+	
 	return burrow_distance
 func clean_six(to_move,delta):
 	if (get_last_beat() == 2):

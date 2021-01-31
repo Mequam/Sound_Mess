@@ -1,0 +1,250 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/main_scenes/silo_boss_room.gd" type="Script" id=2]
+[ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/SiloBoss.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/save_state_silo_zone.gd" type="Script" id=7]
+[ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/AnimatedTarantula.gd" type="Script" id=9]
+[ext_resource path="res://scenes/assets/corrupter_particles.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/instance/entities/PineTreeBody.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=14]
+
+[node name="silo_boss_room" type="TileMap"]
+cell_y_sort = true
+format = 1
+script = ExtResource( 2 )
+
+[node name="tiles" type="Node2D" parent="."]
+modulate = Color( 0, 1, 0.576471, 1 )
+
+[node name="TS1" parent="tiles" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -131073, 0, 0, -196604, 2, 0, -65538, 2, 0, -65537, 0, 0, -131072, 3, 0, -131069, 2, 0, -131068, 0, 0, -131067, 1, 0, -3, 2, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 2, 0, -65534, 10, 0, -65533, 0, 0, -65532, 0, 0, -65531, 1, 0, 65532, 2, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 15, 0, 3, 0, 0, 4, 0, 0, 5, 1, 0, 131067, 2, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 15, 0, 65539, 0, 0, 65540, 0, 0, 65541, 1, 0, 196602, 2, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 15, 0, 131075, 0, 0, 131076, 1, 0, 262137, 16, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 17, 0, 327673, 16, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 1, 0, 393209, 16, 0, 393210, 14, 0, 393211, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 1, 0, 458745, 9, 0, 458746, 16, 0, 458747, 14, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 1, 0, 524282, 9, 0, 524283, 16, 0, 524284, 14, 0, 524285, 14, 0, 524286, 14, 0, 589819, 9, 0, 589820, 9, 0, 589821, 9, 0, 589822, 9, 0 )
+
+[node name="TS2" parent="tiles" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -196609, 11, 0, -131074, 11, 0, -196608, 11, 0, -196604, 11, 0, -65538, 11, 0, -131072, 11, 0, -131069, 11, 0, -131067, 11, 0, -3, 11, 0, -65535, 11, 0, -65534, 11, 0, -65531, 11, 0, 65532, 11, 0, 5, 11, 0, 131067, 11, 0, 65541, 11, 0, 196602, 11, 0, 131076, 11, 0, 196610, 11, 0, 196611, 11, 0, 262145, 11, 0, 327680, 11, 0, 458751, 11, 0 )
+
+[node name="Met" parent="." instance=ExtResource( 1 )]
+position = Vector2( -74.9533, -36.0624 )
+
+[node name="SiloBoss" parent="." instance=ExtResource( 5 )]
+position = Vector2( 486.935, -86.5601 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="SiloBoss"]
+position = Vector2( -4, -448.504 )
+
+[node name="save_state_node" parent="." instance=ExtResource( 6 )]
+script = ExtResource( 7 )
+
+[node name="Tarantula" parent="." instance=ExtResource( 8 )]
+position = Vector2( -48.0346, 319.997 )
+script = ExtResource( 9 )
+
+[node name="super_particles" parent="." instance=ExtResource( 10 )]
+position = Vector2( 485.032, -519.807 )
+scale = Vector2( 4, 4 )
+
+[node name="PineTree" parent="." instance=ExtResource( 11 )]
+position = Vector2( -610.619, -417.556 )
+
+[node name="PineTree2" parent="." instance=ExtResource( 11 )]
+position = Vector2( -933.889, -296.33 )
+
+[node name="PineTree3" parent="." instance=ExtResource( 11 )]
+position = Vector2( -1257.16, -327.759 )
+
+[node name="PineTree4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1400.83, -637.558 )
+
+[node name="PineTree5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 462.454, -610.619 )
+
+[node name="PineTree6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 808.172, -592.66 )
+
+[node name="PineTree7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1827.37, -314.289 )
+
+[node name="PineTree8" parent="." instance=ExtResource( 11 )]
+position = Vector2( -107.757, -489.393 )
+
+[node name="PineTree10" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1028.18, 152.655 )
+
+[node name="PineTree11" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1643.28, 80.8174 )
+
+[node name="tall_grass" parent="." instance=ExtResource( 12 )]
+position = Vector2( -426.536, 278.371 )
+
+[node name="tall_grass2" parent="." instance=ExtResource( 12 )]
+position = Vector2( -484.904, 273.881 )
+
+[node name="tall_grass3" parent="." instance=ExtResource( 12 )]
+position = Vector2( -462.454, 323.269 )
+
+[node name="tall_grass4" parent="." instance=ExtResource( 12 )]
+position = Vector2( -736.335, 0 )
+
+[node name="tall_grass5" parent="." instance=ExtResource( 12 )]
+position = Vector2( -682.457, 35.9188 )
+
+[node name="tall_grass6" parent="." instance=ExtResource( 12 )]
+position = Vector2( -749.805, 62.8578 )
+
+[node name="tall_grass7" parent="." instance=ExtResource( 12 )]
+position = Vector2( -803.683, 26.9391 )
+
+[node name="tall_grass11" parent="." instance=ExtResource( 12 )]
+position = Vector2( -217.74, 167.294 )
+
+[node name="tall_grass12" parent="." instance=ExtResource( 12 )]
+position = Vector2( -163.862, 203.212 )
+
+[node name="tall_grass13" parent="." instance=ExtResource( 12 )]
+position = Vector2( -231.21, 230.151 )
+
+[node name="tall_grass14" parent="." instance=ExtResource( 12 )]
+position = Vector2( -285.088, 194.233 )
+
+[node name="tall_grass15" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1225.69, -412.724 )
+
+[node name="tall_grass16" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1279.57, -376.806 )
+
+[node name="tall_grass17" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1212.22, -349.866 )
+
+[node name="tall_grass18" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1158.34, -385.785 )
+
+[node name="tall_grass19" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1228.87, -276.208 )
+
+[node name="tall_grass20" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1282.75, -240.289 )
+
+[node name="tall_grass21" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1215.4, -213.35 )
+
+[node name="tall_grass22" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1161.52, -249.269 )
+
+[node name="tall_grass23" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1136.8, -203.187 )
+
+[node name="tall_grass24" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1190.68, -167.269 )
+
+[node name="tall_grass25" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1123.33, -140.33 )
+
+[node name="tall_grass26" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1069.45, -176.248 )
+
+[node name="tall_grass27" parent="." instance=ExtResource( 12 )]
+position = Vector2( -88.9308, -508.497 )
+
+[node name="tall_grass28" parent="." instance=ExtResource( 12 )]
+position = Vector2( -35.0526, -472.578 )
+
+[node name="tall_grass29" parent="." instance=ExtResource( 12 )]
+position = Vector2( -102.4, -445.639 )
+
+[node name="tall_grass30" parent="." instance=ExtResource( 12 )]
+position = Vector2( -156.279, -481.558 )
+
+[node name="tall_grass31" parent="." instance=ExtResource( 12 )]
+position = Vector2( -371.791, -414.21 )
+
+[node name="tall_grass32" parent="." instance=ExtResource( 12 )]
+position = Vector2( -317.913, -378.291 )
+
+[node name="tall_grass33" parent="." instance=ExtResource( 12 )]
+position = Vector2( -385.261, -351.352 )
+
+[node name="tall_grass34" parent="." instance=ExtResource( 12 )]
+position = Vector2( -439.139, -387.271 )
+
+[node name="tall_grass35" parent="." instance=ExtResource( 12 )]
+position = Vector2( 662.245, 301.987 )
+
+[node name="tall_grass36" parent="." instance=ExtResource( 12 )]
+position = Vector2( 716.123, 337.906 )
+
+[node name="tall_grass37" parent="." instance=ExtResource( 12 )]
+position = Vector2( 648.775, 364.845 )
+
+[node name="tall_grass38" parent="." instance=ExtResource( 12 )]
+position = Vector2( 594.897, 328.926 )
+
+[node name="tall_grass8" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1387.36, 161.635 )
+
+[node name="tall_grass9" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1454.71, 170.614 )
+
+[node name="tall_grass10" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1414.3, 197.553 )
+
+[node name="Traper_Entity" parent="." instance=ExtResource( 13 )]
+position = Vector2( -243.661, 172.686 )
+
+[node name="tall_grass39" parent="." instance=ExtResource( 12 )]
+position = Vector2( -534.9, -164.121 )
+
+[node name="tall_grass40" parent="." instance=ExtResource( 12 )]
+position = Vector2( -481.022, -128.202 )
+
+[node name="tall_grass41" parent="." instance=ExtResource( 12 )]
+position = Vector2( -548.37, -101.263 )
+
+[node name="tall_grass42" parent="." instance=ExtResource( 12 )]
+position = Vector2( -602.248, -137.182 )
+
+[node name="Traper_Entity3" parent="." instance=ExtResource( 13 )]
+position = Vector2( -560.821, -158.728 )
+
+[node name="tall_grass43" parent="." instance=ExtResource( 12 )]
+position = Vector2( 951.119, -381.5 )
+
+[node name="tall_grass44" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1005, -345.581 )
+
+[node name="tall_grass45" parent="." instance=ExtResource( 12 )]
+position = Vector2( 937.649, -318.642 )
+
+[node name="tall_grass46" parent="." instance=ExtResource( 12 )]
+position = Vector2( 883.771, -354.561 )
+
+[node name="Traper_Entity4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 925.198, -376.108 )
+
+[node name="tall_grass47" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1293.22, -32.2678 )
+
+[node name="tall_grass48" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1347.1, 3.65097 )
+
+[node name="tall_grass49" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1279.75, 30.5901 )
+
+[node name="tall_grass50" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1225.88, -5.32867 )
+
+[node name="Traper_Entity5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1267.3, -26.8754 )
+
+[node name="Traper_Entity2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 673.477, 318.779 )
+
+[node name="silo_fields_door" parent="." instance=ExtResource( 14 )]
+position = Vector2( -517.783, 712.093 )
+scale = Vector2( 25, 1 )
+[connection signal="die" from="SiloBoss" to="." method="_on_SiloBoss_die"]
+[connection signal="screen_entered" from="SiloBoss/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]

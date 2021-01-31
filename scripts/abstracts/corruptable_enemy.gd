@@ -11,6 +11,7 @@ func corrupt():
 	get_node("Sprite/AnimationPlayer").play("Transform")
 	remove_from_group("corruptable")
 	set_mode("still")
+	
 func main_ready():
 	.main_ready()
 	remove_from_group("enemies")
@@ -27,6 +28,8 @@ func anim_finished(anim):
 	if (anim == "Transform"):
 		add_to_group("enemies")
 		set_mode("evil")
+		#make sure the health bar is visible
+		$health_bar.sync_disp()
 		#move our collision to the enemy collision
 		collision_layer = .gen_col_layer()
 		collision_mask = .gen_col_mask()

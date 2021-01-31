@@ -401,3 +401,7 @@ scale = Vector2( 1, 15 )
 
 [node name="Traper_Entity4" parent="." instance=ExtResource( 13 )]
 position = Vector2( 662.626, -1379.07 )
+
+[node name="silo_boss_arena_door" parent="." instance=ExtResource( 19 )]
+position = Vector2( 3000.96, -1634.83 )
+scale = Vector2( 25, 1 )
