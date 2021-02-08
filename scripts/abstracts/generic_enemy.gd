@@ -29,6 +29,7 @@ func main_ready()->void:
 	#if they have a sprite node, connect the animation on it
 	if (get_node("Sprite")):
 		$Sprite/AnimationPlayer.connect("animation_finished",self,"anim_finished")
+	
 	$save_state_node.load_data()
 	
 	#set the note player up properly

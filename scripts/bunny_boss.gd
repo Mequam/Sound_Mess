@@ -1,4 +1,4 @@
-extends "res://scripts/abstracts/generic_enemy.gd"
+extends "res://scripts/abstracts/generic_boss.gd"
 
 var scale_math = load("res://scripts/abstracts/Scale_Math.gd").new()
 var init_col_layer
@@ -21,7 +21,7 @@ func main_ready():
 	#if we are not dead, prepare to move, otherwise do nothing
 	if mode != "dead":
 		#save the initial collision layer
-		$Bunny_Boss_Sprite/AnimationPlayer2.play("Idle_Top")
+		$Sprite/AnimationPlayer2.play("Idle_Top")
 		set_mode("move_circle")
 	else:
 		$health_bar.visible = false
@@ -35,11 +35,7 @@ func set_mode(val):
 	moving = mode.split("_")[0] == "move"
 	match mode:
 		"move_burrow":
-			$Bunny_Boss_Sprite/AnimationPlayer2.play("Burrow")
-		"Dead":
-			$Bunny_Boss_Sprite/AnimationPlayer2.play("Death")
-			#save the fact that we are dead
-			$save_state_node.save_data()
+			$Sprite/AnimationPlayer2.play("Burrow")
 func get_mode():
 	return mode
 
@@ -49,15 +45,15 @@ var burrow_speed = 200
 var burrow_target_point : Vector2
 func dir_anim(dir,x_wieght=1):
 	if (float(x_wieght*abs(dir.x)) > float(abs(dir.y))):
-		if (dir.x > 0 and $Bunny_Boss_Sprite.scale.x > 0):
-			$Bunny_Boss_Sprite.scale.x *= -1
-		elif (dir.x < 0 and $Bunny_Boss_Sprite.scale.x < 0):
-			$Bunny_Boss_Sprite.scale.x *= -1
-		$Bunny_Boss_Sprite/AnimationPlayer2.play("Idle_Side")
+		if (dir.x > 0 and $Sprite.scale.x > 0):
+			$Sprite.scale.x *= -1
+		elif (dir.x < 0 and $Sprite.scale.x < 0):
+			$Sprite.scale.x *= -1
+		$Sprite/AnimationPlayer2.play("Idle_Side")
 	elif (dir.y > 0):
-		$Bunny_Boss_Sprite/AnimationPlayer2.play("Idle_Top")
+		$Sprite/AnimationPlayer2.play("Idle_Top")
 	else:
-		$Bunny_Boss_Sprite/AnimationPlayer2.play("Idle_Back")
+		$Sprite/AnimationPlayer2.play("Idle_Back")
 func get_ctx_matrix(player_pos):
 	var local = player_pos-position
 	var m = Transform2D()
@@ -136,9 +132,9 @@ func move(player_pos,inner_beat):
 				1:
 					position = player_pos
 				2:
-					$Bunny_Boss_Sprite/AnimationPlayer2.play("Front_Slash_Windup")
+					$Sprite/AnimationPlayer2.play("Front_Slash_Windup")
 				4:
-					$Bunny_Boss_Sprite/AnimationPlayer2.play("Front_Slash")
+					$Sprite/AnimationPlayer2.play("Front_Slash")
 			return 5
 		"move_slam":
 			match inner_beat:
@@ -146,7 +142,7 @@ func move(player_pos,inner_beat):
 					collision_mask = 0
 					collision_layer = 0
 					position = player_pos
-					$Bunny_Boss_Sprite/AnimationPlayer2.play("Front_Slash_Windup")
+					$Sprite/AnimationPlayer2.play("Front_Slash_Windup")
 				6:
 					collision_mask = init_col_mask
 					collision_layer = init_col_layer
@@ -158,7 +154,7 @@ func move(player_pos,inner_beat):
 func on_col(obj,dmg):
 	$health_bar.hp -= dmg*2
 	if ($health_bar.hp <= 0):
-		set_mode("Dead")
+		die()
 
 #checks if a given point goes through a given circle
 func check_rad(r : float,c : Vector2,p : Vector2):
@@ -174,23 +170,23 @@ func play_beats(mode):
 		"move_circle":
 			match (inner_beat-1):
 					0:
-						$Bunny_Boss_Sprite/AnimationPlayer.play("left_leg_out")
+						$Sprite/AnimationPlayer.play("left_leg_out")
 						$NotePlayer.play_note(-7)
 					1:
-						$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
+						$Sprite/AnimationPlayer.play("Idle")
 						$NotePlayer.play_note(-5)
 						
 					2:
-						$Bunny_Boss_Sprite/AnimationPlayer.play("mid_leg_out")
+						$Sprite/AnimationPlayer.play("mid_leg_out")
 						$NotePlayer.play_note(-3)
 					3:
-						$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
+						$Sprite/AnimationPlayer.play("Idle")
 						$NotePlayer.play_note(-6)
 					4:
-						$Bunny_Boss_Sprite/AnimationPlayer.play("right_leg_out")
+						$Sprite/AnimationPlayer.play("right_leg_out")
 						$NotePlayer.play_note(-4)
 					5:
-						$Bunny_Boss_Sprite/AnimationPlayer.play("Idle")
+						$Sprite/AnimationPlayer.play("Idle")
 						$NotePlayer.play_note(-6)
 					_:
 						$NotePlayer.stop()
@@ -231,7 +227,7 @@ func run(player_pos,beat):
 			inner_beat = 0
 			mode_repeats = update_mode(mode,mode_repeats)
 		inner_beat += 1
-
-		
-		
-
+func die():
+	#make sure we play our animation on death
+	$Sprite/AnimationPlayer2.play("Death")
+	.die()

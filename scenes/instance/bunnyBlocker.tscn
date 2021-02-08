@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/statueBlocker.gd" type="Script" id=1]
+[ext_resource path="res://scenes/assets/BossBlockerBunnySprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/statue_blocker_save_state.gd" type="Script" id=4]
+[ext_resource path="res://scripts/CamaraPoint.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 91.2936, 17.6364 )
+
+[node name="BunnyBlocker" type="StaticBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.68176, -17.6588 )
+shape = SubResource( 1 )
+
+[node name="save_state_node" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+
+[node name="CamaraPoint" parent="." instance=ExtResource( 5 )]
+position = Vector2( -10.0907, -430.539 )
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="camara_arrived" from="CamaraPoint" to="." method="_on_CamaraPoint_camara_arrived"]

@@ -1,4 +1,8 @@
 extends "res://scripts/abstracts/save_state_node.gd"
+#this script adds a death removal behavior to the parent, removing the parent
+#from the game if they are saved as dead
+
+#it is inteanded to be added to a node independent of it's other actions
 
 #the default behavior is to serialize with existence
 #so we add a true exists to our serialize behavoir

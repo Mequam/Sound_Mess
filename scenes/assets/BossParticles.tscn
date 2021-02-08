@@ -1,0 +1,161 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+[ext_resource path="res://scripts/BossParticles.gd" type="Script" id=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 387.69
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 0.1
+
+[sub_resource type="Curve" id=2]
+min_value = -500.0
+max_value = 500.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.0307692, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.945312, 1, 0, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.463636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+trail_divisor = 4
+trail_size_modifier = SubResource( 7 )
+trail_color_modifier = SubResource( 5 )
+emission_shape = 1
+emission_sphere_radius = 51.7
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 1.0
+orbit_velocity_random = 1.0
+orbit_velocity_curve = SubResource( 3 )
+scale = 0.05
+
+[sub_resource type="Animation" id=9]
+resource_name = "FlyUp"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("particle_position:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -272.758 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("even_triangle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.325349, 0.0574713 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("even_triangle:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.0018, 0.519895 ), Vector2( -2.0018, 0.519895 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Flying"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("particle_position:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -272.758 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("even_triangle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2.0018, 0.519895 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("even_triangle:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.325349, 0.0574713 ) ]
+}
+
+[node name="BossParticles" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="even_triangle" type="Sprite" parent="."]
+modulate = Color( 1, 0.35, 0.35, 0.866667 )
+position = Vector2( -2.0018, 0.519895 )
+scale = Vector2( 0.325349, 0.0574713 )
+texture = ExtResource( 1 )
+
+[node name="particle_position" type="Node2D" parent="."]
+position = Vector2( 0, -272.758 )
+
+[node name="Center" type="Particles2D" parent="particle_position"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 0.0314941, 1.36859 )
+amount = 4
+process_material = SubResource( 1 )
+texture = ExtResource( 1 )
+
+[node name="Orbits" type="Particles2D" parent="particle_position"]
+position = Vector2( 0.503448, -0.0472412 )
+process_material = SubResource( 8 )
+texture = ExtResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="particle_position"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FlyUp = SubResource( 9 )
+anims/Flying = SubResource( 10 )
+[connection signal="screen_exited" from="particle_position/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

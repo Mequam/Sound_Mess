@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/main_scenes/silo_boss_room.gd" type="Script" id=2]
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/SiloBoss.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/save_state_silo_zone.gd" type="Script" id=7]
@@ -246,5 +247,8 @@ position = Vector2( 673.477, 318.779 )
 [node name="silo_fields_door" parent="." instance=ExtResource( 14 )]
 position = Vector2( -517.783, 712.093 )
 scale = Vector2( 25, 1 )
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( -233.085, 556.549 )
 [connection signal="die" from="SiloBoss" to="." method="_on_SiloBoss_die"]
 [connection signal="screen_entered" from="SiloBoss/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]

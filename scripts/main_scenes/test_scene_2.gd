@@ -18,3 +18,7 @@ func _process(delta):
 		$SiloBoss.corrupt()
 	elif Input.is_key_pressed(KEY_0):
 		$SiloBoss.mode = "shake"
+	elif Input.is_key_pressed(KEY_W):
+		$player/Camera2D.position.y -= 40
+	elif Input.is_key_pressed(KEY_X):
+		$CamaraPoint.pull_camara($player/Camera2D)

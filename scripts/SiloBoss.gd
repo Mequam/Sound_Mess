@@ -1,4 +1,4 @@
-extends "res://scripts/abstracts/corruptable_enemy.gd"
+extends "res://scripts/abstracts/corruptable_boss.gd"
 #we start off as any old terrain
 func gen_col_layer():
 	return col_math.Layer.TERRAIN
@@ -340,8 +340,9 @@ func run(player_pos : Vector2,beat)-> void:
 				else:
 					set_mode("idle")
 func main_ready():
-	var state_dict = $save_state_node.read_data_path($save_state_node.get_save_path())
-	if (not (state_dict.has("dead") and state_dict.dead)):
+	#figure out weather or not we are dead
+	$save_state_node.load_data()
+	if (mode != "dead"):
 		
 		#set up our states
 		$health_bar.hp = 20
@@ -366,20 +367,10 @@ func get_player_in_smash_zone() -> bool:
 	return (node_in_smash_zone != null)
 #death behavior
 func die()->void:
-	$Sprite/AnimationPlayer.play("Die")
-	#we have to do this manualy because we can't use the
-	#normal entities death here as we don't leave the scene
-	emit_signal("die")
-	remove_from_group("enemies")
-	
 	#we are now part of the terrain
 	collision_layer = col_math.Layer.TERRAIN
 	collision_mask = 0
-	
-	#save our new state
-	$save_state_node.save_data_path_dict(
-		$save_state_node.get_save_path(),{"dead":true}
-		)
+	.die()
 var node_in_smash_zone : Node2D = null
 func _on_smashZone_body_entered(body):
 	if body.name and body.name == "player":

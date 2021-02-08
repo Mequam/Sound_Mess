@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/instance/NotePlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/instance/health_bar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scripts/bunny_boss_save_state.gd" type="Script" id=6]
+[ext_resource path="res://scripts/boss_save_state.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 43.9757, 18.1256 )
@@ -14,7 +14,7 @@ extents = Vector2( 43.9757, 18.1256 )
 position = Vector2( -1.67021, 10.0212 )
 script = ExtResource( 2 )
 
-[node name="Bunny_Boss_Sprite" parent="." instance=ExtResource( 1 )]
+[node name="Sprite" parent="." instance=ExtResource( 1 )]
 position = Vector2( 4.14038, 37.6702 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

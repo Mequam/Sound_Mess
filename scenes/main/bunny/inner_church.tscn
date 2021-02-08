@@ -9,7 +9,6 @@
 [ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/bunny_boss.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=12]
 
-
 [node name="inner_church_bunny" type="TileMap"]
 cell_y_sort = true
 format = 1
