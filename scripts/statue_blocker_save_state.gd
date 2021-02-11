@@ -8,7 +8,7 @@ extends "res://scripts/abstracts/save_state_node.gd"
 func get_save_path() -> String:
 	return "user://game" + .get_game_save_file() + "/statue/" + get_parent().name + ".dat"
 func serialize() -> Dictionary:
-	return {"killed" : get_parent().killed}
+	return {"anim_killed" : get_parent().anim_killed}
 #unique save state function that returns the nubmer of bosses that the player has
 #killed according to the boss array of the parent
 func get_boss_kill_count(bosses)->int: #bosses should be a string array

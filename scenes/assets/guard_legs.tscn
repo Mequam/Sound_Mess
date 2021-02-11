@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=1]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Shrink1"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("left/long_triangle3:position")
 tracks/0/interp = 1
@@ -472,9 +473,574 @@ tracks/38/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/39/type = "value"
+tracks/39/path = NodePath("brambles/long_triangle20:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -419.745, -304.561 ), Vector2( -377.419, -302.574 ), Vector2( -325.094, -291.588 ), Vector2( -349.435, -276.601 ), Vector2( -302.776, -245.614 ), Vector2( -368.117, -234.627 ) ]
+}
+tracks/40/type = "value"
+tracks/40/path = NodePath("brambles/long_triangle20:rotation_degrees")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 132.634, 155.024, 184.414, 173.164, 207.63, 162.31 ]
+}
+tracks/41/type = "value"
+tracks/41/path = NodePath("brambles/long_triangle20:scale")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.279581 ), Vector2( 0.0751949, 0.255221 ), Vector2( 0.0751949, 0.23086 ), Vector2( 0.0751949, 0.18214 ) ]
+}
+tracks/42/type = "value"
+tracks/42/path = NodePath("brambles/long_triangle19:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -356.816, -106.785 ), Vector2( -358.656, -100.013 ), Vector2( -358.656, -100.013 ), Vector2( -358.656, -100.013 ), Vector2( -358.656, -100.013 ) ]
+}
+tracks/43/type = "value"
+tracks/43/path = NodePath("brambles/long_triangle19:rotation_degrees")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15.2028, 15.2028, 15.2028, 15.2028, 15.2028, 15.2028 ]
+}
+tracks/44/type = "value"
+tracks/44/path = NodePath("brambles/long_triangle19:scale")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.259422 ), Vector2( 0.0751949, 0.238262 ), Vector2( 0.0751949, 0.217102 ), Vector2( 0.0751949, 0.195942 ), Vector2( 0.0751949, 0.174782 ) ]
+}
+tracks/45/type = "value"
+tracks/45/path = NodePath("brambles/long_triangle13:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -514.71, -314.039 ), Vector2( -551.947, -295.179 ), Vector2( -601.171, -262.084 ), Vector2( -540.519, -272.94 ), Vector2( -557.779, -244.84 ), Vector2( -521.1, -234.72 ) ]
+}
+tracks/46/type = "value"
+tracks/46/path = NodePath("brambles/long_triangle13:rotation_degrees")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -158.46, -184.988, -216.953, -184.734, -201.485, -184.736 ]
+}
+tracks/47/type = "value"
+tracks/47/path = NodePath("brambles/long_triangle13:scale")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.287174 ), Vector2( 0.0751949, 0.270407 ), Vector2( 0.0751949, 0.25364 ), Vector2( 0.0751949, 0.236872 ), Vector2( 0.0751949, 0.220105 ) ]
+}
+tracks/48/type = "value"
+tracks/48/path = NodePath("brambles/long_triangle12:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -482.674, -97.7949 ), Vector2( -478.999, -92.6299 ), Vector2( -475.325, -87.465 ), Vector2( -471.65, -82.3 ), Vector2( -467.975, -77.1351 ), Vector2( -464.3, -71.9701 ) ]
+}
+tracks/49/type = "value"
+tracks/49/path = NodePath("brambles/long_triangle12:rotation_degrees")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -35.4306, -35.4306, -35.4306, -35.4306, -35.4306, -35.4306 ]
+}
+tracks/50/type = "value"
+tracks/50/path = NodePath("brambles/long_triangle12:scale")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.287061 ), Vector2( 0.0751949, 0.27018 ), Vector2( 0.0751949, 0.253299 ), Vector2( 0.0751949, 0.236418 ), Vector2( 0.0751949, 0.219537 ) ]
+}
+tracks/51/type = "value"
+tracks/51/path = NodePath("brambles/long_triangle11:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -634.846, -89.7858 ), Vector2( -651.412, -127.732 ), Vector2( -622.817, -57.9312 ), Vector2( -629.904, -76.6999 ), Vector2( -620.319, -51.315 ) ]
+}
+tracks/52/type = "value"
+tracks/52/path = NodePath("brambles/long_triangle11:rotation_degrees")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 159.313, 159.313, 159.313, 159.313, 159.313 ]
+}
+tracks/53/type = "value"
+tracks/53/path = NodePath("brambles/long_triangle11:scale")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.389594 ), Vector2( 0.0751949, 0.213263 ), Vector2( 0.0751949, 0.266691 ), Vector2( 0.0751949, 0.194429 ) ]
+}
+tracks/54/type = "value"
+tracks/54/path = NodePath("brambles/long_triangle8:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -476.266, -66.6224 ), Vector2( -469.916, -72.9719 ), Vector2( -476.266, -66.6224 ), Vector2( -469.916, -72.9719 ), Vector2( -476.266, -66.6224 ), Vector2( -469.916, -72.9719 ), Vector2( -476.266, -66.6224 ) ]
+}
+tracks/55/type = "value"
+tracks/55/path = NodePath("brambles/long_triangle8:rotation_degrees")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 53.8954, 44.8578, 53.8954, 44.8578, 53.8954, 44.8578, 53.8954 ]
+}
+tracks/56/type = "value"
+tracks/56/path = NodePath("brambles/long_triangle8:scale")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/57/type = "value"
+tracks/57/path = NodePath("brambles/long_triangle7:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -254.043, -70.8924 ), Vector2( -263.567, -74.0672 ), Vector2( -254.043, -70.8924 ), Vector2( -263.567, -74.0672 ), Vector2( -254.043, -70.8924 ), Vector2( -263.567, -74.0672 ), Vector2( -254.043, -70.8924 ) ]
+}
+tracks/58/type = "value"
+tracks/58/path = NodePath("brambles/long_triangle7:rotation_degrees")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -58.997, -50.3248, -58.997, -50.3248, -58.997, -50.3248, -58.997 ]
+}
+tracks/59/type = "value"
+tracks/59/path = NodePath("brambles/long_triangle7:scale")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0771858, 0.344193 ), Vector2( 0.0771858, 0.344193 ) ]
+}
+tracks/60/type = "value"
+tracks/60/path = NodePath("brambles/long_triangle18:position")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -310.732, -115.448 ), Vector2( -317.338, -95.3735 ), Vector2( -308.881, -121.074 ), Vector2( -322.466, -79.7884 ) ]
+}
+tracks/61/type = "value"
+tracks/61/path = NodePath("brambles/long_triangle18:rotation_degrees")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -161.785, -161.785, -161.785, -161.785 ]
+}
+tracks/62/type = "value"
+tracks/62/path = NodePath("brambles/long_triangle18:scale")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.247662 ), Vector2( 0.0751949, 0.319715 ), Vector2( 0.0751949, 0.203968 ) ]
+}
+tracks/63/type = "value"
+tracks/63/path = NodePath("brambles/long_triangle9:position")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 172.956, -77.0697 ), Vector2( 172.956, -77.0697 ), Vector2( 172.956, -77.0697 ), Vector2( 172.956, -77.0697 ), Vector2( 172.956, -77.0697 ) ]
+}
+tracks/64/type = "value"
+tracks/64/path = NodePath("brambles/long_triangle9:rotation_degrees")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 57.4423, 40.5444, 57.4423, 40.5444, 57.4423 ]
+}
+tracks/65/type = "value"
+tracks/65/path = NodePath("brambles/long_triangle9:scale")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/66/type = "value"
+tracks/66/path = NodePath("brambles/long_triangle17:position")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 192.973, -89.5423 ), Vector2( 202.938, -62.6457 ), Vector2( 188.759, -100.918 ), Vector2( 199.046, -73.1505 ), Vector2( 185.802, -108.898 ), Vector2( 204.238, -59.1371 ) ]
+}
+tracks/67/type = "value"
+tracks/67/path = NodePath("brambles/long_triangle17:rotation_degrees")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -200.329 ]
+}
+tracks/68/type = "value"
+tracks/68/path = NodePath("brambles/long_triangle17:scale")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.255901 ), Vector2( 0.0751949, 0.179515 ), Vector2( 0.0751949, 0.288208 ), Vector2( 0.0751949, 0.209348 ), Vector2( 0.0751949, 0.310871 ), Vector2( 0.0751949, 0.16955 ) ]
+}
+tracks/69/type = "value"
+tracks/69/path = NodePath("brambles/long_triangle22:position")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 246.069, -96.661 ), Vector2( 246.635, -91.5698 ), Vector2( 247.2, -86.4787 ), Vector2( 247.766, -81.3875 ), Vector2( 248.332, -76.2963 ), Vector2( 248.897, -71.2052 ) ]
+}
+tracks/70/type = "value"
+tracks/70/path = NodePath("brambles/long_triangle22:rotation_degrees")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -19.6856 ]
+}
+tracks/71/type = "value"
+tracks/71/path = NodePath("brambles/long_triangle22:scale")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.277545 ), Vector2( 0.0751949, 0.251148 ), Vector2( 0.0751949, 0.224751 ), Vector2( 0.0751949, 0.198353 ), Vector2( 0.0751949, 0.171956 ) ]
+}
+tracks/72/type = "value"
+tracks/72/path = NodePath("brambles/long_triangle21:position")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 293.127, -301.079 ), Vector2( 256.558, -296.745 ), Vector2( 286.457, -261.299 ), Vector2( 229.618, -271.107 ), Vector2( 195.406, -244.146 ), Vector2( 248.875, -205.871 ) ]
+}
+tracks/73/type = "value"
+tracks/73/path = NodePath("brambles/long_triangle21:rotation_degrees")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 228.555, 207.826, 228.742, 190.952, 165.068, 206.021 ]
+}
+tracks/74/type = "value"
+tracks/74/path = NodePath("brambles/long_triangle21:scale")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.277687 ), Vector2( 0.0751949, 0.251433 ), Vector2( 0.0751949, 0.225178 ), Vector2( 0.0751949, 0.198923 ), Vector2( 0.0751949, 0.172668 ) ]
+}
+tracks/75/type = "value"
+tracks/75/path = NodePath("brambles/long_triangle10:position")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 376.729, -70.3959 ), Vector2( 343.394, -73.5707 ), Vector2( 376.729, -70.3959 ), Vector2( 343.394, -73.5707 ), Vector2( 376.729, -70.3959 ) ]
+}
+tracks/76/type = "value"
+tracks/76/path = NodePath("brambles/long_triangle10:rotation_degrees")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -47.3221, -35.5792, -47.3221, -35.5792, -47.3221 ]
+}
+tracks/77/type = "value"
+tracks/77/path = NodePath("brambles/long_triangle10:scale")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/78/type = "value"
+tracks/78/path = NodePath("brambles/long_triangle15:position")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 406.33, -81.7768 ), Vector2( 401.899, -74.62 ), Vector2( 397.469, -67.4633 ), Vector2( 393.038, -60.3065 ), Vector2( 388.608, -53.1497 ), Vector2( 384.178, -45.993 ) ]
+}
+tracks/79/type = "value"
+tracks/79/path = NodePath("brambles/long_triangle15:rotation_degrees")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 31.7595, 31.7595 ]
+}
+tracks/80/type = "value"
+tracks/80/path = NodePath("brambles/long_triangle15:scale")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.281526 ), Vector2( 0.0751949, 0.25911 ), Vector2( 0.0751949, 0.236695 ), Vector2( 0.0751949, 0.214279 ), Vector2( 0.0751949, 0.191863 ) ]
+}
+tracks/81/type = "value"
+tracks/81/path = NodePath("brambles/long_triangle16:position")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 489.09, -300.691 ), Vector2( 453.766, -283.687 ), Vector2( 495.297, -245.265 ), Vector2( 519.189, -199.284 ), Vector2( 451.107, -209.999 ), Vector2( 438.462, -190.476 ) ]
+}
+tracks/82/type = "value"
+tracks/82/path = NodePath("brambles/long_triangle16:rotation_degrees")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -172.877, -184.955, -155.112, -126.214, -170.007, -172.877 ]
+}
+tracks/83/type = "value"
+tracks/83/path = NodePath("brambles/long_triangle16:scale")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.281302 ), Vector2( 0.0751949, 0.258662 ), Vector2( 0.0751949, 0.236022 ), Vector2( 0.0751949, 0.213381 ), Vector2( 0.0751949, 0.190741 ) ]
+}
+tracks/84/type = "value"
+tracks/84/path = NodePath("brambles/long_triangle14:position")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 315.56, -100.465 ), Vector2( 317.176, -123.249 ), Vector2( 315.875, -92.0439 ), Vector2( 318.459, -128.483 ), Vector2( 313.403, -57.1838 ) ]
+}
+tracks/85/type = "value"
+tracks/85/path = NodePath("brambles/long_triangle14:scale")
+tracks/85/interp = 1
+tracks/85/loop_wrap = true
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.364772 ), Vector2( 0.0789934, 0.281631 ), Vector2( 0.0789934, 0.378917 ), Vector2( 0.0789934, 0.188561 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Shrink2"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("left/long_triangle2:position")
 tracks/0/interp = 1
@@ -979,10 +1545,538 @@ tracks/41/keys = {
 "update": 1,
 "values": [ Vector2( 0.192459, 0.443831 ), Vector2( 0.192459, 0.403776 ), Vector2( 0.192459, 0.335607 ) ]
 }
+tracks/42/type = "value"
+tracks/42/path = NodePath("brambles/long_triangle20:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -369.032, -261.884 ), Vector2( -377.599, -208.795 ), Vector2( -368.431, -165.115 ) ]
+}
+tracks/43/type = "value"
+tracks/43/path = NodePath("brambles/long_triangle20:rotation_degrees")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 162.31, 162.31, 162.31 ]
+}
+tracks/44/type = "value"
+tracks/44/path = NodePath("brambles/long_triangle20:scale")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.213555 ), Vector2( 0.0751949, 0.114697 ) ]
+}
+tracks/45/type = "value"
+tracks/45/path = NodePath("brambles/long_triangle19:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -357.459, -104.418 ), Vector2( -364.152, -79.7865 ), Vector2( -365.012, -68.6158 ) ]
+}
+tracks/46/type = "value"
+tracks/46/path = NodePath("brambles/long_triangle19:scale")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.186938 ), Vector2( 0.0751949, 0.118963 ), Vector2( 0.0751949, 0.110238 ) ]
+}
+tracks/47/type = "value"
+tracks/47/path = NodePath("brambles/long_triangle19:rotation_degrees")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 15.2028, 15.2028, 15.2028 ]
+}
+tracks/48/type = "value"
+tracks/48/path = NodePath("brambles/long_triangle13:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -521.1, -234.72 ), Vector2( -503.235, -198.751 ), Vector2( -485.37, -162.781 ) ]
+}
+tracks/49/type = "value"
+tracks/49/path = NodePath("brambles/long_triangle13:rotation_degrees")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -184.736, -187.919 ]
+}
+tracks/50/type = "value"
+tracks/50/path = NodePath("brambles/long_triangle13:scale")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.220105 ), Vector2( 0.0751949, 0.184406 ), Vector2( 0.0751949, 0.148707 ) ]
+}
+tracks/51/type = "value"
+tracks/51/path = NodePath("brambles/long_triangle12:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -461.63, -71.9701 ), Vector2( -452.858, -59.6398 ), Vector2( -444.085, -47.3095 ) ]
+}
+tracks/52/type = "value"
+tracks/52/path = NodePath("brambles/long_triangle12:rotation_degrees")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -35.4306, -35.4306, -35.4306 ]
+}
+tracks/53/type = "value"
+tracks/53/path = NodePath("brambles/long_triangle12:scale")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.219537 ), Vector2( 0.0751949, 0.179237 ), Vector2( 0.0751949, 0.138937 ) ]
+}
+tracks/54/type = "value"
+tracks/54/path = NodePath("brambles/long_triangle16:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 438.462, -190.476 ), Vector2( 423.645, -164.046 ), Vector2( 408.829, -137.616 ) ]
+}
+tracks/55/type = "value"
+tracks/55/path = NodePath("brambles/long_triangle16:rotation_degrees")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -172.877, -172.877, -172.877 ]
+}
+tracks/56/type = "value"
+tracks/56/path = NodePath("brambles/long_triangle16:scale")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.190741 ), Vector2( 0.0751949, 0.156349 ), Vector2( 0.0751949, 0.121957 ) ]
+}
+tracks/57/type = "value"
+tracks/57/path = NodePath("brambles/long_triangle15:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 384.178, -45.993 ), Vector2( 378.887, -37.4456 ), Vector2( 373.596, -28.8983 ) ]
+}
+tracks/58/type = "value"
+tracks/58/path = NodePath("brambles/long_triangle15:rotation_degrees")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 31.7595, 31.7595, 31.7595 ]
+}
+tracks/59/type = "value"
+tracks/59/path = NodePath("brambles/long_triangle15:scale")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.191863 ), Vector2( 0.0751949, 0.165092 ), Vector2( 0.0751949, 0.138321 ) ]
+}
+tracks/60/type = "value"
+tracks/60/path = NodePath("brambles/long_triangle21:position")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 248.875, -205.871 ), Vector2( 255.619, -176.454 ), Vector2( 262.364, -147.037 ) ]
+}
+tracks/61/type = "value"
+tracks/61/path = NodePath("brambles/long_triangle21:rotation_degrees")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 206.021, 206.021, 206.021 ]
+}
+tracks/62/type = "value"
+tracks/62/path = NodePath("brambles/long_triangle21:scale")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.172668 ), Vector2( 0.0751949, 0.148785 ), Vector2( 0.0751949, 0.124902 ) ]
+}
+tracks/63/type = "value"
+tracks/63/path = NodePath("brambles/long_triangle22:position")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 248.897, -71.2052 ), Vector2( 252.679, -60.6364 ), Vector2( 256.46, -50.0676 ) ]
+}
+tracks/64/type = "value"
+tracks/64/path = NodePath("brambles/long_triangle22:rotation_degrees")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -19.6856, -19.6856, -19.6856 ]
+}
+tracks/65/type = "value"
+tracks/65/path = NodePath("brambles/long_triangle22:scale")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.171956 ), Vector2( 0.0751949, 0.142063 ), Vector2( 0.0751949, 0.11217 ) ]
+}
+tracks/66/type = "value"
+tracks/66/path = NodePath("brambles/long_triangle11:position")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -620.319, -51.315 ), Vector2( -624.681, -62.8668 ), Vector2( -612.82, -31.4546 ) ]
+}
+tracks/67/type = "value"
+tracks/67/path = NodePath("brambles/long_triangle11:scale")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.194429 ), Vector2( 0.0751949, 0.227313 ), Vector2( 0.0751949, 0.137893 ) ]
+}
+tracks/68/type = "value"
+tracks/68/path = NodePath("brambles/long_triangle18:position")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -322.466, -79.7884 ), Vector2( -317.203, -95.7805 ), Vector2( -329.751, -57.651 ) ]
+}
+tracks/69/type = "value"
+tracks/69/path = NodePath("brambles/long_triangle18:scale")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.203968 ), Vector2( 0.0751949, 0.248804 ), Vector2( 0.0751949, 0.141904 ) ]
+}
+tracks/70/type = "value"
+tracks/70/path = NodePath("brambles/long_triangle17:position")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 204.238, -59.1371 ), Vector2( 194.751, -84.7437 ), Vector2( 212.564, -36.663 ) ]
+}
+tracks/71/type = "value"
+tracks/71/path = NodePath("brambles/long_triangle17:scale")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.16955 ), Vector2( 0.0751949, 0.242273 ), Vector2( 0.0751949, 0.105724 ) ]
+}
+tracks/72/type = "value"
+tracks/72/path = NodePath("brambles/long_triangle14:position")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 313.403, -57.1838 ), Vector2( 315.031, -80.1393 ), Vector2( 311.956, -36.7809 ) ]
+}
+tracks/73/type = "value"
+tracks/73/path = NodePath("brambles/long_triangle14:scale")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0789934, 0.188561 ), Vector2( 0.0789934, 0.249848 ), Vector2( 0.0789934, 0.13409 ) ]
+}
+tracks/74/type = "value"
+tracks/74/path = NodePath("brambles/long_triangle8:position")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -476.266, -66.6224 ), Vector2( -460.248, -69.2921 ), Vector2( -428.271, -53.0105 ) ]
+}
+tracks/75/type = "value"
+tracks/75/path = NodePath("brambles/long_triangle8:rotation_degrees")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 53.8954, 63.7779, 70.5436 ]
+}
+tracks/76/type = "value"
+tracks/76/path = NodePath("brambles/long_triangle8:scale")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/77/type = "value"
+tracks/77/path = NodePath("brambles/long_triangle7:position")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -254.043, -70.8924 ), Vector2( -239.13, -61.9308 ), Vector2( -222.652, -52.0284 ) ]
+}
+tracks/78/type = "value"
+tracks/78/path = NodePath("brambles/long_triangle7:rotation_degrees")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -58.997, -58.997, -58.997 ]
+}
+tracks/79/type = "value"
+tracks/79/path = NodePath("brambles/long_triangle7:scale")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0771858, 0.344193 ), Vector2( 0.0771858, 0.297859 ), Vector2( 0.0771858, 0.246661 ) ]
+}
+tracks/80/type = "value"
+tracks/80/path = NodePath("brambles/long_triangle9:position")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 172.956, -77.0697 ), Vector2( 158.848, -62.0323 ), Vector2( 106.936, -29.3969 ) ]
+}
+tracks/81/type = "value"
+tracks/81/path = NodePath("brambles/long_triangle9:rotation_degrees")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 57.4423, 66.8503, 62.4424 ]
+}
+tracks/82/type = "value"
+tracks/82/path = NodePath("brambles/long_triangle9:scale")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.200946 ), Vector2( 0.0751949, 0.118661 ) ]
+}
+tracks/83/type = "value"
+tracks/83/path = NodePath("brambles/long_triangle10:position")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 376.729, -70.3959 ), Vector2( 352.945, -50.1794 ), Vector2( 252.148, -23.4508 ) ]
+}
+tracks/84/type = "value"
+tracks/84/path = NodePath("brambles/long_triangle10:rotation_degrees")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -47.3221, -64.3013, -67.832 ]
+}
+tracks/85/type = "value"
+tracks/85/path = NodePath("brambles/long_triangle10:scale")
+tracks/85/interp = 1
+tracks/85/loop_wrap = true
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.268941 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Shrink3"
-step = 0.05
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("left/long_triangle4:position")
 tracks/0/interp = 1
@@ -1523,9 +2617,1513 @@ tracks/44/keys = {
 "update": 1,
 "values": [ Vector2( 1, 1 ), Vector2( 0.66667, 0.66667 ), Vector2( 0.33334, 0.33334 ), Vector2( 1e-05, 1e-05 ) ]
 }
+tracks/45/type = "value"
+tracks/45/path = NodePath("brambles/long_triangle11:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -612.82, -31.4546 ), Vector2( -607.037, -16.1404 ), Vector2( -602.558, -4.28074 ) ]
+}
+tracks/46/type = "value"
+tracks/46/path = NodePath("brambles/long_triangle11:rotation_degrees")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 159.313, 159.313, 159.313 ]
+}
+tracks/47/type = "value"
+tracks/47/path = NodePath("brambles/long_triangle11:scale")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.137893 ), Vector2( 0.0751949, 0.0942991 ), Vector2( 0.0751949, 0.0605386 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/48/type = "value"
+tracks/48/path = NodePath("brambles/long_triangle12:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -444.085, -47.3095 ), Vector2( -437.336, -41.9731 ), Vector2( -430.586, -36.6367 ), Vector2( -423.837, -31.3003 ), Vector2( -405.721, -14.9416 ) ]
+}
+tracks/49/type = "value"
+tracks/49/path = NodePath("brambles/long_triangle12:rotation_degrees")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -35.4306, -39.5928, -43.7551, -47.9173, -47.9173 ]
+}
+tracks/50/type = "value"
+tracks/50/path = NodePath("brambles/long_triangle12:scale")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.138937 ), Vector2( 0.0751949, 0.0965281 ), Vector2( 0.0751949, 0.0753234 ), Vector2( 0.0751949, 0.0354961 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/51/type = "value"
+tracks/51/path = NodePath("brambles/long_triangle13:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -485.37, -162.781 ), Vector2( -498.097, -121.401 ), Vector2( -510.824, -80.0212 ), Vector2( -507.659, -35.4628 ), Vector2( -440.899, -31.2551 ) ]
+}
+tracks/52/type = "value"
+tracks/52/path = NodePath("brambles/long_triangle13:rotation_degrees")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -187.919, -221.789, -255.66, -289.531, -257.839 ]
+}
+tracks/53/type = "value"
+tracks/53/path = NodePath("brambles/long_triangle13:scale")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.148707 ), Vector2( 0.0751949, 0.138846 ), Vector2( 0.0751949, 0.128985 ), Vector2( 0.0751949, 0.119125 ), Vector2( 0.0751949, 0.0438254 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/54/type = "value"
+tracks/54/path = NodePath("brambles/long_triangle20:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -368.431, -165.115 ), Vector2( -389.774, -126.116 ), Vector2( -411.118, -87.116 ), Vector2( -432.462, -48.1163 ), Vector2( -384.661, -48.1655 ) ]
+}
+tracks/55/type = "value"
+tracks/55/path = NodePath("brambles/long_triangle20:rotation_degrees")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 162.31, 129.686, 97.0626, 64.4389, 110.824 ]
+}
+tracks/56/type = "value"
+tracks/56/path = NodePath("brambles/long_triangle20:scale")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.114697 ), Vector2( 0.0751949, 0.101767 ), Vector2( 0.0751949, 0.0888358 ), Vector2( 0.0751949, 0.075905 ), Vector2( 0.0751949, 0.044614 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/57/type = "value"
+tracks/57/path = NodePath("brambles/long_triangle19:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -365.012, -68.6158 ), Vector2( -347.88, -52.5201 ), Vector2( -357.475, -47.1152 ), Vector2( -367.071, -41.7104 ), Vector2( -355.436, -31.8135 ) ]
+}
+tracks/58/type = "value"
+tracks/58/path = NodePath("brambles/long_triangle19:rotation_degrees")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15.2028, -6.40275, -28.0083, -49.6139, -49.6139 ]
+}
+tracks/59/type = "value"
+tracks/59/path = NodePath("brambles/long_triangle19:scale")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.110238 ), Vector2( 0.0751949, 0.0985573 ), Vector2( 0.0751949, 0.0868769 ), Vector2( 0.0751949, 0.0751965 ), Vector2( 0.0751949, 0.0345178 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/60/type = "value"
+tracks/60/path = NodePath("brambles/long_triangle18:position")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -329.751, -57.651 ), Vector2( -335.31, -40.757 ), Vector2( -340.87, -23.863 ), Vector2( -346.429, -6.96893 ) ]
+}
+tracks/61/type = "value"
+tracks/61/path = NodePath("brambles/long_triangle18:scale")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.141904 ), Vector2( 0.0751949, 0.0945394 ), Vector2( 0.0751949, 0.0471752 ), Vector2( 0.0751949, -0.000188953 ) ]
+}
+tracks/62/type = "value"
+tracks/62/path = NodePath("brambles/long_triangle17:position")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 212.564, -36.663 ), Vector2( 217.168, -24.2377 ), Vector2( 221.771, -11.8124 ), Vector2( 226.374, 0.612968 ) ]
+}
+tracks/63/type = "value"
+tracks/63/path = NodePath("brambles/long_triangle17:scale")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.105724 ), Vector2( 0.0751949, 0.0704354 ), Vector2( 0.0751949, 0.0351473 ), Vector2( 0.0751949, -0.000140777 ) ]
+}
+tracks/64/type = "value"
+tracks/64/path = NodePath("brambles/long_triangle14:position")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 311.956, -36.7809 ), Vector2( 310.767, -20.0171 ), Vector2( 309.579, -3.25325 ), Vector2( 308.39, 13.5106 ) ]
+}
+tracks/65/type = "value"
+tracks/65/path = NodePath("brambles/long_triangle14:scale")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0789934, 0.13409 ), Vector2( 0.0789934, 0.0893336 ), Vector2( 0.0789934, 0.0445775 ), Vector2( 0.0789934, -0.000178548 ) ]
+}
+tracks/66/type = "value"
+tracks/66/path = NodePath("brambles/long_triangle8:position")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -428.271, -53.0105 ), Vector2( -388.081, -131.373 ), Vector2( -289.808, -149.326 ), Vector2( -222.185, -105.873 ), Vector2( -228.225, -56.0883 ) ]
+}
+tracks/67/type = "value"
+tracks/67/path = NodePath("brambles/long_triangle8:rotation_degrees")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 70.5436, 101.828, 128.719, 179.704, 144.77 ]
+}
+tracks/68/type = "value"
+tracks/68/path = NodePath("brambles/long_triangle8:scale")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ), Vector2( 0.0751949, 0.261883 ), Vector2( 0.0751949, 0.157888 ), Vector2( 0.0751949, 0.157888 ), Vector2( 0.0751949, 0.09416 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/69/type = "value"
+tracks/69/path = NodePath("brambles/long_triangle7:position")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -222.652, -52.0284 ), Vector2( -217.367, -55.0669 ), Vector2( -216.377, -39.1419 ), Vector2( -205.983, -17.2477 ), Vector2( -196.103, 4.3056 ) ]
+}
+tracks/70/type = "value"
+tracks/70/path = NodePath("brambles/long_triangle7:rotation_degrees")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -58.997, -51.8915, -25.3965, -25.3965, -25.3965 ]
+}
+tracks/71/type = "value"
+tracks/71/path = NodePath("brambles/long_triangle7:scale")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0771858, 0.246661 ), Vector2( 0.0771858, 0.225853 ), Vector2( 0.0771858, 0.153919 ), Vector2( 0.0771858, 0.112314 ), Vector2( 0.0771858, 0.0627036 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/72/type = "value"
+tracks/72/path = NodePath("brambles/long_triangle9:position")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 106.936, -29.3969 ), Vector2( 88.9364, -29.3969 ), Vector2( 80.4511, -33.6395 ), Vector2( 75.3254, -15.3425 ) ]
+}
+tracks/73/type = "value"
+tracks/73/path = NodePath("brambles/long_triangle9:rotation_degrees")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 62.4424, 40.8508, 15.6494 ]
+}
+tracks/74/type = "value"
+tracks/74/path = NodePath("brambles/long_triangle9:scale")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.118661 ), Vector2( 0.0751949, 0.118661 ), Vector2( 0.0751949, 0.118661 ), Vector2( 0.0751949, 0.0680578 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/75/type = "value"
+tracks/75/path = NodePath("brambles/long_triangle10:position")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 252.148, -23.4508 ), Vector2( 234.148, -63.4508 ), Vector2( 143.311, -129.993 ), Vector2( 96.4217, -132.117 ), Vector2( 105.048, -68.2795 ) ]
+}
+tracks/76/type = "value"
+tracks/76/path = NodePath("brambles/long_triangle10:rotation_degrees")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -67.832, -84.577, -136.236, -179.385, -143.949 ]
+}
+tracks/77/type = "value"
+tracks/77/path = NodePath("brambles/long_triangle10:scale")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.268941 ), Vector2( 0.0751949, 0.268941 ), Vector2( 0.0751949, 0.180561 ), Vector2( 0.0751949, 0.125954 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/78/type = "value"
+tracks/78/path = NodePath("brambles/long_triangle22:position")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 256.46, -50.0676 ), Vector2( 256.216, -43.415 ), Vector2( 255.973, -36.7623 ), Vector2( 255.73, -30.1096 ), Vector2( 248.741, -26.2439 ) ]
+}
+tracks/79/type = "value"
+tracks/79/path = NodePath("brambles/long_triangle22:rotation_degrees")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -19.6856, 7.22745, 34.1405, 61.0536, 61.0536 ]
+}
+tracks/80/type = "value"
+tracks/80/path = NodePath("brambles/long_triangle22:scale")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.11217 ), Vector2( 0.0751949, 0.0913661 ), Vector2( 0.0751949, 0.0809639 ), Vector2( 0.0751949, 0.0596933 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/81/type = "value"
+tracks/81/path = NodePath("brambles/long_triangle21:position")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 262.364, -147.037 ), Vector2( 298.51, -116.729 ), Vector2( 321.958, -73.721 ), Vector2( 323.182, -27.5383 ), Vector2( 284.745, -46.5228 ) ]
+}
+tracks/82/type = "value"
+tracks/82/path = NodePath("brambles/long_triangle21:rotation_degrees")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 206.021, 236.006, 265.992, 295.978, 237.091 ]
+}
+tracks/83/type = "value"
+tracks/83/path = NodePath("brambles/long_triangle21:scale")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.124902 ), Vector2( 0.0751949, 0.109717 ), Vector2( 0.0751949, 0.0793468 ), Vector2( 0.0751949, 0.0473442 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/84/type = "value"
+tracks/84/path = NodePath("brambles/long_triangle15:position")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 373.596, -28.8983 ), Vector2( 361.643, -18.9628 ), Vector2( 349.691, -9.02734 ), Vector2( 337.739, 0.908131 ), Vector2( 333.81, 4.47635 ) ]
+}
+tracks/85/type = "value"
+tracks/85/path = NodePath("brambles/long_triangle15:rotation_degrees")
+tracks/85/interp = 1
+tracks/85/loop_wrap = true
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 31.7595, 43.222, 54.6845, 66.1469, 47.7517 ]
+}
+tracks/86/type = "value"
+tracks/86/path = NodePath("brambles/long_triangle15:scale")
+tracks/86/interp = 1
+tracks/86/loop_wrap = true
+tracks/86/imported = false
+tracks/86/enabled = true
+tracks/86/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.138321 ), Vector2( 0.0751949, 0.111221 ), Vector2( 0.0751949, 0.0841222 ), Vector2( 0.0751949, 0.0570229 ), Vector2( 0.0751949, 0.0428894 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/87/type = "value"
+tracks/87/path = NodePath("brambles/long_triangle16:position")
+tracks/87/interp = 1
+tracks/87/loop_wrap = true
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 408.829, -137.616 ), Vector2( 419.488, -82.7818 ), Vector2( 402.71, 3.07595 ), Vector2( 366.306, -15.8065 ) ]
+}
+tracks/88/type = "value"
+tracks/88/path = NodePath("brambles/long_triangle16:rotation_degrees")
+tracks/88/interp = 1
+tracks/88/loop_wrap = true
+tracks/88/imported = false
+tracks/88/enabled = true
+tracks/88/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -172.877, -138.993, -71.2264, -118.095 ]
+}
+tracks/89/type = "value"
+tracks/89/path = NodePath("brambles/long_triangle16:scale")
+tracks/89/interp = 1
+tracks/89/loop_wrap = true
+tracks/89/imported = false
+tracks/89/enabled = true
+tracks/89/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.121957 ), Vector2( 0.0751949, 0.102825 ), Vector2( 0.0751949, 0.0645614 ), Vector2( 0.0751949, 0.0430963 ), Vector2( 0.005, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "StateShrink1"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("left/long_triangle3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -82.6821, -613.878 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("left/long_triangle3:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -164.587 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("left/long_triangle3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.177205, 0.469197 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("left/long_triangle:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -38.2393, -209.1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("left/long_triangle:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -23.3755 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("left/long_triangle:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.600636 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("left/long_triangle4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -193.102, -587.371 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("left/long_triangle4:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -164.379 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("left/long_triangle4:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.439252 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("left/long_triangle2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -124.356, -199.678 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("left/long_triangle2:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("left/long_triangle2:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.589228 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("long_triangle6:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 5.27661, -593.864 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("long_triangle6:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 180.077 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("long_triangle6:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.465757 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("right/long_triangle3:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -93.7441, -578.133 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("right/long_triangle3:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -169.632 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("right/long_triangle3:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.177205, 0.470554 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("right/long_triangle:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -28.9729, -195.883 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("right/long_triangle:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -23.3755 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("right/long_triangle:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.554965 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("right/long_triangle4:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -193.987, -554.116 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("right/long_triangle4:rotation_degrees")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -166.563 ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("right/long_triangle4:scale")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.432783 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("long_triangle5:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -2.1774, -206.683 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("long_triangle5:rotation_degrees")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1.845 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("long_triangle5:scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.532096 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("right/long_triangle2:rotation_degrees")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -28.4316 ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("right/long_triangle2:scale")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.550502 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("right/long_triangle2:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -113.839, -174.902 ) ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath(".:scale")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("../gaurd_legs_back/back_left/long_triangle8:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("../gaurd_legs_back/back_right/long_triangle8:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("brambles/long_triangle20:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -368.117, -234.627 ) ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("brambles/long_triangle20:rotation_degrees")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 162.31 ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("brambles/long_triangle20:scale")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.18214 ) ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("brambles/long_triangle19:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("brambles/long_triangle19:rotation_degrees")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 15.2028 ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("brambles/long_triangle19:scale")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.174782 ) ]
+}
+tracks/39/type = "value"
+tracks/39/path = NodePath("brambles/long_triangle13:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -521.1, -234.72 ) ]
+}
+tracks/40/type = "value"
+tracks/40/path = NodePath("brambles/long_triangle13:rotation_degrees")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -184.736 ]
+}
+tracks/41/type = "value"
+tracks/41/path = NodePath("brambles/long_triangle13:scale")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.220105 ) ]
+}
+tracks/42/type = "value"
+tracks/42/path = NodePath("brambles/long_triangle12:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -464.3, -71.9701 ) ]
+}
+tracks/43/type = "value"
+tracks/43/path = NodePath("brambles/long_triangle12:rotation_degrees")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -35.4306 ]
+}
+tracks/44/type = "value"
+tracks/44/path = NodePath("brambles/long_triangle12:scale")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.219537 ) ]
+}
+tracks/45/type = "value"
+tracks/45/path = NodePath("brambles/long_triangle11:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -620.319, -51.315 ) ]
+}
+tracks/46/type = "value"
+tracks/46/path = NodePath("brambles/long_triangle11:rotation_degrees")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 159.313 ]
+}
+tracks/47/type = "value"
+tracks/47/path = NodePath("brambles/long_triangle11:scale")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.194429 ) ]
+}
+tracks/48/type = "value"
+tracks/48/path = NodePath("brambles/long_triangle8:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -476.266, -66.6224 ) ]
+}
+tracks/49/type = "value"
+tracks/49/path = NodePath("brambles/long_triangle8:rotation_degrees")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 53.8954 ]
+}
+tracks/50/type = "value"
+tracks/50/path = NodePath("brambles/long_triangle8:scale")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/51/type = "value"
+tracks/51/path = NodePath("brambles/long_triangle7:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -254.043, -70.8924 ) ]
+}
+tracks/52/type = "value"
+tracks/52/path = NodePath("brambles/long_triangle7:rotation_degrees")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -58.997 ]
+}
+tracks/53/type = "value"
+tracks/53/path = NodePath("brambles/long_triangle7:scale")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0771858, 0.344193 ) ]
+}
+tracks/54/type = "value"
+tracks/54/path = NodePath("brambles/long_triangle18:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -322.466, -79.7884 ) ]
+}
+tracks/55/type = "value"
+tracks/55/path = NodePath("brambles/long_triangle18:rotation_degrees")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -161.785 ]
+}
+tracks/56/type = "value"
+tracks/56/path = NodePath("brambles/long_triangle18:scale")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.203968 ) ]
+}
+tracks/57/type = "value"
+tracks/57/path = NodePath("brambles/long_triangle9:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 172.956, -77.0697 ) ]
+}
+tracks/58/type = "value"
+tracks/58/path = NodePath("brambles/long_triangle9:rotation_degrees")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 57.4423 ]
+}
+tracks/59/type = "value"
+tracks/59/path = NodePath("brambles/long_triangle9:scale")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/60/type = "value"
+tracks/60/path = NodePath("brambles/long_triangle17:position")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 204.238, -59.1371 ) ]
+}
+tracks/61/type = "value"
+tracks/61/path = NodePath("brambles/long_triangle17:rotation_degrees")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/62/type = "value"
+tracks/62/path = NodePath("brambles/long_triangle17:scale")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.16955 ) ]
+}
+tracks/63/type = "value"
+tracks/63/path = NodePath("brambles/long_triangle22:position")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 248.897, -71.2052 ) ]
+}
+tracks/64/type = "value"
+tracks/64/path = NodePath("brambles/long_triangle22:rotation_degrees")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/65/type = "value"
+tracks/65/path = NodePath("brambles/long_triangle22:scale")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.171956 ) ]
+}
+tracks/66/type = "value"
+tracks/66/path = NodePath("brambles/long_triangle21:position")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 248.875, -205.871 ) ]
+}
+tracks/67/type = "value"
+tracks/67/path = NodePath("brambles/long_triangle21:rotation_degrees")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 206.021 ]
+}
+tracks/68/type = "value"
+tracks/68/path = NodePath("brambles/long_triangle21:scale")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.172668 ) ]
+}
+tracks/69/type = "value"
+tracks/69/path = NodePath("brambles/long_triangle10:position")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 376.729, -70.3959 ) ]
+}
+tracks/70/type = "value"
+tracks/70/path = NodePath("brambles/long_triangle10:rotation_degrees")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -47.3221 ]
+}
+tracks/71/type = "value"
+tracks/71/path = NodePath("brambles/long_triangle10:scale")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/72/type = "value"
+tracks/72/path = NodePath("brambles/long_triangle15:position")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 384.178, -45.993 ) ]
+}
+tracks/73/type = "value"
+tracks/73/path = NodePath("brambles/long_triangle15:rotation_degrees")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 31.7595 ]
+}
+tracks/74/type = "value"
+tracks/74/path = NodePath("brambles/long_triangle15:scale")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.191863 ) ]
+}
+tracks/75/type = "value"
+tracks/75/path = NodePath("brambles/long_triangle16:position")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 438.462, -190.476 ) ]
+}
+tracks/76/type = "value"
+tracks/76/path = NodePath("brambles/long_triangle16:rotation_degrees")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -172.877 ]
+}
+tracks/77/type = "value"
+tracks/77/path = NodePath("brambles/long_triangle16:scale")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.190741 ) ]
+}
+tracks/78/type = "value"
+tracks/78/path = NodePath("brambles/long_triangle14:position")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 313.403, -57.1838 ) ]
+}
+tracks/79/type = "value"
+tracks/79/path = NodePath("brambles/long_triangle14:scale")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0789934, 0.188561 ) ]
+}
 
 [sub_resource type="Animation" id=4]
-resource_name = "StateShake2"
+resource_name = "StateShrink2"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("left/long_triangle4:position")
@@ -2031,516 +4629,585 @@ tracks/41/keys = {
 "update": 0,
 "values": [ -23.3755 ]
 }
-
-[sub_resource type="Animation" id=5]
-resource_name = "StateShrink1"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("left/long_triangle4:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
+tracks/42/type = "value"
+tracks/42/path = NodePath("brambles/long_triangle11:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -193.102, -587.371 ) ]
+"values": [ Vector2( -612.82, -31.4546 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("left/long_triangle4:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
+tracks/43/type = "value"
+tracks/43/path = NodePath("brambles/long_triangle11:rotation_degrees")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -164.379 ]
+"values": [ 159.313 ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("left/long_triangle4:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/44/type = "value"
+tracks/44/path = NodePath("brambles/long_triangle11:scale")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.439252 ) ]
+"values": [ Vector2( 0.0751949, 0.137893 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("left/long_triangle2:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/45/type = "value"
+tracks/45/path = NodePath("brambles/long_triangle13:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -124.356, -199.678 ) ]
+"values": [ Vector2( -485.37, -162.781 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("left/long_triangle2:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/46/type = "value"
+tracks/46/path = NodePath("brambles/long_triangle13:rotation_degrees")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -28.4316 ]
+"values": [ -187.919 ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("left/long_triangle2:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/47/type = "value"
+tracks/47/path = NodePath("brambles/long_triangle13:scale")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.589228 ) ]
+"values": [ Vector2( 0.0751949, 0.148707 ) ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("left/long_triangle3:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
+tracks/48/type = "value"
+tracks/48/path = NodePath("brambles/long_triangle12:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -82.6821, -613.878 ) ]
+"values": [ Vector2( -444.085, -47.3095 ) ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("left/long_triangle3:rotation_degrees")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/49/type = "value"
+tracks/49/path = NodePath("brambles/long_triangle12:rotation_degrees")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -164.587 ]
+"values": [ -35.4306 ]
 }
-tracks/8/type = "value"
-tracks/8/path = NodePath("left/long_triangle3:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
+tracks/50/type = "value"
+tracks/50/path = NodePath("brambles/long_triangle12:scale")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.177205, 0.469197 ) ]
+"values": [ Vector2( 0.0751949, 0.138937 ) ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("left/long_triangle:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
+tracks/51/type = "value"
+tracks/51/path = NodePath("brambles/long_triangle8:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -38.2393, -209.1 ) ]
+"values": [ Vector2( -428.271, -53.0105 ) ]
 }
-tracks/10/type = "value"
-tracks/10/path = NodePath("left/long_triangle:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
+tracks/52/type = "value"
+tracks/52/path = NodePath("brambles/long_triangle8:rotation_degrees")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -23.3755 ]
+"values": [ 70.5436 ]
 }
-tracks/11/type = "value"
-tracks/11/path = NodePath("left/long_triangle:scale")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
+tracks/53/type = "value"
+tracks/53/path = NodePath("brambles/long_triangle8:scale")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.600636 ) ]
+"values": [ Vector2( 0.0751949, 0.303942 ) ]
 }
-tracks/12/type = "value"
-tracks/12/path = NodePath("long_triangle6:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
+tracks/54/type = "value"
+tracks/54/path = NodePath("brambles/long_triangle20:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 5.27661, -593.864 ) ]
+"values": [ Vector2( -368.431, -165.115 ) ]
 }
-tracks/13/type = "value"
-tracks/13/path = NodePath("long_triangle6:rotation_degrees")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
+tracks/55/type = "value"
+tracks/55/path = NodePath("brambles/long_triangle20:rotation_degrees")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 180.077 ]
+"values": [ 162.31 ]
 }
-tracks/14/type = "value"
-tracks/14/path = NodePath("long_triangle6:scale")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
+tracks/56/type = "value"
+tracks/56/path = NodePath("brambles/long_triangle20:scale")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.465757 ) ]
+"values": [ Vector2( 0.0751949, 0.114697 ) ]
 }
-tracks/15/type = "value"
-tracks/15/path = NodePath("long_triangle5:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
+tracks/57/type = "value"
+tracks/57/path = NodePath("brambles/long_triangle19:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -2.1774, -206.683 ) ]
+"values": [ Vector2( -365.012, -68.6158 ) ]
 }
-tracks/16/type = "value"
-tracks/16/path = NodePath("long_triangle5:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
+tracks/58/type = "value"
+tracks/58/path = NodePath("brambles/long_triangle19:rotation_degrees")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1.845 ]
+"values": [ 15.2028 ]
 }
-tracks/17/type = "value"
-tracks/17/path = NodePath("long_triangle5:scale")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
+tracks/59/type = "value"
+tracks/59/path = NodePath("brambles/long_triangle19:scale")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.532096 ) ]
+"values": [ Vector2( 0.0751949, 0.110238 ) ]
 }
-tracks/18/type = "value"
-tracks/18/path = NodePath("right/long_triangle3:position")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
+tracks/60/type = "value"
+tracks/60/path = NodePath("brambles/long_triangle18:position")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -93.7441, -578.133 ) ]
+"values": [ Vector2( -329.751, -57.651 ) ]
 }
-tracks/19/type = "value"
-tracks/19/path = NodePath("right/long_triangle3:rotation_degrees")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/keys = {
+tracks/61/type = "value"
+tracks/61/path = NodePath("brambles/long_triangle18:rotation_degrees")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -169.632 ]
+"values": [ -161.785 ]
 }
-tracks/20/type = "value"
-tracks/20/path = NodePath("right/long_triangle3:scale")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/keys = {
+tracks/62/type = "value"
+tracks/62/path = NodePath("brambles/long_triangle18:scale")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.177205, 0.470554 ) ]
+"values": [ Vector2( 0.0751949, 0.141904 ) ]
 }
-tracks/21/type = "value"
-tracks/21/path = NodePath("right/long_triangle:position")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/keys = {
+tracks/63/type = "value"
+tracks/63/path = NodePath("brambles/long_triangle7:position")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -31.7137, -196.893 ) ]
+"values": [ Vector2( -222.652, -52.0284 ) ]
 }
-tracks/22/type = "value"
-tracks/22/path = NodePath("right/long_triangle:rotation_degrees")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/keys = {
+tracks/64/type = "value"
+tracks/64/path = NodePath("brambles/long_triangle7:rotation_degrees")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -23.3755 ]
+"values": [ -58.997 ]
 }
-tracks/23/type = "value"
-tracks/23/path = NodePath("right/long_triangle:scale")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/keys = {
+tracks/65/type = "value"
+tracks/65/path = NodePath("brambles/long_triangle7:scale")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.554965 ) ]
+"values": [ Vector2( 0.0771858, 0.246661 ) ]
 }
-tracks/24/type = "value"
-tracks/24/path = NodePath("right/long_triangle4:position")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/keys = {
+tracks/66/type = "value"
+tracks/66/path = NodePath("brambles/long_triangle9:position")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -193.987, -554.116 ) ]
+"values": [ Vector2( 106.936, -29.3969 ) ]
 }
-tracks/25/type = "value"
-tracks/25/path = NodePath("right/long_triangle4:rotation_degrees")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/keys = {
+tracks/67/type = "value"
+tracks/67/path = NodePath("brambles/long_triangle9:rotation_degrees")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -166.563 ]
+"values": [ 62.4424 ]
 }
-tracks/26/type = "value"
-tracks/26/path = NodePath("right/long_triangle4:scale")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/keys = {
+tracks/68/type = "value"
+tracks/68/path = NodePath("brambles/long_triangle9:scale")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.432783 ) ]
+"values": [ Vector2( 0.0751949, 0.118661 ) ]
 }
-tracks/27/type = "value"
-tracks/27/path = NodePath("right/long_triangle2:position")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/keys = {
+tracks/69/type = "value"
+tracks/69/path = NodePath("brambles/long_triangle10:position")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -113.839, -174.902 ) ]
+"values": [ Vector2( 252.148, -23.4508 ) ]
 }
-tracks/28/type = "value"
-tracks/28/path = NodePath("right/long_triangle2:rotation_degrees")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/keys = {
+tracks/70/type = "value"
+tracks/70/path = NodePath("brambles/long_triangle10:rotation_degrees")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -28.4316 ]
+"values": [ -67.832 ]
 }
-tracks/29/type = "value"
-tracks/29/path = NodePath("right/long_triangle2:scale")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/keys = {
+tracks/71/type = "value"
+tracks/71/path = NodePath("brambles/long_triangle10:scale")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.550502 ) ]
+"values": [ Vector2( 0.0751949, 0.268941 ) ]
 }
-tracks/30/type = "value"
-tracks/30/path = NodePath("../gaurd_legs_back/back_right/long_triangle8:position")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/keys = {
+tracks/72/type = "value"
+tracks/72/path = NodePath("brambles/long_triangle17:position")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -50.4496, -613.213 ) ]
+"values": [ Vector2( 212.564, -36.663 ) ]
 }
-tracks/31/type = "value"
-tracks/31/path = NodePath("../gaurd_legs_back/back_right/long_triangle8:rotation_degrees")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/keys = {
+tracks/73/type = "value"
+tracks/73/path = NodePath("brambles/long_triangle17:rotation_degrees")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -160.931 ]
+"values": [ -200.329 ]
 }
-tracks/32/type = "value"
-tracks/32/path = NodePath("../gaurd_legs_back/back_right/long_triangle8:scale")
-tracks/32/interp = 1
-tracks/32/loop_wrap = true
-tracks/32/imported = false
-tracks/32/enabled = true
-tracks/32/keys = {
+tracks/74/type = "value"
+tracks/74/path = NodePath("brambles/long_triangle17:scale")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.379411 ) ]
+"values": [ Vector2( 0.0751949, 0.105724 ) ]
 }
-tracks/33/type = "value"
-tracks/33/path = NodePath("../gaurd_legs_back/back_right/long_triangle7:position")
-tracks/33/interp = 1
-tracks/33/loop_wrap = true
-tracks/33/imported = false
-tracks/33/enabled = true
-tracks/33/keys = {
+tracks/75/type = "value"
+tracks/75/path = NodePath("brambles/long_triangle21:position")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -70.1516, -294.452 ) ]
+"values": [ Vector2( 262.364, -147.037 ) ]
 }
-tracks/34/type = "value"
-tracks/34/path = NodePath("../gaurd_legs_back/back_right/long_triangle7:rotation_degrees")
-tracks/34/interp = 1
-tracks/34/loop_wrap = true
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/keys = {
+tracks/76/type = "value"
+tracks/76/path = NodePath("brambles/long_triangle21:rotation_degrees")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -14.5496 ]
+"values": [ 206.021 ]
 }
-tracks/35/type = "value"
-tracks/35/path = NodePath("../gaurd_legs_back/back_right/long_triangle7:scale")
-tracks/35/interp = 1
-tracks/35/loop_wrap = true
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/keys = {
+tracks/77/type = "value"
+tracks/77/path = NodePath("brambles/long_triangle21:scale")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.451029 ) ]
+"values": [ Vector2( 0.0751949, 0.124902 ) ]
 }
-tracks/36/type = "value"
-tracks/36/path = NodePath("../gaurd_legs_back/back_left/long_triangle8:position")
-tracks/36/interp = 1
-tracks/36/loop_wrap = true
-tracks/36/imported = false
-tracks/36/enabled = true
-tracks/36/keys = {
+tracks/78/type = "value"
+tracks/78/path = NodePath("brambles/long_triangle22:position")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -60.1693, -612.423 ) ]
+"values": [ Vector2( 256.46, -50.0676 ) ]
 }
-tracks/37/type = "value"
-tracks/37/path = NodePath("../gaurd_legs_back/back_left/long_triangle8:rotation_degrees")
-tracks/37/interp = 1
-tracks/37/loop_wrap = true
-tracks/37/imported = false
-tracks/37/enabled = true
-tracks/37/keys = {
+tracks/79/type = "value"
+tracks/79/path = NodePath("brambles/long_triangle22:rotation_degrees")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -165.147 ]
+"values": [ -19.6856 ]
 }
-tracks/38/type = "value"
-tracks/38/path = NodePath("../gaurd_legs_back/back_left/long_triangle8:scale")
-tracks/38/interp = 1
-tracks/38/loop_wrap = true
-tracks/38/imported = false
-tracks/38/enabled = true
-tracks/38/keys = {
+tracks/80/type = "value"
+tracks/80/path = NodePath("brambles/long_triangle22:scale")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.38655 ) ]
+"values": [ Vector2( 0.0751949, 0.11217 ) ]
 }
-tracks/39/type = "value"
-tracks/39/path = NodePath("../gaurd_legs_back/back_left/long_triangle7:position")
-tracks/39/interp = 1
-tracks/39/loop_wrap = true
-tracks/39/imported = false
-tracks/39/enabled = true
-tracks/39/keys = {
+tracks/81/type = "value"
+tracks/81/path = NodePath("brambles/long_triangle14:position")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -70.1516, -294.452 ) ]
+"values": [ Vector2( 311.956, -36.7809 ) ]
 }
-tracks/40/type = "value"
-tracks/40/path = NodePath("../gaurd_legs_back/back_left/long_triangle7:rotation_degrees")
-tracks/40/interp = 1
-tracks/40/loop_wrap = true
-tracks/40/imported = false
-tracks/40/enabled = true
-tracks/40/keys = {
+tracks/82/type = "value"
+tracks/82/path = NodePath("brambles/long_triangle14:rotation_degrees")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -14.5496 ]
+"values": [ -175.944 ]
 }
-tracks/41/type = "value"
-tracks/41/path = NodePath("../gaurd_legs_back/back_left/long_triangle7:scale")
-tracks/41/interp = 1
-tracks/41/loop_wrap = true
-tracks/41/imported = false
-tracks/41/enabled = true
-tracks/41/keys = {
+tracks/83/type = "value"
+tracks/83/path = NodePath("brambles/long_triangle14:scale")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.192459, 0.444112 ) ]
+"values": [ Vector2( 0.0789934, 0.13409 ) ]
+}
+tracks/84/type = "value"
+tracks/84/path = NodePath("brambles/long_triangle15:position")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 373.596, -28.8983 ) ]
+}
+tracks/85/type = "value"
+tracks/85/path = NodePath("brambles/long_triangle15:rotation_degrees")
+tracks/85/interp = 1
+tracks/85/loop_wrap = true
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 31.7595 ]
+}
+tracks/86/type = "value"
+tracks/86/path = NodePath("brambles/long_triangle15:scale")
+tracks/86/interp = 1
+tracks/86/loop_wrap = true
+tracks/86/imported = false
+tracks/86/enabled = true
+tracks/86/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.138321 ) ]
+}
+tracks/87/type = "value"
+tracks/87/path = NodePath("brambles/long_triangle16:position")
+tracks/87/interp = 1
+tracks/87/loop_wrap = true
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 408.829, -137.616 ) ]
+}
+tracks/88/type = "value"
+tracks/88/path = NodePath("brambles/long_triangle16:rotation_degrees")
+tracks/88/interp = 1
+tracks/88/loop_wrap = true
+tracks/88/imported = false
+tracks/88/enabled = true
+tracks/88/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -172.877 ]
+}
+tracks/89/type = "value"
+tracks/89/path = NodePath("brambles/long_triangle16:scale")
+tracks/89/interp = 1
+tracks/89/loop_wrap = true
+tracks/89/imported = false
+tracks/89/enabled = true
+tracks/89/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.121957 ) ]
 }
 
 [sub_resource type="Animation" id=6]
+resource_name = "Twitch0"
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("left/long_triangle3:position")
@@ -2782,37 +5449,2389 @@ tracks/19/keys = {
 "update": 1,
 "values": [ -160.931, -165.147 ]
 }
+tracks/20/type = "value"
+tracks/20/path = NodePath("brambles/long_triangle20:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -441.745, -282.561 ), Vector2( -419.745, -304.561 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("brambles/long_triangle20:rotation_degrees")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 110.819, 132.634 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("brambles/long_triangle19:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -356.816, -106.785 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("brambles/long_triangle19:rotation_degrees")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 15.2028 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("brambles/long_triangle13:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -504.71, -334.039 ), Vector2( -514.71, -314.039 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("brambles/long_triangle13:rotation_degrees")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -177.445, -158.46 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("brambles/long_triangle12:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -468.674, -101.795 ), Vector2( -482.674, -97.7949 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("brambles/long_triangle12:rotation_degrees")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -21.0541, -35.4306 ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("brambles/long_triangle16:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 533.914, -304.274 ), Vector2( 489.09, -300.691 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("brambles/long_triangle16:rotation_degrees")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -151.329, -172.877 ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("brambles/long_triangle15:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 418.273, -89.8575 ), Vector2( 408.218, -81.7768 ) ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("brambles/long_triangle15:rotation_degrees")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 25.8713, 31.7595 ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("brambles/long_triangle21:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 266.157, -313.065 ), Vector2( 293.127, -301.079 ) ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("brambles/long_triangle21:rotation_degrees")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 210.795, 228.555 ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("brambles/long_triangle22:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 246.069, -93.6644 ) ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("brambles/long_triangle22:rotation_degrees")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -19.6856 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Twitch1"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("left/long_triangle3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -78.9066, -613.878 ), Vector2( -120.48, -608.838 ), Vector2( -82.6821, -613.878 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("left/long_triangle3:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -164.587, -177.219, -164.587 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("left/long_triangle3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.177205, 0.469197 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("left/long_triangle:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -35.7195, -209.1 ), Vector2( -35.7195, -209.1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("left/long_triangle:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -23.3755, -23.3755 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("left/long_triangle:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.600636 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("left/long_triangle4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -200.661, -589.891 ), Vector2( -193.102, -587.371 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("left/long_triangle4:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -181.62, -164.379 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("left/long_triangle4:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("left/long_triangle2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -104.197, -204.718 ), Vector2( -121.836, -202.198 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("left/long_triangle2:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -23.0854, -28.4316 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("left/long_triangle2:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("long_triangle6:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 7.48384, -594.989 ), Vector2( 5.2389, -565.805 ), Vector2( 7.48384, -594.989 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("long_triangle6:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 180.077, 180.077 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("long_triangle6:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.465757 ), Vector2( 0.192459, 0.391034 ), Vector2( 0.192459, 0.465757 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("right/long_triangle3:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -93.7441, -578.133 ), Vector2( -40.7829, -603.973 ), Vector2( -93.7441, -578.133 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("right/long_triangle3:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -169.632, -177.088, -169.632 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("right/long_triangle3:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.177205, 0.470554 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("right/long_triangle:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -28.9729, -195.883 ), Vector2( -11.5579, -199.972 ), Vector2( -28.9729, -195.883 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("right/long_triangle:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -23.3755, -10.5763, -23.3755 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("right/long_triangle:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.554965 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("right/long_triangle4:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -193.987, -554.116 ), Vector2( -219.214, -539.357 ), Vector2( -193.987, -554.116 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("right/long_triangle4:rotation_degrees")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -166.563, -180.074, -166.563 ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("right/long_triangle4:scale")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.432783 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("long_triangle5:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2.1774, -206.683 ), Vector2( -2.1774, -206.683 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("long_triangle5:rotation_degrees")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1.845, 1.845 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("long_triangle5:scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.532096 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("right/long_triangle2:rotation_degrees")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -28.4316, -28.4316 ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("right/long_triangle2:scale")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("right/long_triangle2:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -113.839, -174.902 ), Vector2( -113.839, -174.902 ) ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath(".:scale")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("../gaurd_legs_back/back_left/long_triangle8:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("../gaurd_legs_back/back_right/long_triangle8:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("brambles/long_triangle20:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -366.117, -244.627 ), Vector2( -372.117, -246.627 ), Vector2( -366.117, -244.627 ) ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("brambles/long_triangle20:rotation_degrees")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 162.31, 172.204, 162.31 ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("brambles/long_triangle20:scale")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.18214 ) ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("brambles/long_triangle19:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -356.816, -106.785 ), Vector2( -364.816, -106.785 ), Vector2( -356.816, -106.785 ) ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("brambles/long_triangle19:rotation_degrees")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 15.2028, 2.53823, 15.2028 ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("brambles/long_triangle19:scale")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.174782 ) ]
+}
+tracks/39/type = "value"
+tracks/39/path = NodePath("brambles/long_triangle13:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray( 0, 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -521.1, -234.72 ), Vector2( -495.1, -250.72 ), Vector2( -521.1, -234.72 ) ]
+}
+tracks/40/type = "value"
+tracks/40/path = NodePath("brambles/long_triangle13:rotation_degrees")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/keys = {
+"times": PoolRealArray( 0, 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -184.736, -193.955, -184.736 ]
+}
+tracks/41/type = "value"
+tracks/41/path = NodePath("brambles/long_triangle13:scale")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/42/type = "value"
+tracks/42/path = NodePath("brambles/long_triangle12:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/keys = {
+"times": PoolRealArray( 0, 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -468.076, -71.9701 ), Vector2( -452.3, -85.9701 ), Vector2( -464.3, -71.9701 ) ]
+}
+tracks/43/type = "value"
+tracks/43/path = NodePath("brambles/long_triangle12:rotation_degrees")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/keys = {
+"times": PoolRealArray( 0, 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -35.4306, -18.7808, -35.4306 ]
+}
+tracks/44/type = "value"
+tracks/44/path = NodePath("brambles/long_triangle12:scale")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.219537 ) ]
+}
+tracks/45/type = "value"
+tracks/45/path = NodePath("brambles/long_triangle11:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -620.319, -51.315 ) ]
+}
+tracks/46/type = "value"
+tracks/46/path = NodePath("brambles/long_triangle11:rotation_degrees")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 159.313 ]
+}
+tracks/47/type = "value"
+tracks/47/path = NodePath("brambles/long_triangle11:scale")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/48/type = "value"
+tracks/48/path = NodePath("brambles/long_triangle8:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -476.266, -66.6224 ) ]
+}
+tracks/49/type = "value"
+tracks/49/path = NodePath("brambles/long_triangle8:rotation_degrees")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 53.8954 ]
+}
+tracks/50/type = "value"
+tracks/50/path = NodePath("brambles/long_triangle8:scale")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/51/type = "value"
+tracks/51/path = NodePath("brambles/long_triangle7:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -254.043, -70.8924 ) ]
+}
+tracks/52/type = "value"
+tracks/52/path = NodePath("brambles/long_triangle7:rotation_degrees")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -58.997 ]
+}
+tracks/53/type = "value"
+tracks/53/path = NodePath("brambles/long_triangle7:scale")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0771858, 0.344193 ) ]
+}
+tracks/54/type = "value"
+tracks/54/path = NodePath("brambles/long_triangle18:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -318.69, -79.7884 ) ]
+}
+tracks/55/type = "value"
+tracks/55/path = NodePath("brambles/long_triangle18:rotation_degrees")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/56/type = "value"
+tracks/56/path = NodePath("brambles/long_triangle18:scale")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.203968 ) ]
+}
+tracks/57/type = "value"
+tracks/57/path = NodePath("brambles/long_triangle9:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 172.956, -77.0697 ) ]
+}
+tracks/58/type = "value"
+tracks/58/path = NodePath("brambles/long_triangle9:rotation_degrees")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 57.4423 ]
+}
+tracks/59/type = "value"
+tracks/59/path = NodePath("brambles/long_triangle9:scale")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/60/type = "value"
+tracks/60/path = NodePath("brambles/long_triangle17:position")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 204.238, -59.1371 ) ]
+}
+tracks/61/type = "value"
+tracks/61/path = NodePath("brambles/long_triangle17:rotation_degrees")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -200.329 ]
+}
+tracks/62/type = "value"
+tracks/62/path = NodePath("brambles/long_triangle17:scale")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.16955 ) ]
+}
+tracks/63/type = "value"
+tracks/63/path = NodePath("brambles/long_triangle22:position")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/keys = {
+"times": PoolRealArray( 0, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 252.673, -71.2052 ), Vector2( 246.778, -69.0863 ), Vector2( 248.897, -71.2052 ) ]
+}
+tracks/64/type = "value"
+tracks/64/path = NodePath("brambles/long_triangle22:rotation_degrees")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/keys = {
+"times": PoolRealArray( 0, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -19.6856, -6.5325, -19.6856 ]
+}
+tracks/65/type = "value"
+tracks/65/path = NodePath("brambles/long_triangle22:scale")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.171956 ) ]
+}
+tracks/66/type = "value"
+tracks/66/path = NodePath("brambles/long_triangle21:position")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/keys = {
+"times": PoolRealArray( 0, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 248.875, -205.871 ), Vector2( 246.756, -201.633 ), Vector2( 248.875, -205.871 ) ]
+}
+tracks/67/type = "value"
+tracks/67/path = NodePath("brambles/long_triangle21:rotation_degrees")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/keys = {
+"times": PoolRealArray( 0, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 206.021, 187.564, 206.021 ]
+}
+tracks/68/type = "value"
+tracks/68/path = NodePath("brambles/long_triangle21:scale")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.172668 ) ]
+}
+tracks/69/type = "value"
+tracks/69/path = NodePath("brambles/long_triangle10:position")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 376.729, -70.3959 ) ]
+}
+tracks/70/type = "value"
+tracks/70/path = NodePath("brambles/long_triangle10:rotation_degrees")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -47.3221 ]
+}
+tracks/71/type = "value"
+tracks/71/path = NodePath("brambles/long_triangle10:scale")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/72/type = "value"
+tracks/72/path = NodePath("brambles/long_triangle15:position")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/keys = {
+"times": PoolRealArray( 0, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 384.178, -45.993 ), Vector2( 374.664, -50.7498 ), Vector2( 384.178, -45.993 ) ]
+}
+tracks/73/type = "value"
+tracks/73/path = NodePath("brambles/long_triangle15:rotation_degrees")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/keys = {
+"times": PoolRealArray( 0, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 31.7595, 24.4239, 31.7595 ]
+}
+tracks/74/type = "value"
+tracks/74/path = NodePath("brambles/long_triangle15:scale")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.191863 ) ]
+}
+tracks/75/type = "value"
+tracks/75/path = NodePath("brambles/long_triangle16:position")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/keys = {
+"times": PoolRealArray( 0, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 442.237, -190.476 ), Vector2( 421.813, -195.233 ), Vector2( 438.462, -190.476 ) ]
+}
+tracks/76/type = "value"
+tracks/76/path = NodePath("brambles/long_triangle16:rotation_degrees")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/keys = {
+"times": PoolRealArray( 0, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -172.877, -169.587, -172.877 ]
+}
+tracks/77/type = "value"
+tracks/77/path = NodePath("brambles/long_triangle16:scale")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.190741 ) ]
+}
+tracks/78/type = "value"
+tracks/78/path = NodePath("brambles/long_triangle14:position")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 313.403, -57.1838 ) ]
+}
+tracks/79/type = "value"
+tracks/79/path = NodePath("brambles/long_triangle14:scale")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0789934, 0.188561 ) ]
+}
+tracks/80/type = "value"
+tracks/80/path = NodePath("brambles/long_triangle14:rotation_degrees")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -175.944 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Twitch2"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("left/long_triangle4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -286.416, -357.871 ), Vector2( -131.819, -410.196 ), Vector2( -286.416, -357.871 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("left/long_triangle4:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -214.549, -168.284, -214.549 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("left/long_triangle4:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.367349 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("left/long_triangle2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -88.9153, -115.825 ), Vector2( -67.5095, -122.96 ), Vector2( -88.9153, -115.825 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("left/long_triangle2:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -42.1508, -26.2215, -42.1508 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("left/long_triangle2:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.192459, 0.398536 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("left/long_triangle3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -86.3238, -426.688 ), Vector2( -41.5115, -368.422 ), Vector2( -86.3238, -426.688 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("left/long_triangle3:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -191.439, -179.272, -191.439 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("left/long_triangle3:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.177205, 0.3983 ), Vector2( 0.177205, 0.319131 ), Vector2( 0.177205, 0.3983 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("left/long_triangle:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -5.31183, -132.919 ), Vector2( 1.25445, -117.727 ), Vector2( -5.31183, -132.919 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("left/long_triangle:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -23.3755, -23.3755, -23.3755 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("left/long_triangle:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.379618 ), Vector2( 0.192459, 0.335544 ), Vector2( 0.192459, 0.379618 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("long_triangle6:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -5.43367, -422.105 ), Vector2( 3.94987, -410.086 ), Vector2( -7.21553, -422.105 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("long_triangle6:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 177.668, 177.668, 177.668 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("long_triangle6:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.363577 ), Vector2( 0.192459, 0.255473 ), Vector2( 0.192459, 0.363577 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("long_triangle5:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2.02586, -137.552 ), Vector2( 0.964837, -156.56 ), Vector2( -2.02586, -137.552 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("long_triangle5:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1.845, 1.845, 1.845 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("long_triangle5:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.347896 ), Vector2( 0.192459, 0.398542 ), Vector2( 0.192459, 0.347896 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("right/long_triangle:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.323963 ), Vector2( 0.192459, 0.303145 ), Vector2( 0.192459, 0.323963 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("right/long_triangle3:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -108.493, -436.965 ), Vector2( -21.6991, -391.652 ), Vector2( -108.493, -436.965 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("right/long_triangle3:rotation_degrees")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -190.865, -174.506, -190.865 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("right/long_triangle3:scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.177205, 0.405046 ), Vector2( 0.177205, 0.360002 ), Vector2( 0.177205, 0.405046 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("right/long_triangle4:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -230.536, -382.879 ), Vector2( -248.967, -378.737 ), Vector2( -230.536, -382.879 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("right/long_triangle4:rotation_degrees")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -193.225, -206.72, -193.225 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("right/long_triangle4:scale")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.20138, 0.392255 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("right/long_triangle2:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -79.6531, -114.617 ), Vector2( -82.9805, -120.148 ), Vector2( -79.6531, -114.617 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("right/long_triangle2:rotation_degrees")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -36.8762, -44.7014 ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("right/long_triangle2:scale")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.192459, 0.397259 ) ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("../gaurd_legs_back/back_right/long_triangle8:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("../gaurd_legs_back/back_right/long_triangle8:rotation_degrees")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("../gaurd_legs_back/back_right/long_triangle8:scale")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("../gaurd_legs_back/back_right/long_triangle7:position")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("../gaurd_legs_back/back_right/long_triangle7:rotation_degrees")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("../gaurd_legs_back/back_right/long_triangle7:scale")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("../gaurd_legs_back/back_left/long_triangle8:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("../gaurd_legs_back/back_left/long_triangle8:rotation_degrees")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("../gaurd_legs_back/back_left/long_triangle8:scale")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("../gaurd_legs_back/back_left/long_triangle7:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("../gaurd_legs_back/back_left/long_triangle7:rotation_degrees")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/39/type = "value"
+tracks/39/path = NodePath("../gaurd_legs_back/back_left/long_triangle7:scale")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/40/type = "value"
+tracks/40/path = NodePath("right/long_triangle:position")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -20.7742, -162.149 ), Vector2( -8.50165, -131.427 ), Vector2( -20.7742, -162.149 ) ]
+}
+tracks/41/type = "value"
+tracks/41/path = NodePath("right/long_triangle:rotation_degrees")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -23.3755, -14.1355, -23.3755 ]
+}
+tracks/42/type = "value"
+tracks/42/path = NodePath("brambles/long_triangle11:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -612.82, -31.4546 ) ]
+}
+tracks/43/type = "value"
+tracks/43/path = NodePath("brambles/long_triangle11:rotation_degrees")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 159.313 ]
+}
+tracks/44/type = "value"
+tracks/44/path = NodePath("brambles/long_triangle11:scale")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/45/type = "value"
+tracks/45/path = NodePath("brambles/long_triangle13:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -485.37, -162.781 ), Vector2( -490.127, -153.267 ), Vector2( -485.37, -162.781 ) ]
+}
+tracks/46/type = "value"
+tracks/46/path = NodePath("brambles/long_triangle13:rotation_degrees")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -187.919, -199.382, -187.919 ]
+}
+tracks/47/type = "value"
+tracks/47/path = NodePath("brambles/long_triangle13:scale")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.148707 ) ]
+}
+tracks/48/type = "value"
+tracks/48/path = NodePath("brambles/long_triangle12:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -444.085, -47.3095 ), Vector2( -444.085, -47.3095 ), Vector2( -444.085, -47.3095 ) ]
+}
+tracks/49/type = "value"
+tracks/49/path = NodePath("brambles/long_triangle12:rotation_degrees")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -35.4306, -28.8357, -35.4306 ]
+}
+tracks/50/type = "value"
+tracks/50/path = NodePath("brambles/long_triangle12:scale")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.138937 ) ]
+}
+tracks/51/type = "value"
+tracks/51/path = NodePath("brambles/long_triangle8:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -428.271, -53.0105 ) ]
+}
+tracks/52/type = "value"
+tracks/52/path = NodePath("brambles/long_triangle8:rotation_degrees")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/53/type = "value"
+tracks/53/path = NodePath("brambles/long_triangle8:scale")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.303942 ) ]
+}
+tracks/54/type = "value"
+tracks/54/path = NodePath("brambles/long_triangle20:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -369.028, -165.115 ), Vector2( -377.945, -157.98 ), Vector2( -370.809, -165.115 ) ]
+}
+tracks/55/type = "value"
+tracks/55/path = NodePath("brambles/long_triangle20:rotation_degrees")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/keys = {
+"times": PoolRealArray( 0, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 162.31, 169.411, 162.31 ]
+}
+tracks/56/type = "value"
+tracks/56/path = NodePath("brambles/long_triangle20:scale")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.114697 ) ]
+}
+tracks/57/type = "value"
+tracks/57/path = NodePath("brambles/long_triangle19:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/keys = {
+"times": PoolRealArray( 0, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -365.012, -68.6158 ), Vector2( -372.147, -66.2374 ), Vector2( -365.012, -68.6158 ) ]
+}
+tracks/58/type = "value"
+tracks/58/path = NodePath("brambles/long_triangle19:rotation_degrees")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/keys = {
+"times": PoolRealArray( 0, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 15.2028, 1.04854, 15.2028 ]
+}
+tracks/59/type = "value"
+tracks/59/path = NodePath("brambles/long_triangle19:scale")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.110238 ) ]
+}
+tracks/60/type = "value"
+tracks/60/path = NodePath("brambles/long_triangle18:position")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -329.751, -57.651 ) ]
+}
+tracks/61/type = "value"
+tracks/61/path = NodePath("brambles/long_triangle18:rotation_degrees")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -161.785 ]
+}
+tracks/62/type = "value"
+tracks/62/path = NodePath("brambles/long_triangle18:scale")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.141904 ) ]
+}
+tracks/63/type = "value"
+tracks/63/path = NodePath("brambles/long_triangle7:position")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -220.87, -52.0284 ) ]
+}
+tracks/64/type = "value"
+tracks/64/path = NodePath("brambles/long_triangle7:rotation_degrees")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -58.997 ]
+}
+tracks/65/type = "value"
+tracks/65/path = NodePath("brambles/long_triangle7:scale")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/66/type = "value"
+tracks/66/path = NodePath("brambles/long_triangle9:position")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 106.936, -29.3969 ) ]
+}
+tracks/67/type = "value"
+tracks/67/path = NodePath("brambles/long_triangle9:rotation_degrees")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/68/type = "value"
+tracks/68/path = NodePath("brambles/long_triangle9:scale")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.118661 ) ]
+}
+tracks/69/type = "value"
+tracks/69/path = NodePath("brambles/long_triangle10:position")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 253.93, -23.4508 ) ]
+}
+tracks/70/type = "value"
+tracks/70/path = NodePath("brambles/long_triangle10:rotation_degrees")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -67.832 ]
+}
+tracks/71/type = "value"
+tracks/71/path = NodePath("brambles/long_triangle10:scale")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.268941 ) ]
+}
+tracks/72/type = "value"
+tracks/72/path = NodePath("brambles/long_triangle17:position")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 212.564, -36.663 ) ]
+}
+tracks/73/type = "value"
+tracks/73/path = NodePath("brambles/long_triangle17:rotation_degrees")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/74/type = "value"
+tracks/74/path = NodePath("brambles/long_triangle17:scale")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.105724 ) ]
+}
+tracks/75/type = "value"
+tracks/75/path = NodePath("brambles/long_triangle21:position")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 262.364, -147.037 ), Vector2( 271.878, -147.037 ), Vector2( 262.364, -147.037 ) ]
+}
+tracks/76/type = "value"
+tracks/76/path = NodePath("brambles/long_triangle21:rotation_degrees")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 206.021, 190.605, 206.021 ]
+}
+tracks/77/type = "value"
+tracks/77/path = NodePath("brambles/long_triangle21:scale")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.124902 ) ]
+}
+tracks/78/type = "value"
+tracks/78/path = NodePath("brambles/long_triangle22:position")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 256.46, -50.0676 ), Vector2( 265.974, -50.0676 ), Vector2( 256.46, -50.0676 ) ]
+}
+tracks/79/type = "value"
+tracks/79/path = NodePath("brambles/long_triangle22:rotation_degrees")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/keys = {
+"times": PoolRealArray( 0, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -19.6856, -5.69857, -19.6856 ]
+}
+tracks/80/type = "value"
+tracks/80/path = NodePath("brambles/long_triangle22:scale")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0751949, 0.11217 ) ]
+}
+tracks/81/type = "value"
+tracks/81/path = NodePath("brambles/long_triangle14:position")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 311.956, -36.7809 ) ]
+}
+tracks/82/type = "value"
+tracks/82/path = NodePath("brambles/long_triangle14:rotation_degrees")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -175.944 ]
+}
+tracks/83/type = "value"
+tracks/83/path = NodePath("brambles/long_triangle14:scale")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0789934, 0.13409 ) ]
+}
+tracks/84/type = "value"
+tracks/84/path = NodePath("brambles/long_triangle15:position")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 373.596, -28.8983 ), Vector2( 364.082, -36.0336 ), Vector2( 373.596, -28.8983 ) ]
+}
+tracks/85/type = "value"
+tracks/85/path = NodePath("brambles/long_triangle15:rotation_degrees")
+tracks/85/interp = 1
+tracks/85/loop_wrap = true
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 31.7595, 19.8731, 31.7595 ]
+}
+tracks/86/type = "value"
+tracks/86/path = NodePath("brambles/long_triangle15:scale")
+tracks/86/interp = 1
+tracks/86/loop_wrap = true
+tracks/86/imported = false
+tracks/86/enabled = true
+tracks/86/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.138321 ) ]
+}
+tracks/87/type = "value"
+tracks/87/path = NodePath("brambles/long_triangle16:position")
+tracks/87/interp = 1
+tracks/87/loop_wrap = true
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 408.829, -137.616 ), Vector2( 399.315, -135.238 ), Vector2( 408.829, -137.616 ) ]
+}
+tracks/88/type = "value"
+tracks/88/path = NodePath("brambles/long_triangle16:rotation_degrees")
+tracks/88/interp = 1
+tracks/88/loop_wrap = true
+tracks/88/imported = false
+tracks/88/enabled = true
+tracks/88/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -172.877, -160.761, -172.877 ]
+}
+tracks/89/type = "value"
+tracks/89/path = NodePath("brambles/long_triangle16:scale")
+tracks/89/interp = 1
+tracks/89/loop_wrap = true
+tracks/89/imported = false
+tracks/89/enabled = true
+tracks/89/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.0751949, 0.121957 ) ]
+}
 
 [node name="guard_legs" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ -1121.29 ]
 }
 
+[node name="brambles" type="Node2D" parent="."]
+
+[node name="long_triangle7" type="Sprite" parent="brambles"]
+position = Vector2( -220.87, -52.0284 )
+rotation = -1.02969
+scale = Vector2( 0.0771858, 0.246661 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle8" type="Sprite" parent="brambles"]
+position = Vector2( -428.271, -53.0105 )
+rotation = 1.23122
+scale = Vector2( 0.0751949, 0.303942 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle9" type="Sprite" parent="brambles"]
+position = Vector2( 106.936, -29.3969 )
+rotation = 1.08983
+scale = Vector2( 0.0751949, 0.118661 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle20" type="Sprite" parent="brambles"]
+position = Vector2( -369.028, -165.115 )
+rotation = 2.83284
+scale = Vector2( 0.0751949, 0.114697 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle10" type="Sprite" parent="brambles"]
+position = Vector2( 253.93, -23.4508 )
+rotation = -1.18389
+scale = Vector2( 0.0751949, 0.268941 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle11" type="Sprite" parent="brambles"]
+position = Vector2( -612.82, -31.4546 )
+rotation = 2.78054
+scale = Vector2( 0.0751949, 0.137893 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle12" type="Sprite" parent="brambles"]
+position = Vector2( -444.085, -47.3095 )
+rotation = -0.618381
+scale = Vector2( 0.0751949, 0.138937 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle19" type="Sprite" parent="brambles"]
+position = Vector2( -365.012, -68.6158 )
+rotation = 0.265339
+scale = Vector2( 0.0751949, 0.110238 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle21" type="Sprite" parent="brambles"]
+position = Vector2( 262.364, -147.037 )
+rotation = 3.59574
+scale = Vector2( 0.0751949, 0.124902 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle22" type="Sprite" parent="brambles"]
+position = Vector2( 256.46, -50.0676 )
+rotation = -0.343579
+scale = Vector2( 0.0751949, 0.11217 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle13" type="Sprite" parent="brambles"]
+position = Vector2( -485.37, -162.781 )
+rotation = -3.27981
+scale = Vector2( 0.0751949, 0.148707 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle14" type="Sprite" parent="brambles"]
+position = Vector2( 311.956, -36.7809 )
+rotation = -3.0708
+scale = Vector2( 0.0789934, 0.13409 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle17" type="Sprite" parent="brambles"]
+position = Vector2( 212.564, -36.663 )
+rotation = -3.4964
+scale = Vector2( 0.0751949, 0.105724 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle18" type="Sprite" parent="brambles"]
+position = Vector2( -329.751, -57.651 )
+rotation = -2.82368
+scale = Vector2( 0.0751949, 0.141904 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle15" type="Sprite" parent="brambles"]
+position = Vector2( 373.596, -28.8983 )
+rotation = 0.554308
+scale = Vector2( 0.0751949, 0.138321 )
+texture = ExtResource( 1 )
+
+[node name="long_triangle16" type="Sprite" parent="brambles"]
+position = Vector2( 408.829, -137.616 )
+rotation = -3.01727
+scale = Vector2( 0.0751949, 0.121957 )
+texture = ExtResource( 1 )
+
 [node name="left" type="Node2D" parent="."]
 position = Vector2( -62.8579, 2.245 )
 
 [node name="long_triangle2" type="Sprite" parent="left"]
-position = Vector2( -152.996, -252.577 )
-rotation = -0.496225
-scale = Vector2( 0.192459, 0.749426 )
+position = Vector2( -88.9153, -115.825 )
+rotation = -0.73567
+scale = Vector2( 0.192459, 0.398536 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle" type="Sprite" parent="left"]
-position = Vector2( -49.3608, -234.83 )
+position = Vector2( -5.31183, -132.919 )
 rotation = -0.407979
-scale = Vector2( 0.192459, 0.675286 )
+scale = Vector2( 0.192459, 0.379618 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle4" type="Sprite" parent="left"]
-position = Vector2( -191.111, -763.983 )
-rotation = -2.77162
-scale = Vector2( 0.192459, 0.548039 )
+position = Vector2( -286.416, -357.871 )
+rotation = -3.74459
+scale = Vector2( 0.192459, 0.367349 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle3" type="Sprite" parent="left"]
-position = Vector2( -116.867, -738.551 )
-rotation = -2.99804
-scale = Vector2( 0.177205, 0.675286 )
+position = Vector2( -86.3238, -426.688 )
+rotation = -3.34124
+scale = Vector2( 0.177205, 0.3983 )
 texture = ExtResource( 1 )
 
 [node name="right" type="Node2D" parent="."]
@@ -2820,45 +7839,47 @@ position = Vector2( 47.1434, 11.2247 )
 scale = Vector2( -1, 1 )
 
 [node name="long_triangle2" type="Sprite" parent="right"]
-position = Vector2( -156.677, -254.025 )
-rotation = -0.496225
-scale = Vector2( 0.192459, 0.746218 )
+position = Vector2( -79.6531, -114.617 )
+rotation = -0.780187
+scale = Vector2( 0.192459, 0.397259 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle" type="Sprite" parent="right"]
-position = Vector2( -52.1893, -234.83 )
+position = Vector2( -20.7742, -162.149 )
 rotation = -0.407979
-scale = Vector2( 0.192459, 0.675286 )
+scale = Vector2( 0.192459, 0.323963 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle4" type="Sprite" parent="right"]
-position = Vector2( -191.111, -763.983 )
-rotation = -2.77162
-scale = Vector2( 0.192459, 0.620563 )
+position = Vector2( -230.536, -382.879 )
+rotation = -3.37241
+scale = Vector2( 0.20138, 0.392255 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle3" type="Sprite" parent="right"]
-position = Vector2( -116.867, -738.551 )
-rotation = -2.99804
-scale = Vector2( 0.177205, 0.675286 )
+position = Vector2( -108.493, -436.965 )
+rotation = -3.33122
+scale = Vector2( 0.177205, 0.405046 )
 texture = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Shrink1 = SubResource( 1 )
 anims/Shrink2 = SubResource( 2 )
 anims/Shrink3 = SubResource( 3 )
-anims/StateShake2 = SubResource( 4 )
 anims/StateShrink1 = SubResource( 5 )
-anims/Twitch = SubResource( 6 )
+anims/StateShrink2 = SubResource( 4 )
+anims/Twitch0 = SubResource( 6 )
+anims/Twitch1 = SubResource( 7 )
+anims/Twitch2 = SubResource( 8 )
 
 [node name="long_triangle5" type="Sprite" parent="."]
-position = Vector2( -1.13511, -239.04 )
+position = Vector2( -2.02586, -137.552 )
 rotation = 0.0322013
-scale = Vector2( 0.192459, 0.61831 )
+scale = Vector2( 0.192459, 0.347896 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle6" type="Sprite" parent="."]
-position = Vector2( -0.79675, -727.301 )
+position = Vector2( -5.43367, -422.105 )
 rotation = 3.10089
-scale = Vector2( 0.192459, 0.678175 )
+scale = Vector2( 0.192459, 0.363577 )
 texture = ExtResource( 1 )

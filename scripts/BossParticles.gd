@@ -26,12 +26,21 @@ func _ready():
 	else:
 		print("we are flying")
 		$AnimationPlayer.play("Flying")
+func die_with_particles():
+	var particles = load("res://scenes/assets/BossParticleExplosion.tscn")
+	var part = particles.instance()
+	part.position = position
+	get_parent().add_child(part)
+	#actually start the particles emiting
+	part.get_node("AnimationPlayer").play("Timing")
+	queue_free()
+	
 func queue_free():
 	emit_signal("death")
 	.queue_free()
 var speed = 1.0
-var accel = 200.0
-var top_speed = 400
+var accel = 400.0
+var top_speed = 800.0
 
 func _process(delta):
 	if flying:

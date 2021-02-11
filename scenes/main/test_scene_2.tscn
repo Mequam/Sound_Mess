@@ -56,7 +56,7 @@ script = ExtResource( 9 )
 position = Vector2( 150.835, -136.456 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 47.2553, -842.77 )
+position = Vector2( 722.009, -1531.5 )
 
 [node name="SiloBoss" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1755.84, -769.858 )
@@ -69,6 +69,7 @@ position = Vector2( 879.904, -555.469 )
 
 [node name="tall_grass3" parent="." instance=ExtResource( 17 )]
 position = Vector2( 1019.59, -641.189 )
+rotation = -0.00300805
 
 [node name="tall_grass4" parent="." instance=ExtResource( 17 )]
 position = Vector2( 844.981, -691.986 )
@@ -92,5 +93,5 @@ position = Vector2( -309.214, -144.926 )
 position = Vector2( -52.3251, -128.434 )
 
 [node name="BunnyBlocker" parent="." instance=ExtResource( 20 )]
-position = Vector2( 349.29, -912.983 )
+position = Vector2( 441.391, -1027.45 )
 [connection signal="completed_dialog" from="bunnyDoorSwitch/singingSwitch/DialogChoiceList" to="bunnyDoorSwitch/singingSwitch" method="_on_DialogChoiceList_completed_dialog"]

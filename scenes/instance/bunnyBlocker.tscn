@@ -7,7 +7,7 @@
 [ext_resource path="res://scripts/CamaraPoint.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 91.2936, 17.6364 )
+extents = Vector2( 310.906, 17.6364 )
 
 [node name="BunnyBlocker" type="StaticBody2D"]
 script = ExtResource( 1 )
@@ -23,5 +23,8 @@ script = ExtResource( 4 )
 
 [node name="CamaraPoint" parent="." instance=ExtResource( 5 )]
 position = Vector2( -10.0907, -430.539 )
+
+[node name="Timer" type="Timer" parent="."]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="camara_arrived" from="CamaraPoint" to="." method="_on_CamaraPoint_camara_arrived"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
