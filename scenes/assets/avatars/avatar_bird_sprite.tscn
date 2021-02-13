@@ -1,19 +1,20 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://assets/animations/avatars/bird/front_bird0.png" type="Texture" id=1]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird1.png" type="Texture" id=2]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird2.png" type="Texture" id=3]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird_right3.png" type="Texture" id=4]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird_right2.png" type="Texture" id=5]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird3.png" type="Texture" id=6]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird_right1.png" type="Texture" id=7]
-[ext_resource path="res://assets/animations/avatars/bird/flapped_wing1.png" type="Texture" id=8]
-[ext_resource path="res://assets/animations/avatars/bird/flapped_wing2.png" type="Texture" id=9]
-[ext_resource path="res://assets/animations/avatars/bird/flight_front2.png" type="Texture" id=10]
-[ext_resource path="res://assets/animations/avatars/bird/flight_front1.png" type="Texture" id=11]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/center_frame0.png" type="Texture" id=1]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/left_bird1.png" type="Texture" id=2]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/left_bird2.png" type="Texture" id=3]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/right_return.png" type="Texture" id=4]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/right_bird2.png" type="Texture" id=5]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/left_return.png" type="Texture" id=6]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/right_bird1.png" type="Texture" id=7]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/flapped_wing1.png" type="Texture" id=8]
+[ext_resource path="res://assets/animations/avatars/bird/FlightFront/flight_front1.png" type="Texture" id=9]
+[ext_resource path="res://assets/animations/avatars/bird/FlightFront/flight_front2.png" type="Texture" id=10]
+[ext_resource path="res://assets/animations/avatars/bird/FlightFront/flight_front4.png" type="Texture" id=11]
+[ext_resource path="res://assets/animations/avatars/bird/FlightFront/flight_front3.png" type="Texture" id=12]
+[ext_resource path="res://assets/animations/avatars/bird/idle_side/side_idle0.png" type="Texture" id=13]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Fly_Front"
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -23,10 +24,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+"values": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -57,11 +58,28 @@ tracks/1/keys = {
 "values": [  ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "Idle_Side"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 13 ) ]
+}
+
 [node name="Sprite" type="Sprite"]
 position = Vector2( 2.80078, -44.5131 )
 scale = Vector2( 0.15, 0.15 )
-texture = ExtResource( 9 )
+texture = ExtResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fly_Front = SubResource( 1 )
 anims/Idle = SubResource( 2 )
+anims/Idle_Side = SubResource( 3 )

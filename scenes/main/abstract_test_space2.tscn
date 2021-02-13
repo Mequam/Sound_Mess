@@ -1,13 +1,23 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://assets/animations/avatars/bird/front_bird0.png" type="Texture" id=1]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird1.png" type="Texture" id=2]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird2.png" type="Texture" id=3]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird_right3.png" type="Texture" id=4]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird_right2.png" type="Texture" id=5]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird3.png" type="Texture" id=6]
-[ext_resource path="res://assets/animations/avatars/bird/front_bird_right1.png" type="Texture" id=7]
-[ext_resource path="res://assets/animations/avatars/bird/flapped_wing1.png" type="Texture" id=8]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/center_frame0.png" type="Texture" id=1]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/left_bird1.png" type="Texture" id=2]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/left_bird2.png" type="Texture" id=3]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/right_return.png" type="Texture" id=4]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/right_bird2.png" type="Texture" id=5]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/left_return.png" type="Texture" id=6]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/right_bird1.png" type="Texture" id=7]
+[ext_resource path="res://assets/animations/avatars/bird/Idle/flapped_wing1.png" type="Texture" id=8]
+
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
