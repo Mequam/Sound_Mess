@@ -7,6 +7,7 @@
 
 [node name="BBSprite" type="Node2D"]
 position = Vector2( 2.99661, 5.99323 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 5 )
 
 [node name="guard_legs2" parent="." instance=ExtResource( 2 )]

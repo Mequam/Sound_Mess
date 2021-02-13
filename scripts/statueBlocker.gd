@@ -13,7 +13,6 @@ var toSpawn : int
 func _ready():
 	#load in the number of bosses which we have animated for (killed)
 	$save_state_node.load_data()
-	print("[blocker statue] anim_killed " + str(anim_killed))
 	total_killed = $save_state_node.get_boss_kill_count(bosses)
 	
 	if total_killed < anim_killed:
@@ -66,8 +65,6 @@ func _on_Sprite_animation_finished(anim):
 		#save the fact that we animated those bosses
 		$save_state_node.save_data()
 		#play the appropriate twitch animation
-		print("[blocker statue] finishing with anim_killed" + str(anim_killed))
-		print("[blocker statue] playing Twitch" + str(anim_killed))
 		$Sprite.play("Twitch" + str(anim_killed))
 		#return the camara to it's proper position
 		get_tree().get_nodes_in_group("player")[0].get_node("Camera2D").position = Vector2(0,0)

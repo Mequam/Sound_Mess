@@ -7712,126 +7712,126 @@ __meta__ = {
 [node name="brambles" type="Node2D" parent="."]
 
 [node name="long_triangle7" type="Sprite" parent="brambles"]
-position = Vector2( -220.87, -52.0284 )
+position = Vector2( -254.043, -70.8924 )
 rotation = -1.02969
-scale = Vector2( 0.0771858, 0.246661 )
+scale = Vector2( 0.0771858, 0.344193 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle8" type="Sprite" parent="brambles"]
-position = Vector2( -428.271, -53.0105 )
-rotation = 1.23122
+position = Vector2( -476.266, -66.6224 )
+rotation = 0.940652
 scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle9" type="Sprite" parent="brambles"]
-position = Vector2( 106.936, -29.3969 )
-rotation = 1.08983
-scale = Vector2( 0.0751949, 0.118661 )
+position = Vector2( 172.956, -77.0697 )
+rotation = 1.00256
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle20" type="Sprite" parent="brambles"]
-position = Vector2( -369.028, -165.115 )
-rotation = 2.83284
-scale = Vector2( 0.0751949, 0.114697 )
+position = Vector2( -419.745, -304.561 )
+rotation = 2.3149
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle10" type="Sprite" parent="brambles"]
-position = Vector2( 253.93, -23.4508 )
-rotation = -1.18389
-scale = Vector2( 0.0751949, 0.268941 )
+position = Vector2( 376.729, -70.3959 )
+rotation = -0.825926
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle11" type="Sprite" parent="brambles"]
-position = Vector2( -612.82, -31.4546 )
+position = Vector2( -634.846, -89.7858 )
 rotation = 2.78054
-scale = Vector2( 0.0751949, 0.137893 )
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle12" type="Sprite" parent="brambles"]
-position = Vector2( -444.085, -47.3095 )
+position = Vector2( -482.674, -97.7949 )
 rotation = -0.618381
-scale = Vector2( 0.0751949, 0.138937 )
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle19" type="Sprite" parent="brambles"]
-position = Vector2( -365.012, -68.6158 )
+position = Vector2( -356.816, -106.785 )
 rotation = 0.265339
-scale = Vector2( 0.0751949, 0.110238 )
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle21" type="Sprite" parent="brambles"]
-position = Vector2( 262.364, -147.037 )
-rotation = 3.59574
-scale = Vector2( 0.0751949, 0.124902 )
+position = Vector2( 293.127, -301.079 )
+rotation = 3.98904
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle22" type="Sprite" parent="brambles"]
-position = Vector2( 256.46, -50.0676 )
+position = Vector2( 246.069, -96.661 )
 rotation = -0.343579
-scale = Vector2( 0.0751949, 0.11217 )
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle13" type="Sprite" parent="brambles"]
-position = Vector2( -485.37, -162.781 )
-rotation = -3.27981
-scale = Vector2( 0.0751949, 0.148707 )
+position = Vector2( -514.71, -314.039 )
+rotation = -2.76565
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle14" type="Sprite" parent="brambles"]
-position = Vector2( 311.956, -36.7809 )
+position = Vector2( 315.56, -100.465 )
 rotation = -3.0708
-scale = Vector2( 0.0789934, 0.13409 )
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle17" type="Sprite" parent="brambles"]
-position = Vector2( 212.564, -36.663 )
+position = Vector2( 192.973, -89.5423 )
 rotation = -3.4964
-scale = Vector2( 0.0751949, 0.105724 )
+scale = Vector2( 0.0751949, 0.255901 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle18" type="Sprite" parent="brambles"]
-position = Vector2( -329.751, -57.651 )
+position = Vector2( -310.732, -115.448 )
 rotation = -2.82368
-scale = Vector2( 0.0751949, 0.141904 )
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle15" type="Sprite" parent="brambles"]
-position = Vector2( 373.596, -28.8983 )
+position = Vector2( 406.33, -81.7768 )
 rotation = 0.554308
-scale = Vector2( 0.0751949, 0.138321 )
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle16" type="Sprite" parent="brambles"]
-position = Vector2( 408.829, -137.616 )
+position = Vector2( 489.09, -300.691 )
 rotation = -3.01727
-scale = Vector2( 0.0751949, 0.121957 )
+scale = Vector2( 0.0751949, 0.303942 )
 texture = ExtResource( 1 )
 
 [node name="left" type="Node2D" parent="."]
 position = Vector2( -62.8579, 2.245 )
 
 [node name="long_triangle2" type="Sprite" parent="left"]
-position = Vector2( -88.9153, -115.825 )
-rotation = -0.73567
-scale = Vector2( 0.192459, 0.398536 )
+position = Vector2( -152.996, -252.577 )
+rotation = -0.496225
+scale = Vector2( 0.192459, 0.749426 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle" type="Sprite" parent="left"]
-position = Vector2( -5.31183, -132.919 )
+position = Vector2( -49.3608, -234.83 )
 rotation = -0.407979
-scale = Vector2( 0.192459, 0.379618 )
+scale = Vector2( 0.192459, 0.675286 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle4" type="Sprite" parent="left"]
-position = Vector2( -286.416, -357.871 )
-rotation = -3.74459
-scale = Vector2( 0.192459, 0.367349 )
+position = Vector2( -191.111, -763.983 )
+rotation = -2.77162
+scale = Vector2( 0.192459, 0.548039 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle3" type="Sprite" parent="left"]
-position = Vector2( -86.3238, -426.688 )
-rotation = -3.34124
-scale = Vector2( 0.177205, 0.3983 )
+position = Vector2( -116.867, -738.551 )
+rotation = -2.99804
+scale = Vector2( 0.177205, 0.675286 )
 texture = ExtResource( 1 )
 
 [node name="right" type="Node2D" parent="."]
@@ -7839,27 +7839,27 @@ position = Vector2( 47.1434, 11.2247 )
 scale = Vector2( -1, 1 )
 
 [node name="long_triangle2" type="Sprite" parent="right"]
-position = Vector2( -79.6531, -114.617 )
-rotation = -0.780187
-scale = Vector2( 0.192459, 0.397259 )
+position = Vector2( -156.104, -252.966 )
+rotation = -0.496225
+scale = Vector2( 0.192459, 0.746218 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle" type="Sprite" parent="right"]
-position = Vector2( -20.7742, -162.149 )
+position = Vector2( -52.1893, -234.83 )
 rotation = -0.407979
-scale = Vector2( 0.192459, 0.323963 )
+scale = Vector2( 0.192459, 0.675286 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle4" type="Sprite" parent="right"]
-position = Vector2( -230.536, -382.879 )
-rotation = -3.37241
-scale = Vector2( 0.20138, 0.392255 )
+position = Vector2( -191.111, -763.983 )
+rotation = -2.77162
+scale = Vector2( 0.192459, 0.620563 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle3" type="Sprite" parent="right"]
-position = Vector2( -108.493, -436.965 )
-rotation = -3.33122
-scale = Vector2( 0.177205, 0.405046 )
+position = Vector2( -99.925, -737.359 )
+rotation = -2.89199
+scale = Vector2( 0.177205, 0.675286 )
 texture = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -7873,13 +7873,13 @@ anims/Twitch1 = SubResource( 7 )
 anims/Twitch2 = SubResource( 8 )
 
 [node name="long_triangle5" type="Sprite" parent="."]
-position = Vector2( -2.02586, -137.552 )
+position = Vector2( -1.13511, -239.04 )
 rotation = 0.0322013
-scale = Vector2( 0.192459, 0.347896 )
+scale = Vector2( 0.192459, 0.61831 )
 texture = ExtResource( 1 )
 
 [node name="long_triangle6" type="Sprite" parent="."]
-position = Vector2( -5.43367, -422.105 )
+position = Vector2( -0.79675, -727.301 )
 rotation = 3.10089
-scale = Vector2( 0.192459, 0.363577 )
+scale = Vector2( 0.192459, 0.678175 )
 texture = ExtResource( 1 )
