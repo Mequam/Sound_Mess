@@ -47,9 +47,12 @@ func get_talking():
 #additionaly need to add the fourier transform or "tuner" input method
 var input_mode = "dev"
 
+signal rythom_score_changed
 #used to score how well we are keeping track of rythom
 var rythom_score = 0 setget set_rythom_score,get_rythom_score
 func set_rythom_score(val):
+	if val != rythom_score:
+		emit_signal("rythom_score_changed",rythom_score)
 	rythom_score = val
 func get_rythom_score():
 	return rythom_score
@@ -100,13 +103,13 @@ func updateRythomMomentom():
 	var beat_value = checkInputRythom()
 	if (beat_value != -100):
 		last_beat = beat_value
-		rythom_score += 1
+		set_rythom_score(rythom_score+1)
 	else:
-		rythom_score -= 2
+		set_rythom_score(rythom_score-2)
 	if (rythom_score < -2):
-		rythom_score = -2
+		set_rythom_score(-2)
 	if (rythom_score > 4):
-		rythom_score = 4
+		set_rythom_score(4)
 
 #this function moves us in the given direction for player control
 func move_dir(dir,delta):
@@ -143,14 +146,13 @@ func move_2d(delta,input_number,flavor):
 			to_move.y += 1
 		3:
 			to_move.y -= 1
-	if (to_move != Vector2(0,0)):
-		var mult = 1
-		if (rythom_score >= 1):
-			#let the avatar decide what our flavors do
-			mult=$avatar.run_flavor(flavor,to_move,delta)
-			#mult=$avatar.run_flavor(flavor,to_move,delta)
-		move_dir(to_move*mult,delta)
-		$avatar.clean_flavor(flavor,to_move,delta)
+	var mult = 1
+	if (rythom_score >= 1):
+		#let the avatar decide what our flavors do
+		mult=$avatar.run_flavor(flavor,to_move,delta)
+		#mult=$avatar.run_flavor(flavor,to_move,delta)
+	move_dir(to_move*mult,delta)
+	$avatar.clean_flavor(flavor,to_move,delta)
 
 #decide what to do with the thing we hit
 func collision_action(collision):

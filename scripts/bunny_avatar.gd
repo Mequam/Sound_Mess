@@ -20,8 +20,8 @@ func run_six(to_move,delta):
 	var parent = get_parent()
 	
 	#you are now on the burrow layer
-	parent.collision_mask = parent.col_math.shift_collision(parent.gen_col_mask(),1)
-	parent.collision_layer = parent.col_math.shift_collision(parent.gen_col_layer(),1)
+	parent.collision_mask = parent.col_math.shift_collision(parent.gen_col_mask(),parent.col_math.SuperLayer.BURROW)
+	parent.collision_layer = parent.col_math.shift_collision(parent.gen_col_layer(),parent.col_math.SuperLayer.BURROW)
 	
 	var player_health_bar = parent.get_node("health_bar")
 	
@@ -75,7 +75,6 @@ func anim_finished(anim):
 		.anim_finished(anim)
 func _ready():
 	.init()
-
 func dir_anim(dir,prefix=""):
 	if (running_7):
 		.dir_anim(dir,"High_")

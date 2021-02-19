@@ -54,9 +54,5 @@ func run(player_position,beat):
 			queue_free()
 		buff = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func _on_push_zone_area_entered(area):
 	print("made contact with " + str(area))

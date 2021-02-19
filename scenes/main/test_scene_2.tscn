@@ -32,7 +32,7 @@ script = ExtResource( 3 )
 tile_data = PoolIntArray( -65540, 2, 0, -65539, 2, 0, -5, 20, 0, -4, 0, 0, -3, 0, 0, -2, 1, 0, 65531, 15, 0, 65532, 0, 0, 65533, 0, 0, 65534, 1, 0, 65535, 11, 0, 131067, 15, 0, 131068, 0, 0, 131069, 3, 0, 131070, 2, 0, 131071, 0, 0, 65536, 1, 0, 196603, 15, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 1, 0, 262138, 0, 0, 262139, 18, 0, 262140, 0, 0, 262141, 0, 0, 262142, 1, 0, 327674, 0, 0, 327675, 15, 0, 327676, 0, 0, 327677, 1, 0, 393209, 0, 0, 393210, 0, 0, 393211, 17, 0, 458745, 0, 0, 458746, 3, 0, 458747, 2, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 1, 0, 589819, 0, 0, 589820, 1, 0 )
 
 [node name="Met" parent="." instance=ExtResource( 6 )]
-position = Vector2( 116.487, -150.542 )
+position = Vector2( 121.244, -150.542 )
 
 [node name="bunnyDoorSwitch" parent="." instance=ExtResource( 14 )]
 position = Vector2( -1075.66, 112.077 )
@@ -55,10 +55,16 @@ position = Vector2( -1224.34, 302.722 )
 script = ExtResource( 9 )
 
 [node name="Spider_Enemy" parent="." instance=ExtResource( 13 )]
-position = Vector2( 150.835, -136.456 )
+position = Vector2( 724.033, -502.365 )
+
+[node name="Spider_Enemy2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 612.731, -255.062 )
+
+[node name="Spider_Enemy3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 906.954, -322.886 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2070.98, -392.979 )
+position = Vector2( 1088.69, -352.546 )
 
 [node name="SiloBoss" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1755.84, -769.858 )

@@ -53,12 +53,16 @@ func init():
 	$Sprite/AnimationPlayer.connect("animation_finished",self,"anim_finished")
 #runs the special corisponding to 6
 func run_six(to_move,delta):
-	return 1
+	return 1.0
 func run_seven(to_move,delta):
-	return 1
+	return 1.0
+func run_flavorless(to_move : Vector2,delta : float)->float:
+	return 1.0
 func clean_six(to_move,delta):
 	return 1
 func clean_seven(to_move,delta):
+	return 1
+func clean_flavorless(to_move : Vector2,delta : float):
 	return 1
 func flavor_changed(flavor):
 	pass
@@ -92,10 +96,11 @@ func run_flavor(flavor,to_move,delta):
 			return run_six(to_move,delta)
 		6:
 			return run_seven(to_move,delta)
-	return 1
+	return run_flavorless(to_move,delta)
 func clean_flavor(flavor,to_move,delta):
 	match flavor:
 		7:
 			return clean_six(to_move,delta)
 		6:
 			return clean_seven(to_move,delta)
+	return clean_flavorless(to_move,delta)

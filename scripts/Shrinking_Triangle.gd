@@ -22,7 +22,6 @@ func get_flip_h():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init_particle_dist = position.distance_to(get_parent().position)
-	print("initial partical distance of " + str(init_particle_dist))
 	init_time = speed_scale
 func _init():
 	init_time = speed_scale
@@ -48,5 +47,4 @@ func emit_up():
 #moves the particles to the position and emits
 func emit_dir_pos(dir):
 	position = -dir*init_particle_dist
-	print("moving to " + str(position))
 	emit_dir(dir)

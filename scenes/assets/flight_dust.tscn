@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type particles;
+void vertex() {
+	COLOR = vec4(0.0,0.0,0.0,1.0);
+	TRANSFORM[0] = vec4(0.0,cos(TIME)*400.0,0.0,0.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.3, 1 )
+colors = PoolColorArray( 0.694118, 0.54902, 0.356863, 1, 0.694118, 0.54902, 0.356863, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0.00699301, 0.136364 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+spread = 6.27
+gravity = Vector3( 0, -800, 0 )
+initial_velocity = 800.0
+angular_velocity = 400.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 291.6
+angle_random = 1.0
+scale = 0.5
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
+
+[node name="flight_dust" type="Particles2D"]
+material = SubResource( 2 )
+emitting = false
+amount = 4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.65
+process_material = SubResource( 7 )
+texture = ExtResource( 1 )

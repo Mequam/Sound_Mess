@@ -31,6 +31,14 @@ static func get_constants(collbits : int) -> int:
 static func strip_constants(collbits : int) -> int:
 	return collbits - get_constants(collbits)
 
+#returns true if testbits is in layerbits
+static func in_layer(testbits : int,layerbits : int) -> bool:
+	#if they are in the layer then there will be at least 1 1 overlapping
+	#and the result will not be zero
+	return (testbits & layerbits) != 0	
+#tests to see if the non constant bits match up to the given bits inside the given super layer
+static func in_layer_no_constants(testbits : int,layerbits : int)->bool:
+	return in_layer(strip_constants(testbits),strip_constants(layerbits))
 #collision layer definitions
 
 #These are the collision layers
@@ -49,5 +57,6 @@ enum ConstLayer {
 #these are our super class layers that are used with shifting
 enum SuperLayer {
 	MAIN = 0,
-	BURROW = 1
+	BURROW = 1,
+	FLIGHT = 2
 	}

@@ -41,7 +41,7 @@
 [ext_resource path="res://assets/animations/avatars/bird/move_front2.png" type="Texture" id=39]
 [ext_resource path="res://assets/animations/avatars/bird/move_front1.png" type="Texture" id=40]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Fly"
 length = 0.7
 loop = true
@@ -58,8 +58,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "FlyBack"
+[sub_resource type="Animation" id=2]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -153,7 +152,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 13 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "Move_Back"
 length = 0.2
 tracks/0/type = "value"
@@ -169,7 +168,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 38 ), ExtResource( 37 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "Move_Front"
 length = 0.2
 tracks/0/type = "value"
@@ -185,8 +184,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 40 ), ExtResource( 39 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Move_Left"
+[sub_resource type="Animation" id=9]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
@@ -207,15 +205,15 @@ scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 40 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fly = SubResource( 2 )
-anims/FlyBack = SubResource( 1 )
+anims/Fly = SubResource( 1 )
+anims/FlyBack = SubResource( 2 )
 anims/FlyLeft = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 anims/Idle_Back = SubResource( 5 )
 anims/Idle_Left = SubResource( 6 )
-anims/Move_Back = SubResource( 8 )
-anims/Move_Front = SubResource( 9 )
-anims/Move_Left = SubResource( 7 )
+anims/Move_Back = SubResource( 7 )
+anims/Move_Front = SubResource( 8 )
+anims/Move_Left = SubResource( 9 )
 
 [node name="Shrinking_Triangle" parent="." instance=ExtResource( 35 )]
 position = Vector2( 783.166, 2.86108 )
