@@ -37,6 +37,7 @@ func set_flying(val : bool)->void:
 		$Sprite.position = initial_pos
 		$Shadow.visible = false
 		parent.collision_layer = parent.gen_col_layer()
+		parent.collision_mask = parent.gen_col_mask()
 func get_flying()->bool:
 	var parent = get_parent()
 	return parent.col_math.in_layer_no_constants(
@@ -71,7 +72,7 @@ func run_six(to_move,delta)->float:
 		var parent = get_parent()
 		$Sprite/AnimationPlayer.play("ThrowFlap")
 		for node in get_tree().get_nodes_in_group("kinematicEnemies"):
-			if parent.col_math.in_layer(node.collision_layer,parent.gen_col_mask()):
+			if parent.col_math.in_layer(node.collision_layer,parent.gen_col_mask()) and parent.position.distance_squared_to(node.position) <= 40000:
 				node.flight_thrown = true
 		return 1.0
 
@@ -116,6 +117,8 @@ func parent_rythom_changed(rythom):
 func anim_finished(anim : String) -> void:
 	if anim == "Fall":
 		_falling = false
+	elif anim == "ThrowFlap":
+		$Sprite/bird_up_particles.emitting = true
 	.anim_finished(anim)
 func dir_anim(dir : Vector2,prefix : String = "") -> void:
 	#if there is an animation overide play the fall animation instead

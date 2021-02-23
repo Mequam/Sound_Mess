@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://assets/animations/avatars/bird/Idle/center_frame0.png" type="Texture" id=1]
 [ext_resource path="res://assets/animations/avatars/bird/Idle/left_bird1.png" type="Texture" id=2]
@@ -42,6 +42,7 @@
 [ext_resource path="res://assets/animations/avatars/bird/move_front1.png" type="Texture" id=40]
 [ext_resource path="res://scenes/instance/groundPound.tscn" type="PackedScene" id=41]
 [ext_resource path="res://assets/animations/avatars/bird/fall0.png" type="Texture" id=42]
+[ext_resource path="res://scenes/assets/bird_up_particles.tscn" type="PackedScene" id=43]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fall"
@@ -261,10 +262,39 @@ tracks/0/keys = {
 "values": [ ExtResource( 36 ), ExtResource( 34 ) ]
 }
 
+[sub_resource type="Animation" id=11]
+resource_name = "ThrowFlap"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ), ExtResource( 11 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.80078, -44.5131 ) ]
+}
+
 [node name="Sprite" type="Sprite"]
 position = Vector2( 2.80078, -44.5131 )
 scale = Vector2( 0.15, 0.15 )
-texture = ExtResource( 1 )
+texture = ExtResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fall = SubResource( 1 )
@@ -277,6 +307,7 @@ anims/Idle_Left = SubResource( 7 )
 anims/Move_Back = SubResource( 8 )
 anims/Move_Front = SubResource( 9 )
 anims/Move_Left = SubResource( 10 )
+anims/ThrowFlap = SubResource( 11 )
 
 [node name="Shrinking_Triangle" parent="." instance=ExtResource( 35 )]
 position = Vector2( 783.166, 2.86108 )
@@ -285,3 +316,6 @@ scale = Vector2( 4, 4 )
 [node name="groundPound" parent="." instance=ExtResource( 41 )]
 position = Vector2( -46.8477, 295.01 )
 scale = Vector2( 50, 50 )
+
+[node name="bird_up_particles" parent="." instance=ExtResource( 43 )]
+position = Vector2( -3.8147e-06, 253.984 )

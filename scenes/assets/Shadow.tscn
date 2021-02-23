@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+
+[node name="Shadow" type="Sprite"]
+modulate = Color( 0.431373, 0.431373, 0.431373, 0.784314 )
+position = Vector2( -0.928421, 1.63251 )
+scale = Vector2( 0.526214, 0.091709 )
+z_index = -1
+texture = ExtResource( 1 )

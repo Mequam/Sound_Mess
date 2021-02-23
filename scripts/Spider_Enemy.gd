@@ -47,24 +47,23 @@ func main_ready():
 	add_to_group("spiders")
 	
 	get_node("NotePlayer").mode = 4
-	get_node("Spider/AnimationPlayer").play("Idle")
+	get_node("Sprite/AnimationPlayer").play("Idle")
 	
 	set_mode("search")
-	print(str("[spider enemy] " + str(gen_col_mask())))
 	#call the parent ready functions
 	.main_ready()
 
 func play_modal_animation(mode):
 	match mode:
 		"die" :
-			get_node("Spider").scale.y *= -1
-			get_node("Spider/AnimationPlayer").play("Scury")
+			get_node("Sprite").scale.y *= -1
+			get_node("Sprite/AnimationPlayer").play("Scury")
 		"search" :
-			get_node("Spider/AnimationPlayer").play("Idle")
+			get_node("Sprite/AnimationPlayer").play("Idle")
 		"patroll" :
-			get_node("Spider/AnimationPlayer").play("Scury")
+			get_node("Sprite/AnimationPlayer").play("Scury")
 		"attack" :
-			get_node("Spider/AnimationPlayer").play("Scury")
+			get_node("Sprite/AnimationPlayer").play("Scury")
 
 #returns true if we can see the target
 func can_see(target_pos):
@@ -87,20 +86,20 @@ func play_note(beat):
 			#our death song plays no matter what beat we start on
 			match _death_beat:
 				1.0:
-					get_node("Spider").anim_look_top_right()
-					get_node("Spider").anim_look_bottom_right()
+					get_node("Sprite").anim_look_top_right()
+					get_node("Sprite").anim_look_bottom_right()
 					get_node("NotePlayer").play_note(1)
 				1.5:
-					get_node("Spider").anim_look_top_left()
-					get_node("Spider").anim_look_bottom_left()
+					get_node("Sprite").anim_look_top_left()
+					get_node("Sprite").anim_look_bottom_left()
 					get_node("NotePlayer").play_note(2)
 				2.0:
-					get_node("Spider").anim_look_top_right()
-					get_node("Spider").anim_look_bottom_right()
+					get_node("Sprite").anim_look_top_right()
+					get_node("Sprite").anim_look_bottom_right()
 					get_node("NotePlayer").play_note(1)
 				2.5:
-					get_node("Spider").anim_look_top_left()
-					get_node("Spider").anim_look_bottom_left()
+					get_node("Sprite").anim_look_top_left()
+					get_node("Sprite").anim_look_bottom_left()
 					get_node("NotePlayer").play_note(2)
 				3.0:
 					get_node("NotePlayer").play_note(0)
@@ -111,18 +110,18 @@ func play_note(beat):
 			match beat:
 				1.0:
 					if (look_cycle_a):
-						get_node("Spider").anim_look_top_left()
+						get_node("Sprite").anim_look_top_left()
 					else:
-						get_node("Spider").anim_look_top_right()
+						get_node("Sprite").anim_look_top_right()
 					get_node("NotePlayer").play_note(1)
 				2.0:
 					if (look_cycle_a):
-						get_node("Spider").anim_look_bottom_right()
+						get_node("Sprite").anim_look_bottom_right()
 					else:
-						get_node("Spider").anim_look_bottom_left()
+						get_node("Sprite").anim_look_bottom_left()
 					get_node("NotePlayer").play_note(4)
 				3.0:
-					get_node("Spider").anim_look_center()
+					get_node("Sprite").anim_look_center()
 					look_cycle_a = !look_cycle_a
 					get_node("NotePlayer").play_note(1)
 				4.0:
@@ -131,36 +130,36 @@ func play_note(beat):
 			match beat:
 				1.0:
 					if (look_cycle_a):
-						get_node("Spider").anim_look_top_left()
+						get_node("Sprite").anim_look_top_left()
 					else:
-						get_node("Spider").anim_look_top_right()
+						get_node("Sprite").anim_look_top_right()
 					get_node("NotePlayer").play_note(1)
 				1.5:
 					if (look_cycle_a):
-						get_node("Spider").anim_look_bottom_right()
+						get_node("Sprite").anim_look_bottom_right()
 					else:
-						get_node("Spider").anim_look_bottom_left()
+						get_node("Sprite").anim_look_bottom_left()
 					get_node("NotePlayer").play_note(2)
 				2.0:
-					get_node("Spider").anim_look_center()
+					get_node("Sprite").anim_look_center()
 					look_cycle_a = !look_cycle_a
 					get_node("NotePlayer").play_note(1)
 				2.5:
 					get_node("NotePlayer").stop()
 				3.0:
 					if (look_cycle_a):
-						get_node("Spider").anim_look_top_left()
+						get_node("Sprite").anim_look_top_left()
 					else:
-						get_node("Spider").anim_look_top_right()
+						get_node("Sprite").anim_look_top_right()
 					get_node("NotePlayer").play_note(1)
 				3.5:
 					if (look_cycle_a):
-						get_node("Spider").anim_look_bottom_right()
+						get_node("Sprite").anim_look_bottom_right()
 					else:
-						get_node("Spider").anim_look_bottom_left()
+						get_node("Sprite").anim_look_bottom_left()
 					get_node("NotePlayer").play_note(2)
 				4.0:
-					get_node("Spider").anim_look_center()
+					get_node("Sprite").anim_look_center()
 					look_cycle_a = !look_cycle_a
 					get_node("NotePlayer").play_note(1)
 				4.5:
@@ -169,18 +168,18 @@ func play_note(beat):
 			match beat:
 				1.0:
 					if (look_cycle_a):
-						get_node("Spider").anim_look_top_left()
+						get_node("Sprite").anim_look_top_left()
 					else:
-						get_node("Spider").anim_look_top_right()
+						get_node("Sprite").anim_look_top_right()
 					get_node("NotePlayer").play_note(1)
 				2.0:
 					if (look_cycle_a):
-						get_node("Spider").anim_look_bottom_right()
+						get_node("Sprite").anim_look_bottom_right()
 					else:
-						get_node("Spider").anim_look_bottom_left()
+						get_node("Sprite").anim_look_bottom_left()
 					get_node("NotePlayer").play_note(4)
 				3.0:
-					get_node("Spider").anim_look_center()
+					get_node("Sprite").anim_look_center()
 					look_cycle_a = !look_cycle_a
 					get_node("NotePlayer").play_note(1)
 				4.0:

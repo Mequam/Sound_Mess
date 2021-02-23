@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/FallingCarrot.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://scenes/instance/bunnyBlocker.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/assets/avatars/avatar_bird_sprite.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/animations/avatars/bird/test.png" type="Texture" id=22]
+[ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=23]
 
 [node name="test_space" type="TileMap"]
 cell_y_sort = true
@@ -73,7 +74,7 @@ position = Vector2( -1477.69, -1342.16 )
 position = Vector2( -1029.87, -1252.48 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1109.15, -98.0322 )
+position = Vector2( -1234.55, -581.81 )
 
 [node name="SiloBoss" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1755.84, -769.858 )
@@ -119,4 +120,7 @@ position = Vector2( -940.301, -828.521 )
 position = Vector2( -1098, -844.753 )
 scale = Vector2( 0.132304, 0.158542 )
 texture = ExtResource( 22 )
+
+[node name="Tarantula" parent="." instance=ExtResource( 23 )]
+position = Vector2( -1784.49, -737.836 )
 [connection signal="completed_dialog" from="bunnyDoorSwitch/singingSwitch/DialogChoiceList" to="bunnyDoorSwitch/singingSwitch" method="_on_DialogChoiceList_completed_dialog"]

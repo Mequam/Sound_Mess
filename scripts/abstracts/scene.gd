@@ -1,4 +1,7 @@
 extends Node2D
+#this is the script that every root node of a scene should have attached to them
+#the point of this is to sync everything in the children nodes of this script
+#and handle scene wide data tasks 
 
 var beat = 0
 var load_path = ""
@@ -13,12 +16,12 @@ func _met_timeout():
 	#run the jute boxes so they can beep in time
 	get_tree().call_group("jutebox","run")
 	if (get_node("player")):
-		beat += .5
+		beat += 0.5
 		
 		#call things that require the player to run
 		get_tree().call_group("projectile","run",$player.position,beat)
 		get_tree().call_group("generic_ai","run",$player.position,beat)
-		get_tree().call_group("enemies","run",$player.position,beat)
+		get_tree().call_group("enemies","run_wrapper",$player.position,beat)
 		
 		if (beat >= 4):
 			beat = 0
