@@ -8,6 +8,9 @@ var max_flight_distance : int = 4
 var flight_distance : int = 0
 var flying : bool setget set_flying,get_flying
 var initial_pos : Vector2 = Vector2(0,0)
+
+#private flag that toggles between the default animation behavior and falling behavior
+var _falling : bool = false
 func push(dir : Vector2):
 	var inst = pushProjectile.instance()
 	inst.dir = dir
@@ -73,7 +76,19 @@ func parent_rythom_changed(score : int):
 	if get_flying() and not get_in_time():
 		set_flying(false)
 		#flight is risky
+		#mark the player as falling so the animation code
+		#knows not to run the default directionals
+		_falling = true
 		get_parent().take_damage(1)
+func dir_anim(dir : Vector2,prefix : String = "") -> void:
+	if _falling:
+		#if we are falling we do not play directional animations,
+		#only fall
+		$Sprite/AnimationPlayer.play("Fall")
+		_falling = false
+	else:
+		#normal behavior
+		.dir_anim(dir,prefix)
 func init():
 	get_parent().connect("rythom_score_changed",self,"parent_rythom_changed")
 	.init()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://assets/animations/avatars/bird/Idle/center_frame0.png" type="Texture" id=1]
 [ext_resource path="res://assets/animations/avatars/bird/Idle/left_bird1.png" type="Texture" id=2]
@@ -40,11 +40,13 @@
 [ext_resource path="res://assets/animations/avatars/bird/move_back1.png" type="Texture" id=38]
 [ext_resource path="res://assets/animations/avatars/bird/move_front2.png" type="Texture" id=39]
 [ext_resource path="res://assets/animations/avatars/bird/move_front1.png" type="Texture" id=40]
+[ext_resource path="res://scenes/instance/groundPound.tscn" type="PackedScene" id=41]
+[ext_resource path="res://assets/animations/avatars/bird/fall0.png" type="Texture" id=42]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Fly"
-length = 0.7
-loop = true
+resource_name = "Fall"
+length = 0.1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -52,10 +54,34 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ) ]
+"values": [ ExtResource( 42 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 4.91974, -322.092 ), Vector2( 3.86026, -183.303 ), Vector2( 2.80078, -44.5131 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("groundPound:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -71,11 +97,26 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.1, 0.2, 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 31 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 32 ) ]
+"values": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ) ]
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "FlyLeft"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 31 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 32 ) ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -91,7 +132,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -107,20 +148,19 @@ tracks/0/keys = {
 "values": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
+tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [  ]
+"values": [ Vector2( 2.80078, -44.5131 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Idle_Back"
+[sub_resource type="Animation" id=6]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -135,8 +175,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ ExtResource( 27 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 28 ), ExtResource( 22 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.80078, -44.5131 ) ]
+}
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 1.5
 loop = true
 tracks/0/type = "value"
@@ -151,9 +203,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 13 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 2.80078, -44.5131 ) ]
+}
 
-[sub_resource type="Animation" id=7]
-resource_name = "Move_Back"
+[sub_resource type="Animation" id=8]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
@@ -168,8 +231,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 38 ), ExtResource( 37 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Move_Front"
+[sub_resource type="Animation" id=9]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
@@ -184,7 +246,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 40 ), ExtResource( 39 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
@@ -202,19 +264,24 @@ tracks/0/keys = {
 [node name="Sprite" type="Sprite"]
 position = Vector2( 2.80078, -44.5131 )
 scale = Vector2( 0.15, 0.15 )
-texture = ExtResource( 6 )
+texture = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fly = SubResource( 1 )
-anims/FlyBack = SubResource( 2 )
-anims/FlyLeft = SubResource( 3 )
-anims/Idle = SubResource( 4 )
-anims/Idle_Back = SubResource( 5 )
-anims/Idle_Left = SubResource( 6 )
-anims/Move_Back = SubResource( 7 )
-anims/Move_Front = SubResource( 8 )
-anims/Move_Left = SubResource( 9 )
+anims/Fall = SubResource( 1 )
+anims/Fly = SubResource( 2 )
+anims/FlyBack = SubResource( 3 )
+anims/FlyLeft = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Idle_Back = SubResource( 6 )
+anims/Idle_Left = SubResource( 7 )
+anims/Move_Back = SubResource( 8 )
+anims/Move_Front = SubResource( 9 )
+anims/Move_Left = SubResource( 10 )
 
 [node name="Shrinking_Triangle" parent="." instance=ExtResource( 35 )]
 position = Vector2( 783.166, 2.86108 )
 scale = Vector2( 4, 4 )
+
+[node name="groundPound" parent="." instance=ExtResource( 41 )]
+position = Vector2( -46.8477, 295.01 )
+scale = Vector2( 50, 50 )

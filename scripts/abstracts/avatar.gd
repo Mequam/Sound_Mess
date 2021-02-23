@@ -67,7 +67,7 @@ func clean_flavorless(to_move : Vector2,delta : float):
 func flavor_changed(flavor):
 	pass
 #this function is the default animation behavior of every avatar
-func dir_anim(dir,prefix=""):
+func dir_anim(dir : Vector2 ,prefix : String ="")-> void:
 	#make sure that the sprite is not backwoards before begining the animation
 	if ($Sprite.scale.x < 0):
 		$Sprite.scale.x *= -1
