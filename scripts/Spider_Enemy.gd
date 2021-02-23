@@ -50,6 +50,7 @@ func main_ready():
 	get_node("Spider/AnimationPlayer").play("Idle")
 	
 	set_mode("search")
+	print(str("[spider enemy] " + str(gen_col_mask())))
 	#call the parent ready functions
 	.main_ready()
 

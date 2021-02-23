@@ -17,7 +17,7 @@ extends Object
 static func shift_collision(collbits : int,amount : int) -> int:
 	var nonCyclicBits : int  = get_constants(collbits) #2^3-1 to get 111b
 	var onlyCyclics : int = collbits - nonCyclicBits
-	return shift_bin_num(onlyCyclics,amount*ConstLayer.size())+nonCyclicBits
+	return shift_bin_num(onlyCyclics,amount*Layer.size())+nonCyclicBits
 	
 	#shifts a binary number to the right or to the left by amount amount
 static func shift_bin_num(collbit : int,amount : int) -> int:

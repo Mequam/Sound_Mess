@@ -22,9 +22,13 @@ func set_flying(val : bool)->void:
 		#the sprite is high when we fly
 		$Sprite.position = initial_pos + Vector2(0,-400)
 		$Shadow.visible = true
+		
 		var parent = get_parent()
+		print("[bird avatar] prev layer " + str(parent.collision_layer))
 		#set the collision to the default collision layer, shifted into the flight zone
 		parent.collision_layer = parent.col_math.shift_collision(parent.gen_col_layer(),parent.col_math.SuperLayer.FLIGHT)
+		parent.collision_mask = parent.col_math.shift_collision(parent.gen_col_mask(),parent.col_math.SuperLayer.FLIGHT)
+		print("[bird avatar] new layer " + str(parent.col_math.shift_collision(parent.gen_col_layer(),parent.col_math.SuperLayer.FLIGHT)))
 	#we should not be flying
 	elif not val:
 		#reset the collision to be on the normal layer
@@ -54,7 +58,8 @@ func play_idle(last_anim : String = "Move_Front") -> void:
 func run_six(to_move,delta)->float:
 	set_flying(not get_flying())
 	#we push in the opposite direction of player movement
-	push(-to_move)
+	if get_flying():
+		push(-to_move)
 	return 2.0
 func run_flavorless(to_move,delta)->float:
 	if get_flying():
