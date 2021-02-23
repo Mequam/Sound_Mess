@@ -24,11 +24,9 @@ func set_flying(val : bool)->void:
 		$Shadow.visible = true
 		
 		var parent = get_parent()
-		print("[bird avatar] prev layer " + str(parent.collision_layer))
 		#set the collision to the default collision layer, shifted into the flight zone
 		parent.collision_layer = parent.col_math.shift_collision(parent.gen_col_layer(),parent.col_math.SuperLayer.FLIGHT)
 		parent.collision_mask = parent.col_math.shift_collision(parent.gen_col_mask(),parent.col_math.SuperLayer.FLIGHT)
-		print("[bird avatar] new layer " + str(parent.col_math.shift_collision(parent.gen_col_layer(),parent.col_math.SuperLayer.FLIGHT)))
 	#we should not be flying
 	elif not val:
 		#reset the collision to be on the normal layer
@@ -82,4 +80,5 @@ func init():
 	#2 = mixolidian birds :D
 	set_mode(2)
 func _ready():
+	initial_pos = $Sprite.position
 	init()

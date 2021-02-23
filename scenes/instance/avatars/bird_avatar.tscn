@@ -12,6 +12,7 @@ visible = false
 modulate = Color( 0.443137, 0.443137, 0.443137, 0.831373 )
 position = Vector2( -2.82892, 6.01486 )
 scale = Vector2( 0.317155, 0.0415158 )
+z_index = -1
 texture = ExtResource( 3 )
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
