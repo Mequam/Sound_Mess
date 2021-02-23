@@ -232,7 +232,7 @@ func run_flavor_input(delta,input_number):
 		6:
 			flavor = 6
 		5:
-			#TODO: why is this setting the flavor to 7?
+			#this sets flavor to 7 because we are in the lower octive
 			flavor = 7
 		_:
 			#indicates that we did nothing and want to move the character
