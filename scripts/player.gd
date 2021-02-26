@@ -11,6 +11,7 @@ var sub_beat
 var last_input = 0
 
 #this is from legacy code, it is short for invencibility timer
+#this is from legacy code, it is short for invencibility timer
 #TODO: this needs to either be further supported or removed from the game
 var i_timer = 0 setget set_i_timer, get_i_timer
 func set_i_timer(val):
@@ -45,7 +46,7 @@ func get_talking():
 #options are dev (uses keys 1-7) and midi (uses midi note frequency)
 #TODO: this needs a setter and a getter that changes other aspects of the game
 #additionaly need to add the fourier transform or "tuner" input method
-var input_mode = "dev"
+var input_mode = "midi"
 
 signal rythom_score_changed
 #used to score how well we are keeping track of rythom

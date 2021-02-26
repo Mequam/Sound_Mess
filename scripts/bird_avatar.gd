@@ -8,6 +8,9 @@ var max_flight_distance : int = 4
 var flight_distance : int = 0
 var initial_pos : Vector2 = Vector2(0,0)
 
+#the feather that we shoot
+var feather = preload("res://scenes/instance/projectiles/Feather.tscn")
+
 #private flag that toggles between the default animation behavior and falling behavior
 var _falling : bool = false
 func push(dir : Vector2):
@@ -43,7 +46,13 @@ func get_flying()->bool:
 	return parent.col_math.in_layer_no_constants(
 		parent.collision_layer,
 		parent.col_math.shift_collision(parent.gen_col_layer(),parent.col_math.SuperLayer.FLIGHT))
-
+#shoots a feather in the given direction at the given speed
+func shoot_feather(dir : Vector2)->void:
+	var instance = feather.instance()
+	instance.dir = dir
+	instance.position = get_parent().position
+	get_parent().get_parent().add_child(instance)
+	instance.flying = get_flying()
 func play_idle(last_anim : String = "Move_Front") -> void:
 	if not get_flying():
 		#we are not flying
@@ -57,6 +66,9 @@ func play_idle(last_anim : String = "Move_Front") -> void:
 				$Sprite/AnimationPlayer.play("FlyLeft")
 			"Move_Back":
 				$Sprite/AnimationPlayer.play("FlyBack")
+func run_seven(to_move,delta)->float:
+	shoot_feather(to_move)
+	return -0.5
 func run_six(to_move,delta)->float:
 	var flying : bool = get_flying()
 	#if we are flying, we toggle flying, if we get a directional

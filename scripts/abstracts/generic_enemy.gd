@@ -121,7 +121,7 @@ func run_wrapper(player_pos,beat)->void:
 	if get_flying():
 		inner_beat += 1
 		#fall out of flight
-		if inner_beat >= 4:
+		if inner_beat >= 16:
 			set_flying(false)
 	else:
 		run(player_pos,beat)
