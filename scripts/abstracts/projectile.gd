@@ -5,6 +5,7 @@ signal despawn
 signal hit
 var speed : float = 800.0
 var dir : Vector2 = Vector2(1,0)	
+
 #by default all projectiles hit enemies
 func gen_col_mask() -> int:
 	return col_math.Layer.ENEMY
@@ -19,16 +20,14 @@ func set_flying(val : bool)->void:
 	#we should be flying and are not currently
 	if val and not fly:
 		#the sprite is high when we fly
-		$Sprite.position += Vector2(0,-400)
-		$Shadow.visible = true
+		$Sprite.position = initial_pos+Vector2(0,-400)
 		#set the collision to the default collision layer, shifted into the flight zone
 		collision_layer = col_math.shift_collision(gen_col_layer(),col_math.SuperLayer.FLIGHT)
 		collision_mask = col_math.shift_collision(gen_col_mask(),col_math.SuperLayer.FLIGHT)
 	#we should not be flying
 	elif not val:
 		#reset the collision to be on the normal layer
-		$Sprite.position = Vector2(0,0)
-		$Shadow.visible = false
+	#	$Sprite.position = initial_pos
 		collision_layer = gen_col_layer()
 		collision_mask = gen_col_mask()
 func get_flying()->bool:
@@ -36,11 +35,10 @@ func get_flying()->bool:
 		collision_layer,
 		col_math.shift_collision(gen_col_layer(),col_math.SuperLayer.FLIGHT))
 
+var initial_pos : Vector2
 #TODO: it might be worth it to create a generalized projectile
 #class
 func _ready():
-	collision_layer = gen_col_layer()
-	collision_mask = gen_col_mask()
 	add_to_group("projectile")
 	#add particles at spawn if we have them
 	if $spawn_particles != null:
@@ -55,6 +53,7 @@ func _ready():
 	#rotate the main sprite if we have it
 	if $Sprite:
 		$Sprite.rotation += dir.angle()
+		initial_pos = $Sprite.position
 	if $RotatingColShape:
 		$RotatingColShape.rotation += dir.angle()
 #called when we collide with an entity, inteanded to be overriden by the child class

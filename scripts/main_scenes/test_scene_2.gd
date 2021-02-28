@@ -10,7 +10,6 @@ func _ready():
 	$FallingCarrot.speed = 400
 	$FallingCarrot.move_vec = Vector2(0,1)
 	$FallingCarrot.fall()
-	$Sprite/AnimationPlayer.play("Idle")
 	.init()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

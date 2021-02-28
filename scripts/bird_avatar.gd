@@ -67,7 +67,8 @@ func play_idle(last_anim : String = "Move_Front") -> void:
 			"Move_Back":
 				$Sprite/AnimationPlayer.play("FlyBack")
 func run_seven(to_move,delta)->float:
-	shoot_feather(to_move)
+	if (to_move != Vector2(0.0,0.0)):
+		shoot_feather(to_move)
 	return -0.5
 func run_six(to_move,delta)->float:
 	var flying : bool = get_flying()

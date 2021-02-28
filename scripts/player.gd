@@ -46,7 +46,7 @@ func get_talking():
 #options are dev (uses keys 1-7) and midi (uses midi note frequency)
 #TODO: this needs a setter and a getter that changes other aspects of the game
 #additionaly need to add the fourier transform or "tuner" input method
-var input_mode = "midi"
+var input_mode = "dev"
 
 signal rythom_score_changed
 #used to score how well we are keeping track of rythom

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type particles;
+void vertex() {
+	float offset_time = TIME/1.05+float(INDEX)/4.0;
+	float yperc = mod(offset_time,1.0);
+	float start_scale = 0.1;
+	vec2 scale = vec2(yperc/6.0+start_scale,yperc/6.0+start_scale);
+	TRANSFORM[0] = scale.x*vec4(1.0,0.0,0.0,0.0);
+	TRANSFORM[1] = scale.y*vec4(0.0,1.0,0.0,0.0);
+	TRANSFORM[3] = vec4(sin(offset_time*15.0)*100.0*yperc,-yperc*300.0,0.0,0.0);
+	
+	COLOR.a = (0.7-yperc/2.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="upParticles" type="Particles2D"]
+modulate = Color( 0.694118, 0.54902, 0.356863, 1 )
+process_material = SubResource( 2 )
+texture = ExtResource( 1 )

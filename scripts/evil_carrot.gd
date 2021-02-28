@@ -55,7 +55,7 @@ func _ready():
 	$Sprite/evil.z_index = -1
 	$NotePlayer.mode = 6
 func run(player_pos,beat):
-	match mode:
+	match get_mode():
 		"evil":
 			if (player_pos.y > position.y):
 				set_mode("attack")
@@ -67,7 +67,7 @@ func run(player_pos,beat):
 				$Sprite/AnimationPlayer2.play("Look_down_left")
 			else:
 				$Sprite/AnimationPlayer2.play("Look_down_right")
-	play_note(mode)
+	play_note(get_mode())
 func dmg_mv(dir : Vector2,dmg=1):
 	var col = .dmg_mv(dir,dmg)
 	if (col):

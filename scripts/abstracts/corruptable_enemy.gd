@@ -5,7 +5,24 @@ func gen_col_layer()->int:
 	return 0
 func gen_col_mask()->int:
 	return 0
-
+func set_flying(val : bool)->void:
+	.set_flying(val)
+	if val:
+		#we use the parents collision not ours when shifting flight
+		collision_layer = col_math.shift_collision(.gen_col_layer(),col_math.SuperLayer.FLIGHT)
+		collision_mask = col_math.shift_collision(.gen_col_mask(),col_math.SuperLayer.FLIGHT)
+	else:
+		collision_layer = .gen_col_layer()
+		collision_mask = .gen_col_mask()
+#note that we need to use the parent collision for this
+func get_flying()->bool:
+	#returns true if we are shifted into the flight layer
+	return col_math.in_layer_no_constants(
+		collision_layer,
+		col_math.shift_collision(.gen_col_layer(),col_math.SuperLayer.FLIGHT))
+func run_wrapper(run,pos):
+	print("[corruptable enemy] flying " + str(get_flying()))
+	.run_wrapper(run,pos)
 #this is the function that causes us to get corrupted
 func corrupt():
 	get_node("Sprite/AnimationPlayer").play("Transform")

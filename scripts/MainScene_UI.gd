@@ -14,4 +14,4 @@ func load_game():
 	#TODO: I am faily certain that the previous scene does not do anything
 	
 	#load the beginner scene of the player, the vector here is the center of the mushroom circle in the bunny forest
-	LoadData.load_scene("res://scenes/main/bunny/carrot_motif/silo_fields.tscn","",null,Vector2(417.919,365.21))
+	LoadData.load_scene("res://scenes/main/bunny/bunny_forest.tscn","",null,Vector2(417.919,365.21))

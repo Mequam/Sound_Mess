@@ -24,18 +24,31 @@ func set_flying(val : bool)->void:
 	var fly = get_flying()
 	#we should be flying and are not currently
 	if val and not fly:
-		$Sprite.scale.y *= -1 #they are confused
-		$Sprite.position += Vector2(0,-400)
+		
+		#flip the sprite and move it up by 400 units regaurdless
+		#of our scale
+		$Sprite.scale.y *= -1
+		$Sprite.position += Vector2(0,-200/scale.y)
 		
 		inner_beat = 0 #reset the inner beat for the new "fake mode"
 		#stop playing sound if we are playing
 		$NotePlayer.stop()
+		
 		#let the sprite know that we are thrown
 		$Sprite/AnimationPlayer.stop() #incase flightthrown is not implimented
 		$Sprite/AnimationPlayer.play("FlightThrown")
 		
-		#add the shadow
-		add_child(load("res://scenes/assets/Shadow.tscn").instance())
+		#give us a shadow
+		var shadow = load("res://scenes/assets/Shadow.tscn").instance()
+		shadow.scale.x /= scale.x
+		shadow.scale.y /= scale.y
+		add_child(shadow)
+		
+		#add the tornado particles
+		var tornado = load("res://scenes/assets/enemy_up_particles.tscn").instance()
+		tornado.scale.x /= scale.x
+		tornado.scale.y /= scale.y
+		add_child(tornado)
 		
 		#shift our collision into the flight zone
 		collision_layer = col_math.shift_collision(gen_col_layer(),col_math.SuperLayer.FLIGHT)
@@ -44,13 +57,15 @@ func set_flying(val : bool)->void:
 	elif not val:
 		#reset the collision to be on the normal layer
 		$Sprite.position = initial_sprite_pos
+		
 		#flip the sprite back
 		$Sprite.scale.y *= -1
 		
-		#remove the shadow
+		#remove the shadow and particles
 		if $Shadow:
 			$Shadow.queue_free()
-
+		if $upParticles:
+			$upParticles.queue_free()
 		#reset our collision
 		collision_layer = gen_col_layer()
 		collision_mask = gen_col_mask()
@@ -113,12 +128,17 @@ func anim_finished(anim)->void:
 #to be overloaded by children
 func run(player_pos,beat)->void:
 	pass
+
 #this function is ACTUALLY called every beat
 #and is not inteanded to be overiden by the child
 #the idea is that this wrapps child behavior so we can susptitue
 #any child AI for our own AI on a whim
 func run_wrapper(player_pos,beat)->void:
 	if get_flying():
+		#move the sprite up the beat after we fly to give the
+		#illusion of motion
+		if inner_beat == 0:
+			$Sprite.position += Vector2(0,-200/scale.y)
 		inner_beat += 1
 		#fall out of flight
 		if inner_beat >= 16:
