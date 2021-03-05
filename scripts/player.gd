@@ -1,28 +1,32 @@
 extends "res://scripts/abstracts/entity.gd"
+#this is the main player script
+#it controls basic movement,input, animation, damage and avatar switching
+#the avatars control ability usage and key modulation 
 
+#emitted when we fall into or out of time
+signal rythom_score_changed
 
+#determines the type of input that the game is looking for
+#options are dev (uses keys 1-7) and midi (uses midi note frequency)
+#TODO: this needs a setter and a getter that changes other aspects of the game
+#additionaly need to add the fourier transform or "tuner" input method
+var input_mode = "dev"
 #timer used to turn off the notes that are playing
 var timeout = 0
-
 #the time offset of the smallest possible sub beat, calculated from a bellow function
 var sub_beat
-
 #the time of the players last input, stored to calculate rythom
 var last_input = 0
+#stores the last beat that the player played
+var last_beat = 0
 
-#this is from legacy code, it is short for invencibility timer
-#this is from legacy code, it is short for invencibility timer
-#TODO: this needs to either be further supported or removed from the game
-var i_timer = 0 setget set_i_timer, get_i_timer
-func set_i_timer(val):
-	if (val >= 0):
-		i_timer = val
-		if (val != 0):
-			get_node("avatar").modulate = Color.lightgray
-		else:
-			get_node("avatar").modulate = Color.white
-func get_i_timer():
-	return i_timer
+#used to comunicate to the avatar what type of movement we are performing
+var flavor = -1 setget set_flavor,get_flavor
+func set_flavor(new_flavor):
+	flavor = new_flavor
+	$avatar.flavor_changed(flavor)
+func get_flavor():
+	return flavor
 
 #makes the player talk and unable to stop talking
 var _permatalk = false setget set_perm_talk,get_perm_talk
@@ -31,7 +35,6 @@ func set_perm_talk(val : bool):
 	$SpeechBubble.visible = get_talking() or _permatalk
 func get_perm_talk():
 	return _permatalk
-
 #syntatic sugar for the variable that actualy determines when we are talking
 var talking setget set_talking,get_talking
 func set_talking(val):
@@ -41,14 +44,6 @@ func set_talking(val):
 	$SpeechBubble.visible = talking 
 func get_talking():
 	return $SpeechBubble.visible
-
-#determines the type of input that the game is looking for
-#options are dev (uses keys 1-7) and midi (uses midi note frequency)
-#TODO: this needs a setter and a getter that changes other aspects of the game
-#additionaly need to add the fourier transform or "tuner" input method
-var input_mode = "dev"
-
-signal rythom_score_changed
 #used to score how well we are keeping track of rythom
 var rythom_score = 0 setget set_rythom_score,get_rythom_score
 func set_rythom_score(val):
@@ -58,6 +53,7 @@ func set_rythom_score(val):
 func get_rythom_score():
 	return rythom_score
 	
+#collision layer and mask generators
 func gen_col_layer()->int:
 	return (.gen_col_layer() | 
 			col_math.Layer.PLAYER | 
@@ -78,8 +74,6 @@ func RythomToSpeed():
 		return 90
 	else:
 		return 90
-
-
 #this function checks wether or not the given delta beat falls close enough to
 #an actual rythomic beat to be valid
 func checkInputRythom():
@@ -92,12 +86,8 @@ func checkInputRythom():
 		var target = sub_beat*pow(2,i)
 		var beat_err = target/6
 		if (target-beat_err <= delta and delta <= target+beat_err):
-			#print("in time with " + str(i))
 			return i
 	return -100
-
-#stores the last beat that the player played
-var last_beat = 0
 
 #this fuction updates our momentom to match our rythom
 func updateRythomMomentom():
@@ -112,6 +102,31 @@ func updateRythomMomentom():
 	if (rythom_score > 4):
 		set_rythom_score(4)
 
+enum Avatars {
+	ARCH, #lydian
+	BUNNY, #major
+	BIRD #mixolidian
+}
+#converts an avatar enumerator into the path where that avatar is stored
+func avatar_enum2path(avatar_enum : int)-> String:
+	if 0 <= avatar_enum and avatar_enum < Avatars.size():
+		return ["",
+		"res://scenes/instance/avatars/bunny_avatar.tscn",
+		"res://scenes/instance/avatars/bird_avatar.tscn"][avatar_enum]
+	return "res://scenes/instance/avatars/bunny_avatar.tscn" #defualt to the bunny path to avoid errors
+#loads an avatar given that avatars enumerator
+func load_avatar_enum(avatar_enum : int) -> void:
+	load_avatar_path(avatar_enum2path(avatar_enum))
+
+#this function changes the player avatar to the given avatar
+func load_avatar_path(path : String)->void:
+	load_avatar(load(path).instance())
+#loads an avatar give a node
+func load_avatar(avatar : Node2D)->void:
+	$avatar.queue_free()
+	avatar.name = "bufferAvatar"
+	add_child(avatar)
+	print("[avatar name] " + avatar.name)
 #this function moves us in the given direction for player control
 func move_dir(dir,delta):
 	var working_speed = RythomToSpeed()
@@ -121,8 +136,6 @@ func move_dir(dir,delta):
 	if (collided):
 		#decide what to do with the thing that we hit
 		collision_action(collided)
-var push_proj_package = load("res://scenes/instance/projectiles/pushProjectile.tscn")
-
 func check_action(act):
 	match input_mode:
 		"dev":
@@ -154,30 +167,10 @@ func move_2d(delta,input_number,flavor):
 		#mult=$avatar.run_flavor(flavor,to_move,delta)
 	move_dir(to_move*mult,delta)
 	$avatar.clean_flavor(flavor,to_move,delta)
-
 #decide what to do with the thing we hit
 func collision_action(collision):
 	if (collision.collider.is_in_group("enemies") and collision.collider.has_method("on_col")):
 		collision.collider.on_col(self,1)
-
-#this function takes a vector 2 and sets the player up for attacking
-func attack(dir):
-	if (dir.x > 0):
-		get_node("Player_Sprite").flip_h = false
-		get_node("Player_Sprite/AnimationPlayer").play("Attack")
-	elif (dir.x < 0):
-		get_node("Player_Sprite").flip_h = true
-		get_node("Player_Sprite/AnimationPlayer").play("Attack")
-
-func make_dir(v2):
-	var n = 1.0/sqrt(v2.x*v2.x+v2.y*v2.y)
-	return Vector2(n*v2.x,n*v2.y)
-var flavor = -1 setget set_flavor,get_flavor
-func set_flavor(new_flavor):
-	flavor = new_flavor
-	$avatar.flavor_changed(flavor)
-func get_flavor():
-	return flavor
 func getActionId():
 	for i in range(0,8):
 		if (check_action("NOTE_" + str(i))):
@@ -250,28 +243,22 @@ func on_combo(combo_name) -> void:
 #overload the default behavior on death
 func die() -> void:
 	hide()
-
-#used to make the player invencible
-var invencible = false
-
 #this is called by entities when they hit US
 func on_col(thing,dmg : int=1) -> void:
-	if (i_timer <= 0 and !invencible):
-		#these only run if we are not invencible
-		if (thing.is_in_group("enemies")):
-			.on_col(thing,dmg)
+	#these only run if we are not invencible
+	if (thing.is_in_group("enemies")):
+		.on_col(thing,dmg)
 
 #this can be thought of as the actual ready function, we do this
 #so we can over-ride the function isntead of stacking behavior
 func main_ready():
 	$health_bar.sync_disp()
-	
 	#let the avatar load
 	$avatar.load_avatar()
-	#start our animation cylce
-	$avatar.play_idle()
+	
 	#connect all of our child nodes
 	#get_node("ComboTracker").connect("combo_found",self,"on_combo")
+	
 	add_to_group("player")
 	
 	.main_ready()
@@ -281,7 +268,7 @@ func main_ready():
 func limitNotePlayerTime(delta):
 		#this code snippet ensures that we play short blips
 	if (get_node("NotePlayer").playing):
-		timeout+=delta
+		timeout += delta
 		if (timeout >= .1):
 			timeout = 0
 			get_node("NotePlayer").stop()
@@ -291,8 +278,13 @@ func main_process(delta):
 	find_input(delta)
 	#make sure the note player does not play forever
 	limitNotePlayerTime(delta)
-	
 #for whatever reason _process does not get over-wridden in gdscript
 #so we create a main_process to do that for us
 func _process(delta):
 	main_process(delta)
+
+#called when the avatar leaves the tree
+func _on_avatar_tree_exited():
+	if $bufferAvatar:
+		$bufferAvatar.name = "avatar"
+		$avatar.load_avatar()

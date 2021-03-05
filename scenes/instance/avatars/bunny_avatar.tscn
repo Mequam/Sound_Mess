@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/instance/groundPound.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/instance/enemy_ground_trail.tscn" type="PackedScene" id=4]
 
-[node name="bunny_avatar" type="Node2D"]
+[node name="avatar" type="Node2D"]
 scale = Vector2( 0.25, 0.25 )
 script = ExtResource( 1 )
 

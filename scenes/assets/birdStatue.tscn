@@ -8,11 +8,11 @@ scale = Vector2( 0.155, 0.155 )
 
 [node name="colorless_bird" type="Sprite" parent="."]
 modulate = Color( 0.67451, 0.67451, 0.67451, 1 )
-position = Vector2( -0.24527, -300.634 )
+position = Vector2( 26.8805, -387.436 )
 texture = ExtResource( 2 )
 
 [node name="even_triangle" type="Sprite" parent="."]
 modulate = Color( 0, 0.976471, 1, 1 )
-position = Vector2( -28.6245, -497.385 )
+position = Vector2( -1.49878, -584.186 )
 scale = Vector2( 0.184703, 0.0937982 )
 texture = ExtResource( 1 )

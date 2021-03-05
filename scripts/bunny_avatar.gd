@@ -8,6 +8,8 @@ var dmg7 = 1
 func load_avatar():
 	set_speech_color(Color(0,1,0.576,0.8),Color(1,0.4,0,0.8))
 	set_mode(1)
+	code = get_parent().Avatars.BUNNY
+	.load_avatar()
 func run_seven(to_move,delta):
 	running_7 = true
 	dmg7 = 1 if get_last_beat() == 2 else 0 

@@ -41,4 +41,5 @@ position = Vector2( -38.6472, -124.366 )
 script = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="health_bar"]
+[connection signal="tree_exited" from="avatar" to="." method="_on_avatar_tree_exited"]
 [connection signal="timeout" from="health_bar/Timer" to="health_bar" method="_on_Timer_timeout"]

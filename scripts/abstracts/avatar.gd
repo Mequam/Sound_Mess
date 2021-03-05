@@ -1,5 +1,6 @@
 extends Node2D
-
+#a code which uniquely identifies each avatar
+var code : int
 #this is a function that sets the mode of the player note player
 #it is inteanded to be used by other avatars to tell the player
 #what scale to play
@@ -10,7 +11,14 @@ func set_speech_color(textColor : Color,bubbleColor : Color):
 	var sb = get_parent().get_node("SpeechBubble")
 	sb.note_color = textColor
 	sb.back_color = bubbleColor
+#called when an avatar is loaded in
 func load_avatar():
+	#we start off in our idle state
+	play_idle()
+	#make sure that the parent responds properly when we leave the tree
+	connect("tree_exited",get_parent(),"_on_avatar_tree_exited")
+#called when an avatar is loaded out e.g. replaced
+func clean_avatar():
 	pass
 var in_time setget set_in_time, get_in_time
 func set_in_time(val):

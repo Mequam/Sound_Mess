@@ -14,11 +14,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_key_pressed(KEY_SPACE):
-		$SiloBoss.corrupt()
-	elif Input.is_key_pressed(KEY_0):
-		$SiloBoss.mode = "shake"
-	elif Input.is_key_pressed(KEY_W):
-		$player/Camera2D.position.y -= 40
-	elif Input.is_key_pressed(KEY_X):
-		$CamaraPoint.pull_camara($player/Camera2D)
+	if Input.is_action_just_pressed("DEVELOPER_ACTION"):
+		if $player/avatar.code == 1:
+			$player.load_avatar_enum(2)
+		else:
+			$player.load_avatar_enum(1)

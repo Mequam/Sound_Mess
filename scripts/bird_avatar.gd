@@ -1,7 +1,6 @@
 extends "res://scripts/abstracts/avatar.gd"
 
 var pushProjectile = preload("res://scenes/instance/projectiles/birdPushProjectile.tscn")
-
 #how many moves we can make while flying
 var max_flight_distance : int = 4
 #how far we can fly
@@ -144,11 +143,17 @@ func dir_anim(dir : Vector2,prefix : String = "") -> void:
 	else:
 		#normal behavior
 		.dir_anim(dir,prefix)
+func load_avatar():
+	#TODO: get the speach bubble colors for the bird
+	
+	#2 = mixolidian birds :D
+	set_mode(2)
+	code = get_parent().Avatars.BIRD
+	
+	.load_avatar()
 func init():
 	get_parent().connect("rythom_score_changed",self,"parent_rythom_changed")
 	.init()
-	#2 = mixolidian birds :D
-	set_mode(2)
 func _ready():
 	initial_pos = $Sprite.position
 	init()
