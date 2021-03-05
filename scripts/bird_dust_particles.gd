@@ -12,3 +12,7 @@ func emit_dir(dir : Vector2)->void:
 		else:
 			$flight_dust_up_down.scale.y = -1
 		$flight_dust_up_down.emitting = true
+func _process(delta):
+	#remove us from the tree if we are done emitting
+	if (not $flight_dust_left_right.emitting and not $flight_dust_up_down.emitting):
+		queue_free()

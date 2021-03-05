@@ -36,20 +36,22 @@ func get_flying()->bool:
 		col_math.shift_collision(gen_col_layer(),col_math.SuperLayer.FLIGHT))
 
 var initial_pos : Vector2
+func root_child(node : Node)->Node:
+	remove_child(node)
+	var parent = get_parent()
+	node.owner = parent
+	node.position = position
+	parent.add_child(node)
+	#echo out a reference the node we were handed in
+	#for further processing
+	return node
 #TODO: it might be worth it to create a generalized projectile
 #class
 func _ready():
 	add_to_group("projectile")
 	#add particles at spawn if we have them
 	if $spawn_particles != null:
-		var particle_ref = $spawn_particles
-		remove_child(particle_ref)
-		var parent = get_parent()
-		particle_ref.owner = parent
-		particle_ref.position = position
-		parent.add_child(particle_ref)
-		
-		particle_ref.emit_dir(dir)
+		root_child($spawn_particles).emit_dir(dir)
 	#rotate the main sprite if we have it
 	if $Sprite:
 		$Sprite.rotation += dir.angle()
@@ -60,6 +62,8 @@ func _ready():
 func on_hit(col : KinematicCollision2D,delta : float) -> void:
 	emit_signal("hit",col)
 func queue_free():
+	if $death_particles:
+		root_child($death_particles).emit_dir(dir)
 	emit_signal("despawn")
 	.queue_free()
 func _process(delta):

@@ -49,10 +49,14 @@ func get_flying()->bool:
 #shoots a feather in the given direction at the given speed
 func shoot_feather(dir : Vector2)->void:
 	var instance = feather.instance()
+	#give the feather the information it needs to run
+	#BEFORE spawning it into the scene
 	instance.dir = dir
 	instance.position = get_parent().position
-	get_parent().get_parent().add_child(instance)
 	instance.flying = get_flying()
+	
+	#actualy add the feather to the scene
+	get_parent().get_parent().add_child(instance)
 func play_idle(last_anim : String = "Move_Front") -> void:
 	if not get_flying():
 		#we are not flying
@@ -71,23 +75,22 @@ func run_seven(to_move,delta)->float:
 		shoot_feather(to_move)
 	return -0.5
 func run_six(to_move,delta)->float:
-	var flying : bool = get_flying()
 	#if we are flying, we toggle flying, if we get a directional
 	#we toggle flying
-	if to_move != Vector2(0.0,0.0) or flying:
+	if to_move != Vector2(0.0,0.0):
 		set_flying(not get_flying())
 		#we push in the opposite direction of player movement
 		if get_flying():
 			push(-to_move)
 		return 2.0
 	#the player is not flying and pressed the root/ non motion note
-	else:
+	elif not get_flying():
 		var parent = get_parent()
 		$Sprite/AnimationPlayer.play("ThrowFlap")
 		for node in get_tree().get_nodes_in_group("kinematicEnemies"):
 			if parent.col_math.in_layer(node.collision_layer,parent.gen_col_mask()) and parent.position.distance_squared_to(node.position) <= 40000:
 				node.flight_thrown = true
-		return 1.0
+	return 1.0
 
 #returns true when we fall
 #note this function assumes that we are flying
@@ -104,7 +107,7 @@ func checkFall() -> bool:
 	return ret_val
 
 #update our flight counter
-func updateFlight(dist : int = 1):
+func updateFlight(to_move : Vector2 ,dist : int = 1):
 	if not checkFall():
 		flight_distance += dist
 		if flight_distance >= max_flight_distance:
@@ -115,7 +118,7 @@ func updateFlight(dist : int = 1):
 func run_flavorless(to_move,delta)->float:
 	if get_flying():
 		#update flight
-		updateFlight()
+		updateFlight(to_move)
 		#move at 1.5 speed while flying
 		return 1.5
 	return 1.0
