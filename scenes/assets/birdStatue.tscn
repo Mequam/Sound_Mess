@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+[ext_resource path="res://assets/colorless_bird.png" type="Texture" id=2]
+
+[node name="birdStatue" type="Node2D"]
+scale = Vector2( 0.155, 0.155 )
+
+[node name="colorless_bird" type="Sprite" parent="."]
+modulate = Color( 0.67451, 0.67451, 0.67451, 1 )
+position = Vector2( -0.24527, -300.634 )
+texture = ExtResource( 2 )
+
+[node name="even_triangle" type="Sprite" parent="."]
+modulate = Color( 0, 0.976471, 1, 1 )
+position = Vector2( -28.6245, -497.385 )
+scale = Vector2( 0.184703, 0.0937982 )
+texture = ExtResource( 1 )

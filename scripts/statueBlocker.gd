@@ -11,6 +11,9 @@ var bossParticles = preload("res://scenes/assets/BossParticles.tscn")
 #used to determine how many particles to spawn in conjunction with the timer
 var toSpawn : int
 func _ready():
+	#wire the connection to our animations
+	$BlockerSprite.connect("animation_finished",self,"_on_Sprite_animation_finished")
+	
 	#load in the number of bosses which we have animated for (killed)
 	$save_state_node.load_data()
 	total_killed = $save_state_node.get_boss_kill_count(bosses)
@@ -27,10 +30,10 @@ func _ready():
 		get_parent().connect("ready",self,"parent_ready")
 		toSpawn = total_killed-anim_killed-1
 	else:
-		$Sprite.disconnect("animation_finished",self,"_on_Sprite_animation_finished")
+		$BlockerSprite.disconnect("animation_finished",self,"_on_Sprite_animation_finished")
 		#note stateShrink0 does not exist, as the sprite starts in that state
-		$Sprite.play("StateShrink" + str(anim_killed))
-		$Sprite.play("Twitch"+str(anim_killed))
+		$BlockerSprite.play("StateShrink" + str(anim_killed))
+		$BlockerSprite.play("Twitch"+str(anim_killed))
 
 func spawn_particles(flying : bool = false):
 	var bpi = bossParticles.instance()
@@ -56,7 +59,7 @@ func steal_camera()->void:
 
 func run_next_anim():
 	anim_killed += 1
-	$Sprite.play("Shrink" + str(anim_killed))
+	$BlockerSprite.play("Shrink" + str(anim_killed))
 #called when the sprite finishes animating, this is used to return the players camara
 #and chain together our animations
 func _on_Sprite_animation_finished(anim):
@@ -65,7 +68,7 @@ func _on_Sprite_animation_finished(anim):
 		#save the fact that we animated those bosses
 		$save_state_node.save_data()
 		#play the appropriate twitch animation
-		$Sprite.play("Twitch" + str(anim_killed))
+		$BlockerSprite.play("Twitch" + str(anim_killed))
 		#return the camara to it's proper position
 		get_tree().get_nodes_in_group("player")[0].get_node("Camera2D").position = Vector2(0,0)
 func _on_Timer_timeout():

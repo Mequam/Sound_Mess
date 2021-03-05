@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/FallingCarrot.tscn" type="PackedScene" id=2]
@@ -6,16 +6,18 @@
 [ext_resource path="res://scenes/instance/entities/PineTreeBody.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/assets/birdStatue.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/instance/entities/enemies/evil_carrot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/delete_save_state.gd" type="Script" id=9]
 [ext_resource path="res://scenes/instance/pickups/health_pickup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/assets/blockerSprite.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/SiloBoss.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/instance/entities/poof_grass.tscn" type="PackedScene" id=19]
-[ext_resource path="res://scenes/instance/bunnyBlocker.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/instance/blocker.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=23]
 
 [node name="test_space" type="TileMap"]
@@ -93,5 +95,14 @@ position = Vector2( -52.3251, -128.434 )
 [node name="BunnyBlocker" parent="." instance=ExtResource( 20 )]
 position = Vector2( 441.391, -1027.45 )
 
+[node name="BlockerSprite" parent="BunnyBlocker" instance=ExtResource( 11 )]
+
+[node name="Sprite" parent="BunnyBlocker/BlockerSprite" instance=ExtResource( 7 )]
+position = Vector2( 14.676, -39.3613 )
+scale = Vector2( 1.06667, 1.06667 )
+
 [node name="Tarantula" parent="." instance=ExtResource( 23 )]
 position = Vector2( -1784.49, -737.836 )
+
+[node name="birdStatue" parent="." instance=ExtResource( 7 )]
+position = Vector2( -1819.79, -483.263 )

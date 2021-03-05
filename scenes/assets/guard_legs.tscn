@@ -3158,7 +3158,7 @@ tracks/89/keys = {
 "values": [ Vector2( 0.0751949, 0.121957 ), Vector2( 0.0751949, 0.102825 ), Vector2( 0.0751949, 0.0645614 ), Vector2( 0.0751949, 0.0430963 ), Vector2( 0.005, 1e-05 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "StateShrink1"
 length = 0.001
 tracks/0/type = "value"
@@ -4122,8 +4122,7 @@ tracks/79/keys = {
 "values": [ Vector2( 0.0789934, 0.188561 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "StateShrink2"
+[sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("left/long_triangle4:position")
@@ -7866,8 +7865,8 @@ texture = ExtResource( 1 )
 anims/Shrink1 = SubResource( 1 )
 anims/Shrink2 = SubResource( 2 )
 anims/Shrink3 = SubResource( 3 )
-anims/StateShrink1 = SubResource( 5 )
-anims/StateShrink2 = SubResource( 4 )
+anims/StateShrink1 = SubResource( 4 )
+anims/StateShrink2 = SubResource( 5 )
 anims/Twitch0 = SubResource( 6 )
 anims/Twitch1 = SubResource( 7 )
 anims/Twitch2 = SubResource( 8 )

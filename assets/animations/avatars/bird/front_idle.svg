@@ -1883,11 +1883,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.13372043"
-     inkscape:cx="-698.67987"
-     inkscape:cy="351.41439"
+     inkscape:zoom="0.17918739"
+     inkscape:cx="-634.54646"
+     inkscape:cy="1326.4667"
      inkscape:document-units="mm"
-     inkscape:current-layer="svg8"
+     inkscape:current-layer="g2746"
      inkscape:document-rotation="0"
      showgrid="false"
      inkscape:snap-global="false"
@@ -1908,7 +1908,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -3817,6 +3817,226 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="g2823"
+     inkscape:label="statue side"
+     style="display:inline;opacity:1">
+    <g
+       inkscape:label="Body"
+       inkscape:groupmode="layer"
+       id="g2716"
+       style="display:inline;opacity:1;filter:url(#filter36)">
+      <g
+         id="g2668"
+         transform="matrix(0.57091473,0,0,0.86808704,-14.329032,39.902904)" />
+      <g
+         id="g2680"
+         transform="matrix(0.83123445,0,0,0.83123445,21.961992,101.17151)"
+         style="display:inline;opacity:1;"
+         inkscape:export-filename="/home/j0hn/ProgramingWorkshop/godot/Sound_Mess/assets/colorless_bird.png"
+         inkscape:export-xdpi="95.800003"
+         inkscape:export-ydpi="95.800003">
+        <g
+           id="g2678">
+          <path
+             id="path2670"
+             style="font-variation-settings:normal;vector-effect:none;fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="-8.0265353"
+             inkscape:transform-center-y="18.016323"
+             d="M 40.354361,182.06301 72.121645,59.218532 104.55401,166.24515 Z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(1.2609931,0,0,1.2609931,5.137594,-63.432349)" />
+          <path
+             id="path2675"
+             style="font-variation-settings:normal;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="-4.9858712"
+             inkscape:transform-center-y="11.191264"
+             d="M 40.354361,182.06301 72.121645,59.218532 104.55401,166.24515 Z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(0.78329554,0,0,0.78329554,41.401153,0.09836218)" />
+        </g>
+      </g>
+      <g
+         id="g2697"
+         inkscape:export-filename="/home/j0hn/ProgramingWorkshop/godot/Sound_Mess/assets/colorless_bird.png"
+         inkscape:export-xdpi="95.800003"
+         inkscape:export-ydpi="95.800003">
+        <g
+           id="g2690"
+           transform="matrix(1.2609931,0,0,1.2609931,5.1375939,-63.432349)">
+          <path
+             id="path2682"
+             style="font-variation-settings:normal;vector-effect:none;fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;"
+             inkscape:transform-center-x="-6.25018"
+             inkscape:transform-center-y="-56.786005"
+             d="M 46.887518,231.04325 H 109.44608 L 78.166519,123.71681 Z"
+             sodipodi:nodetypes="cccc" />
+        </g>
+        <path
+           id="path2693"
+           style="font-variation-settings:normal;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+           inkscape:transform-center-x="-4.3347007"
+           inkscape:transform-center-y="-39.382969"
+           d="M 52.418165,226.94635 H 103.97033 L 78.194015,138.50266 Z"
+           sodipodi:nodetypes="cccc"
+           transform="matrix(1.0612546,0,0,1.0612546,20.506845,-24.615682)" />
+      </g>
+      <g
+         id="g2713"
+         transform="matrix(0.83123445,0,0,0.83123445,28.690186,105.73239)"
+         style="display:inline;opacity:1;"
+         inkscape:export-filename="/home/j0hn/ProgramingWorkshop/godot/Sound_Mess/assets/colorless_bird.png"
+         inkscape:export-xdpi="95.800003"
+         inkscape:export-ydpi="95.800003">
+        <g
+           id="g2705">
+          <path
+             id="path2700"
+             style="font-variation-settings:normal;vector-effect:none;fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="-8.0265353"
+             inkscape:transform-center-y="18.016323"
+             d="M 34.397612,186.74901 73.785495,56.873669 104.49994,166.32909 Z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(1.2609931,0,0,1.2609931,5.137594,-63.432349)" />
+          <path
+             id="path2702"
+             style="font-variation-settings:normal;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="-4.9858712"
+             inkscape:transform-center-y="11.191264"
+             d="M 31.23065,196.8036 72.121645,59.218532 108.85557,176.37077 Z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(0.78329554,0,0,0.78329554,41.401153,0.09836218)" />
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="g2785"
+       inkscape:label="Head">
+      <g
+         inkscape:groupmode="layer"
+         id="g2746"
+         inkscape:label="Face">
+        <g
+           id="g2722"
+           transform="matrix(0.83123446,0,0,0.83123446,17.968473,15.172297)"
+           inkscape:export-filename="/home/j0hn/ProgramingWorkshop/godot/Sound_Mess/assets/colorless_bird.png"
+           inkscape:export-xdpi="95.800003"
+           inkscape:export-ydpi="95.800003">
+          <path
+             id="path2718"
+             style="font-variation-settings:normal;vector-effect:none;fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="-8.0265353"
+             inkscape:transform-center-y="18.016323"
+             d="M 39.216794,113.28702 H 119.55496 L 79.385563,147.33816 Z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(1.2609931,0,0,1.2609931,5.137594,-63.432349)" />
+          <path
+             id="path2720"
+             style="font-variation-settings:normal;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="-5.3670973"
+             inkscape:transform-center-y="10.910701"
+             d="M 49.069078,116.37302 H 109.51155 L 79.667423,141.87077 Z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(1.1207366,0,0,1.1207366,15.717007,-45.726719)" />
+        </g>
+        <g
+           id="g2730"
+           transform="translate(-40.223754,18.839963)"
+           inkscape:export-filename="/home/j0hn/ProgramingWorkshop/godot/Sound_Mess/assets/colorless_bird.png"
+           inkscape:export-xdpi="95.800003"
+           inkscape:export-ydpi="95.800003">
+          <path
+             id="path2724"
+             style="font-variation-settings:normal;vector-effect:none;fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="-2.1705618"
+             inkscape:transform-center-y="4.9389231"
+             d="m 41.129618,112.50373 43.791304,-7.08071 16.159208,13.44034 z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(1.2609931,0,0,1.2609931,5.1375948,-63.432351)" />
+          <path
+             id="path2726"
+             style="font-variation-settings:normal;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="-1.3006983"
+             inkscape:transform-center-y="2.9596248"
+             d="m 41.129618,112.50373 43.791304,-7.08071 16.159208,13.44034 z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(0.75564362,0,0,0.75564362,45.990423,-7.5900167)" />
+        </g>
+      </g>
+      <g
+         inkscape:groupmode="layer"
+         id="g2780"
+         inkscape:label="Tuffs">
+        <g
+           id="g2771"
+           transform="matrix(-0.54488506,-0.83851075,-0.83851075,0.54488506,267.06179,131.46974)"
+           inkscape:export-filename="/home/j0hn/ProgramingWorkshop/godot/Sound_Mess/assets/colorless_bird.png"
+           inkscape:export-xdpi="95.800003"
+           inkscape:export-ydpi="95.800003">
+          <path
+             id="path2749"
+             style="font-variation-settings:normal;vector-effect:none;fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="-4.879691"
+             inkscape:transform-center-y="11.301557"
+             d="M 56.758442,90.066974 75.69054,72.407058 78.524715,110.14916 Z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(1.2609931,0,0,1.2609931,5.1375939,-63.43235)" />
+          <path
+             id="path2759"
+             style="font-variation-settings:normal;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="-2.8495227"
+             inkscape:transform-center-y="6.5996067"
+             d="M 60.582308,90.859409 73.725397,78.599497 75.692945,104.80091 Z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(1.0607032,0,0,1.0607032,19.205894,-45.254675)" />
+        </g>
+        <g
+           id="g2777"
+           transform="translate(38.895696,5.3513895)"
+           inkscape:export-filename="/home/j0hn/ProgramingWorkshop/godot/Sound_Mess/assets/colorless_bird.png"
+           inkscape:export-xdpi="95.800003"
+           inkscape:export-ydpi="95.800003">
+          <path
+             id="path2773"
+             style="font-variation-settings:normal;vector-effect:none;fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="4.8604034"
+             inkscape:transform-center-y="7.5505842"
+             d="M 99.047749,99.883201 93.383404,77.963108 79.704447,109.19731 Z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(1.2609931,0,0,1.2609931,5.1375939,-63.43235)" />
+          <path
+             id="path2775"
+             style="font-variation-settings:normal;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#e6e6e6;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+             inkscape:transform-center-x="2.5795692"
+             inkscape:transform-center-y="4.0073419"
+             d="M 96.874333,99.356777 92.759751,83.43401 82.823348,106.12255 Z"
+             sodipodi:nodetypes="cccc"
+             transform="matrix(0.92132329,0,0,0.92132329,35.919156,-30.991708)" />
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="g2797"
+       inkscape:label="Wings" />
+    <g
+       inkscape:groupmode="layer"
+       id="g2820"
+       inkscape:label="WingDetail">
+      <g
+         id="g2818"
+         transform="matrix(1.0615226,0,0,2.5464157,-13.960165,-194.05605)">
+        <g
+           id="g2802"
+           transform="matrix(1.1748853,0,0,1.4105025,-10.919628,-60.47207)" />
+        <g
+           id="g2811"
+           transform="matrix(0.87204377,0,0,0.38507448,30.823743,67.632536)" />
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="g3040"
      inkscape:label="IdleBackGround"
      style="display:none;opacity:1"
@@ -4713,7 +4933,7 @@
        inkscape:groupmode="layer"
        id="g2277"
        inkscape:label="Frame0"
-       style="display:inline;opacity:1"
+       style="display:none;opacity:1"
        sodipodi:insensitive="true">
       <g
          inkscape:label="Body"
@@ -5834,7 +6054,8 @@
      inkscape:groupmode="layer"
      id="g3190"
      inkscape:label="FallFrame"
-     style="display:inline;opacity:0.997">
+     style="display:none;opacity:0.997"
+     sodipodi:insensitive="true">
     <g
        inkscape:groupmode="layer"
        id="g2817"
