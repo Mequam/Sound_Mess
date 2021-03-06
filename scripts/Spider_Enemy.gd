@@ -10,10 +10,7 @@ var just_attacked = false
 
 #function that is inteanded to be called by people who collide with us
 func on_col(player,dmg=1):
-	if (player.is_in_group("player") and player.i_timer != null and player.i_timer > 0):
-		$health_bar.hp -= dmg
-	elif (!player.is_in_group("player")):
-		$health_bar.hp -= dmg
+	$health_bar.hp -= dmg
 	if ($health_bar.hp <= 0):
 		set_mode("die")
 #setter for our mode

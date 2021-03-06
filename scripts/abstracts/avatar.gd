@@ -5,7 +5,7 @@ var code : int
 #it is inteanded to be used by other avatars to tell the player
 #what scale to play
 func set_mode(mode : int):
-	get_parent().get_node("NotePlayer").mode = mode
+	get_parent().set_musical_input_mode(mode)
 #this function sets the colors of the text bubble for the player
 func set_speech_color(textColor : Color,bubbleColor : Color):
 	var sb = get_parent().get_node("SpeechBubble")

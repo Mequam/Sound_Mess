@@ -148,7 +148,7 @@ func load_avatar():
 	
 	#2 = mixolidian birds :D
 	set_mode(2)
-	code = get_parent().Avatars.BIRD
+	code = get_parent().ava_math.Avatars.BIRD
 	
 	.load_avatar()
 func init():

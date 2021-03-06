@@ -44,18 +44,10 @@ func check_action(action_name,falling,time):
 		cmbAct.delta = 0
 	else:
 		cmbAct.delta = time-last_time
-	
-	print("looking for")
-	print(action_list[score].toStr())
-	print("found")
-	print(cmbAct.toStr()) #usefull for debuging why your combos dont work
-	#need to mod this frame work -_- ^
-	
 	#check that combo action for a match
 	if (score < len(action_list) and action_list[score].find_match(cmbAct)):
 		#we found a  match
 		set_score(score + 1)
-		print("^ action in combo")
 		if (score == len(action_list)):
 			#reset the score so we can look again
 			set_score(0)

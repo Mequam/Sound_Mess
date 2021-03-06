@@ -1,4 +1,10 @@
-extends "res://scripts/colSwitchAnim.gd"
+extends "res://scripts/abstracts/generic_area.gd"
+#this area puppetires a dialog choice box and toggles its enable/disable
+#depending on the players position
+func gen_col_layer()->int:
+	return 0
+func gen_col_mask()->int:
+	return col_math.Layer.PLAYER
 var player : Node = null
 func ready():
 	#make sure that we start off not enabled
@@ -20,9 +26,6 @@ func _on_singingSwitch_body_exited(body):
 		player = null
 
 func _on_DialogChoiceList_completed_dialog(sentance):
-	set_on(not get_on())
-	$switchAsset/AnimationPlayer.play("stateChange")
-	$DialogChoiceList.enabled = false
 	#the player has no need to keep talking
 	if player != null:
 		player.talking = false

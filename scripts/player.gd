@@ -3,6 +3,9 @@ extends "res://scripts/abstracts/entity.gd"
 #it controls basic movement,input, animation, damage and avatar switching
 #the avatars control ability usage and key modulation 
 
+#library containing code to work with the avatar enumerators
+var ava_math = preload("res://scripts/ava_code_math.gd")
+
 #emitted when we fall into or out of time
 signal rythom_score_changed
 
@@ -101,32 +104,20 @@ func updateRythomMomentom():
 		set_rythom_score(-2)
 	if (rythom_score > 4):
 		set_rythom_score(4)
-
-enum Avatars {
-	ARCH, #lydian
-	BUNNY, #major
-	BIRD #mixolidian
-}
-#converts an avatar enumerator into the path where that avatar is stored
-func avatar_enum2path(avatar_enum : int)-> String:
-	if 0 <= avatar_enum and avatar_enum < Avatars.size():
-		return ["",
-		"res://scenes/instance/avatars/bunny_avatar.tscn",
-		"res://scenes/instance/avatars/bird_avatar.tscn"][avatar_enum]
-	return "res://scenes/instance/avatars/bunny_avatar.tscn" #defualt to the bunny path to avoid errors
 #loads an avatar given that avatars enumerator
 func load_avatar_enum(avatar_enum : int) -> void:
-	load_avatar_path(avatar_enum2path(avatar_enum))
+	load_avatar_path(ava_math.avatar_enum2path(avatar_enum))
 
 #this function changes the player avatar to the given avatar
 func load_avatar_path(path : String)->void:
 	load_avatar(load(path).instance())
+	
+#serves as a buffer zone while we wait for the previous avatar to clear out
+var buffer_avatar : Node2D
 #loads an avatar give a node
 func load_avatar(avatar : Node2D)->void:
 	$avatar.queue_free()
-	avatar.name = "bufferAvatar"
-	add_child(avatar)
-	print("[avatar name] " + avatar.name)
+	buffer_avatar = avatar
 #this function moves us in the given direction for player control
 func move_dir(dir,delta):
 	var working_speed = RythomToSpeed()
@@ -136,6 +127,9 @@ func move_dir(dir,delta):
 	if (collided):
 		#decide what to do with the thing that we hit
 		collision_action(collided)
+#syntactic sugar that sets the mode of the note player
+func set_musical_input_mode(mode : int)->void:
+	$NotePlayer.mode = mode
 func check_action(act):
 	match input_mode:
 		"dev":
@@ -285,6 +279,5 @@ func _process(delta):
 
 #called when the avatar leaves the tree
 func _on_avatar_tree_exited():
-	if $bufferAvatar:
-		$bufferAvatar.name = "avatar"
-		$avatar.load_avatar()
+	add_child(buffer_avatar)
+	$avatar.load_avatar()

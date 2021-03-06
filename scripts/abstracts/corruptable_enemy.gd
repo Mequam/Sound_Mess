@@ -21,7 +21,6 @@ func get_flying()->bool:
 		collision_layer,
 		col_math.shift_collision(.gen_col_layer(),col_math.SuperLayer.FLIGHT))
 func run_wrapper(run,pos):
-	print("[corruptable enemy] flying " + str(get_flying()))
 	.run_wrapper(run,pos)
 #this is the function that causes us to get corrupted
 func corrupt():
