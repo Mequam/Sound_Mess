@@ -3,7 +3,7 @@ extends Node2D
 #(or notes in general) of a given mode 
 
 #this contains the scale math functions that we need to decode the 
-var scale_math = load("res://scripts/abstracts/Scale_Math.gd").new()
+var scale_math = preload("res://scripts/abstracts/Scale_Math.gd").new()
 
 signal player_said
 
@@ -16,7 +16,6 @@ func clearDisp():
 #this is an internal function that adds the given note to the given
 #combo container
 func addNewAction(note,sub_beat,combo):
-	print("using a sub beat of " + str(sub_beat))
 	var actName = scale_math.deg2actionStr(note[0])
 	combo.addNewComboAction(
 			actName, #str action name
@@ -47,6 +46,35 @@ func createCombo(notes,sub_beat,name="dialog"):
 func setChildrenColor(c : Color):
 	for child in get_children():
 		child.modulate = c
+#sets the color of the children depending on wheather or not they are in the given mode
+func setChildrenModeColor(inmode : int,outmode : int,in_mode_c : Color,out_mode_c : Color):
+	scale_math.mode = inmode
+	for child in get_children():
+		#we are in the given scale
+		if scale_math.degInMode(child.display_degree,outmode):
+			child.modulate = in_mode_c
+		#we are not in the given scale
+		else:
+			child.modulate = out_mode_c
+#this function syncs the color of our notes with a given score
+#without re-drawing them and with reference to an in and out scale
+#if the note degree is the same in the in and out scales, then we use one color
+#if it is different then we use another color
+
+#this is all so that the player has a reference when they see new notes
+func syncScoreColorRefMode(score,modein,modeout,onColorIn=Color.orangered,offColorIn=Color.white,onColorOut=Color.red,offColorOut=Color.gray):
+	setChildrenModeColor(modein,modeout,offColorIn,offColorOut)
+	scale_math.mode = modein
+	for i in range(0,score):
+		var child = get_child(i)
+		if not child:
+			#if the child is invalid we finished
+			break
+		#we are ON, but are we in the scale or out of the scale?
+		if scale_math.degInMode(child.display_degree,modeout):
+			child.modulate = onColorIn
+		else:
+			child.modulate = onColorOut
 #this function syncs the color of our notes with a given score
 #WITHOUT re-drawing all of the notes 
 func syncScoreColor(score,onColor=Color.orangered,offColor=Color.white):
@@ -60,7 +88,7 @@ func syncScoreColor(score,onColor=Color.orangered,offColor=Color.white):
 		if (not child):
 			#if the child is invalid, we have finished coloring
 			break
-		get_child(i).modulate = onColor
+		child.modulate = onColor
 #this fuction displays the given note array as dialog in the node
 func syncDisp(notes,mode,score=0,note_dist=scale.x*5):
 	clearDisp()

@@ -29,6 +29,7 @@ position = Vector2( 0.868877, -23.57 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0.868877, -23.57 )
+volume_db = -3.29
 
 [node name="health_bar" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0.971097, -55.3863 )

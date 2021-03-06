@@ -13,13 +13,13 @@
 [ext_resource path="res://scenes/assets/blockerSprite.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/instance/dialog/full_scale.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/assets/PineTree.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/SiloBoss.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/instance/entities/poof_grass.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/instance/blocker.tscn" type="PackedScene" id=20]
-[ext_resource path="res://scenes/instance/dialog/testDialog.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/instance/DialogChoiceList.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/instance/ChangeStatue.tscn" type="PackedScene" id=24]
@@ -42,7 +42,7 @@ position = Vector2( -1224.34, 302.722 )
 script = ExtResource( 9 )
 
 [node name="Spider_Enemy" parent="." instance=ExtResource( 13 )]
-position = Vector2( -1796.47, -1131.14 )
+position = Vector2( -2572.59, -819.492 )
 
 [node name="Spider_Enemy4" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1007.26, -1143.1 )
@@ -124,7 +124,7 @@ collision_mask = 0
 position = Vector2( 1.41425, 1.06065 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="testDialog" parent="ChangeStatue/DialogChoiceList" instance=ExtResource( 21 )]
-position = Vector2( -626.714, -221.124 )
-scale = Vector2( 8, 8 )
+[node name="full_scale" parent="ChangeStatue/DialogChoiceList" instance=ExtResource( 14 )]
+position = Vector2( -365.587, -305.655 )
+scale = Vector2( 4, 4 )
 [connection signal="completed_dialog" from="ChangeStatue/DialogChoiceList" to="ChangeStatue" method="_on_DialogChoiceList_completed_dialog"]

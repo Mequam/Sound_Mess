@@ -9,9 +9,10 @@ func set_mode(setter):
 	if (setter % 2 == 0):
 		mode = setter/2
 	else:
-		mode = (setter+7)/2 %7
+		mode = (setter+7)/2 % 7
 
 #this is the offset that we use to build cords
+#these are the distance between white notes on the piano
 const offsets = [2,2,2,1,2,2,1]
 
 #this function takes a note number and returns the string name of the note
@@ -48,6 +49,22 @@ func deg2actionStr(deg):
 		deg += 7
 	return "NOTE_" + str(deg)
 
+#this function takes a mode and a degree, and determines
+#if the degree of that mode is the same as the degree of our mode
+func degInMode(deg : int,new_mode : int)->bool:
+	#cache the intial mode and the deg in that mode
+	var initial_mode = mode
+	var initial_note = deg2note(deg)
+	
+	#change our mode for the next calculations
+	set_mode(new_mode)
+	
+	var ret_val = deg2note(deg)==initial_note
+	
+	#reset the cached mode
+	mode = initial_mode
+	
+	return ret_val
 #this function takes a scale degree and throws the appropriate input action
 func deg2action(deg,pressed=true):
 	#make sure we re-map to posotive
@@ -63,6 +80,7 @@ func deg2action(deg,pressed=true):
 #this function takes a scale degree and returns a note index
 func deg2note(scale_degree):
 	var to_play = 0
+	
 	if (scale_degree < 7):
 		#re-map to a scale degree we can use
 		scale_degree += 7
