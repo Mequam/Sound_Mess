@@ -24,7 +24,7 @@ func _ready():
 		anim_killed = 0
 	#we do not exist if we have animated all of our objects
 	if anim_killed >= len(bosses):
-		queue_free()
+		replaceWithSwapper()
 	elif total_killed > anim_killed:
 		#we are going to run code when the parent is ready
 		get_parent().connect("ready",self,"parent_ready")
@@ -60,6 +60,15 @@ func steal_camera()->void:
 func run_next_anim():
 	anim_killed += 1
 	$BlockerSprite.play("Shrink" + str(anim_killed))
+#replace the blocker with a statue swapper of the same purpose
+func replaceWithSwapper():
+	print("[blocker] creating statue instance")
+	var swapperStatue = load("res://scenes/instance/largeSwapperStatue.tscn").instance()
+	swapperStatue.position = position
+	
+	print("[blocker] spawning statue")
+	get_parent().add_child(swapperStatue)
+	print("[blocker] leaving the tree")
 #called when the sprite finishes animating, this is used to return the players camara
 #and chain together our animations
 func _on_Sprite_animation_finished(anim):
@@ -71,6 +80,9 @@ func _on_Sprite_animation_finished(anim):
 		$BlockerSprite.play("Twitch" + str(anim_killed))
 		#return the camara to it's proper position
 		get_tree().get_nodes_in_group("player")[0].get_node("Camera2D").position = Vector2(0,0)
+		#if we have animated enough replace us with the actual statue
+		if anim_killed == len(bosses):
+			replaceWithSwapper()
 func _on_Timer_timeout():
 	if toSpawn > 0:
 		spawn_particles()

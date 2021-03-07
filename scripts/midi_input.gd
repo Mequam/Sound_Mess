@@ -19,7 +19,6 @@ const MIDI_EVENT_PROPERTIES = ["channel", "message", "pitch", "velocity", "instr
 
 
 func get_midi_message_description(event : InputEventMIDI):
-
 	if GlobalScope_MidiMessageList.values().has(event.message):
 		return GlobalScope_MidiMessageList.keys()[event.message - 0x08]
 	return event.message

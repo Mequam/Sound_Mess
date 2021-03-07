@@ -67,14 +67,17 @@ func degInMode(deg : int,new_mode : int)->bool:
 	return ret_val
 #this function takes a scale degree and throws the appropriate input action
 func deg2action(deg,pressed=true):
-	#make sure we re-map to posotive
-	while deg < 0:
-		deg += 7
-	#create and throw the input event
 	var ie = InputEventAction.new()
-	#we could use the degree to action function here, but this way we
-	#avoid a while loop
-	ie.action = "NOTE_" + str(deg)
+	if deg == null:
+		ie.action = "WRONG_NOTE"
+	else:
+		#make sure we re-map to posotive
+		while deg < 0:
+			deg += 7
+		#create and throw the input event
+		#we could use the degree to action function here, but this way we
+		#avoid a while loop
+		ie.action = "NOTE_" + str(deg)
 	ie.pressed = pressed
 	return ie
 #this function takes a scale degree and returns a note index
