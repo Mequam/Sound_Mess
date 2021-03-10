@@ -24,7 +24,8 @@ func _ready():
 		anim_killed = 0
 	#we do not exist if we have animated all of our objects
 	if anim_killed >= len(bosses):
-		replaceWithSwapper()
+		#mark us for death when the parent is ready to accept a new node
+		get_parent().connect("ready",self,"replaceWithSwapper")
 	elif total_killed > anim_killed:
 		#we are going to run code when the parent is ready
 		get_parent().connect("ready",self,"parent_ready")
