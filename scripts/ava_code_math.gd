@@ -16,6 +16,7 @@ static func avatar_enum2path(avatar_enum : int)-> String:
 		"res://scenes/instance/avatars/bunny_avatar.tscn",
 		"res://scenes/instance/avatars/bird_avatar.tscn"][avatar_enum]
 	return "res://scenes/instance/avatars/bunny_avatar.tscn" #defualt to the bunny path to avoid errors
+#converts an avatar enumerator to the path to the transformer statue
 static func avatar_enum2transPath(avatar_enum : int) -> String:
 	if isAvatarCode(avatar_enum):
 		return ["",
@@ -23,3 +24,5 @@ static func avatar_enum2transPath(avatar_enum : int) -> String:
 		"res://scenes/assets/avatar_swapper_statues/birdTransformationStatue.tscn"][avatar_enum]
 	#default to the bunny
 	return "res://scenes/assets/avatar_swapper_statues/bunnySwapperStatue.tscn"
+static func avatar_enum2transNode(avatar_enum : int) -> String:
+	return load(avatar_enum2transPath(avatar_enum)).instance()

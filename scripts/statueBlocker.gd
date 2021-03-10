@@ -1,4 +1,9 @@
 extends "res://scripts/abstracts/generic_static.gd"
+#the mode of the avatar that we switch to
+var mode : int = 2
+
+var ava_math = preload("res://scripts/ava_code_math.gd")
+
 #represents the number of enemies killed that we have animated for
 var anim_killed : int = 0
 #used to chache the total number of enemies killed
@@ -10,6 +15,7 @@ var bosses = ["inner_church_bunny-bunny_boss_entity","silo_boss_room-SiloBoss","
 var bossParticles = preload("res://scenes/assets/BossParticles.tscn")
 #used to determine how many particles to spawn in conjunction with the timer
 var toSpawn : int
+
 func _ready():
 	#wire the connection to our animations
 	$BlockerSprite.connect("animation_finished",self,"_on_Sprite_animation_finished")
@@ -26,15 +32,21 @@ func _ready():
 	if anim_killed >= len(bosses):
 		#mark us for death when the parent is ready to accept a new node
 		get_parent().connect("ready",self,"replaceWithSwapper")
-	elif total_killed > anim_killed:
-		#we are going to run code when the parent is ready
-		get_parent().connect("ready",self,"parent_ready")
-		toSpawn = total_killed-anim_killed-1
 	else:
-		$BlockerSprite.disconnect("animation_finished",self,"_on_Sprite_animation_finished")
-		#note stateShrink0 does not exist, as the sprite starts in that state
-		$BlockerSprite.play("StateShrink" + str(anim_killed))
-		$BlockerSprite.play("Twitch"+str(anim_killed))
+		#sync the statue that we display to our mode
+		var correct_statue : Node2D = ava_math.avatar_enum2transNode(mode)
+		correct_statue.scale *= 5.5
+		$BlockerSprite.add_child_below_node($BlockerSprite/guard_legs2,correct_statue)
+		
+		if total_killed > anim_killed:
+			#we are going to run code when the parent is ready
+			get_parent().connect("ready",self,"parent_ready")
+			toSpawn = total_killed-anim_killed
+		else:
+			$BlockerSprite.disconnect("animation_finished",self,"_on_Sprite_animation_finished")
+			#note stateShrink0 does not exist, as the sprite starts in that state
+			$BlockerSprite.play("StateShrink" + str(anim_killed))
+			$BlockerSprite.play("Twitch"+str(anim_killed))
 
 func spawn_particles(flying : bool = false):
 	var bpi = bossParticles.instance()
@@ -44,7 +56,7 @@ func spawn_particles(flying : bool = false):
 	bpi.connect("out_of_cam",self,"steal_camera")
 	bpi.connect("arrived",bpi,"die_with_particles")
 	bpi.connect("arrived",self,"run_next_anim")
-	get_parent().add_child(bpi)
+	Globals.get_scene_root().add_child(bpi)
 
 func parent_ready():
 	spawn_particles()
@@ -61,13 +73,17 @@ func steal_camera()->void:
 func run_next_anim():
 	anim_killed += 1
 	$BlockerSprite.play("Shrink" + str(anim_killed))
+
 #replace the blocker with a statue swapper of the same purpose
 func replaceWithSwapper():
 	var swapperStatue = load("res://scenes/instance/largeSwapperStatue.tscn").instance()
-	swapperStatue.get_child(0).get_child(0).enabled = true
+	
+	swapperStatue.get_child(0).scale_to_change_to = mode
+	
 	swapperStatue.position = position
 	get_parent().add_child(swapperStatue)
 	queue_free()
+
 #called when the sprite finishes animating, this is used to return the players camara
 #and chain together our animations
 func _on_Sprite_animation_finished(anim):
@@ -83,6 +99,7 @@ func _on_Sprite_animation_finished(anim):
 		if anim_killed == len(bosses):
 			replaceWithSwapper()
 func _on_Timer_timeout():
+	print("[Timer] timing out " + str(toSpawn))
 	if toSpawn > 0:
 		spawn_particles()
 		toSpawn -= 1

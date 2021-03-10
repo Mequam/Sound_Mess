@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/FallingCarrot.tscn" type="PackedScene" id=2]
@@ -10,16 +10,14 @@
 [ext_resource path="res://scenes/instance/entities/enemies/evil_carrot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/delete_save_state.gd" type="Script" id=9]
 [ext_resource path="res://scenes/instance/pickups/health_pickup.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/assets/blockerSprite.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/instance/blocking_statue.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/assets/avatar_swapper_statues/bunnySwapperStatue.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/assets/PineTree.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/SiloBoss.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/instance/entities/enemies/Traper_Entity.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/instance/entities/poof_grass.tscn" type="PackedScene" id=19]
-[ext_resource path="res://scenes/instance/blocker.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=23]
 
 [node name="test_space" type="TileMap"]
@@ -58,7 +56,7 @@ position = Vector2( -1477.69, -1342.16 )
 position = Vector2( -1029.87, -1252.48 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2116.84, -780.44 )
+position = Vector2( 1988.47, -350.034 )
 
 [node name="SiloBoss" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1755.84, -769.858 )
@@ -94,16 +92,6 @@ position = Vector2( -309.214, -144.926 )
 [node name="poof_grass" parent="." instance=ExtResource( 19 )]
 position = Vector2( -52.3251, -128.434 )
 
-[node name="BunnyBlocker" parent="." instance=ExtResource( 20 )]
-position = Vector2( 428.415, -1010.62 )
-
-[node name="BlockerSprite" parent="BunnyBlocker" instance=ExtResource( 11 )]
-position = Vector2( -22.5156, -8.26123 )
-
-[node name="swapperSprite" parent="BunnyBlocker/BlockerSprite" instance=ExtResource( 14 )]
-position = Vector2( 15.9819, 1.51196 )
-scale = Vector2( 5, 5 )
-
 [node name="Tarantula" parent="." instance=ExtResource( 23 )]
 position = Vector2( -1784.49, -737.836 )
 
@@ -113,3 +101,6 @@ position = Vector2( -1819.79, -483.263 )
 [node name="TreeSprite" parent="." instance=ExtResource( 15 )]
 position = Vector2( -2441.26, -920.589 )
 scale = Vector2( 0.5, 0.5 )
+
+[node name="blocking_statue" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2835.59, -640.378 )
