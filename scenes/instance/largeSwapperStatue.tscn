@@ -6,4 +6,5 @@
 [node name="largeSwapperStatue" type="Node2D"]
 
 [node name="swapperStatue" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -52.9167 )
 script = ExtResource( 2 )

@@ -35,7 +35,7 @@ var last_time = 0
 
 #checks wether the given combo action is inside of our combo for our score
 func check_action(action_name,falling,time):
-	
+	print("[combo container] checking an input!")	
 	#make a combo action with the required delta time
 	var cmbAct = comboActionScript.new()
 	cmbAct.action = action_name
@@ -48,6 +48,7 @@ func check_action(action_name,falling,time):
 	if (score < len(action_list) and action_list[score].find_match(cmbAct)):
 		#we found a  match
 		set_score(score + 1)
+		print("[combo container] found an input match")
 		if (score == len(action_list)):
 			#reset the score so we can look again
 			set_score(0)

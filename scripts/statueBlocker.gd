@@ -62,13 +62,11 @@ func run_next_anim():
 	$BlockerSprite.play("Shrink" + str(anim_killed))
 #replace the blocker with a statue swapper of the same purpose
 func replaceWithSwapper():
-	print("[blocker] creating statue instance")
 	var swapperStatue = load("res://scenes/instance/largeSwapperStatue.tscn").instance()
+	swapperStatue.get_child(0).get_child(0).enabled = true
 	swapperStatue.position = position
-	
-	print("[blocker] spawning statue")
 	get_parent().add_child(swapperStatue)
-	print("[blocker] leaving the tree")
+	queue_free()
 #called when the sprite finishes animating, this is used to return the players camara
 #and chain together our animations
 func _on_Sprite_animation_finished(anim):

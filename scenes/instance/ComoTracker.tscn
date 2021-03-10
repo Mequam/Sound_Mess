@@ -3,8 +3,8 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
-var comboActionScript = load(\"res://scripts/comboAction.gd\")
-var comboContainerScript = load(\"res://scripts/combo_container.gd\")
+var comboActionScript = preload(\"res://scripts/comboAction.gd\")
+var comboContainerScript = preload(\"res://scripts/combo_container.gd\")
 
 #used by callers to get the objects to interact with us
 func get_combo_container():

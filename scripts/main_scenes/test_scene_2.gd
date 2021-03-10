@@ -15,7 +15,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("DEVELOPER_ACTION"):
-		if $player/avatar.code == 1:
-			$player.load_avatar_enum(2)
-		else:
-			$player.load_avatar_enum(1)
+		for node in get_tree().get_nodes_in_group("dialog_choice_list"):
+			print(str(node.get_child(0).combos))

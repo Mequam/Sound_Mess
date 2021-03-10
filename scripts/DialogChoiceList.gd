@@ -23,7 +23,10 @@ func get_enabled():
 	return enabled
 func _ready():
 	add_to_group("dialog_choice_list")
-func init():
+	init(Globals.get_scene_sub_beat())
+func init(sub_beat):
+	$ComboTracker.combos.clear()
+	
 	for node in get_children():
 		if node.name != "ComboTracker":
 			#sadly we must change a state in order to pass this information
@@ -32,7 +35,7 @@ func init():
 			node.offColor = offColor
 
 			var combo = node.getCombo(sub_beat)
-
+			
 			#make sure that the node syncs scores properly
 			combo.connect("score_changed",node,"syncScoreColorDbl")
 			

@@ -28,11 +28,3 @@ func _on_ChangeStatue_body_exited(body):
 	#re-set the inputs to use the note native to the initial avatar
 	body.set_musical_input_mode(body.get_node("avatar").code)
 	._on_singingSwitch_body_exited(body)
-
-
-func _on_swapperStatue_tree_exiting():
-	print("[swapper statue] LEAVING THE TREE")
-
-
-func _on_swapperStatue_tree_entered():
-	print("[swapper statue] ENTERING THE TREE")

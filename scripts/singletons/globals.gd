@@ -7,6 +7,15 @@ extends Node
 #this id represents the game save, when saving data
 #we save it in the folder user://game{game_save_id}/blah
 var game_save_id : int = 0
+
+func get_scene_root()->Node:
+	#this needs to be updated whenever we add a new global script
+	return get_tree().get_root().get_child(2)
+
+func get_scene_sub_beat()->float:
+	#syntactic sugar for nodes to get the scene sub beat
+	return get_scene_root().get_node("Met").get_node("Met").wait_time
+
 #currently this code has functions which check to see if an action has
 #just been pressed for use with the custom actions emited from
 #the controlling note player
