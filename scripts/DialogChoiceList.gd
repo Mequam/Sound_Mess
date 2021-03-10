@@ -17,11 +17,13 @@ var enabled = false setget set_enabled, get_enabled
 signal completed_dialog
 
 func set_enabled(val):
-	enabled = val
-	visible = enabled
+	visible = val
 func get_enabled():
-	return enabled
+	return visible
 func _ready():
+	#this could be done through the editor,
+	#but because I am forgetfull we make sure that the node starts out as not visible
+	visible = false
 	add_to_group("dialog_choice_list")
 	init(Globals.get_scene_sub_beat())
 func init(sub_beat):
@@ -46,7 +48,7 @@ func init(sub_beat):
 			node.updateDisp(mode)
 
 func _process(delta):
-	if (enabled):
+	if (visible):
 		$ComboTracker.check_inputs(delta)
 
 func _on_ComboTracker_combo_found(cmbName):
