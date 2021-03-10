@@ -420,7 +420,7 @@ modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
 
 [node name="frb" type="Sprite" parent="spdier/legs"]
 position = Vector2( 38.421, -244.978 )
-rotation = 3.29818
+rotation = 3.34733
 scale = Vector2( 0.0805229, 0.977545 )
 texture = ExtResource( 1 )
 
@@ -459,13 +459,13 @@ texture = ExtResource( 1 )
 
 [node name="brb" type="Sprite" parent="spdier/legs"]
 position = Vector2( 12.4478, -288.126 )
-rotation = -3.18776
+rotation = -3.11972
 scale = Vector2( 0.0805229, 0.977545 )
 texture = ExtResource( 1 )
 
 [node name="blb" type="Sprite" parent="spdier/legs"]
 position = Vector2( -69.4292, -296.578 )
-rotation = 2.75975
+rotation = 2.83328
 scale = Vector2( 0.0805229, 0.977545 )
 texture = ExtResource( 1 )
 
