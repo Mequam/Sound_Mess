@@ -10,10 +10,14 @@ func _ready():
 	$FallingCarrot.speed = 400
 	$FallingCarrot.move_vec = Vector2(0,1)
 	$FallingCarrot.fall()
+	$Sprite/AnimationPlayer.play("Transform")
 	.init()
-
+var test : bool = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	test = not test
 	if Input.is_action_just_pressed("DEVELOPER_ACTION"):
-		for node in get_tree().get_nodes_in_group("dialog_choice_list"):
-			print(str(node.get_child(0).combos))
+		if test:
+			$Sprite/AnimationPlayer.play("Idle")
+		else:
+			$Sprite/AnimationPlayer.play("Spin")
