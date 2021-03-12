@@ -13,7 +13,7 @@
 [ext_resource path="res://scenes/instance/blocking_statue.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/assets/StatueEnemySprite.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/instance/entities/enemies/StatueEnemy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/assets/PineTree.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/SiloBoss.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=17]
@@ -106,5 +106,5 @@ scale = Vector2( 0.5, 0.5 )
 [node name="blocking_statue" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2835.59, -640.378 )
 
-[node name="Sprite" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1807.17, -326.328 )
+[node name="StatueEnemy" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1728.34, -327.85 )

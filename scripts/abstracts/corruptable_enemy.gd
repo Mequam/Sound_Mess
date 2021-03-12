@@ -5,6 +5,7 @@ func gen_col_layer()->int:
 	return 0
 func gen_col_mask()->int:
 	return 0
+
 func set_flying(val : bool)->void:
 	.set_flying(val)
 	if val:
@@ -20,8 +21,10 @@ func get_flying()->bool:
 	return col_math.in_layer_no_constants(
 		collision_layer,
 		col_math.shift_collision(.gen_col_layer(),col_math.SuperLayer.FLIGHT))
+
 func run_wrapper(run,pos):
 	.run_wrapper(run,pos)
+
 #this is the function that causes us to get corrupted
 func corrupt():
 	get_node("Sprite/AnimationPlayer").play("Transform")
