@@ -131,8 +131,12 @@ func _on_attack_area_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage(2)
 	elif body.is_in_group("projectile"):
+		if body.get_node("Sprite"):
+			#look where we are going
+			body.get_node("Sprite").rotation_degrees += 180
 		body.dir *= -1
-		body.modulate = Color.red
+		body.collision_mask = collision_mask
+		body.modulate = Color.gray
 func _on_statueSwitch_completed_dialog(dialog):
 	if not is_in_group("enemies"):
 		emit_signal("completed_dialog",dialog)

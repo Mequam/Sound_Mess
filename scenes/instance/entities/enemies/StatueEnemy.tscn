@@ -30,6 +30,7 @@ shape = SubResource( 1 )
 script = ExtResource( 4 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1.33484, -1.33484 )
 volume_db = -4.968
 
 [node name="health_bar" parent="." instance=ExtResource( 6 )]

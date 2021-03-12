@@ -54,7 +54,8 @@ enum Layer {
 	PLAYER = 8,
 	ENEMY = 16,
 	TERRAIN = 32,
-	PICKUPS = 64
+	PICKUPS = 64,
+	PROJECTILES = 128
 }
 #these are the layers that don't shift or have super classes
 enum ConstLayer {

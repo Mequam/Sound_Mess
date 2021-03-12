@@ -9,9 +9,9 @@ var dir : Vector2 = Vector2(1,0)
 #by default all projectiles hit enemies
 func gen_col_mask() -> int:
 	return col_math.Layer.ENEMY
-#nothing hits us
+#we are a projectile
 func gen_col_layer()->int:
-	return 0
+	return col_math.Layer.PROJECTILES
 
 #the code that lets the projectile fly
 var flying : bool setget set_flying,get_flying
