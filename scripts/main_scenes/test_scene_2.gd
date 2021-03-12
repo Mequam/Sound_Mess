@@ -10,7 +10,12 @@ func _ready():
 	$FallingCarrot.speed = 400
 	$FallingCarrot.move_vec = Vector2(0,1)
 	$FallingCarrot.fall()
+	
+	$StatueEnemy/statueSwitch.connect("completed_dialog",self,"statue_switch_a_complete_dialog")
 	.init()
+func statue_switch_a_complete_dialog(dialog):
+	print("[test_scene_2] finished dialog!")
+
 var test : bool = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

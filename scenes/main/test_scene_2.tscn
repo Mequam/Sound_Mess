@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/FallingCarrot.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/instance/blocking_statue.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/instance/entities/enemies/StatueEnemy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/assets/PineTree.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/SiloBoss.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=17]
@@ -109,7 +110,7 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( 2835.59, -640.378 )
 
 [node name="statueSwitch" parent="." instance=ExtResource( 20 )]
-position = Vector2( 2522.7, -344.093 )
+position = Vector2( 2759.43, -287.157 )
 
 [node name="testDialog" parent="statueSwitch" instance=ExtResource( 21 )]
 position = Vector2( -266.684, -209.537 )
@@ -117,4 +118,11 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="swapperStatue" parent="." instance=ExtResource( 22 )]
 position = Vector2( 2492.22, 104.769 )
+
+[node name="StatueEnemy" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1548.04, -294.155 )
+
+[node name="testDialog" parent="StatueEnemy" instance=ExtResource( 21 )]
+position = Vector2( -248.719, -206.766 )
+scale = Vector2( 0.5, 0.5 )
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]

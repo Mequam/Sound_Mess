@@ -103,8 +103,29 @@ func _process(delta):
 			if dmg_mv(movement_dir*speed*delta,2):
 				set_mode("crouch")
 func die():
-	#Globals.get_scene_root().add_child()
+	#move the statue that we were using back to the main scene
+	var statueSwitch = $statueSwitch
+	
+	#make sure the node cascade effects are maintained
+	statueSwitch.position += position
+	statueSwitch.scale *= scale
+	
+	#re-enable the switch
+	statueSwitch.enabled = true
+	
+	#remove it from our tree
+	remove_child(statueSwitch)
+	
+	#add it to the parents
+	get_parent().add_child(statueSwitch)
+	
 	.die()
+func corrupt():
+	#disable the statue switch
+	$statueSwitch.enabled = false
+	#make sure our sprite knows what is going on
+	$Sprite/statue/VariableStatue.display_mode($statueSwitch.statue_mode)
+	.corrupt()
 func _on_attack_area_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage(2)

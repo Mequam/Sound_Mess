@@ -45,5 +45,6 @@ shape = SubResource( 2 )
 
 [node name="statueSwitch" parent="." instance=ExtResource( 7 )]
 script = ExtResource( 8 )
+[connection signal="ready" from="." to="statueSwitch" method="_on_StatueEnemy_ready"]
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]
