@@ -30,7 +30,7 @@ func set_mode(val : String):
 		$Sprite/AnimationPlayer.play("Spin")
 		
 		#set the attack_area collision layer to the enemy collision layer
-		$attack_area.collision_mask = col_math.Layer.PLAYER
+		$attack_area.collision_mask = col_math.Layer.PLAYER | col_math.Layer.PROJECTILES
 	elif val == "crouch":
 		$Sprite/AnimationPlayer.play("Crouch_1")
 	.set_mode(val)
@@ -118,6 +118,7 @@ func die():
 	
 	#add it to the parents
 	get_parent().add_child(statueSwitch)
+	statueSwitch.get_node("groundPound").emitting = true
 	
 	.die()
 func corrupt():
@@ -129,6 +130,9 @@ func corrupt():
 func _on_attack_area_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage(2)
+	elif body.is_in_group("projectile"):
+		body.dir *= -1
+		body.modulate = Color.red
 func _on_statueSwitch_completed_dialog(dialog):
 	if not is_in_group("enemies"):
 		emit_signal("completed_dialog",dialog)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/assets/StatueEnemySprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/StatueEnemy.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/instance/health_bar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/instance/statueSwitch.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/corruptableStatueSwitch.gd" type="Script" id=8]
+[ext_resource path="res://scenes/instance/groundPound.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 54.1068, 16.6376 )
@@ -45,6 +46,10 @@ shape = SubResource( 2 )
 
 [node name="statueSwitch" parent="." instance=ExtResource( 7 )]
 script = ExtResource( 8 )
+
+[node name="groundPound" parent="statueSwitch" instance=ExtResource( 9 )]
+position = Vector2( 2.46148, -32.0133 )
+scale = Vector2( 8, 8 )
 [connection signal="ready" from="." to="statueSwitch" method="_on_StatueEnemy_ready"]
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]

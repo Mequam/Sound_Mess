@@ -13,7 +13,7 @@ func set_enabled(val : bool)->void:
 func get_enabled()->bool:
 	return visible
 
-var statue_mode : int = 2 setget set_statue_mode, get_statue_mode
+var statue_mode : int = 1 setget set_statue_mode, get_statue_mode
 func set_statue_mode(val : int)->void:
 	#display the proper statue
 	$VariableStatue.display_mode(val)

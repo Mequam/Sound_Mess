@@ -31,10 +31,9 @@ func set_flying(val : bool)->void:
 		collision_layer = gen_col_layer()
 		collision_mask = gen_col_mask()
 func get_flying()->bool:
-	return col_math.in_layer_no_constants(
-		collision_layer,
-		col_math.shift_collision(gen_col_layer(),col_math.SuperLayer.FLIGHT))
-
+	return col_math.check_shifted(gen_col_mask(),
+		collision_mask,
+		col_math.SuperLayer.FLIGHT)
 var initial_pos : Vector2
 func root_child(node : Node)->Node:
 	remove_child(node)
@@ -66,6 +65,10 @@ func queue_free():
 		root_child($death_particles).emit_dir(dir)
 	emit_signal("despawn")
 	.queue_free()
+func load_collision():
+	#if we are already flying, do not ruin it
+	if not get_flying():
+		.load_collision()
 func _process(delta):
 	var col : KinematicCollision2D = move_and_collide(dir*speed*delta)
 	if col:

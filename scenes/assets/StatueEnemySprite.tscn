@@ -2114,7 +2114,7 @@ texture = ExtResource( 3 )
 position = Vector2( 0.499428, 0.278343 )
 
 [node name="VariableStatue" parent="statue" instance=ExtResource( 1 )]
-position = Vector2( -1, 1 )
+position = Vector2( -5, 2 )
 
 [node name="bottom_left_leg" type="Node2D" parent="."]
 visible = false

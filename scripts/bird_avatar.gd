@@ -48,6 +48,7 @@ func get_flying()->bool:
 #shoots a feather in the given direction at the given speed
 func shoot_feather(dir : Vector2)->void:
 	var instance = feather.instance()
+
 	#give the feather the information it needs to run
 	#BEFORE spawning it into the scene
 	instance.dir = dir
@@ -56,6 +57,7 @@ func shoot_feather(dir : Vector2)->void:
 	
 	#actualy add the feather to the scene
 	get_parent().get_parent().add_child(instance)
+	
 func play_idle(last_anim : String = "Move_Front") -> void:
 	if not get_flying():
 		#we are not flying

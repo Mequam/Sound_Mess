@@ -11,7 +11,11 @@ func gen_col_layer()->int:
 	return 0
 func gen_col_mask()->int:
 	return col_math.ConstLayer.TILE_BORDER #all entities collide with the border tile
-func _ready():
+#this is the function that actually sets the collision layer and mask values for
+#our script
+func load_collision():
 	#all kinematics or their masks
 	collision_layer |= gen_col_layer()
 	collision_mask |= gen_col_mask()
+func _ready():
+	load_collision()

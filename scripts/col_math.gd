@@ -36,9 +36,17 @@ static func in_layer(testbits : int,layerbits : int) -> bool:
 	#if they are in the layer then there will be at least 1 1 overlapping
 	#and the result will not be zero
 	return (testbits & layerbits) != 0	
+
 #tests to see if the non constant bits match up to the given bits inside the given super layer
 static func in_layer_no_constants(testbits : int,layerbits : int)->bool:
 	return in_layer(strip_constants(testbits),strip_constants(layerbits))
+
+#determines if the shifted bits are the non shifted bitst
+static func check_shifted(non_shifted : int,shifted : int,super_layer : int)->bool:
+	return in_layer_no_constants(
+		shifted, #the layer we are on
+		shift_collision(non_shifted,super_layer)) #the layer that we input
+
 #collision layer definitions
 
 #These are the collision layers
