@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/assets/feaherSplash.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 60.5764, 15.6113 )
+extents = Vector2( 60.5764, 39.8515 )
 
 [node name="Feather" type="KinematicBody2D"]
 collision_layer = 0
@@ -15,7 +15,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="RotatingColShape" type="CollisionShape2D" parent="."]
-position = Vector2( 2.90129, -33.3601 )
+position = Vector2( 2.90129, -30.1817 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." instance=ExtResource( 1 )]
