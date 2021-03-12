@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/assets/birdStatue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/assets/architecture/bird/birdStatue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/assets/TransofmationHalo.tscn" type="PackedScene" id=2]
 
 [node name="swapperSprite" type="Node2D"]

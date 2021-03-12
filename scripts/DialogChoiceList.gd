@@ -26,6 +26,25 @@ func _ready():
 	visible = false
 	add_to_group("dialog_choice_list")
 	init(Globals.get_scene_sub_beat())
+
+#this function uses another nodes children to initilize the dialog choice list
+#NOTE: it ultimatly moves those children to be children of the dialogChouice List
+#keep this in mind when using it
+func init_node(sub_beat,node : Node2D,children_offset : int = 0)->void:
+	#move all nodes at and after the children offset under us
+	while node.get_child(children_offset): #use the while loop for more fine control over the iterator
+		var child : Node2D = (node.get_child(children_offset) as Node2D) #tldr this should be a 2d node
+		#save the nodes position
+		var global_pos : Vector2= child.global_position
+		#remove the child from our tree
+		node.remove_child(child)
+		#add it under the dialog choice list
+		add_child(child)
+		#restore the nodes position to account for any scale shifting
+		child.global_position = global_pos
+	#now that we stole their children, run the initilization
+	init(sub_beat)
+
 func init(sub_beat):
 	$ComboTracker.combos.clear()
 	

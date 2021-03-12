@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scenes/assets/architecture/bunny/statue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/assets/architecture/VariableStatue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://triangles/even_triangle.png" type="Texture" id=2]
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=3]
 
@@ -2113,9 +2113,8 @@ texture = ExtResource( 3 )
 [node name="statue" type="Node2D" parent="."]
 position = Vector2( 0.499428, 0.278343 )
 
-[node name="Statue" parent="statue" instance=ExtResource( 1 )]
-position = Vector2( -0.0161371, -0.264374 )
-scale = Vector2( 0.25, 0.25 )
+[node name="VariableStatue" parent="statue" instance=ExtResource( 1 )]
+position = Vector2( -1, 1 )
 
 [node name="bottom_left_leg" type="Node2D" parent="."]
 visible = false

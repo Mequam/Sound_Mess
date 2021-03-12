@@ -90,7 +90,7 @@ func syncScoreColor(score,onColor=Color.orangered,offColor=Color.white):
 			break
 		child.modulate = onColor
 #this fuction displays the given note array as dialog in the node
-func syncDisp(notes,mode,score=0,note_dist=scale.x*5):
+func syncDisp(notes,mode,score=0,note_dist=scale.x*400):
 	clearDisp()
 	
 	#sync the mode that we are using
@@ -115,6 +115,7 @@ func syncDisp(notes,mode,score=0,note_dist=scale.x*5):
 		if score != 0:
 			to_add.modulate = Color.rebeccapurple
 			score -= 1
+		
 		#add the children so that they can complete their ready function
 		add_child(to_add)
 		

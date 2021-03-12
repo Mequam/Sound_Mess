@@ -1,9 +1,20 @@
 extends "res://scripts/abstracts/corruptable_enemy.gd"
+
+
+#for when we are not corrupted and the player can use us like a switch
+signal completed_dialog
+
 #how fast we move
 var speed : float = 900
+
 var movement_dir : Vector2 = Vector2(0,0)
+
 var total_attacks : int = 0 #stores how many attacks we have left
+
 var max_attacks : int = 3 #the total number of attacks we can store
+
+var avatar_statue : int = 1
+
 func set_mode(val : String):
 	$NotePlayer.stop()
 	if mode == "attack":
@@ -91,6 +102,12 @@ func _process(delta):
 		"attack":
 			if dmg_mv(movement_dir*speed*delta,2):
 				set_mode("crouch")
+func die():
+	#Globals.get_scene_root().add_child()
+	.die()
 func _on_attack_area_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage(2)
+func _on_statueSwitch_completed_dialog(dialog):
+	if not is_in_group("enemies"):
+		emit_signal("completed_dialog",dialog)

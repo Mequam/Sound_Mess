@@ -1,6 +1,6 @@
 extends "res://scripts/singingSwitch.gd"
 
-var scale_to_change_to : int = 1 setget set_scale_to_change_to,get_scale_to_change_to
+var scale_to_change_to : int = 2 setget set_scale_to_change_to,get_scale_to_change_to
 func set_scale_to_change_to(val : int)->void:
 	#actually save the scale
 	scale_to_change_to = val

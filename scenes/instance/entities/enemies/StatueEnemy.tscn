@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/assets/StatueEnemySprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/StatueEnemy.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scripts/delete_save_state.gd" type="Script" id=4]
 [ext_resource path="res://scenes/instance/NotePlayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/instance/health_bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/instance/statueSwitch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/corruptableStatueSwitch.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 54.1068, 16.6376 )
@@ -40,4 +42,8 @@ collision_mask = 0
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="attack_area"]
 position = Vector2( -26.4866, -4.23788 )
 shape = SubResource( 2 )
+
+[node name="statueSwitch" parent="." instance=ExtResource( 7 )]
+script = ExtResource( 8 )
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
+[connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]

@@ -17,3 +17,7 @@ func _process(delta):
 	test = not test
 	if Input.is_action_just_pressed("DEVELOPER_ACTION"):
 		$StatueEnemy.corrupt()
+
+
+func _on_statueSwitch_completed_dialog(dialog):
+	$StatueEnemy.corrupt()
