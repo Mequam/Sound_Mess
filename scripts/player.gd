@@ -207,8 +207,9 @@ func find_input(delta):
 
 #this function plays the scale degree corisponding to the player input
 func play_note_inp(input_number):
-	#subtract 7 to move the player down an octive
-	$NotePlayer.play_note(input_number-7)
+	if input_mode == "dev":
+		#subtract 7 to move the player down an octive
+		$NotePlayer.play_note(input_number-7)
 
 #this function checks the given inputs to move the player and sets the flavor accordingly
 func run_flavor_input(delta,input_number):

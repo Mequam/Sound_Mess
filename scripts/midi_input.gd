@@ -43,6 +43,7 @@ func _unhandled_input(event : InputEvent):
 
 		match event.message:
 			MIDI_MESSAGE_NOTE_ON:
+				print("recived midi input event on")
 				var note = (event.pitch % 24)-12
 				play_note_index(note)
 				Input.parse_input_event(

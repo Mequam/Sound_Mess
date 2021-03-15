@@ -7,10 +7,6 @@ extends "res://scripts/abstracts/scene.gd"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_path = "res://scenes/main/test_scene_2.tscn"
-	$FallingCarrot.speed = 400
-	$FallingCarrot.move_vec = Vector2(0,1)
-	$FallingCarrot.fall()
-	
 	$StatueEnemy/statueSwitch.connect("completed_dialog",self,"statue_switch_a_complete_dialog")
 	.init()
 func statue_switch_a_complete_dialog(dialog):
