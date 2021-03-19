@@ -59,7 +59,7 @@ position = Vector2( -1477.69, -1342.16 )
 position = Vector2( -1029.87, -1252.48 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2133.77, -343.05 )
+position = Vector2( 2123.09, -343.05 )
 
 [node name="SiloBoss" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1755.84, -769.858 )
@@ -113,7 +113,7 @@ position = Vector2( -266.684, -209.537 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="swapperStatue" parent="." instance=ExtResource( 22 )]
-position = Vector2( 2492.22, 104.769 )
+position = Vector2( 2488.86, 104.769 )
 
 [node name="StatueEnemy" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1548.04, -294.155 )

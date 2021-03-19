@@ -45,15 +45,15 @@ func _unhandled_input(event : InputEvent):
 			MIDI_MESSAGE_NOTE_ON:
 				print("recived midi input event on")
 				var note = (event.pitch % 24)-12
-				play_note_index(note)
+				#play_note_index(note)
 				Input.parse_input_event(
 					scale_math.deg2action(
 						scale_math.note2deg(note)
 					))
 			MIDI_MESSAGE_NOTE_OFF:
-				var ei = scale_math.deg2action(
+				var ei : InputEvent = scale_math.deg2action(
 					scale_math.note2deg(
-						(event.pitch % 24)-12),false)
+						(event.pitch % 24)-12),false) #this input event is a release
 				Input.parse_input_event(ei)
-				Globals.release_action(ei.action)
+				#Globals.release_action(ei.action)
 				

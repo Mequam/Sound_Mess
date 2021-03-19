@@ -16,7 +16,7 @@ signal combo_found
 var combos = []
 
 #matches the given combo action with 
-func match_combo(action_name,falling,delta):
+func match_combo(action_name,falling):
 	for container in combos:
 			#check wether the action works with the given combo
 			if(container.check_action(action_name,falling,time)):
@@ -33,6 +33,6 @@ func check_inputs(delta):
 	time += delta
 	for action in InputMap.get_actions():
 		if (Input.is_action_just_pressed(action)):
-			match_combo(action,false,delta)
+			match_combo(action,false)
 		elif (Input.is_action_just_released(action)):
-			match_combo(action,true,delta)
+			match_combo(action,true)

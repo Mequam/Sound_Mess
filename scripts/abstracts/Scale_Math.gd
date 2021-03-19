@@ -15,6 +15,15 @@ func set_mode(setter):
 #these are the distance between white notes on the piano
 const offsets = [2,2,2,1,2,2,1]
 
+#an action degree ranges from 0-6
+func deg2actionDeg(deg : int):
+	return deg+7*int(deg < 0)
+#mapps an infinit pitch range into a repeating loop for game control
+#basically this takes the whole keyboard and mapps it into loops starting at -7 and ending at 6
+func pitch2note(pitch : int)->int:
+	return (pitch % 24)-12
+func pitch2deg(pitch : int):
+	return note2deg(pitch2note(pitch))
 #this function takes a note number and returns the string name of the note
 #note: to get the note numbers start on zero and add .f for each note
 func note2str(note_number):
@@ -31,8 +40,8 @@ func note2deg(note):
 	var tmp_deg = 0
 	#account for the negative
 	if (note < 0):
-		tmp_note = -12
-		tmp_deg = -7
+		tmp_note = -12 #we allways count upwoards when calculating the degree
+		tmp_deg = -7 #in this case we change where we go up from
 	#test the scale degrees
 	for i in range(0,7): #7 is the constant length of offsets
 		if (tmp_note == note):
@@ -67,7 +76,7 @@ func degInMode(deg : int,new_mode : int)->bool:
 	
 	return ret_val
 #this function takes a scale degree and throws the appropriate input action
-func deg2action(deg,pressed=true):
+static func deg2action(deg,pressed=true):
 	var ie = InputEventAction.new()
 	if deg == null:
 		ie.action = "WRONG_NOTE"
