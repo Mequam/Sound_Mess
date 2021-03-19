@@ -21,7 +21,7 @@ func _ready():
 	print("door way ready " + str(locked))
 func _on_door_way_body_entered(body):
 	if (new_scene != "" and !locked and body.is_in_group("player")):
-		LoadData.load_scene(new_scene,current_scene,door_name)
+		LoadData.call_deferred("load_scene",new_scene,current_scene,door_name)
 
 
 func _on_door_way_body_exited(body):

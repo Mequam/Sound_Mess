@@ -202,7 +202,7 @@ func call_game_player_watch(scale_degree : int,pressed : bool = true):
 	var to_call : String = "_player_action_pressed"
 	if not pressed:
 		to_call = "_player_action_released"
-	get_tree().call_group("player_note_action_listener",to_call,scale_degree)
+	get_tree().call_deferred("call_group","player_note_action_listener",to_call,scale_degree)
 
 #this function plays the scale degree corisponding to the player input
 func play_note_inp(input_number):
@@ -245,6 +245,7 @@ func on_col(thing,dmg : int=1) -> void:
 #this can be thought of as the actual ready function, we do this
 #so we can over-ride the function isntead of stacking behavior
 func main_ready():
+	print("running ready")
 	$health_bar.sync_disp()
 	#let the avatar load
 	$avatar.load_avatar()
@@ -252,9 +253,10 @@ func main_ready():
 	#connect all of our child nodes
 	#get_node("ComboTracker").connect("combo_found",self,"on_combo")
 	
-	add_to_group("player")
-	add_to_group("midi_input")
+	call_deferred("add_to_group","player")
+	call_deferred("add_to_group","midi_input")
 	.main_ready()
+	print("survived main_ready")
 
 
 #this functio is called to make sure that the note player is playing or ONE blip
@@ -301,7 +303,7 @@ var input_mode : int = INPUT_MODES.ANY
 #	are used to play the proper note in responce to midi inputs
 #	and for some special cases where we want to use the range 0<->7 instead of 0<->6
 #	basically anywhere we need player input wthout strict scale degrees
-func _unhandled_input(event : InputEvent):	
+func handle_input(event : InputEvent):
 	if input_mode == INPUT_MODES.DEV or input_mode == INPUT_MODES.ANY:
 		for i in range(0,8):
 			if event.is_action("NOTE_"+str(i)):
@@ -317,10 +319,13 @@ func _unhandled_input(event : InputEvent):
 				else:
 						#tell the game we released that input
 					call_game_player_watch(i-7,false)
+func _unhandled_input(event : InputEvent):	
+	#use the overrideable function
+	handle_input(event)
 func _midi_note_down(pitch):
 	if input_mode == INPUT_MODES.MIDI or input_mode == INPUT_MODES.ANY:
 		#respond to the pitch properly
-		respond_to_scale_degree($NotePlayer.scale_math.pitch2deg(pitch))
+		call_deferred("respond_to_scale_degree",$NotePlayer.scale_math.pitch2deg(pitch))
 func _midi_note_up(pitch):
 	if input_mode == INPUT_MODES.MIDI or input_mode == INPUT_MODES.ANY:
 		var note = $NotePlayer.scale_math.pitch2deg(pitch)

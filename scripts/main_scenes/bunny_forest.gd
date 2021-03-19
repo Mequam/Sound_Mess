@@ -1,6 +1,7 @@
 extends "res://scripts/abstracts/bunny_forest.gd"
 
 func _ready():
+	LoadData._player_ref = $player
 	$note_a/JuteBox.song = [[0,0],[2,null]]
 	$note_b/JuteBox.song = [[2,2],[4,null]]
 	$note_c/JuteBox.song = [[4,5],[6,null]]

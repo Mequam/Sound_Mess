@@ -67,7 +67,7 @@ func _unhandled_input(event : InputEvent):
 		if (event is InputEventMIDI):
 			match event.message:
 				MIDI_MESSAGE_NOTE_ON:
-					get_tree().call_group("midi_input","_midi_note_down",event.pitch)
+					get_tree().call_deferred("call_group","midi_input","_midi_note_down",event.pitch)
 						#respond to a valid scale degree
 				MIDI_MESSAGE_NOTE_OFF:
-					get_tree().call_group("midi_input","_midi_note_up",event.pitch)
+					get_tree().call_deferred("call_group","midi_input","_midi_note_up",event.pitch)

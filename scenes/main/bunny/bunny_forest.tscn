@@ -837,7 +837,7 @@ rotation = -1.33701
 scale = Vector2( 0.133981, 0.187661 )
 
 [node name="bunny_church" parent="." instance=ExtResource( 15 )]
-position = Vector2( 12016.9, 895.576 )
+position = Vector2( 12043.3, 867.583 )
 rotation = -0.531857
 scale = Vector2( 40, 5 )
 
