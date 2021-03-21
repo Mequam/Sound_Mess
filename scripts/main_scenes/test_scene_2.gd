@@ -9,6 +9,7 @@ func _ready():
 	load_path = "res://scenes/main/test_scene_2.tscn"
 	$StatueEnemy/statueSwitch.connect("completed_dialog",self,"statue_switch_a_complete_dialog")
 	$StatueEnemy/statueSwitch.connect("completed_dialog",$OpeningDoorFront,"incriment_charge")
+	$StatueEnemy/statueSwitch.connect("completed_dialog",$openingDoorSide,"incriment_charge")
 	.init()
 func statue_switch_a_complete_dialog(dialog):
 	$StatueEnemy/statueSwitch.disconnect("completed_dialog",$OpeningDoorFront,"incriment_charge")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/bunnyOpeningDoorFront.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://scenes/instance/swapperStatue.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/assets/floatingCharge.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/instance/openingDoorSide.tscn" type="PackedScene" id=25]
 
 [node name="test_space" type="TileMap"]
 cell_y_sort = true
@@ -61,7 +62,7 @@ position = Vector2( -1477.69, -1342.16 )
 position = Vector2( -1029.87, -1252.48 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2123.09, -343.05 )
+position = Vector2( 827.269, 771.076 )
 
 [node name="SiloBoss" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1755.84, -769.858 )
@@ -118,7 +119,7 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( 2488.86, 104.769 )
 
 [node name="StatueEnemy" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1605.12, -313.182 )
+position = Vector2( 1567.88, 1021.84 )
 
 [node name="testDialog" parent="StatueEnemy" instance=ExtResource( 21 )]
 position = Vector2( -248.719, -206.766 )
@@ -137,9 +138,9 @@ position = Vector2( 2116.67, -740.834 )
 position = Vector2( 1869.72, -650.12 )
 
 [node name="OpeningDoorFront" parent="." instance=ExtResource( 2 )]
-position = Vector2( 870.773, -257.07 )
+position = Vector2( 1403.76, 633.669 )
 
-[node name="floatingCharge" parent="OpeningDoorFront" instance=ExtResource( 24 )]
+[node name="floatingCharge4" parent="OpeningDoorFront" instance=ExtResource( 24 )]
 position = Vector2( -125.211, -268.493 )
 
 [node name="floatingCharge2" parent="OpeningDoorFront" instance=ExtResource( 24 )]
@@ -147,4 +148,16 @@ position = Vector2( 113.604, -293.72 )
 
 [node name="floatingCharge3" parent="OpeningDoorFront" instance=ExtResource( 24 )]
 position = Vector2( -5.80347, -381.173 )
+
+[node name="openingDoorSide" parent="." instance=ExtResource( 25 )]
+position = Vector2( 744.631, 605.794 )
+
+[node name="floatingCharge" parent="openingDoorSide" instance=ExtResource( 24 )]
+position = Vector2( -80.3494, -142.383 )
+
+[node name="floatingCharge2" parent="openingDoorSide" instance=ExtResource( 24 )]
+position = Vector2( 148.027, -215.382 )
+
+[node name="floatingCharge3" parent="openingDoorSide" instance=ExtResource( 24 )]
+position = Vector2( -12.9662, -341.496 )
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0007.png" type="Texture" id=1]
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0001.png" type="Texture" id=2]
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0003.png" type="Texture" id=3]
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0005.png" type="Texture" id=4]
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0009.png" type="Texture" id=5]
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0013.png" type="Texture" id=6]
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0011.png" type="Texture" id=7]
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0015.png" type="Texture" id=8]
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0017.png" type="Texture" id=9]
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0019.png" type="Texture" id=10]
+[ext_resource path="res://assets/arcitecture/bunny/door_frames_side/0021.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "Open",
+"speed": 5.0
+} ]
+
+[node name="Sprite" type="AnimatedSprite"]
+position = Vector2( -66.5956, -304.437 )
+rotation = -0.342922
+frames = SubResource( 1 )
+animation = "Open"
