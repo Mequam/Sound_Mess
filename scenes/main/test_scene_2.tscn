@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/instance/bunnyOpeningDoorFront.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/main_scenes/test_scene_2.gd" type="Script" id=3]
 [ext_resource path="res://scenes/instance/entities/PineTreeBody.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=5]
@@ -22,6 +23,7 @@
 [ext_resource path="res://scenes/instance/dialog/testDialog.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/instance/swapperStatue.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/assets/floatingCharge.tscn" type="PackedScene" id=24]
 
 [node name="test_space" type="TileMap"]
 cell_y_sort = true
@@ -116,7 +118,7 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( 2488.86, 104.769 )
 
 [node name="StatueEnemy" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1548.04, -294.155 )
+position = Vector2( 1605.12, -313.182 )
 
 [node name="testDialog" parent="StatueEnemy" instance=ExtResource( 21 )]
 position = Vector2( -248.719, -206.766 )
@@ -133,4 +135,16 @@ position = Vector2( 2116.67, -740.834 )
 
 [node name="Spider_Enemy10" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1869.72, -650.12 )
+
+[node name="OpeningDoorFront" parent="." instance=ExtResource( 2 )]
+position = Vector2( 870.773, -257.07 )
+
+[node name="floatingCharge" parent="OpeningDoorFront" instance=ExtResource( 24 )]
+position = Vector2( -125.211, -268.493 )
+
+[node name="floatingCharge2" parent="OpeningDoorFront" instance=ExtResource( 24 )]
+position = Vector2( 113.604, -293.72 )
+
+[node name="floatingCharge3" parent="OpeningDoorFront" instance=ExtResource( 24 )]
+position = Vector2( -5.80347, -381.173 )
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]
