@@ -7,8 +7,4 @@ func _ready():
 	#out so it was easier to notate
 	notes = [[2,qn],[1,qn],[0,qn],[1,qn],
 			[2,qn],[2,qn],[2,qn],
-			[1,qn],[1,qn],[1,qn],
-			[2,qn],[2,qn],[2,qn],
-			[2,qn],[1,qn],[0,qn],[1,qn],
-			[2,qn],[2,qn],[2,qn],
-			[1,qn],[1,qn],[2,qn],[1,qn],[0,qn]]
+			[1,qn]]

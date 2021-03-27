@@ -12,7 +12,6 @@ func get_charge():
 
 #syntactic sugar function for connecting signals
 func incriment_charge(val):
-	print("incrimenting charge")
 	set_charge(charge + 1)
 	
 #internal function that syncs our displayed charges with our charge score

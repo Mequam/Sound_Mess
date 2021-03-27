@@ -8,6 +8,7 @@ func gen_col_mask()->int:
 func _ready():
 	#check to see if we are not supposed to be here
 	$save_state_node.load_data()
+	($JuteBox/NotePlayer as AudioStreamPlayer2D).bus = "pickups"
 	add_to_group("pickup")
 	connect("body_entered",self,"edit_body")
 

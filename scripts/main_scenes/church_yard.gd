@@ -18,6 +18,9 @@ func _ready():
 	$carrot_fields.new_scene = "res://scenes/main/bunny/carrot_motif/crop_fields.tscn"
 	$carrot_fields.door_name = "C"
 	
+	$statue_road.new_scene = "res://scenes/main/bunny/statue_motif/entering_statue_road.tscn"
+	$statue_road.door_name = "D"
+	
 	.init()
 
 

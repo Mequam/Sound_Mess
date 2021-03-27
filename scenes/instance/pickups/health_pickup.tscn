@@ -7,7 +7,7 @@
 [ext_resource path="res://scripts/delete_save_state.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 49.2369
+radius = 71.7991
 
 [node name="health_pickup" type="Area2D"]
 collision_layer = 0

@@ -31,6 +31,7 @@ smoothing_enabled = true
 
 [node name="NotePlayer" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0.629948, 0.268478 )
+bus = "player"
 script = ExtResource( 7 )
 
 [node name="SpeechBubble" parent="." instance=ExtResource( 3 )]

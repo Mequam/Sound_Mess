@@ -31,10 +31,9 @@ script = ExtResource( 4 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1.33484, -1.33484 )
-volume_db = -4.968
 
 [node name="health_bar" parent="." instance=ExtResource( 6 )]
-position = Vector2( -58.8044, -161.764 )
+position = Vector2( 3.93303, -132.398 )
 
 [node name="attack_area" type="Area2D" parent="."]
 rotation = 1.5708

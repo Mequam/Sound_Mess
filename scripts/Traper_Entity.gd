@@ -34,12 +34,15 @@ func _anim_finished(anim):
 			$Traper/AnimationPlayer.play_backwards("Attack")
 			backwords = true
 		else:
+			$NotePlayer.volume_db-=12
 			$Traper/AnimationPlayer.play("Idle")
 			backwords = false
 			mode="idle"
 		#tell whatever we jist hit they got owned
 		if (is_instance_valid(inside) and inside.has_method("on_col")):
 			inside.on_col(self,dmg)
+func run_wrapper(player_pos,beat):
+	run(player_pos,beat)
 func run(player_pos,beat):
 	match inner_beat:
 		0:
@@ -69,6 +72,7 @@ func _on_Traper_Entity_body_entered(body):
 	inner_beat = 0
 	if ($Traper/AnimationPlayer.assigned_animation != "Attack"):
 		$Traper/AnimationPlayer.play("Attack")
+		$NotePlayer.volume_db+=12
 		for eye in $Traper/spdier/head/eyes.get_children():
 			eye.visible = true
 		mode="attack"

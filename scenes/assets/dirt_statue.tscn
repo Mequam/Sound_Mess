@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/assets/carrot_crop_dirt.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/assets/architecture/VariableStatue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/dirt_statue.gd" type="Script" id=3]
+
+[node name="dirt_statue" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="VariableStatue" parent="." instance=ExtResource( 2 )]
+
+[node name="dirt_front" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0.463531, -3.16337 )
+z_index = 0

@@ -13,6 +13,8 @@ func display_mode(mode : int)->void:
 	
 	#add it as a child
 	add_child(to_add)
+func play_emited():
+	get_child(0).get_node("AnimationPlayer").play("emited")
 #returns scale adgjustments for the given avatar mode statue sprites
 func get_scale_adjustments(mode : int)->Vector2:
 	match mode:

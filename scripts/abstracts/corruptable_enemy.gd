@@ -49,6 +49,12 @@ func anim_finished(anim):
 		set_mode("evil")
 		#make sure the health bar is visible
 		$health_bar.sync_disp()
+		
+		print("[corruptable enemy] setting collision layer")
+		
 		#move our collision to the enemy collision
 		collision_layer = .gen_col_layer()
 		collision_mask = .gen_col_mask()
+		
+		print(collision_layer)
+		print(collision_mask)

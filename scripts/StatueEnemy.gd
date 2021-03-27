@@ -83,6 +83,12 @@ func switch_modes(player_pos : Vector2,inner_beat):
 			if can_see(player_pos) and inner_beat >= 8:
 				total_attacks = max_attacks
 				set_mode("crouch")
+				
+				#temporarily remove collision to protect ourselfs
+				#from other enemies this is fixed at the end
+				#of our transformation
+				#collision_layer = 0
+				#collision_mask = 0
 func run(player_pos : Vector2,beat):
 	switch_modes(player_pos,inner_beat)
 	play_music(inner_beat)
@@ -100,8 +106,15 @@ func anim_finished(anim):
 func _process(delta):
 	match mode:
 		"attack":
-			if dmg_mv(movement_dir*speed*delta,2):
-				set_mode("crouch")
+			var col = dmg_mv(movement_dir*speed*delta,2)
+			if col:
+				if col.collider.is_in_group("player"):
+					set_mode("crouch")
+				else:
+					set_mode("evil")
+func main_ready():
+	$health_bar.hp = 2
+	.main_ready()
 func die():
 	#move the statue that we were using back to the main scene
 	var statueSwitch = $statueSwitch

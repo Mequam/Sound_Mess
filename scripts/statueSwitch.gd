@@ -32,3 +32,4 @@ func _ready():
 func _on_DialogChoiceList_completed_dialog(dialog):
 	#pass along the signal
 	emit_signal("completed_dialog",dialog)
+	$VariableStatue.play_emited()
