@@ -31,6 +31,8 @@ script = ExtResource( 4 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1.33484, -1.33484 )
+volume_db = 3.0
+bus = "enemies"
 
 [node name="health_bar" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3.93303, -132.398 )

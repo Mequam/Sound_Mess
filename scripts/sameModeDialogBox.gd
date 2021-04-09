@@ -26,7 +26,7 @@ func syncScoreColorDbl(score):
 		)
 
 #syntatic sugar function that updates the display with the given mode
-func updateDisp(mode,score=0,note_dist=scale.x*7):
+func updateDisp(mode,score=0,note_dist=20):
 	syncDisp(notes,mode,score,note_dist)
 
 #syntatic sugar for getting a combo from a given node

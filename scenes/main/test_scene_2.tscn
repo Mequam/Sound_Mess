@@ -62,7 +62,7 @@ position = Vector2( -1477.69, -1342.16 )
 position = Vector2( -1029.87, -1252.48 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2000.12, 126.671 )
+position = Vector2( 1761.2, 1318.6 )
 
 [node name="SiloBoss" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1755.84, -769.858 )
@@ -119,7 +119,7 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( 2488.86, 104.769 )
 
 [node name="StatueEnemy" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1850.1, -147.367 )
+position = Vector2( 2551.31, 589.8 )
 
 [node name="testDialog" parent="StatueEnemy" instance=ExtResource( 21 )]
 position = Vector2( -248.719, -206.766 )
@@ -129,7 +129,7 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( 2288.02, -539.247 )
 
 [node name="Spider_Enemy8" parent="." instance=ExtResource( 13 )]
-position = Vector2( 2857.5, -50.3969 )
+position = Vector2( 1973.73, 1289.51 )
 
 [node name="Spider_Enemy9" parent="." instance=ExtResource( 13 )]
 position = Vector2( 2116.67, -740.834 )
@@ -138,7 +138,7 @@ position = Vector2( 2116.67, -740.834 )
 position = Vector2( 1869.72, -650.12 )
 
 [node name="OpeningDoorFront" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1730.88, 377.214 )
+position = Vector2( 1179.5, 398.19 )
 
 [node name="floatingCharge4" parent="OpeningDoorFront" instance=ExtResource( 24 )]
 position = Vector2( -125.211, -268.493 )

@@ -22,7 +22,6 @@ shape = SubResource( 1 )
 
 [node name="NotePlayer" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1.26051, 14.0755 )
-volume_db = -7.0
 bus = "generic_enemy"
 
 [node name="even_triangle" type="Sprite" parent="."]

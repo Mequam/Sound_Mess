@@ -1,4 +1,13 @@
-
+enum ActionDegree {
+	ROOT,
+	MOVE_LEFT,
+	MOVE_DOWN,
+	MOVE_UP,
+	MOVE_RIGHT,
+	ABILITY_A,
+	ABILITY_B,
+	HIGH_ROOT
+}
 #represents what musical mode to play in
 #0 represents Lydian, incriment to get darker through 6
 var mode = 0 setget set_mode, get_mode

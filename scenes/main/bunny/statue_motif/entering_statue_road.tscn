@@ -360,7 +360,7 @@ position = Vector2( 1041.64, -388.372 )
 position = Vector2( 171.028, -684.436 )
 
 [node name="player" parent="." instance=ExtResource( 26 )]
-position = Vector2( 1679.73, 552.119 )
+position = Vector2( -266.372, 49.0641 )
 
 [node name="Spider_Enemy7" parent="." instance=ExtResource( 15 )]
 position = Vector2( -22.8299, 3454.44 )
@@ -399,37 +399,109 @@ position = Vector2( -412.257, 3526.31 )
 position = Vector2( -412.257, 3397.31 )
 
 [node name="Spider_Enemy10" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1472.62, 3446.89 )
+position = Vector2( -1448.65, 3467.87 )
 
 [node name="Spider_Enemy14" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1472.62, 3317.89 )
+position = Vector2( -1448.65, 3338.87 )
 
 [node name="Spider_Enemy22" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1344.8, 3507.43 )
+position = Vector2( -1320.83, 3528.41 )
 
 [node name="Spider_Enemy23" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1344.8, 3378.44 )
+position = Vector2( -1320.83, 3399.42 )
 
 [node name="Spider_Enemy15" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1729.35, 3452.55 )
+position = Vector2( -1705.38, 3473.53 )
 
 [node name="Spider_Enemy24" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1729.35, 3323.56 )
+position = Vector2( -1705.38, 3344.54 )
 
 [node name="Spider_Enemy25" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1601.54, 3513.1 )
+position = Vector2( -1577.57, 3534.08 )
 
 [node name="Spider_Enemy26" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1601.54, 3384.1 )
+position = Vector2( -1577.57, 3405.08 )
 
 [node name="Spider_Enemy27" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1989.86, 3458.21 )
+position = Vector2( -1965.89, 3479.19 )
 
 [node name="Spider_Enemy28" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1989.86, 3329.22 )
+position = Vector2( -1965.89, 3350.2 )
 
 [node name="Spider_Enemy29" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1862.05, 3518.76 )
+position = Vector2( -1838.08, 3539.74 )
 
 [node name="Spider_Enemy30" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1862.05, 3389.76 )
+position = Vector2( -1838.08, 3410.74 )
+
+[node name="Spider_Enemy31" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1196.93, 3222.14 )
+
+[node name="Spider_Enemy32" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1196.93, 3093.14 )
+
+[node name="Spider_Enemy33" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1069.11, 3282.68 )
+
+[node name="Spider_Enemy34" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1069.11, 3153.69 )
+
+[node name="Spider_Enemy35" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1453.66, 3227.8 )
+
+[node name="Spider_Enemy36" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1453.66, 3098.81 )
+
+[node name="Spider_Enemy37" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1325.85, 3288.35 )
+
+[node name="Spider_Enemy38" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1325.85, 3159.35 )
+
+[node name="Spider_Enemy39" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1714.17, 3233.46 )
+
+[node name="Spider_Enemy40" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1714.17, 3104.47 )
+
+[node name="Spider_Enemy41" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1586.36, 3294.01 )
+
+[node name="Spider_Enemy42" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1586.36, 3165.01 )
+
+[node name="Spider_Enemy43" parent="." instance=ExtResource( 15 )]
+position = Vector2( -474.747, 3123.26 )
+
+[node name="Spider_Enemy44" parent="." instance=ExtResource( 15 )]
+position = Vector2( -474.747, 2994.26 )
+
+[node name="Spider_Enemy45" parent="." instance=ExtResource( 15 )]
+position = Vector2( -346.927, 3183.8 )
+
+[node name="Spider_Enemy46" parent="." instance=ExtResource( 15 )]
+position = Vector2( -346.927, 3054.81 )
+
+[node name="Spider_Enemy47" parent="." instance=ExtResource( 15 )]
+position = Vector2( -731.477, 3128.92 )
+
+[node name="Spider_Enemy48" parent="." instance=ExtResource( 15 )]
+position = Vector2( -731.477, 2999.93 )
+
+[node name="Spider_Enemy49" parent="." instance=ExtResource( 15 )]
+position = Vector2( -603.667, 3189.47 )
+
+[node name="Spider_Enemy50" parent="." instance=ExtResource( 15 )]
+position = Vector2( -603.667, 3060.47 )
+
+[node name="Spider_Enemy51" parent="." instance=ExtResource( 15 )]
+position = Vector2( -991.987, 3134.58 )
+
+[node name="Spider_Enemy52" parent="." instance=ExtResource( 15 )]
+position = Vector2( -991.987, 3005.59 )
+
+[node name="Spider_Enemy53" parent="." instance=ExtResource( 15 )]
+position = Vector2( -864.177, 3195.13 )
+
+[node name="Spider_Enemy54" parent="." instance=ExtResource( 15 )]
+position = Vector2( -864.177, 3066.13 )

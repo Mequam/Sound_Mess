@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/singingSwitch.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 45.0396, 10.6113 )
+extents = Vector2( 22.1993, 10.6113 )
 
 [node name="singingSwitch" type="Area2D"]
 collision_layer = 0

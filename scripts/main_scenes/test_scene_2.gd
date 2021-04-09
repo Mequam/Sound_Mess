@@ -19,7 +19,7 @@ var test : bool = false
 func _process(delta):
 	test = not test
 	if Input.is_action_just_pressed("DEVELOPER_ACTION"):
-		$StatueEnemy.corrupt()
+		$Spider_Enemy8.set_mode("die")
 
 
 func _on_statueSwitch_completed_dialog(dialog):
