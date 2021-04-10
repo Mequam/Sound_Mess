@@ -4,6 +4,12 @@ func _ready():
 	$church_yard.door_name = "D"
 	$church_yard.new_scene = "res://scenes/main/bunny/church_yard.tscn"
 	
+	$statue_path1.door_name = "A"
+	$statue_path1.new_scene = "res://scenes/main/bunny/statue_motif/statue_road1.tscn"
+	
+	$statue_path_1_hidden.door_name = "B"
+	$statue_path_1_hidden.new_scene = "res://scenes/main/bunny/statue_motif/statue_road1.tscn"
+	
 	#sync the statues and their door counters
 	$statueSwitch.connect("completed_dialog",$openingDoorSide,"incriment_charge")
 	$statueSwitch2.connect("completed_dialog",$openingDoorSide2,"incriment_charge")

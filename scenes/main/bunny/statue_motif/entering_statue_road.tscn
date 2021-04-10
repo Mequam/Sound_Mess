@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=2]
@@ -25,7 +25,6 @@
 [ext_resource path="res://scenes/instance/entities/poof_grass.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/instance/pickups/health_pickup.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scenes/assets/architecture/bunny/farm_house.tscn" type="PackedScene" id=25]
-[ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/instance/dialog/spider_enemy_dialog.tscn" type="PackedScene" id=27]
 
 [node name="entering_statue_road" type="TileMap"]
@@ -359,9 +358,6 @@ position = Vector2( 1041.64, -388.372 )
 [node name="farm_house" parent="." instance=ExtResource( 25 )]
 position = Vector2( 171.028, -684.436 )
 
-[node name="player" parent="." instance=ExtResource( 26 )]
-position = Vector2( -266.372, 49.0641 )
-
 [node name="Spider_Enemy7" parent="." instance=ExtResource( 15 )]
 position = Vector2( -22.8299, 3454.44 )
 
@@ -505,3 +501,11 @@ position = Vector2( -864.177, 3195.13 )
 
 [node name="Spider_Enemy54" parent="." instance=ExtResource( 15 )]
 position = Vector2( -864.177, 3066.13 )
+
+[node name="statue_path1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 4346.64, -315.139 )
+scale = Vector2( 50, 10 )
+
+[node name="statue_path_1_hidden" parent="." instance=ExtResource( 3 )]
+position = Vector2( 679.408, -882.595 )
+scale = Vector2( 40, 5 )

@@ -18,12 +18,9 @@ var locked = false
 
 func _ready():
 	add_to_group("door_ways")
-	print("door way ready " + str(locked))
 func _on_door_way_body_entered(body):
 	if (new_scene != "" and !locked and body.is_in_group("player")):
 		LoadData.call_deferred("load_scene",new_scene,current_scene,door_name)
-
-
 func _on_door_way_body_exited(body):
 	if (locked):
 		locked = false
