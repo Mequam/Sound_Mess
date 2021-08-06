@@ -7,7 +7,8 @@ class_name CentiRail
 
 
 func set_angle(angle : float)->void:
-	.set_angle(angle)
+	#make sure that our value doesnt cascade to infinity
+	.set_angle(fmod(angle,2*PI))
 	z_index = ceil(position.y*100)
 #ask up the chain to find our rotation speed
 func get_rotation_speed()->float:
@@ -15,9 +16,9 @@ func get_rotation_speed()->float:
 #this function returns the angle that we would move with our rotation speed
 func get_change(target_angle : float)-> float:
 	var diff_angle = target_angle - angle
-	if abs(diff_angle) > 180:
-		return -sign(diff_angle)*get_rotation_speed()*pow(abs(target_angle-angle),2)/4
-	return sign(diff_angle)*get_rotation_speed()*pow(abs(target_angle-angle),2)/4
+	var rotation_dir = sign(diff_angle)
+	
+	return rotation_dir*get_rotation_speed()*pow(diff_angle,2)/4
 
 func update_chain_angle_z(angle : float):
 	angle_z = angle
@@ -26,6 +27,5 @@ func update_chain_angle_z(angle : float):
 func update_chain(target_angle : float,delta : float) -> void:
 	var change = get_change(target_angle)*delta
 	set_angle(angle + change)
-	#if we over shot it.....dont :D
 	if get_child(0) and get_child(0).has_method("update_chain"):
 		get_child(0).update_chain(angle,delta)

@@ -172,6 +172,6 @@ position = Vector2( 148.027, -215.382 )
 position = Vector2( -12.9662, -341.496 )
 
 [node name="CentipiedeMotor" parent="." instance=ExtResource( 28 )]
-position = Vector2( 876.644, -1706.96 )
+position = Vector2( 876.644, -1709.79 )
 
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]

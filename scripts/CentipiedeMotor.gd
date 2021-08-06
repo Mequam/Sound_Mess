@@ -4,7 +4,12 @@ extends CentiRail
 #it controls movement and sets the angle of the first node in the chain
 var velocity : Vector2 = Vector2(0,100)
 
+#the speed we move
+var movement_speed : float = 1
+
+#how fast our chain links can rotate
 var pointRotationSpeed : float = 10
+
 #pass the rotation speed back down the chain
 func get_rotation_speed()->float:
 	return pointRotationSpeed
@@ -16,6 +21,6 @@ func signum(x : float)->float:
 func get_velocity_angle()->float:
 	return (-velocity).angle()
 func _process(delta):
-	position += velocity*delta
-	print("[centipideMotor] target angle: " + str((-velocity).angle()))
+	position += velocity*delta*movement_speed
+	print("[centimotor:filter] velocity angle " + str(get_velocity_angle()))
 	update_chain(get_velocity_angle(),delta)

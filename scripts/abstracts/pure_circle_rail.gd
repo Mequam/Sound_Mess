@@ -14,3 +14,6 @@ func get_scaled_perspective(angle : float,
 							r : float)->float:
 	#sin is negative here because of game chords bieng inverted
 	return cam_dist/(focus_offset-sin(angle)*sin(angle_z)*r)
+#retrive the derivative of a point on the squashed circle drawn on the screen
+func get_rotational_derivative(angle : float,angle_z : float) -> Vector2:
+	return Vector2(-sin(angle),cos(angle)*cos(angle_z))
