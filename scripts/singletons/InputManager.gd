@@ -1,6 +1,6 @@
 extends Node
 func _ready():
-	#get ready to accept midi
+	pass
 	OS.open_midi_inputs()
 #this script is a midi input controler that calls functions
 #in groups for the given midi input

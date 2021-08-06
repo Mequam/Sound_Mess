@@ -1,4 +1,7 @@
-extends Node2D
+extends "res://scripts/abstracts/pure_circle_rail.gd"
+
+class_name CircleRail
+
 #this node controls the rotational movement
 #that will be used by the centipide enemy
 
@@ -10,7 +13,6 @@ extends Node2D
 #TODO: this would be a good canidit for 
 #a C++ godot module for the sin cosin behavior
 
-
 #offset from node parent
 var center : Vector2 = Vector2(0,0) setget set_center,get_center
 func set_center(val : Vector2):
@@ -21,7 +23,7 @@ func get_center()->Vector2:
 	
 	
 #radius of our circle
-var r : float = 100 setget set_r,get_r
+var r : float = 50 setget set_r,get_r
 func set_r(val : float)->void:
 	r = val
 	sync_state()
@@ -46,7 +48,7 @@ func get_angle()->float:
 	return angle
 
 #distance beetween the camera and the point of focus
-var cam_dist : float = 150 setget set_cam_dist,get_cam_dist
+var cam_dist : float = 200 setget set_cam_dist,get_cam_dist
 func set_cam_dist(val : float)->void:
 	cam_dist = val
 	sync_state()
@@ -55,34 +57,28 @@ func get_cam_dist()->float:
 
 #how far from z=0 the focus point is, imagine it 
 #stabbing you in the face from the computer screen 
-var focus_offset : float = 150 setget set_focus_offset,get_focus_offset
+var focus_offset : float = 250 setget set_focus_offset,get_focus_offset
 func set_focus_offset(val : float)->void:
 	focus_offset = val
 	sync_state()
 func get_focus_offset()->float:
 	return focus_offset
-
-func get_pos_perspective(angle : float,angle_z : float,r : float,center : Vector2) -> Vector2:
-	return Vector2(cos(angle),cos(angle_z)*sin(angle))*r+center
-#gets the scale of a sphear at the given rotations
-func get_scaled_perspective(angle : float,
-							angle_z : float,
-							cam_dist : float,
-							focus_offset : float,
-							r : float)->float:
-	return cam_dist/(focus_offset+sin(angle)*sin(angle_z)*r)
 #updates the position and scale values of our node
 func update_state(angle : float,angle_z : float,
 				cam_dist : float,focus_offset : float,
-				r : float,center : Vector2)->void:
+				r : float,center : Vector2 = Vector2(0,0))->void:
 	position = get_pos_perspective(angle,angle_z,r,center)
 	scale = Vector2(1,1)*get_scaled_perspective(angle,angle_z,
 												cam_dist,focus_offset,r)
+#has the child node state updated
+func update_child_state(angle : float,angle_z : float,
+				cam_dist : float,focus_offset : float,
+				r : float,center : Vector2 = Vector2(0,0))->void:
+	if (get_child(0) is Node2D):
+		print("updating child state")
+		get_child(0).position = get_pos_perspective(angle,angle_z,r,center)
+		get_child(0).scale = Vector2(1,1)*get_scaled_perspective(angle,angle_z,
+												cam_dist,focus_offset,r)
 #syntactic sugar to sync with our state
 func sync_state()->void:
-	update_state(angle,angle_z,cam_dist,focus_offset,r,center)
-
-#convienence ready function that uses the editor given  position as our
-#initial center
-func _ready():
-	center = position
+	update_child_state(angle,angle_z,cam_dist,focus_offset,r,center)

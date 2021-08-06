@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "CircleRail",
+"class": "CentiRail",
+"language": "GDScript",
+"path": "res://CentipideRail.gd"
+}, {
+"base": "Node2D",
+"class": "CircleRail",
+"language": "GDScript",
+"path": "res://scripts/CircleRail.gd"
+} ]
 _global_script_class_icons={
-
+"CentiRail": "",
+"CircleRail": ""
 }
 
 [application]
@@ -21,9 +32,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-LoadData="*res://scripts/singletons/loadData.gd"
 Globals="*res://scripts/singletons/globals.gd"
-InputManager="*res://scripts/singletons/InputManager.gd"
+LoadData="*res://scripts/singletons/loadData.gd"
 
 [input]
 
