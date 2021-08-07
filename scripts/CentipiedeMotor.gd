@@ -1,19 +1,29 @@
 extends CentiRail
 
-#this node functions as the end of the chain of centipide nodes
+class_name CentiMotor
+
+#this node functions as the end of the chain of SPECIFICALY centipide nodes
 #it controls movement and sets the angle of the first node in the chain
+#as well as contains variables that it feeds to and changes for all of the chain nodes bellow
+
+#the direction that we are moving in
 var velocity : Vector2 = Vector2(0,100)
 
 #the speed we move
 var movement_speed : float = 1
 
 #how fast our chain links can rotate
-var pointRotationSpeed : float = 10
-
-#pass the rotation speed back down the chain
+var link_rotation_speed : float = 10
+#used to pass the rotation speed back down the chain
 func get_rotation_speed()->float:
-	return pointRotationSpeed
+	return link_rotation_speed
 
+#the state of the animation chain
+var link_anim_state : String = "Run"
+#used to pass the state down to our chain links
+func get_anim_state()->String:
+	return link_anim_state
+	
 func _ready():
 	update_chain_angle_z(1.46)
 func signum(x : float)->float:

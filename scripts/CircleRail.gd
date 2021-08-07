@@ -23,7 +23,7 @@ func get_center()->Vector2:
 	
 	
 #radius of our circle
-var r : float = 50 setget set_r,get_r
+var r : float = 100 setget set_r,get_r
 func set_r(val : float)->void:
 	r = val
 	sync_state()
@@ -48,7 +48,7 @@ func get_angle()->float:
 	return angle
 
 #distance beetween the camera and the point of focus
-var cam_dist : float = 200 setget set_cam_dist,get_cam_dist
+var cam_dist : float = 400 setget set_cam_dist,get_cam_dist
 func set_cam_dist(val : float)->void:
 	cam_dist = val
 	sync_state()
@@ -57,7 +57,7 @@ func get_cam_dist()->float:
 
 #how far from z=0 the focus point is, imagine it 
 #stabbing you in the face from the computer screen 
-var focus_offset : float = 250 setget set_focus_offset,get_focus_offset
+var focus_offset : float = 500 setget set_focus_offset,get_focus_offset
 func set_focus_offset(val : float)->void:
 	focus_offset = val
 	sync_state()
