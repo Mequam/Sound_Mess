@@ -16,4 +16,4 @@ func load_game():
 	#load the beginner scene of the player, the vector here is the center of the mushroom circle in the bunny forest
 	#Vector2(417.919,365.21) this is the position that the player starts when first loading the game
 	#commented and moved so debugging rabbit starts not there
-	LoadData.load_scene("res://scenes/main/bunny/church_yard.tscn","",null)
+	LoadData.load_scene("res://scenes/main/bunny/bunny_forest.tscn","",null)

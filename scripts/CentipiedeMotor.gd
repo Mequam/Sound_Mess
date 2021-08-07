@@ -2,7 +2,7 @@ extends CentiRail
 
 class_name CentiMotor
 
-#this node functions as the end of the chain of SPECIFICALY centipide nodes
+#this node functions as the end of the chain of SECIFICALY centipide nodes
 #it controls movement and sets the angle of the first node in the chain
 #as well as contains variables that it feeds to and changes for all of the chain nodes bellow
 
@@ -32,5 +32,4 @@ func get_velocity_angle()->float:
 	return (-velocity).angle()
 func _process(delta):
 	position += velocity*delta*movement_speed
-	print("[centimotor:filter] velocity angle " + str(get_velocity_angle()))
 	update_chain(get_velocity_angle(),delta)

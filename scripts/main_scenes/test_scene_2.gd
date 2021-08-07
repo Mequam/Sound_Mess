@@ -20,9 +20,9 @@ var test : bool = false
 func _process(delta):
 	test = not test
 	if Input.is_key_pressed(KEY_W):
-		$CircleRail.angle_z += delta * 10
+		get_tree().call_group("enemies","set_statue_frozen",true)
 	if Input.is_key_pressed(KEY_A):
-		$CircleRail.angle += delta * 10
+		get_tree().call_group("enemies","set_statue_frozen",false)
 	if Input.is_key_pressed(KEY_D):
 		$CircleRail.angle -= delta * 10
 	if Input.is_key_pressed(KEY_S):
@@ -32,6 +32,5 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_F):
 		$CircleRail.r -= 10 * delta
 	$CentipiedeMotor.velocity = ($player.position-$CentipiedeMotor.position).normalized()*100
-	print("[test scene] centipieedeMotor Velocity " + str($CentipiedeMotor.velocity))
 func _on_statueSwitch_completed_dialog(dialog):
 	$StatueEnemy.corrupt()

@@ -3,6 +3,8 @@ extends "res://scripts/abstracts/entity.gd"
 #derive from (save the trapper which is an area 2d)
 #TODO: change that ^
 
+class_name Enemy
+
 #the beat of the enemies song
 var inner_beat : int = 0
 var initial_sprite_pos : Vector2
@@ -15,6 +17,10 @@ func get_mode()->String:
 	if get_flying():
 		return "Flying"
 	return mode
+
+
+#STATUS EFFECT SWITCHES
+
 #this is an AI switch that is for the bird avatar
 #if an enemy is thrown in the air (and should not be) it no longer
 #has active AI and flounders around for some beats
@@ -75,12 +81,49 @@ func set_flying(val : bool)->void:
 		#cause whatever animation setup happened BEFORE the get_mode
 		#to fire again
 		set_mode(get_mode())
-
 func get_flying()->bool:
 	#returns true if we are shifted into the flight layer
 	return col_math.in_layer_no_constants(
 		collision_layer,
 		col_math.shift_collision(gen_col_layer(),col_math.SuperLayer.FLIGHT))
+
+#determines whether or not we are frozen like a statue
+var statue_frozen : bool = false setget set_statue_frozen, get_statue_frozen
+func set_statue_frozen(val : bool)->void:
+	if not val and statue_frozen:
+		modulate = Color.white
+		
+		set_mode("Idle")
+		#reset our collision
+		collision_layer = gen_col_layer()
+		collision_mask = gen_col_mask()
+	elif val and not statue_frozen:
+		modulate = Color.darkgray
+		
+		#stop animation and music
+		$Sprite/AnimationPlayer.stop()
+		$NotePlayer.stop()
+		
+		#load and add the switch to the scene
+		var switch = load("res://scenes/instance/statue_frozen_switch.tscn").instance()
+		
+		get_parent().add_child(switch)
+		
+		switch.get_child(0).get_node("DialogChoiceList").connect("completed_dialog_no_arg",self,"undo_statue")
+		switch.get_child(0).get_node("DialogChoiceList").connect("completed_dialog_no_arg",switch,"queue_free")
+		
+		switch.global_position = global_position
+		
+		#we dont collide with anything while we are like this
+		collision_layer = 0
+		collision_mask = 0
+		
+	statue_frozen = val
+func get_statue_frozen()->bool:
+	return statue_frozen
+func undo_statue()->void:
+	set_statue_frozen(false)
+
 #these functions generate the collision layer that every
 #enemy is part of by default
 func gen_col_layer()->int:
@@ -91,6 +134,7 @@ func gen_col_mask() -> int:
 	return (.gen_col_mask() | 
 			col_math.Layer.PLAYER | 
 			col_math.Layer.TERRAIN)
+
 #generic enemy ready function
 func main_ready()->void:
 	add_to_group("enemies")
@@ -114,9 +158,11 @@ func dmg_mv(dir,dmg) -> CollisionObject:
 		#damage the collider
 		col.collider.on_col(self,dmg)
 	return col
+
 func die()->void:
 	$save_state_node.save_death()
 	.die()
+
 #virtual functions
 
 #called when the animation player finishes its animation,
@@ -143,5 +189,5 @@ func run_wrapper(player_pos,beat)->void:
 		#fall out of flight
 		if inner_beat >= 16:
 			set_flying(false)
-	else:
+	elif not get_statue_frozen():
 		run(player_pos,beat)

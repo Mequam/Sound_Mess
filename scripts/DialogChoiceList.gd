@@ -15,7 +15,8 @@ var enabled = false setget set_enabled, get_enabled
 #syntactic suguar signal so we dont have to get child nodes when
 #connecting signals elsewhere
 signal completed_dialog
-
+#only alerts the game that the dialog was not completed, does not pass an argument
+signal completed_dialog_no_arg
 func set_enabled(val):
 	visible = val
 func get_enabled():
@@ -72,3 +73,4 @@ func _process(delta):
 
 func _on_ComboTracker_combo_found(cmbName):
 	emit_signal("completed_dialog",cmbName)
+	emit_signal("completed_dialog_no_arg")

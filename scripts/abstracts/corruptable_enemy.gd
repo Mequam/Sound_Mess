@@ -36,6 +36,23 @@ func main_ready():
 	remove_from_group("enemies")
 	add_to_group("corruptable")
 
+#overload the parent frozen statue behavior to change the mode that it sets us to
+#corruptable enemies use evil as their default state
+func set_statue_frozen(val : bool)->void:
+	if val and not statue_frozen:
+		.set_statue_frozen(val)
+		set_mode("evil")
+		$Sprite/AnimationPlayer.stop()
+	elif not val and statue_frozen:
+		.set_statue_frozen(val)
+		#set us to the original mode and enable the animations
+		set_mode("evil")
+		
+		#we have to use the parents collision because we are corruptable
+		#and by default our collision is for safe things
+		collision_layer = .gen_col_layer()
+		collision_mask = .gen_col_mask()
+
 #overload the parent behavior to save our state on death
 #corruptable enemys do not save when they die
 func die()->void:

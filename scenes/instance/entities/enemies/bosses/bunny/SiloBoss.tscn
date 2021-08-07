@@ -41,6 +41,7 @@ volume_db = 0.0
 
 [node name="health_bar" parent="." instance=ExtResource( 5 )]
 position = Vector2( -75.7978, -480.587 )
+
 [connection signal="area_exited" from="Sprite/smashZone" to="." method="_on_smashZone_area_exited"]
 [connection signal="body_entered" from="Sprite/smashZone" to="." method="_on_smashZone_body_entered"]
 [connection signal="body_exited" from="Sprite/smashZone" to="." method="_on_smashZone_body_exited"]

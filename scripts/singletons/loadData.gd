@@ -33,7 +33,7 @@ func load_scene(scene,prevScene,prevDoorName=null,loadablePlayerPos=null):
 	prev_door_name = prevDoorName
 
 	var root = get_tree().root
-	var oldScene = root.get_child(3)
+	var oldScene = root.get_child(2)
 	
 	#orphan the player so they are no longer in the scene
 	oldScene.call_deferred("remove_child",_player_ref)

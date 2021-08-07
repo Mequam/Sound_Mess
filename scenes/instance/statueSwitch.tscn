@@ -20,4 +20,5 @@ position = Vector2( 10.5946, -36.0218 )
 
 [node name="VariableStatue" parent="." instance=ExtResource( 5 )]
 position = Vector2( 4.23779, -10.5946 )
+
 [connection signal="completed_dialog" from="singingSwitch/DialogChoiceList" to="." method="_on_DialogChoiceList_completed_dialog"]

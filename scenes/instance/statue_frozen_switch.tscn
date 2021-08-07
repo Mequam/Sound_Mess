@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/instance/switches/singingSwitch.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/instance/switches/singingSwitchParticles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/instance/dialog/testDialog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/instance/DialogChoiceList.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/StatueSplosionParticles.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/statue_frozen_switch.gd" type="Script" id=6]
+
+[node name="statue_frozen_switch" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="singingSwitch" parent="." instance=ExtResource( 1 )]
+position = Vector2( -0.840975, -0.840838 )
+scale = Vector2( 8, 8 )
+
+[node name="DialogChoiceList" parent="singingSwitch" instance=ExtResource( 4 )]
+scale = Vector2( 1, 0.5 )
+
+[node name="testDialog" parent="singingSwitch/DialogChoiceList" instance=ExtResource( 3 )]
+position = Vector2( -6.09647, -29.8518 )
+scale = Vector2( 0.25, 0.5 )
+
+[node name="singingSwitchParticles" parent="." instance=ExtResource( 2 )]
+position = Vector2( -0.840916, -36.9993 )
+
+[node name="StatueSplosionParticles" parent="." instance=ExtResource( 5 )]

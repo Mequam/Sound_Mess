@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "CircleRail",
 "language": "GDScript",
 "path": "res://scripts/CircleRail.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scripts/abstracts/generic_enemy.gd"
 } ]
 _global_script_class_icons={
 "CentiBody": "",
 "CentiMotor": "",
 "CentiRail": "",
-"CircleRail": ""
+"CircleRail": "",
+"Enemy": ""
 }
 
 [application]
