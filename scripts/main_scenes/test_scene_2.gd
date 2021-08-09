@@ -24,9 +24,9 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_A):
 		get_tree().call_group("enemies","set_statue_frozen",false)
 	if Input.is_key_pressed(KEY_D):
-		$CircleRail.angle -= delta * 10
+		$player.statue_frozen = true
 	if Input.is_key_pressed(KEY_S):
-		$CircleRail.angle_z -= delta * 10
+		$player.statue_frozen = false
 	if Input.is_key_pressed(KEY_R):
 		$CircleRail.r += delta * 10
 	if Input.is_key_pressed(KEY_F):

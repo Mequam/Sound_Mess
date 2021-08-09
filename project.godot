@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Avatar",
+"language": "GDScript",
+"path": "res://scripts/abstracts/avatar.gd"
+}, {
 "base": "CentiRail",
 "class": "CentiBody",
 "language": "GDScript",
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://scripts/abstracts/generic_enemy.gd"
 } ]
 _global_script_class_icons={
+"Avatar": "",
 "CentiBody": "",
 "CentiMotor": "",
 "CentiRail": "",

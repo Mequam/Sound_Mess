@@ -1,4 +1,7 @@
 extends Node2D
+
+class_name Avatar
+
 #a code which uniquely identifies each avatar
 var code : int
 #this is a function that sets the mode of the player note player
@@ -112,3 +115,11 @@ func clean_flavor(flavor,to_move,delta):
 		6:
 			return clean_seven(to_move,delta)
 	return clean_flavorless(to_move,delta)
+
+#this function stops all animation that the node is currently doing
+#and should be overidden to do as such
+func stop_animation()->void:
+	$Sprite/AnimationPlayer.stop()
+#plays the given animation
+func play_animation(anim : String)->void:
+	$Sprite/AnimationPlayer.play(anim)

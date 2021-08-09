@@ -1,4 +1,5 @@
 extends "res://scripts/abstracts/entity.gd"
+
 #this is the main player script
 #it controls basic movement,input, animation, damage and avatar switching
 #the avatars control ability usage and key modulation 
@@ -25,6 +26,41 @@ func set_flavor(new_flavor):
 func get_flavor():
 	return flavor
 
+
+#TODO: it would be MUCH better if this could be implimented in the entity class verses
+#the player and generic enemy classes
+
+#you can be permatalked and not statue frozen, so we use two variables for the bool state
+var statue_frozen : bool = false setget set_statue_frozen, get_statue_frozen
+func set_statue_frozen(val : bool)-> void:
+	if val and not statue_frozen:
+		statue_frozen = val
+		#make it so we don't stop talking
+		_permatalk = true
+		set_talking(true)
+		$avatar.stop_animation()
+		modulate = Color.darkgray
+		var outStatue = load("res://scenes/instance/statue_frozen_switch.tscn").instance()
+		get_parent().add_child(outStatue)
+		#tell the node to listen to us
+		#outStatue.get_node("singingSwitch").get_node("DialogChoiceList").enabled = true
+		outStatue.get_node("singingSwitch").get_node("DialogChoiceList").connect("completed_dialog",self,"unstatue_freeze")
+		outStatue.get_node("singingSwitch").get_node("DialogChoiceList").connect("completed_dialog_no_arg",outStatue,"queue_free")
+		outStatue.global_position = global_position
+		
+		#spawn the singing statue and connect it properly
+	if not val and statue_frozen:
+		modulate = Color.white
+		_permatalk = false
+		set_talking(false)
+		$avatar.play_animation($avatar/Sprite/AnimationPlayer.current_animation)
+		statue_frozen = val
+func get_statue_frozen()->bool:
+	return statue_frozen
+#inteanded to be called from a signal to unfreeze us
+func unstatue_freeze(dialog)->void:
+	set_statue_frozen(false)
+	
 #makes the player talk and unable to stop talking
 var _permatalk = false setget set_perm_talk,get_perm_talk
 func set_perm_talk(val : bool):
@@ -236,6 +272,7 @@ func on_combo(combo_name) -> void:
 #overload the default behavior on death
 func die() -> void:
 	hide()
+
 #this is called by entities when they hit US
 func on_col(thing,dmg : int=1) -> void:
 	#these only run if we are not invencible
