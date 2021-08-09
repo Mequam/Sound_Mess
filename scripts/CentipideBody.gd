@@ -19,7 +19,7 @@ func get_anim_state()->String:
 
 #syntactic sugar function that determines wether or not we should have our animations horizontally
 func vertical_animation()->bool:
-	#the angle that we allow the body segment to be horizontal on
+	#the angle that we allow the body segment to be horiontal on
 	var VERTICAL_ANGLE = PI / 2
 	return abs(angle) < (PI/2 + VERTICAL_ANGLE/2) and abs(angle) > (PI/2 - VERTICAL_ANGLE/2)
 #syntactic sugar that helps determine of an animation should be playing

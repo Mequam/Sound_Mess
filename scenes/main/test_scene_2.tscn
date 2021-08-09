@@ -29,16 +29,14 @@
 [ext_resource path="res://scenes/instance/CircleRail.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/instance/CentipiedeMotor.tscn" type="PackedScene" id=28]
 
-[node name="test_space" type="TileMap"]
-cell_y_sort = true
-format = 1
+[node name="test_space" type="YSort"]
 script = ExtResource( 3 )
 
 [node name="TS1" parent="." instance=ExtResource( 1 )]
 tile_data = PoolIntArray( -65540, 2, 0, -65539, 2, 0, -5, 20, 0, -4, 0, 0, -3, 0, 0, -2, 1, 0, 65531, 15, 0, 65532, 0, 0, 65533, 0, 0, 65534, 1, 0, 65535, 11, 0, 131067, 15, 0, 131068, 0, 0, 131069, 3, 0, 131070, 2, 0, 131071, 0, 0, 65536, 1, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 15, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 1, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 18, 0, 262140, 0, 0, 262141, 0, 0, 262142, 1, 0, 327670, 0, 0, 327671, 0, 0, 327672, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 15, 0, 327676, 0, 0, 327677, 1, 0, 393206, 0, 0, 393207, 0, 0, 393208, 0, 0, 393209, 0, 0, 393210, 0, 0, 393211, 17, 0, 458741, 0, 0, 458742, 0, 0, 458743, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 3, 0, 458747, 2, 0, 524277, 0, 0, 524278, 0, 0, 524279, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 1, 0, 589813, 0, 0, 589814, 0, 0, 589815, 0, 0, 589816, 0, 0, 589819, 0, 0, 589820, 1, 0, 655349, 0, 0, 655350, 0, 0, 655351, 0, 0, 655352, 0, 0, 720885, 0, 0, 720886, 0, 0, 720887, 0, 0, 720888, 0, 0, 786421, 0, 0, 786422, 0, 0, 786423, 0, 0 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1768.77, -823.74 )
+position = Vector2( 1526.24, -593.893 )
 
 [node name="Met" parent="." instance=ExtResource( 6 )]
 position = Vector2( 121.244, -150.542 )
@@ -172,6 +170,6 @@ position = Vector2( 148.027, -215.382 )
 position = Vector2( -12.9662, -341.496 )
 
 [node name="CentipiedeMotor" parent="." instance=ExtResource( 28 )]
-position = Vector2( -1232.97, -511.145 )
+position = Vector2( 1551.04, -1248.74 )
 
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]

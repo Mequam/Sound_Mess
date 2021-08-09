@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "CircleRail",
 "class": "CentiRail",
 "language": "GDScript",
-"path": "res://CentipideRail.gd"
+"path": "res://scripts/CentipideRail.gd"
 }, {
 "base": "Node2D",
 "class": "CircleRail",
