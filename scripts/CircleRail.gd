@@ -23,7 +23,7 @@ func get_center()->Vector2:
 	
 	
 #radius of our circle
-var r : float = 100 setget set_r,get_r
+var r : float = 50 setget set_r,get_r
 func set_r(val : float)->void:
 	r = val
 	sync_state()
@@ -57,7 +57,7 @@ func get_cam_dist()->float:
 
 #how far from z=0 the focus point is, imagine it 
 #stabbing you in the face from the computer screen 
-var focus_offset : float = 500 setget set_focus_offset,get_focus_offset
+var focus_offset : float = 400 setget set_focus_offset,get_focus_offset
 func set_focus_offset(val : float)->void:
 	focus_offset = val
 	sync_state()
@@ -77,8 +77,8 @@ func update_child_state(angle : float,angle_z : float,
 	if (get_child(0) is Node2D):
 		print("updating child state")
 		get_child(0).position = get_pos_perspective(angle,angle_z,r,center)
-		get_child(0).scale = Vector2(1,1)*get_scaled_perspective(angle,angle_z,
-												cam_dist,focus_offset,r)
+		#get_child(0).scale = Vector2(1,1)*get_scaled_perspective(angle,angle_z,
+		#										cam_dist,focus_offset,r)
 #syntactic sugar to sync with our state
 func sync_state()->void:
 	update_child_state(angle,angle_z,cam_dist,focus_offset,r,center)

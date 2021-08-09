@@ -19,6 +19,16 @@ script = ExtResource( 4 )
 [node name="YSort4" type="YSort" parent="YSort/YSort2/YSort3"]
 script = ExtResource( 4 )
 
+[node name="YSort5" type="YSort" parent="YSort/YSort2/YSort3/YSort4"]
+script = ExtResource( 4 )
+
+[node name="YSort6" type="YSort" parent="YSort/YSort2/YSort3/YSort4/YSort5"]
+script = ExtResource( 4 )
+
+[node name="Sprite" parent="YSort/YSort2/YSort3/YSort4/YSort5/YSort6" instance=ExtResource( 3 )]
+
+[node name="Sprite" parent="YSort/YSort2/YSort3/YSort4/YSort5" instance=ExtResource( 3 )]
+
 [node name="Sprite" parent="YSort/YSort2/YSort3/YSort4" instance=ExtResource( 3 )]
 
 [node name="Sprite" parent="YSort/YSort2/YSort3" instance=ExtResource( 3 )]

@@ -25,7 +25,7 @@ func get_anim_state()->String:
 	return link_anim_state
 	
 func _ready():
-	update_chain_angle_z(1.25)
+	update_chain_angle_z(0.97)
 func signum(x : float)->float:
 	return -2*float(x < 0)+1
 func get_velocity_angle()->float:
