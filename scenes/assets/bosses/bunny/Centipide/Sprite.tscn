@@ -7,11 +7,11 @@
 [ext_resource path="res://triangles/right_triangle.png" type="Texture" id=5]
 [ext_resource path="res://scenes/assets/bosses/bunny/Centipide/statueWebParticles.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "HeadIdle"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("head/legs/leg4/top:position")
+tracks/0/path = NodePath("assets/head_front/legs/leg4/top:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ Vector2( 7.80615, -44.4243 ), Vector2( 9.01172, -44.7461 ), Vector2( 7.80615, -44.4243 ), Vector2( 7.80615, -44.4243 ), Vector2( 9.01172, -44.7461 ), Vector2( 7.80615, -44.4243 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("head/legs/leg4/top:rotation_degrees")
+tracks/1/path = NodePath("assets/head_front/legs/leg4/top:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ -145.483, -158.306, -145.483, -145.483, -158.306, -145.483 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("head/legs/leg4/bottom:position")
+tracks/2/path = NodePath("assets/head_front/legs/leg4/bottom:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -47,7 +47,7 @@ tracks/2/keys = {
 "values": [ Vector2( -0.921387, -17.5251 ), Vector2( 0.420898, -18.1449 ), Vector2( -0.921387, -17.5251 ), Vector2( -0.921387, -17.5251 ), Vector2( 0.420898, -18.1449 ), Vector2( -0.921387, -17.5251 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("head/legs/leg4/bottom:rotation_degrees")
+tracks/3/path = NodePath("assets/head_front/legs/leg4/bottom:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -59,7 +59,7 @@ tracks/3/keys = {
 "values": [ -0.22847, 13.443, -0.22847, -0.22847, 13.443, -0.22847 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("head/legs/leg1/top:position")
+tracks/4/path = NodePath("assets/head_front/legs/leg1/top:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -71,7 +71,7 @@ tracks/4/keys = {
 "values": [ Vector2( 34.0637, -45.6824 ), Vector2( 47.5562, -29.8087 ), Vector2( 34.0637, -45.6824 ), Vector2( 47.5562, -29.8087 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("head/legs/leg1/top:rotation_degrees")
+tracks/5/path = NodePath("assets/head_front/legs/leg1/top:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -83,7 +83,7 @@ tracks/5/keys = {
 "values": [ -140.861, -94.6715, -140.861, -94.6715 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("head/legs/leg1/bottom:position")
+tracks/6/path = NodePath("assets/head_front/legs/leg1/bottom:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -95,7 +95,7 @@ tracks/6/keys = {
 "values": [ Vector2( 9.50171, -12.3672 ), Vector2( 9.50171, -12.3672 ), Vector2( 9.50171, -12.3672 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("head/legs/leg1/bottom:rotation_degrees")
+tracks/7/path = NodePath("assets/head_front/legs/leg1/bottom:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -107,7 +107,7 @@ tracks/7/keys = {
 "values": [ 31.1052, 42.3846, 28.6875 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("head/legs/leg2/top:position")
+tracks/8/path = NodePath("assets/head_front/legs/leg2/top:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -119,7 +119,7 @@ tracks/8/keys = {
 "values": [ Vector2( -24.3763, -51.218 ), Vector2( -38.2661, -47.6465 ), Vector2( -36.3777, -44.1997 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("head/legs/leg2/top:rotation_degrees")
+tracks/9/path = NodePath("assets/head_front/legs/leg2/top:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -131,7 +131,7 @@ tracks/9/keys = {
 "values": [ -201.039, -226.655, -229.525 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("head/legs/leg2/bottom:position")
+tracks/10/path = NodePath("assets/head_front/legs/leg2/bottom:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -143,7 +143,7 @@ tracks/10/keys = {
 "values": [ Vector2( -10.7148, -12.5649 ), Vector2( -10.7148, -12.5649 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("head/legs/leg2/bottom:rotation_degrees")
+tracks/11/path = NodePath("assets/head_front/legs/leg2/bottom:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -155,7 +155,7 @@ tracks/11/keys = {
 "values": [ -18.9782, -29.5692 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("head/legs/leg7/top:position")
+tracks/12/path = NodePath("assets/head_front/legs/leg7/top:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -167,7 +167,7 @@ tracks/12/keys = {
 "values": [ Vector2( -16.3604, -38.193 ), Vector2( -1.71094, -46.9224 ), Vector2( -5.04346, -43.5808 ), Vector2( -16.3604, -38.193 ), Vector2( -1.71094, -46.9224 ), Vector2( -5.04346, -43.5808 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("head/legs/leg7/top:rotation_degrees")
+tracks/13/path = NodePath("assets/head_front/legs/leg7/top:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -179,7 +179,7 @@ tracks/13/keys = {
 "values": [ -245.2, -195.155, -204.162, -245.2, -195.155, -204.162 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("head/legs/leg7/bottom:position")
+tracks/14/path = NodePath("assets/head_front/legs/leg7/bottom:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -191,7 +191,7 @@ tracks/14/keys = {
 "values": [ Vector2( 0.236984, -16.6846 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("head/legs/leg7/bottom:rotation_degrees")
+tracks/15/path = NodePath("assets/head_front/legs/leg7/bottom:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -203,7 +203,7 @@ tracks/15/keys = {
 "values": [ -19.4732, -0.22847 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("head/legs/leg6/bottom:position")
+tracks/16/path = NodePath("assets/head_front/legs/leg6/bottom:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -215,7 +215,7 @@ tracks/16/keys = {
 "values": [ Vector2( 0.236984, -16.6846 ), Vector2( 4.53455, -18.1929 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("head/legs/leg6/bottom:rotation_degrees")
+tracks/17/path = NodePath("assets/head_front/legs/leg6/bottom:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -227,7 +227,7 @@ tracks/17/keys = {
 "values": [ 13.8398, -0.22847, 28.1857 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("head/legs/leg6/top:position")
+tracks/18/path = NodePath("assets/head_front/legs/leg6/top:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -239,7 +239,7 @@ tracks/18/keys = {
 "values": [ Vector2( 7.60052, -43.9204 ), Vector2( 7.80615, -44.4243 ), Vector2( -4.93555, -45.1147 ), Vector2( 21.1394, -41.9912 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("head/legs/leg6/top:rotation_degrees")
+tracks/19/path = NodePath("assets/head_front/legs/leg6/top:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -251,7 +251,7 @@ tracks/19/keys = {
 "values": [ -161.701, -145.483, -201.701, -144.429 ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("head/legs/leg3/top:position")
+tracks/20/path = NodePath("assets/head_front/legs/leg3/top:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -263,7 +263,7 @@ tracks/20/keys = {
 "values": [ Vector2( -9.42188, -42.2656 ), Vector2( 19.3667, -37.0742 ), Vector2( -9.42188, -42.2656 ), Vector2( -9.0249, -42.2656 ), Vector2( -9.42188, -42.2656 ), Vector2( 19.3667, -37.0742 ), Vector2( -9.42188, -42.2656 ) ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("head/legs/leg3/top:rotation_degrees")
+tracks/21/path = NodePath("assets/head_front/legs/leg3/top:rotation_degrees")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -275,7 +275,7 @@ tracks/21/keys = {
 "values": [ -138.485, -226.655, -138.485, -226.655 ]
 }
 tracks/22/type = "value"
-tracks/22/path = NodePath("head/legs/leg3/bottom:position")
+tracks/22/path = NodePath("assets/head_front/legs/leg3/bottom:position")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
@@ -287,7 +287,7 @@ tracks/22/keys = {
 "values": [ Vector2( 4.9563, -13.3809 ), Vector2( 0.236984, -16.6846 ), Vector2( 4.9563, -13.3809 ), Vector2( 0.236984, -16.6846 ) ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("head/legs/leg3/bottom:rotation_degrees")
+tracks/23/path = NodePath("assets/head_front/legs/leg3/bottom:rotation_degrees")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -299,7 +299,7 @@ tracks/23/keys = {
 "values": [ 24.8576, -0.22847, 24.8576, -0.22847 ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("head/legs/leg5/top:position")
+tracks/24/path = NodePath("assets/head_front/legs/leg5/top:position")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
@@ -311,7 +311,7 @@ tracks/24/keys = {
 "values": [ Vector2( 4.62451, -45.2358 ), Vector2( -6.30396, -48.001 ), Vector2( -0.152344, -47.6494 ), Vector2( 4.62451, -45.2358 ) ]
 }
 tracks/25/type = "value"
-tracks/25/path = NodePath("head/legs/leg5/top:rotation_degrees")
+tracks/25/path = NodePath("assets/head_front/legs/leg5/top:rotation_degrees")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/imported = false
@@ -323,7 +323,7 @@ tracks/25/keys = {
 "values": [ -188.757, -160.551 ]
 }
 tracks/26/type = "value"
-tracks/26/path = NodePath("head/legs/leg5/bottom:position")
+tracks/26/path = NodePath("assets/head_front/legs/leg5/bottom:position")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/imported = false
@@ -335,7 +335,7 @@ tracks/26/keys = {
 "values": [ Vector2( -3.37231, -18.8044 ), Vector2( 0.236984, -16.6846 ) ]
 }
 tracks/27/type = "value"
-tracks/27/path = NodePath("head/legs/leg5/bottom:rotation_degrees")
+tracks/27/path = NodePath("assets/head_front/legs/leg5/bottom:rotation_degrees")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/imported = false
@@ -347,7 +347,7 @@ tracks/27/keys = {
 "values": [ -8.89886, -0.22847 ]
 }
 tracks/28/type = "value"
-tracks/28/path = NodePath("head/statueWebParticles:emitting")
+tracks/28/path = NodePath("assets/head_front/statueWebParticles:emitting")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/imported = false
@@ -363,7 +363,7 @@ tracks/28/keys = {
 resource_name = "weve"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("head/legs/leg4/top:position")
+tracks/0/path = NodePath("assets/head_front/legs/leg4/top:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -375,7 +375,7 @@ tracks/0/keys = {
 "values": [ Vector2( -23.3418, 6.95288 ), Vector2( -25.1504, 3.71167 ), Vector2( -23.3418, 6.95288 ), Vector2( -25.1504, 3.71167 ), Vector2( -23.3418, 6.95288 ), Vector2( -25.1504, 3.71167 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("head/legs/leg4/top:rotation_degrees")
+tracks/1/path = NodePath("assets/head_front/legs/leg4/top:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -387,7 +387,7 @@ tracks/1/keys = {
 "values": [ -10.4572 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("head/legs/leg5/top:position")
+tracks/2/path = NodePath("assets/head_front/legs/leg5/top:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -399,7 +399,7 @@ tracks/2/keys = {
 "values": [ Vector2( 3.44873, 22.2988 ), Vector2( 6.13135, 20.729 ), Vector2( 3.44873, 22.2988 ), Vector2( 6.13135, 20.729 ), Vector2( 3.44873, 22.2988 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("head/legs/leg5/top:rotation_degrees")
+tracks/3/path = NodePath("assets/head_front/legs/leg5/top:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -411,7 +411,7 @@ tracks/3/keys = {
 "values": [ -327.269, -313.078, -327.269, -313.078, -327.269 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("head/legs/leg5/bottom:position")
+tracks/4/path = NodePath("assets/head_front/legs/leg5/bottom:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -423,7 +423,7 @@ tracks/4/keys = {
 "values": [ Vector2( 3.14185, 1.99121 ), Vector2( 5.26196, 2.5957 ), Vector2( 3.14185, 1.99121 ), Vector2( 5.26196, 2.5957 ), Vector2( 3.14185, 1.99121 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("head/legs/leg5/bottom:rotation_degrees")
+tracks/5/path = NodePath("assets/head_front/legs/leg5/bottom:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -435,7 +435,7 @@ tracks/5/keys = {
 "values": [ 159.268, 149.926, 159.268, 149.926, 159.268 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("head/legs/leg4/bottom:position")
+tracks/6/path = NodePath("assets/head_front/legs/leg4/bottom:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -447,7 +447,7 @@ tracks/6/keys = {
 "values": [ Vector2( -11.6562, -4.41699 ), Vector2( -11.7056, -5.33447 ), Vector2( -11.6562, -4.41699 ), Vector2( -11.7056, -5.33447 ), Vector2( -11.6562, -4.41699 ), Vector2( -11.7056, -5.33447 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("head/legs/leg4/bottom:rotation_degrees")
+tracks/7/path = NodePath("assets/head_front/legs/leg4/bottom:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -459,7 +459,7 @@ tracks/7/keys = {
 "values": [ -104.595, -87.6298, -104.595, -87.6298, -104.595, -87.6298 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("head/legs/leg2/top:position")
+tracks/8/path = NodePath("assets/head_front/legs/leg2/top:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -471,7 +471,7 @@ tracks/8/keys = {
 "values": [ Vector2( -1.86646, -2.50708 ), Vector2( -1.4458, -8.39331 ), Vector2( -1.86646, -2.50708 ), Vector2( -1.86646, -2.50708 ), Vector2( -1.4458, -8.39331 ), Vector2( -1.86646, -2.50708 ), Vector2( -1.4458, -8.39331 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("head/legs/leg2/top:rotation_degrees")
+tracks/9/path = NodePath("assets/head_front/legs/leg2/top:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -483,7 +483,7 @@ tracks/9/keys = {
 "values": [ -33.2816, -24.8282, -33.2816, -24.8282, -33.2816, -24.8282 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("head/legs/leg2/bottom:position")
+tracks/10/path = NodePath("assets/head_front/legs/leg2/bottom:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -495,7 +495,7 @@ tracks/10/keys = {
 "values": [ Vector2( -9.8739, -7.93994 ), Vector2( -9.8739, -10.8828 ), Vector2( -9.8739, -7.93994 ), Vector2( -9.8739, -10.8828 ), Vector2( -9.8739, -7.93994 ), Vector2( -9.8739, -10.8828 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("head/legs/leg2/bottom:rotation_degrees")
+tracks/11/path = NodePath("assets/head_front/legs/leg2/bottom:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -507,7 +507,7 @@ tracks/11/keys = {
 "values": [ 1.14091, 1.14091, 1.14091 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("head/legs/leg2/bottom:scale")
+tracks/12/path = NodePath("assets/head_front/legs/leg2/bottom:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -519,7 +519,7 @@ tracks/12/keys = {
 "values": [ Vector2( 0.0415117, 0.0379314 ), Vector2( 0.0415117, 0.0440885 ), Vector2( 0.0415117, 0.0379314 ), Vector2( 0.0415117, 0.0440885 ), Vector2( 0.0415117, 0.0379314 ), Vector2( 0.0415117, 0.0440885 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("head/legs/leg1/top:position")
+tracks/13/path = NodePath("assets/head_front/legs/leg1/top:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -531,7 +531,7 @@ tracks/13/keys = {
 "values": [ Vector2( -4.12549, -3.50195 ), Vector2( -7.0686, 1.96362 ), Vector2( -4.12549, -3.50195 ), Vector2( -7.0686, 1.96362 ) ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("head/legs/leg1/top:rotation_degrees")
+tracks/14/path = NodePath("assets/head_front/legs/leg1/top:rotation_degrees")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -543,7 +543,7 @@ tracks/14/keys = {
 "values": [ 41.2375, 41.2375, 41.2375, 41.2375 ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("head/legs/leg1/top:scale")
+tracks/15/path = NodePath("assets/head_front/legs/leg1/top:scale")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -555,7 +555,7 @@ tracks/15/keys = {
 "values": [  ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("head/legs/leg1/bottom:position")
+tracks/16/path = NodePath("assets/head_front/legs/leg1/bottom:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -567,7 +567,7 @@ tracks/16/keys = {
 "values": [ Vector2( 6.0686, -6.36816 ), Vector2( 4.09594, -2.76314 ), Vector2( 6.0686, -6.36816 ), Vector2( 4.09594, -2.76314 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("head/legs/leg1/bottom:rotation_degrees")
+tracks/17/path = NodePath("assets/head_front/legs/leg1/bottom:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -579,7 +579,7 @@ tracks/17/keys = {
 "values": [ 28.6875, 28.6875, 28.6875 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("head/legs/leg1/bottom:scale")
+tracks/18/path = NodePath("assets/head_front/legs/leg1/bottom:scale")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -591,7 +591,7 @@ tracks/18/keys = {
 "values": [ Vector2( 0.0415117, 0.0353192 ), Vector2( 0.0415117, 0.0243752 ), Vector2( 0.0415117, 0.0353192 ), Vector2( 0.0415117, 0.0243752 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("head/legs/leg7/top:position")
+tracks/19/path = NodePath("assets/head_front/legs/leg7/top:position")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -603,7 +603,7 @@ tracks/19/keys = {
 "values": [ Vector2( 14.894, 11.8014 ), Vector2( 11.3657, 10.4222 ), Vector2( 14.894, 11.8014 ), Vector2( 11.3657, 10.4222 ) ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("head/legs/leg7/top:rotation_degrees")
+tracks/20/path = NodePath("assets/head_front/legs/leg7/top:rotation_degrees")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -615,7 +615,7 @@ tracks/20/keys = {
 "values": [ -56.7909, -56.7909 ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("head/legs/leg7/top:scale")
+tracks/21/path = NodePath("assets/head_front/legs/leg7/top:scale")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -627,7 +627,7 @@ tracks/21/keys = {
 "values": [ Vector2( 0.0258692, 0.0323585 ), Vector2( 0.0258692, 0.0323585 ) ]
 }
 tracks/22/type = "value"
-tracks/22/path = NodePath("head/legs/leg7/bottom:position")
+tracks/22/path = NodePath("assets/head_front/legs/leg7/bottom:position")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
@@ -639,7 +639,7 @@ tracks/22/keys = {
 "values": [ Vector2( 2.14648, -4.70117 ), Vector2( 2.09302, -5.31445 ), Vector2( 2.14648, -4.70117 ), Vector2( 2.09302, -5.31445 ) ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("head/legs/leg7/bottom:rotation_degrees")
+tracks/23/path = NodePath("assets/head_front/legs/leg7/bottom:rotation_degrees")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -651,7 +651,7 @@ tracks/23/keys = {
 "values": [ 165.965, 177.099, 165.965, 177.099 ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("head/legs/leg7/bottom:scale")
+tracks/24/path = NodePath("assets/head_front/legs/leg7/bottom:scale")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
@@ -663,7 +663,7 @@ tracks/24/keys = {
 "values": [ Vector2( 0.0293556, 0.0274536 ) ]
 }
 tracks/25/type = "value"
-tracks/25/path = NodePath("head/legs/leg3/top:position")
+tracks/25/path = NodePath("assets/head_front/legs/leg3/top:position")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/imported = false
@@ -675,7 +675,7 @@ tracks/25/keys = {
 "values": [ Vector2( -1.15063, -6.4292 ), Vector2( -4.65076, -0.929199 ) ]
 }
 tracks/26/type = "value"
-tracks/26/path = NodePath("head/legs/leg3/top:rotation_degrees")
+tracks/26/path = NodePath("assets/head_front/legs/leg3/top:rotation_degrees")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/imported = false
@@ -687,7 +687,7 @@ tracks/26/keys = {
 "values": [ 26.2085, -2.09242, -2.09242 ]
 }
 tracks/27/type = "value"
-tracks/27/path = NodePath("head/legs/leg3/top:scale")
+tracks/27/path = NodePath("assets/head_front/legs/leg3/top:scale")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/imported = false
@@ -699,7 +699,7 @@ tracks/27/keys = {
 "values": [ Vector2( 0.0258692, 0.0323585 ) ]
 }
 tracks/28/type = "value"
-tracks/28/path = NodePath("head/legs/leg3/bottom:position")
+tracks/28/path = NodePath("assets/head_front/legs/leg3/bottom:position")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/imported = false
@@ -711,7 +711,7 @@ tracks/28/keys = {
 "values": [ Vector2( 3.97278, -6.1333 ), Vector2( 0.722741, -4.88313 ) ]
 }
 tracks/29/type = "value"
-tracks/29/path = NodePath("head/legs/leg3/bottom:rotation_degrees")
+tracks/29/path = NodePath("assets/head_front/legs/leg3/bottom:rotation_degrees")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/imported = false
@@ -723,7 +723,7 @@ tracks/29/keys = {
 "values": [ -11.709, -26.924 ]
 }
 tracks/30/type = "value"
-tracks/30/path = NodePath("head/legs/leg3/bottom:scale")
+tracks/30/path = NodePath("assets/head_front/legs/leg3/bottom:scale")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/imported = false
@@ -735,7 +735,7 @@ tracks/30/keys = {
 "values": [ Vector2( 0.0293556, 0.0282731 ) ]
 }
 tracks/31/type = "value"
-tracks/31/path = NodePath("head/legs/leg6/top:position")
+tracks/31/path = NodePath("assets/head_front/legs/leg6/top:position")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/imported = false
@@ -747,7 +747,7 @@ tracks/31/keys = {
 "values": [ Vector2( 3.08374, -7.86475 ), Vector2( 2.03345, -13.5278 ), Vector2( 3.08374, -7.86475 ), Vector2( 2.03345, -13.5278 ) ]
 }
 tracks/32/type = "value"
-tracks/32/path = NodePath("head/legs/leg6/top:rotation_degrees")
+tracks/32/path = NodePath("assets/head_front/legs/leg6/top:rotation_degrees")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/imported = false
@@ -759,7 +759,7 @@ tracks/32/keys = {
 "values": [ 4.70728, 1.77681, 4.70728, 1.77681 ]
 }
 tracks/33/type = "value"
-tracks/33/path = NodePath("head/legs/leg6/top:scale")
+tracks/33/path = NodePath("assets/head_front/legs/leg6/top:scale")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/imported = false
@@ -771,7 +771,7 @@ tracks/33/keys = {
 "values": [ Vector2( 0.0258692, 0.0323585 ), Vector2( 0.0258692, 0.0323585 ) ]
 }
 tracks/34/type = "value"
-tracks/34/path = NodePath("head/legs/leg6/bottom:position")
+tracks/34/path = NodePath("assets/head_front/legs/leg6/bottom:position")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/imported = false
@@ -783,7 +783,7 @@ tracks/34/keys = {
 "values": [ Vector2( 0.906036, -12.9536 ), Vector2( 3.29163, -13.7114 ), Vector2( 0.906036, -12.9536 ), Vector2( 3.29163, -13.7114 ) ]
 }
 tracks/35/type = "value"
-tracks/35/path = NodePath("head/legs/leg6/bottom:rotation_degrees")
+tracks/35/path = NodePath("assets/head_front/legs/leg6/bottom:rotation_degrees")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/imported = false
@@ -795,7 +795,7 @@ tracks/35/keys = {
 "values": [ 9.70588, -1.44609, -1.44609, 9.70588, -2.37274 ]
 }
 tracks/36/type = "value"
-tracks/36/path = NodePath("head/legs/leg6/bottom:scale")
+tracks/36/path = NodePath("assets/head_front/legs/leg6/bottom:scale")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/imported = false
@@ -807,7 +807,7 @@ tracks/36/keys = {
 "values": [ Vector2( 0.0293556, 0.0240066 ), Vector2( 0.0293556, 0.0298276 ), Vector2( 0.0293556, 0.0240066 ), Vector2( 0.0293556, 0.0298276 ) ]
 }
 tracks/37/type = "value"
-tracks/37/path = NodePath("head/statueWebParticles:emitting")
+tracks/37/path = NodePath("assets/head_front/statueWebParticles:emitting")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/imported = false
@@ -824,204 +824,403 @@ __meta__ = {
 "_edit_horizontal_guides_": [ -229.768 ]
 }
 
-[node name="body" type="Node2D" parent="."]
+[node name="assets" type="Node2D" parent="."]
 
-[node name="Sprite" parent="body" instance=ExtResource( 4 )]
+[node name="arms_side_back" type="Node2D" parent="assets"]
+visible = false
+modulate = Color( 0.815686, 0.815686, 0.815686, 1 )
+position = Vector2( 5.34537, -37.4177 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="front_arm_bicept" type="Sprite" parent="assets/arms_side_back"]
+position = Vector2( 6.3577, -88.9565 )
+rotation = 2.68802
+scale = Vector2( 0.0371976, 0.0655196 )
+texture = ExtResource( 3 )
+
+[node name="front_arm_bicept2" type="Sprite" parent="assets/arms_side_back"]
+position = Vector2( 67.8997, -40.3506 )
+rotation = 5.19194
+scale = Vector2( 0.031886, 0.130518 )
+texture = ExtResource( 3 )
+
+[node name="body" type="Node2D" parent="assets"]
+
+[node name="Sprite" parent="assets/body" instance=ExtResource( 4 )]
 position = Vector2( 4.16222, 2.39992 )
 
-[node name="long_triangle" type="Sprite" parent="body"]
+[node name="long_triangle" type="Sprite" parent="assets/body"]
 position = Vector2( -0.918093, -90.1187 )
 rotation = 3.13727
 scale = Vector2( 0.106651, 0.141188 )
 texture = ExtResource( 3 )
 
-[node name="head" type="Node2D" parent="."]
+[node name="head_front" type="Node2D" parent="assets"]
+visible = false
 position = Vector2( -2.24745, -170.487 )
 
-[node name="face" type="Sprite" parent="head"]
+[node name="face" type="Sprite" parent="assets/head_front"]
 position = Vector2( 0.00914001, -3.92554 )
 scale = Vector2( 0.175775, 0.0973747 )
 texture = ExtResource( 2 )
 
-[node name="eyes" type="Node2D" parent="head"]
+[node name="eyes" type="Node2D" parent="assets/head_front"]
 modulate = Color( 0.431373, 0.431373, 0.431373, 1 )
-position = Vector2( 5.50111, -0.235058 )
+position = Vector2( -0.216068, -0.613811 )
 
-[node name="right_eye" type="Sprite" parent="head/eyes"]
+[node name="right_eye" type="Sprite" parent="assets/head_front/eyes"]
 position = Vector2( 10.4516, -2.27258 )
 rotation = 1.81528
 scale = Vector2( 0.036912, 0.036912 )
 texture = ExtResource( 5 )
 
-[node name="left_eye" type="Sprite" parent="head/eyes"]
+[node name="left_eye" type="Sprite" parent="assets/head_front/eyes"]
 position = Vector2( -10.2984, -2.02258 )
 rotation = 2.93389
 scale = Vector2( 0.036912, 0.036912 )
 texture = ExtResource( 5 )
 
-[node name="right_eye2" type="Sprite" parent="head/eyes"]
+[node name="right_eye2" type="Sprite" parent="assets/head_front/eyes"]
 position = Vector2( 10.4517, -14.2935 )
 rotation = 1.81528
 scale = Vector2( 0.036912, 0.036912 )
 texture = ExtResource( 5 )
 
-[node name="left_eye2" type="Sprite" parent="head/eyes"]
+[node name="left_eye2" type="Sprite" parent="assets/head_front/eyes"]
 position = Vector2( -10.2984, -14.0435 )
 rotation = 2.93389
 scale = Vector2( 0.036912, 0.036912 )
 texture = ExtResource( 5 )
 
-[node name="statueWebParticles" parent="head" instance=ExtResource( 6 )]
+[node name="statueWebParticles" parent="assets/head_front" instance=ExtResource( 6 )]
 position = Vector2( -3.70813, -5.82706 )
+emitting = false
 
-[node name="legs" type="Node2D" parent="head"]
+[node name="legs" type="Node2D" parent="assets/head_front"]
 position = Vector2( -1, 0.5 )
 
-[node name="leg6" type="Node2D" parent="head/legs"]
+[node name="leg6" type="Node2D" parent="assets/head_front/legs"]
 position = Vector2( -5.26806, -20.8236 )
 rotation = -0.315544
 
-[node name="bottom" type="Sprite" parent="head/legs/leg6"]
-position = Vector2( 0.906036, -12.9536 )
-rotation = 0.1694
-scale = Vector2( 0.0293556, 0.0240066 )
+[node name="bottom" type="Sprite" parent="assets/head_front/legs/leg6"]
+position = Vector2( 0.236984, -16.6846 )
+rotation = -0.00398755
+scale = Vector2( 0.0293556, 0.0298276 )
 texture = ExtResource( 3 )
 
-[node name="top" type="Sprite" parent="head/legs/leg6"]
-position = Vector2( 3.08374, -7.86475 )
-rotation = 0.0821576
+[node name="top" type="Sprite" parent="assets/head_front/legs/leg6"]
+position = Vector2( 7.80615, -44.4243 )
+rotation = -2.53916
 scale = Vector2( 0.0258692, 0.0323585 )
 texture = ExtResource( 3 )
 
-[node name="leg3" type="Node2D" parent="head/legs"]
+[node name="leg3" type="Node2D" parent="assets/head_front/legs"]
 position = Vector2( 6.54065, -27.3518 )
 
-[node name="bottom" type="Sprite" parent="head/legs/leg3"]
-position = Vector2( 0.722741, -4.88313 )
-rotation = -0.469912
+[node name="bottom" type="Sprite" parent="assets/head_front/legs/leg3"]
+position = Vector2( 4.9563, -13.3809 )
+rotation = 0.433847
 scale = Vector2( 0.0293556, 0.0282731 )
 texture = ExtResource( 3 )
 
-[node name="top" type="Sprite" parent="head/legs/leg3"]
-position = Vector2( -4.65076, -0.929199 )
-rotation = -0.0365196
+[node name="top" type="Sprite" parent="assets/head_front/legs/leg3"]
+position = Vector2( 19.3667, -37.0742 )
+rotation = -2.41702
 scale = Vector2( 0.0258692, 0.0323585 )
 texture = ExtResource( 3 )
 
-[node name="leg1" type="Node2D" parent="head/legs"]
+[node name="leg1" type="Node2D" parent="assets/head_front/legs"]
 position = Vector2( 21.4057, -30.9194 )
 
-[node name="bottom" type="Sprite" parent="head/legs/leg1"]
-position = Vector2( 4.09594, -2.76314 )
-rotation = 0.500691
-scale = Vector2( 0.0415117, 0.0243752 )
+[node name="bottom" type="Sprite" parent="assets/head_front/legs/leg1"]
+position = Vector2( 9.50171, -12.3672 )
+rotation = 0.739751
+scale = Vector2( 0.0415117, 0.0353192 )
 texture = ExtResource( 3 )
 
-[node name="top" type="Sprite" parent="head/legs/leg1"]
-position = Vector2( -7.0686, 1.96362 )
-rotation = 0.71973
+[node name="top" type="Sprite" parent="assets/head_front/legs/leg1"]
+position = Vector2( 47.5562, -29.8087 )
+rotation = -1.65233
 scale = Vector2( 0.0415117, 0.0519249 )
 texture = ExtResource( 3 )
 
-[node name="leg2" type="Node2D" parent="head/legs"]
+[node name="leg2" type="Node2D" parent="assets/head_front/legs"]
 position = Vector2( -13.0813, -27.3518 )
 
-[node name="bottom" type="Sprite" parent="head/legs/leg2"]
-position = Vector2( -9.8739, -7.93994 )
-rotation = 0.0199126
-scale = Vector2( 0.0415117, 0.0379314 )
+[node name="bottom" type="Sprite" parent="assets/head_front/legs/leg2"]
+position = Vector2( -10.7148, -12.5649 )
+rotation = -0.331232
+scale = Vector2( 0.0415117, 0.0440885 )
 texture = ExtResource( 3 )
 
-[node name="top" type="Sprite" parent="head/legs/leg2"]
-position = Vector2( -1.86646, -2.50708 )
-rotation = -0.580874
+[node name="top" type="Sprite" parent="assets/head_front/legs/leg2"]
+position = Vector2( -24.3763, -51.218 )
+rotation = -3.50879
 scale = Vector2( 0.0415117, 0.0519249 )
 texture = ExtResource( 3 )
 
-[node name="leg4" type="Node2D" parent="head/legs"]
+[node name="leg4" type="Node2D" parent="assets/head_front/legs"]
 position = Vector2( -24.7135, -16.2274 )
 rotation = -1.92287
 
-[node name="bottom" type="Sprite" parent="head/legs/leg4"]
-position = Vector2( -11.6562, -4.41699 )
-rotation = -1.82553
+[node name="bottom" type="Sprite" parent="assets/head_front/legs/leg4"]
+position = Vector2( -0.921387, -17.5251 )
+rotation = -0.00398755
 scale = Vector2( 0.0293556, 0.0367194 )
 texture = ExtResource( 3 )
 
-[node name="top" type="Sprite" parent="head/legs/leg4"]
-position = Vector2( -23.3418, 6.95288 )
-rotation = -0.182512
+[node name="top" type="Sprite" parent="assets/head_front/legs/leg4"]
+position = Vector2( 7.80615, -44.4243 )
+rotation = -2.53916
 scale = Vector2( 0.0258692, 0.0323585 )
 texture = ExtResource( 3 )
 
-[node name="leg5" type="Node2D" parent="head/legs"]
+[node name="leg5" type="Node2D" parent="assets/head_front/legs"]
 position = Vector2( 29.0266, -14.8132 )
 rotation = 1.09577
 
-[node name="bottom" type="Sprite" parent="head/legs/leg5"]
-position = Vector2( 3.14185, 1.99121 )
-rotation = 2.77975
+[node name="bottom" type="Sprite" parent="assets/head_front/legs/leg5"]
+position = Vector2( 0.236984, -16.6846 )
+rotation = -0.00398755
 scale = Vector2( 0.0293556, 0.0367194 )
 texture = ExtResource( 3 )
 
-[node name="top" type="Sprite" parent="head/legs/leg5"]
-position = Vector2( 3.44873, 22.2988 )
-rotation = -5.71192
+[node name="top" type="Sprite" parent="assets/head_front/legs/leg5"]
+position = Vector2( 4.62451, -45.2358 )
+rotation = -2.80214
 scale = Vector2( 0.0258692, 0.0323585 )
 texture = ExtResource( 3 )
 
-[node name="leg7" type="Node2D" parent="head/legs"]
+[node name="leg7" type="Node2D" parent="assets/head_front/legs"]
 position = Vector2( -30.3703, -13.399 )
 rotation = -0.725896
 
-[node name="bottom" type="Sprite" parent="head/legs/leg7"]
-position = Vector2( 2.11522, -5.05983 )
-rotation = 3.09095
+[node name="bottom" type="Sprite" parent="assets/head_front/legs/leg7"]
+position = Vector2( 0.236984, -16.6846 )
+rotation = -0.00398755
 scale = Vector2( 0.0293556, 0.0274536 )
 texture = ExtResource( 3 )
 
-[node name="top" type="Sprite" parent="head/legs/leg7"]
-position = Vector2( 11.3657, 10.4222 )
-rotation = -0.991188
+[node name="top" type="Sprite" parent="assets/head_front/legs/leg7"]
+position = Vector2( -16.3604, -38.193 )
+rotation = -4.27955
 scale = Vector2( 0.0258692, 0.0323585 )
 texture = ExtResource( 3 )
 
-[node name="arms" type="Node2D" parent="."]
+[node name="arms_front" type="Node2D" parent="assets"]
 position = Vector2( -1.12247, -138.624 )
 
-[node name="left" type="Node2D" parent="arms"]
+[node name="left" type="Node2D" parent="assets/arms_front"]
 position = Vector2( -14.592, 10.1022 )
 
-[node name="bicept" type="Sprite" parent="arms/left"]
-position = Vector2( -28.7686, 9.39493 )
-rotation = -1.79516
+[node name="bicept" type="Sprite" parent="assets/arms_front/left"]
+position = Vector2( -19.6632, 18.2964 )
+rotation = -2.53731
 scale = Vector2( 0.0451716, 0.0890352 )
 texture = ExtResource( 3 )
 
-[node name="forarm" type="Sprite" parent="arms/left"]
-position = Vector2( -101.133, 72.6559 )
-rotation = -5.7036
+[node name="forarm" type="Sprite" parent="assets/arms_front/left"]
+position = Vector2( -106.441, 80.1642 )
+rotation = -5.21883
 scale = Vector2( 0.0354178, 0.172107 )
 texture = ExtResource( 3 )
 
-[node name="right" type="Node2D" parent="arms"]
+[node name="right" type="Node2D" parent="assets/arms_front"]
 position = Vector2( 10.1021, 12.3471 )
 
-[node name="bicept" type="Sprite" parent="arms/right"]
-position = Vector2( 26.6709, 19.955 )
-rotation = -4.0869
+[node name="bicept" type="Sprite" parent="assets/arms_front/right"]
+position = Vector2( 16.5626, 26.4956 )
+rotation = -3.78792
 scale = Vector2( 0.0451716, 0.0890352 )
 texture = ExtResource( 3 )
 
-[node name="forarm" type="Sprite" parent="arms/right"]
-position = Vector2( 97.6321, 90.1873 )
-rotation = -0.707963
+[node name="forarm" type="Sprite" parent="assets/arms_front/right"]
+position = Vector2( 81.9011, 106.164 )
+rotation = -0.636748
 scale = Vector2( 0.0354178, 0.172107 )
+texture = ExtResource( 3 )
+
+[node name="arms_side_front" type="Node2D" parent="assets"]
+visible = false
+
+[node name="front_arm_bicept" type="Sprite" parent="assets/arms_side_front"]
+position = Vector2( 7.0681, -97.7666 )
+rotation = 2.72137
+scale = Vector2( 0.0371976, 0.0655196 )
+texture = ExtResource( 3 )
+
+[node name="front_arm_bicept2" type="Sprite" parent="assets/arms_side_front"]
+position = Vector2( 65.7307, -48.4188 )
+rotation = 5.19194
+scale = Vector2( 0.031886, 0.130518 )
+texture = ExtResource( 3 )
+
+[node name="head_side" type="Node2D" parent="assets"]
+
+[node name="face" type="Sprite" parent="assets/head_side"]
+position = Vector2( -1.22773, -171.41 )
+scale = Vector2( 0.155349, 0.101793 )
+texture = ExtResource( 2 )
+
+[node name="eyes" type="Node2D" parent="assets/head_side"]
+modulate = Color( 0.411765, 0.380392, 0.380392, 1 )
+
+[node name="top_eye" type="Sprite" parent="assets/head_side/eyes"]
+position = Vector2( 10.3111, -185.263 )
+rotation = 3.02579
+scale = Vector2( 0.0315818, 0.0315818 )
+texture = ExtResource( 5 )
+
+[node name="bottom_eye" type="Sprite" parent="assets/head_side/eyes"]
+position = Vector2( 6.42205, -172.535 )
+rotation = 3.02579
+scale = Vector2( 0.0315818, 0.0315818 )
+texture = ExtResource( 5 )
+
+[node name="legs" type="Node2D" parent="assets/head_side"]
+
+[node name="leg" type="Node2D" parent="assets/head_side/legs"]
+
+[node name="long_triangle" type="Sprite" parent="assets/head_side/legs/leg"]
+position = Vector2( -25.2036, -198.841 )
+rotation = -0.520846
+scale = Vector2( 0.0208242, 0.0208242 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle2" type="Sprite" parent="assets/head_side/legs/leg"]
+position = Vector2( -37.0535, -210.647 )
+rotation = 2.06227
+scale = Vector2( 0.0204513, 0.0204513 )
+texture = ExtResource( 3 )
+
+[node name="leg5" type="Node2D" parent="assets/head_side/legs"]
+position = Vector2( 32.5417, 2.3811 )
+
+[node name="long_triangle" type="Sprite" parent="assets/head_side/legs/leg5"]
+position = Vector2( -25.2036, -198.841 )
+rotation = -0.520846
+scale = Vector2( 0.0208242, 0.0208242 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle2" type="Sprite" parent="assets/head_side/legs/leg5"]
+position = Vector2( -27.7316, -226.567 )
+rotation = 3.25664
+scale = Vector2( 0.0204513, 0.0464584 )
+texture = ExtResource( 3 )
+
+[node name="leg2" type="Node2D" parent="assets/head_side/legs"]
+position = Vector2( 19.4457, 0.793701 )
+
+[node name="long_triangle" type="Sprite" parent="assets/head_side/legs/leg2"]
+position = Vector2( -24.0834, -200.612 )
+rotation = -0.194837
+scale = Vector2( 0.0256021, 0.0356659 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle2" type="Sprite" parent="assets/head_side/legs/leg2"]
+position = Vector2( -35.4641, -232.916 )
+rotation = 2.71125
+scale = Vector2( 0.0243961, 0.0520182 )
+texture = ExtResource( 3 )
+
+[node name="leg3" type="Node2D" parent="assets/head_side/legs"]
+position = Vector2( -15.4772, 34.1291 )
+
+[node name="long_triangle" type="Sprite" parent="assets/head_side/legs/leg3"]
+position = Vector2( -21.8381, -210.876 )
+rotation = -1.67708
+scale = Vector2( 0.0356659, 0.0487399 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle2" type="Sprite" parent="assets/head_side/legs/leg3"]
+position = Vector2( -62.4352, -218.515 )
+rotation = 2.07128
+scale = Vector2( 0.0356659, 0.0568332 )
+texture = ExtResource( 3 )
+
+[node name="leg4" type="Node2D" parent="assets/head_side/legs"]
+position = Vector2( 41.2724, 13.8898 )
+
+[node name="long_triangle" type="Sprite" parent="assets/head_side/legs/leg4"]
+position = Vector2( -24.6962, -214.971 )
+rotation = -0.00118184
+scale = Vector2( 0.0265574, 0.0356659 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle2" type="Sprite" parent="assets/head_side/legs/leg4"]
+position = Vector2( -11.1577, -248.752 )
+rotation = 3.73733
+scale = Vector2( 0.0278784, 0.055447 )
+texture = ExtResource( 3 )
+
+[node name="leg6" type="Node2D" parent="assets/head_side/legs"]
+position = Vector2( 34.1555, 14.6389 )
+rotation = -0.119766
+
+[node name="long_triangle" type="Sprite" parent="assets/head_side/legs/leg6"]
+position = Vector2( -24.1749, -218.879 )
+rotation = -0.00118184
+scale = Vector2( 0.0265574, 0.0461691 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle2" type="Sprite" parent="assets/head_side/legs/leg6"]
+position = Vector2( -10.3118, -259.149 )
+rotation = 3.73733
+scale = Vector2( 0.0278784, 0.0646813 )
+texture = ExtResource( 3 )
+
+[node name="leg7" type="Node2D" parent="assets/head_side/legs"]
+position = Vector2( 15.052, 18.0101 )
+rotation = -0.119766
+
+[node name="long_triangle" type="Sprite" parent="assets/head_side/legs/leg7"]
+position = Vector2( -18.723, -218.304 )
+rotation = -0.425781
+scale = Vector2( 0.0265574, 0.042857 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle2" type="Sprite" parent="assets/head_side/legs/leg7"]
+position = Vector2( -30.696, -260.649 )
+rotation = 3.01652
+scale = Vector2( 0.0278784, 0.0660527 )
+texture = ExtResource( 3 )
+
+[node name="leg9" type="Node2D" parent="assets/head_side/legs"]
+position = Vector2( 2.43859, 12.9647 )
+rotation = -0.119766
+
+[node name="long_triangle" type="Sprite" parent="assets/head_side/legs/leg9"]
+position = Vector2( -3.2088, -219.688 )
+rotation = -0.18523
+scale = Vector2( 0.0265574, 0.042857 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle2" type="Sprite" parent="assets/head_side/legs/leg9"]
+position = Vector2( -28.3643, -251.977 )
+rotation = 2.24465
+scale = Vector2( 0.0278784, 0.0660527 )
+texture = ExtResource( 3 )
+
+[node name="leg8" type="Node2D" parent="assets/head_side/legs"]
+position = Vector2( 7.48397, 26.4191 )
+rotation = -0.119766
+
+[node name="long_triangle" type="Sprite" parent="assets/head_side/legs/leg8"]
+position = Vector2( -8.77344, -215.021 )
+rotation = -0.973111
+scale = Vector2( 0.0265574, 0.042857 )
+texture = ExtResource( 3 )
+
+[node name="long_triangle2" type="Sprite" parent="assets/head_side/legs/leg8"]
+position = Vector2( -35.5776, -246.499 )
+rotation = 2.77552
+scale = Vector2( 0.0278784, 0.0660527 )
 texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = ExtResource( 1 )
 
 [node name="AnimationPlayerWeve" type="AnimationPlayer" parent="."]
-anims/HeadIdle = SubResource( 4 )
+anims/HeadIdle = SubResource( 1 )
 anims/weve = SubResource( 2 )
