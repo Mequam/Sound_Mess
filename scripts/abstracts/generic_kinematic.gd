@@ -1,6 +1,11 @@
 extends KinematicBody2D
 
+class_name GenericKinematic
+
 const col_math = preload("res://scripts/col_math.gd")
+
+#this script contains the basic functions that all kinematic body objects in the game
+#utilizes, it is very small by generality
 
 #these functions are used to generate or masks for the 
 #collision layer and collision mask
