@@ -7,10 +7,11 @@ class_name CentiMotor
 #as well as contains variables that it feeds to and changes for all of the chain nodes bellow
 
 #the direction that we are moving in
-var velocity : Vector2 = Vector2(0,100)
-
-#the speed we move
-var movement_speed : float = 1
+var velocity : Vector2 = Vector2(0,100) setget set_velocity,get_velocity
+func set_velocity(val : Vector2):
+	velocity = val
+func get_velocity()->Vector2:
+	return velocity
 
 #how fast our chain links can rotate
 var link_rotation_speed : float = 10
@@ -29,7 +30,6 @@ func _ready():
 func signum(x : float)->float:
 	return -2*float(x < 0)+1
 func get_velocity_angle()->float:
-	return (-velocity).angle()
+	return (-get_velocity()).angle()
 func _process(delta):
-	position += velocity*delta*movement_speed
 	update_chain(get_velocity_angle(),delta)

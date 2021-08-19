@@ -1,9 +1,5 @@
 extends "res://scripts/abstracts/generic_enemy.gd"
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+#this script represents the basic spider enemy
 
 #represents the mode that the spdider is in, search, patroll, attack
 var just_attacked = false

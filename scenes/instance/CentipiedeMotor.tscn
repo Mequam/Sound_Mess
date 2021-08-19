@@ -1,38 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://scripts/CentipiedeMotor.gd" type="Script" id=2]
-[ext_resource path="res://scenes/assets/bosses/bunny/Centipide/CentipideBodySegmentSprite.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/CentipideBody.gd" type="Script" id=4]
 
 [node name="CentipiedeMotor" type="YSort"]
 script = ExtResource( 2 )
-
-[node name="YSort" type="YSort" parent="."]
-script = ExtResource( 4 )
-
-[node name="YSort2" type="YSort" parent="YSort"]
-script = ExtResource( 4 )
-
-[node name="YSort3" type="YSort" parent="YSort/YSort2"]
-script = ExtResource( 4 )
-
-[node name="YSort4" type="YSort" parent="YSort/YSort2/YSort3"]
-script = ExtResource( 4 )
-
-[node name="YSort5" type="YSort" parent="YSort/YSort2/YSort3/YSort4"]
-script = ExtResource( 4 )
-
-[node name="YSort6" type="YSort" parent="YSort/YSort2/YSort3/YSort4/YSort5"]
-script = ExtResource( 4 )
-
-[node name="Sprite" parent="YSort/YSort2/YSort3/YSort4/YSort5/YSort6" instance=ExtResource( 3 )]
-
-[node name="Sprite" parent="YSort/YSort2/YSort3/YSort4/YSort5" instance=ExtResource( 3 )]
-
-[node name="Sprite" parent="YSort/YSort2/YSort3/YSort4" instance=ExtResource( 3 )]
-
-[node name="Sprite" parent="YSort/YSort2/YSort3" instance=ExtResource( 3 )]
-
-[node name="Sprite" parent="YSort/YSort2" instance=ExtResource( 3 )]
-
-[node name="Sprite" parent="YSort" instance=ExtResource( 3 )]

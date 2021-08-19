@@ -883,7 +883,6 @@ tracks/10/keys = {
 [node name="Sprite" type="Node2D"]
 
 [node name="frontBack" type="Node2D" parent="."]
-visible = false
 position = Vector2( 2.12128, 2.67412 )
 
 [node name="rightLeg" type="Node2D" parent="frontBack"]
@@ -905,19 +904,20 @@ texture = ExtResource( 3 )
 position = Vector2( -4.24264, -23.3345 )
 
 [node name="left_foot" type="Sprite" parent="frontBack/leftLeg"]
-position = Vector2( -101.118, 8.68837 )
-rotation = 0.0178318
+position = Vector2( -92.8772, -7.04384 )
+rotation = 0.0255876
 scale = Vector2( 0.0427539, 0.083572 )
 texture = ExtResource( 1 )
 
 [node name="left_leg" type="Sprite" parent="frontBack/leftLeg"]
-position = Vector2( -63.001, -6.20889 )
-rotation = -1.58672
+position = Vector2( -57.7569, -12.9513 )
+rotation = -1.15332
 scale = Vector2( 0.0427539, 0.083572 )
 texture = ExtResource( 3 )
 
 [node name="body" type="Node2D" parent="frontBack"]
-position = Vector2( -7.23926, -24.8328 )
+position = Vector2( -6.4901, -21.8362 )
+rotation = 0.117412
 
 [node name="even_triangle2" type="Sprite" parent="frontBack/body"]
 modulate = Color( 0.458824, 0.329412, 0.211765, 1 )
@@ -933,6 +933,7 @@ scale = Vector2( 0.22616, 0.105992 )
 texture = ExtResource( 1 )
 
 [node name="leftRight" type="Node2D" parent="."]
+visible = false
 position = Vector2( -4.8826, -11.5561 )
 
 [node name="body" type="Node2D" parent="leftRight"]

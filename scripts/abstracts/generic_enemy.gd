@@ -7,6 +7,7 @@ class_name Enemy
 
 #the beat of the enemies song
 var inner_beat : int = 0
+#used for flight effects
 var initial_sprite_pos : Vector2
 
 #used to keep track of the state that the enemy is in
@@ -23,7 +24,6 @@ func get_mode()->String:
 
 #this is an AI switch that is for the bird avatar
 #if an enemy is thrown in the air (and should not be) it no longer
-#has active AI and flounders around for some beats
 #has active AI and flounders around for some beats
 var flight_thrown : bool setget set_flying,get_flying
 func set_flying(val : bool)->void:
@@ -171,7 +171,7 @@ func die()->void:
 func anim_finished(anim)->void:
 	pass
 #called every beat with the players position for processing inteanded
-#to be overloaded by children
+#to be overloaded by children wraped by run_wrapper
 func run(player_pos,beat)->void:
 	pass
 

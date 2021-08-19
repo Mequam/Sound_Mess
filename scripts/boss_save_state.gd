@@ -1,5 +1,9 @@
 extends "res://scripts/abstracts/save_state_node.gd"
+
+class_name BossSaveStateNode
+
 #this file contains the death save state behavior of every boss
+
 func serialize()->Dictionary:
 	return {"mode" : get_parent().mode}
 #bosses do not remove on save death, instead the node is alerted that it has

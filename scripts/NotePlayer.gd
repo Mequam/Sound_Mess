@@ -1,4 +1,7 @@
 extends AudioStreamPlayer2D
+
+class_name NotePlayer
+
 #this script can be thought of as an instrument that plays a single
 #note at a time
 

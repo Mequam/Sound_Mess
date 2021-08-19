@@ -1,5 +1,7 @@
 extends "res://scripts/health_bar.gd"
 
+class_name HealthBar
+
 #this is a practical hp bar that stores it's hp inside the given class and
 #does not buffer
 
