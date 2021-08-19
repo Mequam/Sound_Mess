@@ -1,4 +1,7 @@
 extends Node2D
+
+class_name Scene
+
 #this is the script that every root node of a scene should have attached to them
 #the point of this is to sync everything in the children nodes of this script
 #and handle scene wide data tasks 
@@ -15,6 +18,10 @@ func _met_timeout():
 	
 	#run the jute boxes so they can beep in time
 	get_tree().call_group("jutebox","run")
+	
+	#call the artsy fartsy AI
+	get_tree().call_group("art_ai","run",$player.position,beat)
+	
 	if (get_node("player")):
 		beat += 0.5
 		

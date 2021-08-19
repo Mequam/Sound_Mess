@@ -1,4 +1,7 @@
 extends "res://scripts/abstracts/generic_kinematic.gd"
+
+class_name Entity
+
 #this script is ment to code behavior of any knimatic body that moves 
 #around and has a health bar
 
