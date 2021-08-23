@@ -1,0 +1,3 @@
+[submodule "tools/print_remover"]
+	path = tools/print_remover
+	url = https://github.com/Mequam/print_remover.git
