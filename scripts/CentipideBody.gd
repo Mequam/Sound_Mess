@@ -22,6 +22,7 @@ func vertical_animation()->bool:
 	#the angle that we allow the body segment to be horiontal on
 	var VERTICAL_ANGLE = PI / 2
 	return abs(angle) < (PI/2 + VERTICAL_ANGLE/2) and abs(angle) > (PI/2 - VERTICAL_ANGLE/2)
+
 #syntactic sugar that helps determine of an animation should be playing
 func should_play(anim : String)->bool:
 	return $Sprite/AnimationPlayer.assigned_animation != anim or not $Sprite/AnimationPlayer.is_playing()
