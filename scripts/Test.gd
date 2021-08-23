@@ -13,7 +13,6 @@ var time = 0
 func _ready():
 	get_node("NotePlayer").mode=1
 	for val in InputMap.get_actions():
-		print(str(val))
 	get_node("NotePlayer").play_note(3)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,4 +23,3 @@ func _process(delta):
 			break
 	if (Input.is_key_pressed(KEY_SPACE)):
 		get_node("NotePlayer").mode = (get_node("NotePlayer").mode + 1) % 7
-		print('[DEBUG] running in ' + str(get_node("NotePlayer").mode))

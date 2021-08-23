@@ -6,7 +6,6 @@ extends KinematicBody2D
 # var b = "text"
 
 func on_col(body):
-	print("struck " + str(body))
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("weapon")

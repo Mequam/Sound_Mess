@@ -99,7 +99,6 @@ func _on_Sprite_animation_finished(anim):
 		if anim_killed == len(bosses):
 			replaceWithSwapper()
 func _on_Timer_timeout():
-	print("[Timer] timing out " + str(toSpawn))
 	if toSpawn > 0:
 		spawn_particles()
 		toSpawn -= 1

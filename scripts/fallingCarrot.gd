@@ -33,7 +33,6 @@ func anim_finished(anim):
 	var carrot = corruptableCarrot.instance()
 	emit_signal("spawning_carrot",carrot)
 	#add them to the tree
-	print("[falling carrot] " + get_tree().get_root().get_child(2).name)
 	get_tree().get_root().get_child(2).add_child(carrot)
 	#set their position to our position
 	carrot.position = position

@@ -91,7 +91,6 @@ func syncScoreColor(score,onColor=Color.orangered,offColor=Color.white):
 		child.modulate = onColor
 #this fuction displays the given note array as dialog in the node
 func syncDisp(notes,mode,score=0,note_dist=20):
-	print("[dialogBox gd] syncing disp with a note_dist of " + str(note_dist))
 	clearDisp()
 	
 	#sync the mode that we are using

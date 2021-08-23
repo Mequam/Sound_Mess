@@ -32,7 +32,6 @@ func dialate_speed(sub_beat,last_beat=null):
 var dir = Vector2(0,0) setget set_dir,get_dir
 func set_dir(val):
 	$Shrinking_Triangle.position -= make_dir(val)*20
-	print("particles located at " + str($Shrinking_Triangle.position))
 	dir = make_dir(val)
 func get_dir():
 	return dir
@@ -46,7 +45,6 @@ func run(player_position,beat):
 	if (buff == beat_val):
 		var col = move_and_collide(dir*speed*50)
 		if (col and col.collider.has_method("move_and_collide")):
-			print("struck somthing!")
 			col.collider.move_and_collide(100*dir*speed/2)
 		$Shrinking_Triangle.emit_dir(dir)
 		beat_life -= 1
@@ -55,4 +53,3 @@ func run(player_position,beat):
 		buff = 0
 
 func _on_push_zone_area_entered(area):
-	print("made contact with " + str(area))

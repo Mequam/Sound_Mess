@@ -19,9 +19,7 @@ func _on_strike(thing):
 	if (thing.has_method("on_col")):
 		thing.on_col(self)
 func _on_Sword_area_entered(area):
-	print("struck" + str(area))
 	_on_strike(area)
 
 func _on_Sword_body_entered(body):
-	print("struck" + str(body))
 	_on_strike(body)

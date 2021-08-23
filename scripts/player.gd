@@ -282,7 +282,6 @@ func on_col(thing,dmg : int=1) -> void:
 #this can be thought of as the actual ready function, we do this
 #so we can over-ride the function isntead of stacking behavior
 func main_ready():
-	print("running ready")
 	$health_bar.sync_disp()
 	#let the avatar load
 	$avatar.load_avatar()
@@ -293,7 +292,6 @@ func main_ready():
 	call_deferred("add_to_group","player")
 	call_deferred("add_to_group","midi_input")
 	.main_ready()
-	print("survived main_ready")
 
 
 #this functio is called to make sure that the note player is playing or ONE blip

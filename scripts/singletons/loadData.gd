@@ -16,15 +16,17 @@ func set_player_ref(val):
 	_player_ref = val
 	#print("[WARNING] node attempting to set global player ref")
 func get_player_ref():
+	pass
 	print("[WARNING] node attempting to get global player ref")
-
 
 var buffer_scene  = null setget set_load_scene,get_load_scene
 func set_load_scene(val : String):
+	pass
 	print("[WARNING] node attempting to set the load_scene variable")
-func get_load_scene():
-	 print("[WARNING] node attempting to get the load_scene variable")
 
+func get_load_scene():
+	pass
+	print("[WARNING] node attempting to get the load_scene variable")
 func load_scene(scene,prevScene,prevDoorName=null,loadablePlayerPos=null):
 	#store the information about the prevoius scene and
 	#the door that the player is coming from

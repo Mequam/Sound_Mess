@@ -65,7 +65,6 @@ func note2deg(note):
 func deg2actionStr(deg):
 	while deg < 0:
 		deg += 7
-	print("creating input string " + "NOTE_" + str(deg))
 	return "NOTE_" + str(deg)
 
 #this function takes a mode and a degree, and determines

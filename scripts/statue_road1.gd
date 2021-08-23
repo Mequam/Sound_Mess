@@ -56,7 +56,6 @@ func _on_statueSwitch2_completed_dialog(dialog):
 func _on_statueSwitch_completed_dialog(dialog):
 	$statueSwitch.disconnect("completed_dialog",$OpeningDoorFront,"incriment_charge")
 func _on_switch_ref_completed_dialog(dialog):
-	print("switch completed dialog " + str(dialog))
 	switch_ref.disconnect("completed_dialog",$OpeningDoorFront3,"incriment_charge")
 func _on_switch_ref2_completed_dialog(dialog):
 	switch_ref2.disconnect("completed_dialog",$OpeningDoorFront3,"incriment_charge")

@@ -19,12 +19,9 @@ func get_target_dir():
 var flying : bool = false
 
 func _ready():
-	print("running ready")
 	if not flying:
-		print("we are not flying")
 		$AnimationPlayer.play("FlyUp")
 	else:
-		print("we are flying")
 		$AnimationPlayer.play("Flying")
 func die_with_particles():
 	var particles = load("res://scenes/assets/BossParticleExplosion.tscn")

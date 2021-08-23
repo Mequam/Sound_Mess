@@ -42,9 +42,6 @@ var came_from : String
 #stores our initial position that we return to
 var init_pos : Vector2
 func set_mode(val : String) -> void:
-	if val == "shake_move":
-		print("[silo boss] setting shake move!")
-
 	#make sure that we stop the notes from playing
 	$NotePlayer.stop()
 	
@@ -139,7 +136,6 @@ func anim_finished(anim : String)->void:
 		#TODO: there has got to be a cleaner way to impliment
 		#this smash feature
 		if get_player_in_smash_zone():
-			print("[silo boss] calling damage on " + node_in_smash_zone.name)
 			#call the damage routine on the node we hit
 			node_in_smash_zone.on_col(self,3)
 		set_mode("ret")
@@ -284,10 +280,6 @@ func run(player_pos : Vector2,beat)-> void:
 			var col = dmg_mv(to_move,2)
 			
 			if get_player_in_smash_zone() or inner_beat > 16:
-				if inner_beat > 16 and not player_in_smash_zone:
-					print("[silo boss] the player was not hittable")
-				else:
-					print("[silo boss] hit the player")
 				set_mode("smashing")
 		"move":
 			#move in the last scene direction of the player
@@ -374,7 +366,6 @@ func die()->void:
 var node_in_smash_zone : Node2D = null
 func _on_smashZone_body_entered(body):
 	if body.name and body.name == "player":
-		print("[silo boss] player in smash zone!")
 		node_in_smash_zone = body
 func _on_smashZone_body_exited(body):
 	if body.name and body.name == "player":

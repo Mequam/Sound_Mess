@@ -11,7 +11,6 @@ func _ready():
 	$StatueEnemy/statueSwitch.connect("completed_dialog",$OpeningDoorFront,"incriment_charge")
 	$StatueEnemy/statueSwitch.connect("completed_dialog",$openingDoorSide,"incriment_charge")
 	.init()
-	print(-1 % 2)
 func statue_switch_a_complete_dialog(dialog):
 	$StatueEnemy/statueSwitch.disconnect("completed_dialog",$OpeningDoorFront,"incriment_charge")
 

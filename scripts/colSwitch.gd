@@ -13,7 +13,6 @@ func set_on(val : bool):
 	.set_on(val)
 	#set the parent collision layer
 	get_parent().collision_mask = col_mask_on*int(on)+col_mask_off*int(not on)
-	print("set the parent collision layer to " + str(get_parent().collision_mask))
 func _ready():
 	#if the off col mask is not set then we set it to the parent nodes collision mask 
 	if (col_mask_off == -1 and get_parent()):

@@ -18,7 +18,6 @@ var speed = 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position+=dir*speed*delta
-	print(position)
 func _ready():
 	$AnimationPlayer.play("Attack")
 func run(player_position,beat):

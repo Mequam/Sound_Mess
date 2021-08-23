@@ -15,5 +15,4 @@ func _ready():
 func _process(delta):
 	for i in range(0,8):
 		if (Input.is_action_just_pressed("NOTE_" + str(i))):
-			print("playing scale index:" + str(i-7))
 			get_node("NotePlayer").play_note(i-7)
