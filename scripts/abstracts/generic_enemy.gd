@@ -175,6 +175,10 @@ func anim_finished(anim)->void:
 func run(player_pos,beat)->void:
 	pass
 
+#the enemy process function for overloads
+func main_process(delta)->void:
+	pass
+
 #this function is ACTUALLY called every beat
 #and is not inteanded to be overiden by the child
 #the idea is that this wrapps child behavior so we can susptitue
@@ -191,3 +195,8 @@ func run_wrapper(player_pos,beat)->void:
 			set_flying(false)
 	elif not get_statue_frozen():
 		run(player_pos,beat)
+
+func _process(delta):
+	#only run the process function if we are not frozen
+	if not get_statue_frozen():
+		main_process(delta)

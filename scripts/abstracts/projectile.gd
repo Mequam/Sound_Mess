@@ -1,9 +1,14 @@
 extends "res://scripts/abstracts/generic_kinematic.gd"
+
+class_name Projectile
+
 #called when we are removed from the game
 signal despawn
 #called when we collide with an object
 signal hit
+#how fast we move
 var speed : float = 800.0
+#the direction we move in
 var dir : Vector2 = Vector2(1,0)	
 
 #by default all projectiles hit enemies
@@ -34,7 +39,10 @@ func get_flying()->bool:
 	return col_math.check_shifted(gen_col_mask(),
 		collision_mask,
 		col_math.SuperLayer.FLIGHT)
+
 var initial_pos : Vector2
+
+#add a given node as a child of the parent
 func root_child(node : Node)->Node:
 	remove_child(node)
 	var parent = get_parent()
@@ -44,10 +52,15 @@ func root_child(node : Node)->Node:
 	#echo out a reference the node we were handed in
 	#for further processing
 	return node
+
 #TODO: it might be worth it to create a generalized projectile
 #class
 func _ready():
 	add_to_group("projectile")
+	generic_sprite_rotation()
+
+#rotates artsy stuff, inteanded to be overloaded if unececary
+func generic_sprite_rotation():
 	#add particles at spawn if we have them
 	if $spawn_particles != null:
 		root_child($spawn_particles).emit_dir(dir)
@@ -57,14 +70,17 @@ func _ready():
 		initial_pos = $Sprite.position
 	if $RotatingColShape:
 		$RotatingColShape.rotation += dir.angle()
+
 #called when we collide with an entity, inteanded to be overriden by the child class
 func on_hit(col : KinematicCollision2D,delta : float) -> void:
 	emit_signal("hit",col)
+
 func queue_free():
 	if $death_particles:
 		root_child($death_particles).emit_dir(dir)
 	emit_signal("despawn")
 	.queue_free()
+
 func load_collision():
 	#if we are already flying, do not ruin it
 	if not get_flying():

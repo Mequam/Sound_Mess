@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/instance/bunnyOpeningDoorFront.tscn" type="PackedScene" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://scenes/instance/CentipiedeMotor.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/instance/artAI/bunny/CaterpillarAI.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/CentipideBoss.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/instance/projectiles/MedusaProjectile.tscn" type="PackedScene" id=31]
 
 [node name="test_space" type="YSort"]
 script = ExtResource( 3 )
@@ -185,5 +186,8 @@ position = Vector2( -1728, -1026 )
 
 [node name="CentipideBoss" parent="." instance=ExtResource( 30 )]
 position = Vector2( -3992.36, -1287.71 )
+
+[node name="MedusaProjectile" parent="." instance=ExtResource( 31 )]
+position = Vector2( -5399.32, -1834.6 )
 
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]

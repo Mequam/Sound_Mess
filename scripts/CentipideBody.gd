@@ -6,10 +6,13 @@ class_name CentiBody
 var anim_state : String setget set_anim_state,get_anim_state
 func set_anim_state(val : String)->void:
 	#process state update here
-	
+	match val:
+		"Frozen":
+			$Sprite/AnimationPlayer.stop()
 	#pass on state update here
-	if get_child(0).has("set_anim_state"):
+	if get_child(0) and get_child(0).has_method("set_anim_state"):
 		get_child(0).set_anim_state(val)
+
 #query the chain to find our animation state
 func get_anim_state()->String:
 	var parent = get_parent()

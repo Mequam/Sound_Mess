@@ -1,7 +1,9 @@
 extends Node
 
 #this script is global data that is used to load new scenes
-#in our door system
+#in our door system and contains a global reference to the player
+#it can be used to retrive global player postion data for use in process
+#function
 
 #think of it like a safe box to store data in before destroying
 #and re-building a house
@@ -11,13 +13,17 @@ var prev_door_name = null
 var prev_scene = null
 #this stores a reference to the player and we use it to load and unload the player
 #use the setters and getters to limit access to the player reference
-var _player_ref : Node setget set_player_ref, get_player_ref
+var _player_ref : Node2D setget set_player_ref, get_player_ref
 func set_player_ref(val):
 	_player_ref = val
 	#print("[WARNING] node attempting to set global player ref")
 func get_player_ref():
 	pass
 	print("[WARNING] node attempting to get global player ref")
+
+#for nodes that need to globaly query the players position
+func get_player_pos()->Vector2:
+	return _player_ref.position
 
 var buffer_scene  = null setget set_load_scene,get_load_scene
 func set_load_scene(val : String):

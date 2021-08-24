@@ -20,10 +20,17 @@ func get_rotation_speed()->float:
 	return link_rotation_speed
 
 #the state of the animation chain
-var link_anim_state : String = "Run"
+var link_anim_state : String = "Run" setget set_link_anim_state,get_link_anim_state
+func set_link_anim_state(val : String)->void:
+	link_anim_state = val
+	if get_child(0) and get_child(0).has_method("set_anim_state"):
+		get_child(0).anim_state = val
+func get_link_anim_state()->String:
+	return link_anim_state
+
 #used to pass the state down to our chain links
 func get_anim_state()->String:
-	return link_anim_state
+	return get_link_anim_state()
 	
 func _ready():
 	update_chain_angle_z(0.97)

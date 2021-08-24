@@ -1,7 +1,7 @@
 extends "res://scripts/abstracts/generic_boss.gd"
 
 #how fast we move
-var movement_speed : float = 300
+var movement_speed : float = 400
 
 #the direction we move in
 var velocity : Vector2 = Vector2(0,0) setget set_velocity,get_velocity
@@ -9,7 +9,22 @@ func set_velocity(val : Vector2):
 	velocity = val.normalized()
 func get_velocity()->Vector2:
 	return velocity
-
+func set_statue_frozen(val : bool)->void:
+	if not statue_frozen and val:
+		#stop the animation on the head
+		$Sprite/AnimationPlayerHead.stop()
+		#turn off the centipide chain update
+		$Sprite/Tail.do_chain_update = false
+		#update the animation state of each of the links
+		$Sprite/Tail.link_anim_state = "Frozen"
+		$Sprite/assets/body/LegsSprite/AnimationPlayer.stop()
+	elif statue_frozen and not val:
+		$Sprite/Tail.do_chain_update = true
+		$Sprite/Tail.link_anim_state = "Run"
+		$Sprite/assets/body/LegsSprite/AnimationPlayer.play($Sprite/assets/body/LegsSprite/AnimationPlayer.current_animation)
+		#the parent call should take care of animating the head in the set state
+		#functions of this class
+	.set_statue_frozen(val)
 #takes a mode and a velocity and updates the sprite
 func update_sprite(mode : String,vel : Vector2):
 	if abs(vel.x) > abs(vel.y):
@@ -29,11 +44,14 @@ func run(player_pos : Vector2,beat):
 			#randomly assign accelleration
 			_angular_accel = randf()*PI-PI/2
 			if player_pos.distance_squared_to(position) > 250000:
+				
 				velocity = (player_pos-position).normalized()*movement_speed
-
+				#update our animation
+				play_anim()
 #gets a cardinal direction from a vector
 enum CARDINAL {UP,DOWN,LEFT,RIGHT}
 func get_cardinal(dir : Vector2)->int:
+	dir*=-1
 	if abs(dir.x) >= abs(dir.y):
 		if dir.x > 0:
 			return CARDINAL.RIGHT
@@ -79,7 +97,7 @@ var _angular_vel : float = 0
 const MAX_ANGULAR_VELOCITY_MAGNITUDE = PI/2
 
 
-func _process(delta):
+func main_process(delta):
 	match mode:
 		"Idle":
 			#get the angular velocity
@@ -92,13 +110,14 @@ func _process(delta):
 			
 			#buffer the old velocity for comparisons
 			var old_vel : Vector2 = velocity
-			
+				
 			velocity = Vector2(cos(new_angle),sin(new_angle))
-			
+				
 			#update our animation if necessary
 			if get_cardinal(old_vel) != get_cardinal(velocity):
 				play_anim()
-		
 			
+				
 			#move
 			position += velocity*movement_speed*delta
+	.main_process(delta)

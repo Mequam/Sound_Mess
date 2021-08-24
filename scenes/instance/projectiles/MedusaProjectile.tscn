@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/assets/bosses/bunny/Centipide/statueWebParticles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/MedusaProjectile.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 51.9169
+
+[node name="MedusaProjectile" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="statueWebParticles2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1.12246, -21.3267 )
+local_coords = true
+
+[node name="statueWebParticles" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1.12246, -21.3267 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
