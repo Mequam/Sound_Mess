@@ -23,7 +23,7 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_A):
 		get_tree().call_group("enemies","set_statue_frozen",false)
 	if Input.is_key_pressed(KEY_D):
-		$player.statue_frozen = true
+		$CentipideBoss.sub_mode = "Weve"
 	if Input.is_key_pressed(KEY_S):
 		$player.statue_frozen = false
 	if Input.is_key_pressed(KEY_R):

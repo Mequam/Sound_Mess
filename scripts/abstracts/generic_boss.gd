@@ -1,4 +1,7 @@
 extends "res://scripts/abstracts/generic_enemy.gd"
+
+class_name Boss
+
 var death_particles = preload("res://scenes/assets/BossParticles.tscn")
 func die():
 	var d_inst = death_particles.instance()

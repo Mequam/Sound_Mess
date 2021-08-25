@@ -7,6 +7,8 @@
 radius = 51.9169
 
 [node name="MedusaProjectile" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="statueWebParticles2" parent="." instance=ExtResource( 1 )]

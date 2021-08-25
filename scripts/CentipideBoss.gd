@@ -1,14 +1,40 @@
 extends "res://scripts/abstracts/generic_boss.gd"
 
-#how fast we move
-var movement_speed : float = 400
+class_name CentipideBoss
 
+#this is the projectile that we shoot that stuns the player
+var medusaProjectile : PackedScene = preload("res://scenes/instance/projectiles/MedusaProjectile.tscn")
+#how fast the projectile moves on launch
+var initalMedusaProjectileSpeed : float = 100
+
+#how fast we move
+var movement_speed : float = 600
 #the direction we move in
 var velocity : Vector2 = Vector2(0,0) setget set_velocity,get_velocity
 func set_velocity(val : Vector2):
 	velocity = val.normalized()
 func get_velocity()->Vector2:
 	return velocity
+
+#sub mode used within other modes for animation control and the like
+var sub_mode : String = "" setget set_sub_mode,get_sub_mode
+func set_sub_mode(val : String)->void:
+	#clear out the counter for use with other sub modes
+	counter = 0
+	sub_mode = val
+func get_sub_mode()->String:
+	return sub_mode
+#used for arbitrary counting between modes and sub modes
+var counter : int = 0
+
+#adds a projcetile to the parent to launch in the given direction
+func launch_projectile(dir : Vector2)->void:
+	var inst : Projectile = medusaProjectile.instance()
+	#set up the projectile with an initial direction and speed
+	inst.dir = dir*initalMedusaProjectileSpeed+velocity
+	get_parent().add_child(inst)
+	inst.global_position = $Sprite/assets/head_front.global_position
+	
 func set_statue_frozen(val : bool)->void:
 	if not statue_frozen and val:
 		#stop the animation on the head
@@ -34,6 +60,7 @@ func update_sprite(mode : String,vel : Vector2):
 #this script represents the behavior for the centipide statue boss
 func main_ready():
 	.main_ready()
+	$Sprite/AnimationPlayerHead.connect("animation_finished",self,"anim_head_finished")
 	set_mode("Idle")
 
 func set_mode(val : String)->void:
@@ -43,11 +70,24 @@ func run(player_pos : Vector2,beat):
 		"Idle":
 			#randomly assign accelleration
 			_angular_accel = randf()*PI-PI/2
+			if sub_mode != "Weve" and randf() < 0.1:
+				set_sub_mode("Weve")
 			if player_pos.distance_squared_to(position) > 250000:
 				
 				velocity = (player_pos-position).normalized()*movement_speed
 				#update our animation
 				play_anim()
+	match sub_mode:
+		"Weve":
+			counter += 1
+			if counter >= 10:
+				launch_projectile(
+							((Globals.get_scene_root().get_node("player").global_position 
+							- $Sprite/assets/head_front.global_position) as Vector2).normalized()
+				)
+				set_sub_mode("")
+				play_anim()
+
 #gets a cardinal direction from a vector
 enum CARDINAL {UP,DOWN,LEFT,RIGHT}
 func get_cardinal(dir : Vector2)->int:
@@ -74,7 +114,12 @@ func get_cardinal_str(card : int)->String:
 func play_anim(player_pos : Vector2 = Vector2(0,0))->void:
 	var cardStr : String = get_cardinal_str(get_cardinal(velocity))
 	$Sprite/AnimationPlayer.play(mode + cardStr)
-	$Sprite/AnimationPlayerHead.play(mode + cardStr)
+	
+	if sub_mode != "":
+		$Sprite/AnimationPlayerHead.play(sub_mode + cardStr)
+	else:	
+		$Sprite/AnimationPlayerHead.play(mode + cardStr)
+	
 	var cardinal : int = get_cardinal(velocity)
 	if cardinal == CARDINAL.RIGHT or cardinal == CARDINAL.LEFT:
 		$Sprite/assets/body/LegsSprite/AnimationPlayer.play("Side_Run")
@@ -96,7 +141,12 @@ var _angular_accel : float = 0
 var _angular_vel : float = 0 
 const MAX_ANGULAR_VELOCITY_MAGNITUDE = PI/2
 
-
+func anim_finished(anim):
+	pass
+#called when the animation player for the head finishes
+func anim_head_finished(anim):
+	pass
+#this function runs every frame and performs our processing
 func main_process(delta):
 	match mode:
 		"Idle":

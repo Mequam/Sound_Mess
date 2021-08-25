@@ -5,9 +5,9 @@ extends Projectile
 #the movement behavior of this projectile is to be pulled twoards a target point
 
 #how strong we are pulled twoards the target point
-var pull_force : float = 400
+var pull_force : float = 500
 #how fast we can move max
-var terminal_velocity : float = 500
+var terminal_velocity : float = 600
 
 func _ready():
 	#speed actually has very little effect on this class as our dir
@@ -16,12 +16,24 @@ func _ready():
 	speed = 1
 #we hit the player
 func gen_col_mask():
-	return col_math.Layer.PLAYER | .gen_col_mask()
+	return 0
+func gen_col_layer():
+	return 0
+
 func on_hit(col : KinematicCollision2D,delta : float) -> void:
 	col.collider.set_statue_frozen(true)
 	.on_hit(col,delta)
 	queue_free()
 
+const BEATS_UNTOUCHABLE = 10 
+var inner_beat : int = 0
+func run(player_pos,beat):
+	if inner_beat <= BEATS_UNTOUCHABLE:
+		if inner_beat == BEATS_UNTOUCHABLE:
+			#we hit the player and whatever the parent hits
+			collision_mask = .gen_col_mask() | col_math.Layer.PLAYER
+			collision_layer = .gen_col_layer()
+		inner_beat += 1
 #gets the point that we are pulled to
 #in this class its just the player position, but in others we could
 #overide to target other stuff
