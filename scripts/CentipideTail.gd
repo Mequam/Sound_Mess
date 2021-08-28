@@ -17,4 +17,4 @@ func set_velocity(val : Vector2):
 func get_velocity()->Vector2:
 	return get_parent().get_parent().velocity
 func get_rotation_speed()->float:
-	return get_parent().get_parent().movement_speed/10
+	return get_parent().get_parent().movement_speed

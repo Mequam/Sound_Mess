@@ -5,10 +5,10 @@ class_name CentipideBoss
 #this is the projectile that we shoot that stuns the player
 var medusaProjectile : PackedScene = preload("res://scenes/instance/projectiles/MedusaProjectile.tscn")
 #how fast the projectile moves on launch
-var initalMedusaProjectileSpeed : float = 100
+var initalMedusaProjectileSpeed : float = 400
 
 #how fast we move
-var movement_speed : float = 600
+var movement_speed : float = 50
 #the direction we move in
 var velocity : Vector2 = Vector2(0,0) setget set_velocity,get_velocity
 func set_velocity(val : Vector2):
@@ -61,7 +61,7 @@ func update_sprite(mode : String,vel : Vector2):
 func main_ready():
 	.main_ready()
 	$Sprite/AnimationPlayerHead.connect("animation_finished",self,"anim_head_finished")
-	set_mode("Idle")
+	set_mode("Follow")
 
 func set_mode(val : String)->void:
 	.set_mode(val)
@@ -112,13 +112,20 @@ func get_cardinal_str(card : int)->String:
 	return "Side"
 #plays a given animation
 func play_anim(player_pos : Vector2 = Vector2(0,0))->void:
+	
+	#this remaps modes to other modes so we can re-use
+	#animations set up for other modes, namely idle
+	var modeStr : String = mode
+	if mode == "Follow":
+		modeStr = "Idle"
+	
 	var cardStr : String = get_cardinal_str(get_cardinal(velocity))
-	$Sprite/AnimationPlayer.play(mode + cardStr)
+	$Sprite/AnimationPlayer.play(modeStr + cardStr)
 	
 	if sub_mode != "":
 		$Sprite/AnimationPlayerHead.play(sub_mode + cardStr)
 	else:	
-		$Sprite/AnimationPlayerHead.play(mode + cardStr)
+		$Sprite/AnimationPlayerHead.play(modeStr + cardStr)
 	
 	var cardinal : int = get_cardinal(velocity)
 	if cardinal == CARDINAL.RIGHT or cardinal == CARDINAL.LEFT:
@@ -148,7 +155,13 @@ func anim_head_finished(anim):
 	pass
 #this function runs every frame and performs our processing
 func main_process(delta):
+	#buffer velocity for our animation updates
+	var old_vel : Vector2 = velocity
+	
 	match mode:
+		"Follow":
+			#move directly twoards the player
+			velocity = (Globals.get_scene_root().get_node("player").position-position).normalized()*4
 		"Idle":
 			#get the angular velocity
 			_angular_vel += _angular_accel*delta
@@ -158,16 +171,17 @@ func main_process(delta):
 			#get the angular position
 			var new_angle : float = velocity.angle()+_angular_vel*delta
 			
-			#buffer the old velocity for comparisons
-			var old_vel : Vector2 = velocity
-				
 			velocity = Vector2(cos(new_angle),sin(new_angle))
-				
-			#update our animation if necessary
-			if get_cardinal(old_vel) != get_cardinal(velocity):
-				play_anim()
+
 			
 				
 			#move
-			position += velocity*movement_speed*delta
+				#buffer the old velocity for comparisons
+	
+	#update our animation if necessary
+	if get_cardinal(old_vel) != get_cardinal(velocity):
+			play_anim()
+	
+	position += velocity*movement_speed*delta
+	
 	.main_process(delta)
