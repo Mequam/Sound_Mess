@@ -21,7 +21,8 @@ func gen_col_layer():
 	return 0
 
 func on_hit(col : KinematicCollision2D,delta : float) -> void:
-	col.collider.set_statue_frozen(true)
+	if not (col.collider as Node2D).is_in_group("CentipideBoss"):
+		col.collider.set_statue_frozen(true)
 	.on_hit(col,delta)
 	queue_free()
 

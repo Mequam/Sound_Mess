@@ -8,7 +8,7 @@ var medusaProjectile : PackedScene = preload("res://scenes/instance/projectiles/
 var initalMedusaProjectileSpeed : float = 400
 
 #how fast we move
-var movement_speed : float = 50
+var movement_speed : float = 400
 #the direction we move in
 var velocity : Vector2 = Vector2(0,0) setget set_velocity,get_velocity
 func set_velocity(val : Vector2):
@@ -59,9 +59,10 @@ func update_sprite(mode : String,vel : Vector2):
 		$YSort/Sprite/AnimationPlayer.play("Idle")
 #this script represents the behavior for the centipide statue boss
 func main_ready():
+	add_to_group("CentipideBoss")
 	.main_ready()
 	$Sprite/AnimationPlayerHead.connect("animation_finished",self,"anim_head_finished")
-	set_mode("Follow")
+	set_mode("Idle")
 
 func set_mode(val : String)->void:
 	.set_mode(val)
@@ -153,6 +154,7 @@ func anim_finished(anim):
 #called when the animation player for the head finishes
 func anim_head_finished(anim):
 	pass
+
 #this function runs every frame and performs our processing
 func main_process(delta):
 	#buffer velocity for our animation updates
@@ -175,13 +177,13 @@ func main_process(delta):
 
 			
 				
-			#move
-				#buffer the old velocity for comparisons
+	
 	
 	#update our animation if necessary
 	if get_cardinal(old_vel) != get_cardinal(velocity):
 			play_anim()
 	
-	position += velocity*movement_speed*delta
+	#move
+	dmg_mv(velocity*movement_speed*delta,1)
 	
 	.main_process(delta)
