@@ -2,7 +2,15 @@ extends CentiRail
 
 class_name CentiBody
 
-#this class controls the animation of the centipide body segments
+#this class controls the animation of the centipide body segments and the specific
+#case of collision with the player
+
+
+#functions used to signal player collision with the tail
+#emited when the player enters the body to pass along that fact up the chain
+func pass_player_entered(player : Player,segment : CentiBody)->void:
+	get_parent().pass_player_entered(player,segment)
+
 var anim_state : String setget set_anim_state,get_anim_state
 func set_anim_state(val : String)->void:
 	#process state update here
@@ -37,3 +45,6 @@ func _process(delta):
 				$Sprite/AnimationPlayer.play("Side_Run")
 			elif should_play("Run") and vertical_animation():
 				$Sprite/AnimationPlayer.play("Run")
+	var player : Player = Globals.get_scene_root().get_node("player") as Player
+	if global_position.distance_squared_to(player.global_position) < 2500:
+		pass_player_entered(player,self)

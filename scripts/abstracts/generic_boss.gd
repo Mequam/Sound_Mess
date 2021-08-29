@@ -9,7 +9,8 @@ func die():
 	get_parent().add_child(d_inst)
 	
 	#do not remove us from the tree, instead set our mode to dead 
-	$Sprite/AnimationPlayer.play("Die")
+	if $Sprite:
+		$Sprite/AnimationPlayer.play("Die")
 	remove_from_group("enemies")
 	mode = "dead"
 	emit_signal("die")

@@ -4,6 +4,8 @@ extends "res://scripts/abstracts/entity.gd"
 #it controls basic movement,input, animation, damage and avatar switching
 #the avatars control ability usage and key modulation 
 
+class_name Player
+
 #library containing code to work with the avatar enumerators
 var ava_math = preload("res://scripts/ava_code_math.gd")
 

@@ -38,5 +38,5 @@ func update_chain_angle_z(angle : float):
 func update_chain(target_angle : float,delta : float) -> void:
 	var change = get_change(target_angle)*delta
 	set_angle(angle + change)
-	if get_child(0) and get_child(0).has_method("update_chain"):
+	if get_child_count() > 0 and get_child(0).has_method("update_chain"):
 		get_child(0).update_chain(angle,delta)

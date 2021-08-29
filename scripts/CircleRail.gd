@@ -74,7 +74,7 @@ func update_state(angle : float,angle_z : float,
 func update_child_state(angle : float,angle_z : float,
 				cam_dist : float,focus_offset : float,
 				r : float,center : Vector2 = Vector2(0,0))->void:
-	if (get_child(0) is Node2D):
+	if (get_child_count() > 0 and get_child(0) is Node2D):
 		get_child(0).position = get_pos_perspective(angle,angle_z,r,center)
 		#get_child(0).scale = Vector2(1,1)*get_scaled_perspective(angle,angle_z,
 		#										cam_dist,focus_offset,r)
