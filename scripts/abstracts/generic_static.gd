@@ -1,4 +1,7 @@
 extends StaticBody2D
+
+class_name GenericStatic
+
 #this is a simple script that all static bodies are inteanded
 #to inherit from in order to utilize the collision math and keep all
 #collision enumerators on the same page

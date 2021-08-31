@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/abstracts/generic_kinematic.gd"
 }, {
+"base": "StaticBody2D",
+"class": "GenericStatic",
+"language": "GDScript",
+"path": "res://scripts/abstracts/generic_static.gd"
+}, {
 "base": "Node2D",
 "class": "HealthBar",
 "language": "GDScript",
@@ -107,6 +112,7 @@ _global_script_class_icons={
 "Enemy": "",
 "Entity": "",
 "GenericKinematic": "",
+"GenericStatic": "",
 "HealthBar": "",
 "NotePlayer": "",
 "Player": "",
