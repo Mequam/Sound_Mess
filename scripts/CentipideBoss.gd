@@ -77,14 +77,6 @@ func update_sprite(mode : String,vel : Vector2):
 		get_parent().get_node("YSort/Sprite/AnimationPlayer").play("IdleSide")
 	else:
 		get_parent().get_node("YSort/Sprite/AnimationPlayer").play("Idle")
-#this script represents the behavior for the centipide statue boss
-func main_ready():
-	add_to_group("CentipideBoss")
-	.main_ready()
-	get_parent().get_node("Sprite/AnimationPlayerHead").connect("animation_finished",self,"anim_head_finished")
-	set_mode("Idle")
-	set_sub_mode("StatueSpawn")
-
 func set_mode(val : String)->void:
 	match val:
 		"Follow":
@@ -94,37 +86,6 @@ func set_mode(val : String)->void:
 		"IdleAttack":
 			movement_speed = 400
 	.set_mode(val)
-func run(player_pos : Vector2,beat):
-	player_pos -= get_parent().position
-	if sub_mode == "StatueSpawn":
-		if counter == 19: #4 beats with a zero based index gives us 3 as the emphasis beat and we do every 5 group of 4 so 5*4-1
-			spawn_statue_segment_at_last_node()
-			counter = 0
-		counter += 1
-	if mode == "Idle" or mode == "IdleAttack":
-			#randomly assign accelleration
-			_angular_accel = randf()*PI-PI/2
-			
-			#don't get to far from the player
-			if player_pos.distance_squared_to(position) > 250000:
-				velocity = (player_pos-position).normalized()*movement_speed
-				#update our animation
-				play_anim()
-	if mode == "IdleAttack":
-		if sub_mode != "Weve" and randf() < 0.1:
-				#setting the sub mode to weve causes the boss to shoot a projectile
-				#at the player
-				set_sub_mode("Weve")
-	match sub_mode:
-		"Weve":
-			counter += 1
-			if counter >= 10:
-				launch_projectile(
-							((Globals.get_scene_root().get_node("player").global_position 
-							- get_parent().get_node("Sprite/assets/head_front").global_position) as Vector2).normalized()
-				)
-				set_sub_mode("")
-				play_anim()
 
 #gets a cardinal direction from a vector
 enum CARDINAL {UP,DOWN,LEFT,RIGHT}
@@ -201,6 +162,7 @@ func player_entered_tail(player : Player,segment)->void:
 func get_last_tail_link()->CentiBody:
 	return (get_parent().get_node("Sprite/Tail") as CentiMotor).get_last_link() as CentiBody
 
+
 #this function spawns a statue segment at the given chordinents
 #in the parent of our instance
 func spawn_statue_segment(pos : Vector2):
@@ -212,29 +174,80 @@ func spawn_statue_segment(pos : Vector2):
 	
 	return inst
 
-#spawns a statue copy of the last node in our tail
-func spawn_statue_segment_at_last_node()->void:
-	var last_node = get_last_tail_link()
-	
+#spawns a statue copy of the given tail segment at thee location of the given tail
+#segment the idea here is that the copy serves as another obsticle for the playr to dodge
+func spawn_statue_segment_at_link(node : CentiBody)->void:
 	#create a statue at the specified position
-	var inst = spawn_statue_segment(last_node.global_position)
+	var inst = spawn_statue_segment(node.global_position)
 	
 	#syntactic sugar to help make reading things easier
-	var last_node_animation_player  : AnimationPlayer = last_node.get_node("Sprite/AnimationPlayer") as AnimationPlayer
+	var node_animation_player  : AnimationPlayer = node.get_node("Sprite/AnimationPlayer") as AnimationPlayer
 	var centipideStatueAnimationPlayer : AnimationPlayer = (inst.get_node("Sprite/AnimationPlayer") as AnimationPlayer)
 	
 	#sync up the animation between the two nodes
-	print("last node animation " + last_node_animation_player.current_animation)
-	centipideStatueAnimationPlayer.play(last_node_animation_player.current_animation)
-	centipideStatueAnimationPlayer.seek(last_node_animation_player.current_animation_position,true)
+	centipideStatueAnimationPlayer.play(node_animation_player.current_animation)
+	centipideStatueAnimationPlayer.seek(node_animation_player.current_animation_position,true)
 	
 	#this would be better if the legStab animation also contained the key frames for the legStabSide animation
-	if last_node_animation_player.current_animation == "Side_Run":
-		inst.get_node("Sprite/statueLegs").play("legStabSide")
-	else:
-		inst.get_node("Sprite/statueLegs").play("legStab")
+	inst.get_node("Sprite/statueLegs").play("StatueSplode")
 	#stop playing so we dont continue moveing
 	centipideStatueAnimationPlayer.stop()
+#spawns a statue copy of the last node in our tail
+func spawn_statue_segment_at_last_link()->void:
+	spawn_statue_segment_at_link(get_last_tail_link())
+#make a copy of the whole tail!
+func spawn_statue_tail()->void:
+	for link in get_tail_link_list():
+		spawn_statue_segment_at_link(link)
+
+#gets an array containing a reference to each link in the tail
+func get_tail_link_list()->Array:
+	return get_parent().get_node("Sprite/Tail").get_link_list()
+
+#these are the main functions of the boss that use the above functions
+#to control behavior
+
+
+#this script represents the behavior for the centipide statue boss
+func main_ready():
+	add_to_group("CentipideBoss")
+	.main_ready()
+	get_parent().get_node("Sprite/AnimationPlayerHead").connect("animation_finished",self,"anim_head_finished")
+	set_mode("Idle")
+	set_sub_mode("StatueSpawn")
+
+func run(player_pos : Vector2,beat):
+	player_pos -= get_parent().position
+	if sub_mode == "StatueSpawn":
+		if counter == 19: #4 beats with a zero based index gives us 3 as the emphasis beat and we do every 5 group of 4 so 5*4-1
+			spawn_statue_tail()
+			counter = 0
+		counter += 1
+	if mode == "Idle" or mode == "IdleAttack":
+			#randomly assign accelleration
+			_angular_accel = randf()*PI-PI/2
+			
+			#don't get to far from the player
+			if player_pos.distance_squared_to(position) > 250000:
+				velocity = (player_pos-position).normalized()*movement_speed
+				#update our animation
+				play_anim()
+	if mode == "IdleAttack":
+		if sub_mode != "Weve" and randf() < 0.1:
+				#setting the sub mode to weve causes the boss to shoot a projectile
+				#at the player
+				set_sub_mode("Weve")
+	match sub_mode:
+		"Weve":
+			counter += 1
+			if counter >= 10:
+				launch_projectile(
+							((Globals.get_scene_root().get_node("player").global_position 
+							- get_parent().get_node("Sprite/assets/head_front").global_position) as Vector2).normalized()
+				)
+				set_sub_mode("")
+				play_anim()
+
 #this function runs every frame and performs our processing
 func main_process(delta):
 	#buffer velocity for our animation updates

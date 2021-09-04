@@ -38,5 +38,19 @@ func signum(x : float)->float:
 	return -2*float(x < 0)+1
 func get_velocity_angle()->float:
 	return (-get_velocity()).angle()
+
+
+#this needs to be modified because the main link node doesnt technically count
+#as part of the chain, so we are not included in the chain and should allways 
+#return
+func get_link_list(inp_arr : Array=[])->Array:
+	#if we have a child
+	if get_child_count() > 0 and get_child(0).has_method("get_last_link"):
+		#get the child to append itself to the chain
+		return get_child(0).get_link_list(inp_arr)
+	#if this code is reached you did somthing wrong
+	print("[WARNING] if this line is running in a CentiMotor there is somthing wrong")
+	return inp_arr
+
 func _process(delta):
 	update_chain(get_velocity_angle(),delta)

@@ -25,3 +25,4 @@ func get_rotation_speed()->float:
 
 func pass_player_entered(player : Player,segment : CentiBody)->void:
 	get_brain().player_entered_tail(player,segment)
+
