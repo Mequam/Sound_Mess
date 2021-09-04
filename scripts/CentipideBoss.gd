@@ -28,6 +28,11 @@ func get_velocity()->Vector2:
 var sub_mode : String = "" setget set_sub_mode,get_sub_mode
 func set_sub_mode(val : String)->void:
 	#clear out the counter for use with other sub modes
+	match val:
+		"RepeatWeve":
+			play_anim()
+		"Weve":
+			play_anim()
 	counter = 0
 	sub_mode = val
 func get_sub_mode()->String:
@@ -111,19 +116,24 @@ func get_cardinal_str(card : int)->String:
 	return "Side"
 #plays a given animation
 func play_anim(player_pos : Vector2 = Vector2(0,0))->void:
-	
 	#this remaps modes to other modes so we can re-use
 	#animations set up for other modes, namely idle
 	var modeStr : String = mode
+	var subModeStr : String = sub_mode
+
+	#map different modes into the same behaviors for the following code	
 	if mode == "Follow":
 		modeStr = "Idle"
+	if subModeStr == "RepeatWeve":
+		subModeStr = "Weve"
 	
 	var cardStr : String = get_cardinal_str(get_cardinal(velocity))
 	get_parent().get_node("Sprite/AnimationPlayer").play(modeStr + cardStr)
 	
-	if sub_mode != "":
-		get_parent().get_node("Sprite/AnimationPlayerHead").play(sub_mode + cardStr)
-	else:	
+	#use the weve sub mode string here
+	if subModeStr == "Weve":
+		get_parent().get_node("Sprite/AnimationPlayerHead").play(subModeStr + cardStr)
+	else:
 		get_parent().get_node("Sprite/AnimationPlayerHead").play(modeStr + cardStr)
 	
 	var cardinal : int = get_cardinal(velocity)
@@ -218,12 +228,8 @@ func main_ready():
 
 func run(player_pos : Vector2,beat):
 	player_pos -= get_parent().position
-	if sub_mode == "StatueSpawn":
-		if counter == 19: #4 beats with a zero based index gives us 3 as the emphasis beat and we do every 5 group of 4 so 5*4-1
-			spawn_statue_tail()
-			counter = 0
-		counter += 1
-	if mode == "Idle" or mode == "IdleAttack":
+	#run the mode state machine	
+	if mode == "Idle":
 			#randomly assign accelleration
 			_angular_accel = randf()*PI-PI/2
 			
@@ -232,21 +238,30 @@ func run(player_pos : Vector2,beat):
 				velocity = (player_pos-position).normalized()*movement_speed
 				#update our animation
 				play_anim()
-	if mode == "IdleAttack":
-		if sub_mode != "Weve" and randf() < 0.1:
-				#setting the sub mode to weve causes the boss to shoot a projectile
-				#at the player
-				set_sub_mode("Weve")
-	match sub_mode:
-		"Weve":
-			counter += 1
-			if counter >= 10:
-				launch_projectile(
-							((Globals.get_scene_root().get_node("player").global_position 
-							- get_parent().get_node("Sprite/assets/head_front").global_position) as Vector2).normalized()
-				)
+
+	#run the sub mode state machine
+	if sub_mode == "Weve" or sub_mode == "RepeatWeve":
+		counter += 1
+		if counter >= 10:
+			launch_projectile(
+						((Globals.get_scene_root().get_node("player").global_position 
+						- get_parent().get_node("Sprite/assets/head_front").global_position) as Vector2).normalized()
+			)
+			if sub_mode == "RepeatWeve":
+				#this mode bounces back to repeat weve with a certain probability
+				set_sub_mode("RepeatWeveWait")
+			else:
 				set_sub_mode("")
-				play_anim()
+			play_anim()
+	elif sub_mode == "RepeatWeveWait":
+		if randf() < 0.075:
+			#bounce back to repeat weve
+			set_sub_mode("RepeatWeve")
+	elif sub_mode == "StatueSpawn":
+		if counter == 19: #4 beats with a zero based index gives us 3 as the emphasis beat and we do every 5 group of 4 so 5*4-1
+			spawn_statue_tail()
+			counter = 0
+		counter += 1
 
 #this function runs every frame and performs our processing
 func main_process(delta):
@@ -256,7 +271,7 @@ func main_process(delta):
 	if mode == "Follow":
 			#move directly twoards the player
 			velocity = (Globals.get_scene_root().get_node("player").position-get_parent().position).normalized()*4
-	elif mode == "Idle" or mode == "IdleAttack":
+	elif mode == "Idle":
 			#get the angular velocity
 			_angular_vel += _angular_accel*delta
 			#cap our velocity

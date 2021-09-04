@@ -26,7 +26,6 @@ func _process(delta):
 		$CentipideBoss.sub_mode = "Weve"
 	if Input.is_key_pressed(KEY_S):
 		$player.statue_frozen = false
-		$CentipideBoss/CentipideBoss.spawn_statue_segment_at_last_node()
 	if Input.is_key_pressed(KEY_R):
 		$CircleRail.r += delta * 10
 	if Input.is_key_pressed(KEY_F):
