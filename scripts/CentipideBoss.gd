@@ -2,10 +2,19 @@ extends "res://scripts/abstracts/generic_boss.gd"
 
 class_name CentipideBoss
 
+
+#we hit the playr and the terrain
+func gen_col_mask():
+	return col_math.Layer.PLAYER | col_math.Layer.TERRAIN
+
+
 #this is the projectile that we shoot that stuns the player
 var medusaProjectile : PackedScene = preload("res://scenes/instance/projectiles/MedusaProjectile.tscn")
 #how fast the projectile moves on launch
 var initalMedusaProjectileSpeed : float = 400
+
+#this is the statue that we place as an obsticle to the player
+var centipideStatueSegment : PackedScene = preload("res://scenes/instance/centipideStatueSegment.tscn")
 
 #how fast we move
 var movement_speed : float = 400
@@ -15,7 +24,6 @@ func set_velocity(val : Vector2):
 	velocity = val.normalized()
 func get_velocity()->Vector2:
 	return velocity
-
 #sub mode used within other modes for animation control and the like
 var sub_mode : String = "" setget set_sub_mode,get_sub_mode
 func set_sub_mode(val : String)->void:
@@ -75,6 +83,7 @@ func main_ready():
 	.main_ready()
 	get_parent().get_node("Sprite/AnimationPlayerHead").connect("animation_finished",self,"anim_head_finished")
 	set_mode("Idle")
+	set_sub_mode("StatueSpawn")
 
 func set_mode(val : String)->void:
 	match val:
@@ -87,7 +96,11 @@ func set_mode(val : String)->void:
 	.set_mode(val)
 func run(player_pos : Vector2,beat):
 	player_pos -= get_parent().position
-	
+	if sub_mode == "StatueSpawn":
+		if counter == 19: #4 beats with a zero based index gives us 3 as the emphasis beat and we do every 5 group of 4 so 5*4-1
+			spawn_statue_segment_at_last_node()
+			counter = 0
+		counter += 1
 	if mode == "Idle" or mode == "IdleAttack":
 			#randomly assign accelleration
 			_angular_accel = randf()*PI-PI/2
@@ -185,7 +198,43 @@ func anim_head_finished(anim):
 func player_entered_tail(player : Player,segment)->void:
 	if player.collision_layer & collision_mask != 0:
 		player.take_damage(1)
+func get_last_tail_link()->CentiBody:
+	return (get_parent().get_node("Sprite/Tail") as CentiMotor).get_last_link() as CentiBody
 
+#this function spawns a statue segment at the given chordinents
+#in the parent of our instance
+func spawn_statue_segment(pos : Vector2):
+	var inst = centipideStatueSegment.instance()
+	
+	get_parent().get_parent().add_child(inst)
+	
+	inst.global_position = pos
+	
+	return inst
+
+#spawns a statue copy of the last node in our tail
+func spawn_statue_segment_at_last_node()->void:
+	var last_node = get_last_tail_link()
+	
+	#create a statue at the specified position
+	var inst = spawn_statue_segment(last_node.global_position)
+	
+	#syntactic sugar to help make reading things easier
+	var last_node_animation_player  : AnimationPlayer = last_node.get_node("Sprite/AnimationPlayer") as AnimationPlayer
+	var centipideStatueAnimationPlayer : AnimationPlayer = (inst.get_node("Sprite/AnimationPlayer") as AnimationPlayer)
+	
+	#sync up the animation between the two nodes
+	print("last node animation " + last_node_animation_player.current_animation)
+	centipideStatueAnimationPlayer.play(last_node_animation_player.current_animation)
+	centipideStatueAnimationPlayer.seek(last_node_animation_player.current_animation_position,true)
+	
+	#this would be better if the legStab animation also contained the key frames for the legStabSide animation
+	if last_node_animation_player.current_animation == "Side_Run":
+		inst.get_node("Sprite/statueLegs").play("legStabSide")
+	else:
+		inst.get_node("Sprite/statueLegs").play("legStab")
+	#stop playing so we dont continue moveing
+	centipideStatueAnimationPlayer.stop()
 #this function runs every frame and performs our processing
 func main_process(delta):
 	#buffer velocity for our animation updates

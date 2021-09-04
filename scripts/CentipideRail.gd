@@ -40,3 +40,15 @@ func update_chain(target_angle : float,delta : float) -> void:
 	set_angle(angle + change)
 	if get_child_count() > 0 and get_child(0).has_method("update_chain"):
 		get_child(0).update_chain(angle,delta)
+
+#this function returns the last node in the chain of nodes
+#think of it like asking each node bellow the chain if it is the last one there
+func get_last_link()->Node2D:
+	print("")
+	print(name)
+	print("")
+	if get_child_count() > 0 and get_child(0).has_method("get_last_link"):
+		print("returning children nodes")
+		return get_child(0).get_last_link()
+	print("returning self")
+	return self
