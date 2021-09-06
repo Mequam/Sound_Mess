@@ -17,13 +17,20 @@ var initalMedusaProjectileSpeed : float = 400
 var centipideStatueSegment : PackedScene = preload("res://scenes/instance/centipideStatueSegment.tscn")
 
 #how fast we move
-var movement_speed : float = 400
+var movement_speed : float = 50
+
 #the direction we move in
 var velocity : Vector2 = Vector2(0,0) setget set_velocity,get_velocity
 func set_velocity(val : Vector2):
 	velocity = val.normalized()
 func get_velocity()->Vector2:
 	return velocity
+
+#used in states that require a force to be applied to a seperate velocity 
+#namely the circular motion state where we apply a force from the center
+#to the player
+var center_vel : Vector2 = Vector2(0,0)
+
 #sub mode used within other modes for animation control and the like
 var sub_mode : String = "" setget set_sub_mode,get_sub_mode
 func set_sub_mode(val : String)->void:
@@ -37,8 +44,11 @@ func set_sub_mode(val : String)->void:
 	sub_mode = val
 func get_sub_mode()->String:
 	return sub_mode
+
 #used for arbitrary counting between modes and sub modes
 var counter : int = 0
+#the angle that the circle mode uses
+var angle : float = 0
 
 #we need to overide move and collide here because of the wierd way this node moves around
 #in order to get nice automatic y sorting the parent has to be a y sort node
@@ -122,7 +132,7 @@ func play_anim(player_pos : Vector2 = Vector2(0,0))->void:
 	var subModeStr : String = sub_mode
 
 	#map different modes into the same behaviors for the following code	
-	if mode == "Follow":
+	if mode == "Follow" or mode == "Circle":
 		modeStr = "Idle"
 	if subModeStr == "RepeatWeve":
 		subModeStr = "Weve"
@@ -214,6 +224,14 @@ func spawn_statue_tail()->void:
 func get_tail_link_list()->Array:
 	return get_parent().get_node("Sprite/Tail").get_link_list()
 
+
+#sets circle mode with a given speed and radius
+func circle(radius : float, speed : float):
+	movement_speed = speed
+	_angular_vel = speed / radius
+	set_mode("Circle")
+	
+
 #these are the main functions of the boss that use the above functions
 #to control behavior
 
@@ -223,7 +241,7 @@ func main_ready():
 	add_to_group("CentipideBoss")
 	.main_ready()
 	get_parent().get_node("Sprite/AnimationPlayerHead").connect("animation_finished",self,"anim_head_finished")
-	set_mode("Idle")
+	circle(500,500)
 	set_sub_mode("StatueSpawn")
 
 func run(player_pos : Vector2,beat):
@@ -281,7 +299,31 @@ func main_process(delta):
 			var new_angle : float = velocity.angle()+_angular_vel*delta
 			
 			velocity = Vector2(cos(new_angle),sin(new_angle))
-
+	elif mode =="Circle" or "ForceCircle":
+		#movement speed will get factored in later anyways
+		#-sin is the derivative of cos and cos is the derivative of sin
+		var x : float = cos(angle)
+		var y : float = sin(angle)
+		#when moving in a circle we move 90 to the center
+		#also proves that the derivative of cosin is negative sin using linear
+		#algebra which is cool
+		velocity = Vector2(-y,x) 
+		
+		#we also move twoards the player
+		# r = m/s radius is movment_speed / movement vector rotation rate
+		var center : Vector2 = get_parent().position - (Vector2(x,y)*(movement_speed/_angular_vel))
+		var player_pos : Vector2 = Globals.get_scene_root().get_node("player").position
+		var player_twoards_vel = player_pos-center
+		if player_twoards_vel.length_squared() > 100:
+			velocity += player_twoards_vel.normalized()
+		#apply a force moving the circle twoards the player 
+		#center_vel += (player_pos-center).normalized()*delta
+		
+		#include the center velocity in our "pure" velocity total
+		
+		#velocity += (player_pos-center).normalized()*center.distance_squared_to(player_pos)
+		
+		angle = angle+delta*_angular_vel
 			
 				
 	

@@ -184,6 +184,6 @@ position = Vector2( -2194, -1028 )
 position = Vector2( -1728, -1026 )
 
 [node name="CentipideBoss" parent="." instance=ExtResource( 30 )]
-position = Vector2( -3329.8, -1046.16 )
+position = Vector2( -2449.79, -1864.33 )
 
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]
