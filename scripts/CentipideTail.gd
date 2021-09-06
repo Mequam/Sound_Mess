@@ -21,7 +21,7 @@ func get_velocity()->Vector2:
 	#gets the velocity of the boss script
 	return get_brain().velocity
 func get_rotation_speed()->float:
-	return get_brain().movement_speed
+	return get_brain().get_tail_rotation_speed()
 
 func pass_player_entered(player : Player,segment : CentiBody)->void:
 	get_brain().player_entered_tail(player,segment)

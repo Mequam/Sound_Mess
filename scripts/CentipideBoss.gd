@@ -29,7 +29,8 @@ func get_velocity()->Vector2:
 #used in states that require a force to be applied to a seperate velocity 
 #namely the circular motion state where we apply a force from the center
 #to the player
-var center_vel : Vector2 = Vector2(0,0)
+#not currently used, left as a comment in case we want to add that feature
+#var center_vel : Vector2 = Vector2(0,0)
 
 #sub mode used within other modes for animation control and the like
 var sub_mode : String = "" setget set_sub_mode,get_sub_mode
@@ -241,9 +242,10 @@ func main_ready():
 	add_to_group("CentipideBoss")
 	.main_ready()
 	get_parent().get_node("Sprite/AnimationPlayerHead").connect("animation_finished",self,"anim_head_finished")
-	circle(500,500)
+	circle(500,1000)
 	set_sub_mode("StatueSpawn")
-
+func get_tail_rotation_speed()->float:
+	return movement_speed*2
 func run(player_pos : Vector2,beat):
 	player_pos -= get_parent().position
 	#run the mode state machine	
@@ -299,7 +301,7 @@ func main_process(delta):
 			var new_angle : float = velocity.angle()+_angular_vel*delta
 			
 			velocity = Vector2(cos(new_angle),sin(new_angle))
-	elif mode =="Circle" or "ForceCircle":
+	elif mode =="Circle": #or "ForceCircle":
 		#movement speed will get factored in later anyways
 		#-sin is the derivative of cos and cos is the derivative of sin
 		var x : float = cos(angle)
