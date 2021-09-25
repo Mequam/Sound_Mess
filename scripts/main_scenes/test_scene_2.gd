@@ -19,7 +19,7 @@ var test : bool = false
 func _process(delta):
 	test = not test
 	if Input.is_key_pressed(KEY_W):
-		get_tree().call_group("enemies","set_statue_frozen",true)
+		$CentipideBoss/CentipideBoss.circle_center_target = $player.position
 	if Input.is_key_pressed(KEY_A):
 		get_tree().call_group("enemies","set_statue_frozen",false)
 	if Input.is_key_pressed(KEY_D):
@@ -29,7 +29,7 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_R):
 		$CircleRail.r += delta * 10
 	if Input.is_key_pressed(KEY_F):
-		$CircleRail.r -= 10 * delta
+		$CentipideBoss/CentipideBoss.circle_center_target = $player.position
 	$CentipiedeMotor.velocity = ($player.position-$CentipiedeMotor.position).normalized()*100
 func _on_statueSwitch_completed_dialog(dialog):
 	$StatueEnemy.corrupt()

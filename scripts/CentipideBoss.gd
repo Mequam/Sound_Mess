@@ -46,6 +46,20 @@ func set_sub_mode(val : String)->void:
 func get_sub_mode()->String:
 	return sub_mode
 
+enum CircleTargetMode {
+	PLAYER,
+	INITIAL_POSITION
+}
+#stores the mode used by the boss to set the center of the circle
+var circle_target_mode : int = CircleTargetMode.PLAYER
+var circle_center_target : Vector2 = Vector2(0,0) setget set_circle_center_target, get_circle_center_target
+func set_circle_center_target(val : Vector2):
+	print("seting circle mode " + str(val))
+	circle_center_target = val
+	circle_target_mode = CircleTargetMode.INITIAL_POSITION
+func get_circle_center_target()->Vector2:
+	return circle_center_target
+
 #used for arbitrary counting between modes and sub modes
 var counter : int = 0
 #the angle that the circle mode uses
@@ -282,7 +296,15 @@ func run(player_pos : Vector2,beat):
 			spawn_statue_tail()
 			counter = 0
 		counter += 1
-
+#gets the center of the circle used in the circle mode
+func getCircleTarget()->Vector2:
+	match circle_target_mode:
+		CircleTargetMode.PLAYER:
+			return Globals.get_scene_root().get_node("player").position
+		CircleTargetMode.INITIAL_POSITION:
+			return circle_center_target
+	#we should never get here, but just in case
+	return Vector2(0,0)
 #this function runs every frame and performs our processing
 func main_process(delta):
 	#buffer velocity for our animation updates
@@ -314,10 +336,12 @@ func main_process(delta):
 		#we also move twoards the player
 		# r = m/s radius is movment_speed / movement vector rotation rate
 		var center : Vector2 = get_parent().position - (Vector2(x,y)*(movement_speed/_angular_vel))
-		var player_pos : Vector2 = Globals.get_scene_root().get_node("player").position
-		var player_twoards_vel = player_pos-center
-		if player_twoards_vel.length_squared() > 100:
-			velocity += player_twoards_vel.normalized()
+		
+		#get the center of the circle
+		var target_center : Vector2 = getCircleTarget()
+		var twoards_center = target_center-center
+		if twoards_center.length_squared() > 100:
+			velocity += twoards_center.normalized()
 		#apply a force moving the circle twoards the player 
 		#center_vel += (player_pos-center).normalized()*delta
 		
