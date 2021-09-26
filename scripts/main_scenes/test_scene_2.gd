@@ -25,7 +25,7 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_D):
 		$CentipideBoss.sub_mode = "Weve"
 	if Input.is_key_pressed(KEY_S):
-		$player.statue_frozen = false
+		$CentipideBoss/CentipideBoss._angular_accel = 10
 	if Input.is_key_pressed(KEY_R):
 		$CircleRail.r += delta * 10
 	if Input.is_key_pressed(KEY_F):

@@ -54,7 +54,6 @@ enum CircleTargetMode {
 var circle_target_mode : int = CircleTargetMode.PLAYER
 var circle_center_target : Vector2 = Vector2(0,0) setget set_circle_center_target, get_circle_center_target
 func set_circle_center_target(val : Vector2):
-	print("seting circle mode " + str(val))
 	circle_center_target = val
 	circle_target_mode = CircleTargetMode.INITIAL_POSITION
 func get_circle_center_target()->Vector2:
@@ -259,7 +258,7 @@ func main_ready():
 	circle(500,1000)
 	set_sub_mode("StatueSpawn")
 func get_tail_rotation_speed()->float:
-	return movement_speed*2
+	return movement_speed
 func run(player_pos : Vector2,beat):
 	player_pos -= get_parent().position
 	#run the mode state machine	
@@ -305,6 +304,10 @@ func getCircleTarget()->Vector2:
 			return circle_center_target
 	#we should never get here, but just in case
 	return Vector2(0,0)
+#syntactic sugar function that gets the radius that the boss uses in circle mod
+func circle_mode_radius()->float:
+	return movement_speed/_angular_vel
+
 #this function runs every frame and performs our processing
 func main_process(delta):
 	#buffer velocity for our animation updates
@@ -335,23 +338,18 @@ func main_process(delta):
 		
 		#we also move twoards the player
 		# r = m/s radius is movment_speed / movement vector rotation rate
-		var center : Vector2 = get_parent().position - (Vector2(x,y)*(movement_speed/_angular_vel))
+		var center : Vector2 = get_parent().position - (Vector2(x,y)*circle_mode_radius())
 		
 		#get the center of the circle
 		var target_center : Vector2 = getCircleTarget()
 		var twoards_center = target_center-center
 		if twoards_center.length_squared() > 100:
 			velocity += twoards_center.normalized()
-		#apply a force moving the circle twoards the player 
-		#center_vel += (player_pos-center).normalized()*delta
-		
-		#include the center velocity in our "pure" velocity total
-		
-		#velocity += (player_pos-center).normalized()*center.distance_squared_to(player_pos)
 		
 		angle = angle+delta*_angular_vel
+		#for shrinking the circle
+		circle(circle_mode_radius()-_angular_accel*delta,movement_speed)
 			
-				
 	
 	
 	#update our animation if necessary
