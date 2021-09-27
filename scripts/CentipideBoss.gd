@@ -46,6 +46,14 @@ func set_sub_mode(val : String)->void:
 func get_sub_mode()->String:
 	return sub_mode
 
+enum SuperMode {INITIAL,UPONE,UPTWO}
+#super mode used to control the changes between mode and sub mode
+var super_mode : int = 0 setget set_super_mode,get_super_mode
+func set_super_mode(val : int)->void:
+	super_mode = val
+func get_super_mode()->int:
+	return super_mode
+
 enum CircleTargetMode {
 	PLAYER,
 	INITIAL_POSITION
@@ -83,7 +91,7 @@ func launch_projectile(dir : Vector2)->void:
 	inst.dir = dir*initalMedusaProjectileSpeed+velocity
 	get_parent().get_parent().add_child(inst)
 	inst.global_position = get_parent().get_node("Sprite/assets/head_front").global_position
-	
+
 func set_statue_frozen(val : bool)->void:
 	if not statue_frozen and val:
 		#stop the animation on the head
@@ -106,7 +114,8 @@ func update_sprite(mode : String,vel : Vector2):
 		get_parent().get_node("YSort/Sprite/AnimationPlayer").play("IdleSide")
 	else:
 		get_parent().get_node("YSort/Sprite/AnimationPlayer").play("Idle")
-func set_mode(val : String)->void:
+#use a space for our default value because we have to be able to use an empty string
+func set_mode(val : String,sub_mode_val : String = " ")->void:
 	match val:
 		"Follow":
 			movement_speed = 50
@@ -114,6 +123,8 @@ func set_mode(val : String)->void:
 			movement_speed = 300
 		"IdleAttack":
 			movement_speed = 400
+	if sub_mode_val != " ":
+		set_sub_mode(sub_mode_val)
 	.set_mode(val)
 
 #gets a cardinal direction from a vector
@@ -249,14 +260,65 @@ func circle(radius : float, speed : float):
 #these are the main functions of the boss that use the above functions
 #to control behavior
 
-
+#this function updates the mode of the boss using the super mode
+func update_mode()->void:
+	match super_mode:
+		SuperMode.INITIAL:
+			match mode:
+				"Idle":
+					match sub_mode:
+						"RepeatWeve":
+							set_sub_mode("")
+						_:
+							if inner_beat >= 4 and randf() < 0.75:
+								set_sub_mode("RepeatWeve")
+							else:
+								set_mode("Follow","")
+				"Follow":
+					set_mode("Idle","")
+		SuperMode.UPONE:
+			match mode:
+				"Circle":
+					if inner_beat >= 8:
+						set_mode("Follow","StatueSpawn")
+				"Follow":
+					if inner_beat >= 4:
+						set_mode("Idle","RepeatWeve")
+				"Idle":
+					if inner_beat >= 4 and randf() < 0.5:
+						set_mode("Circle","StatueSpawn")
+					else:
+						inner_beat = 0
+		SuperMode.UPTWO:
+			match mode:
+				"Circle":
+					if inner_beat >= 8:
+						if randf() < 0.4: #we MIGHT move into the follow attack
+							set_mode("Follow","RepeatWeve")
+						else:
+							#if we dont alternate between spawning statues and shooting stuff
+							if sub_mode == "StatueSpawn":
+								sub_mode = "RepeateWeve"
+							else:
+								sub_mode = "StatueSpawn"
+							inner_beat = 0
+				"Follow":
+					#follow the player for longer this time
+					if inner_beat >= 8:
+						set_mode("Idle","RepeateWeve")
+				"Idle":
+					#idle for longer
+					if inner_beat >= 8:
+						if sub_mode == "StatueSpawn":
+							set_sub_mode("RepeateWeve")
+						else:
+							set_mode("Circle","StatueSpawn")
+						inner_beat = 0
 #this script represents the behavior for the centipide statue boss
 func main_ready():
 	add_to_group("CentipideBoss")
 	.main_ready()
 	get_parent().get_node("Sprite/AnimationPlayerHead").connect("animation_finished",self,"anim_head_finished")
-	circle(500,1000)
-	set_sub_mode("StatueSpawn")
 func get_tail_rotation_speed()->float:
 	return movement_speed
 func run(player_pos : Vector2,beat):
