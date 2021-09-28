@@ -46,7 +46,7 @@ func set_sub_mode(val : String)->void:
 func get_sub_mode()->String:
 	return sub_mode
 
-enum SuperMode {INITIAL,UPONE,UPTWO}
+enum SuperMode {INITIAL,UPONE,UPTWO,UPTHREE}
 #super mode used to control the changes between mode and sub mode
 var super_mode : int = 0 setget set_super_mode,get_super_mode
 func set_super_mode(val : int)->void:
@@ -314,6 +314,37 @@ func update_mode()->void:
 						else:
 							set_mode("Circle","StatueSpawn")
 						inner_beat = 0
+		SuperMode.UPTHREE:
+			match mode:
+				"Circle":
+					#_angular accell determins if we shrink the circle or not, if we are shrinking we only get out after having shrunk
+					if ((_angular_accel == 0 and inner_beat >= 4) or #not shrinking condition, stay for 4 beats
+						(_angular_accel != 0 and circle_mode_radius() <= 10)): #shrinking condition, stay till close to player
+						match sub_mode:
+							"StatueSpawn":
+								if randf() < 0.5:
+									circle(100,movement_speed)
+								else:
+									set_mode("Idle")
+								#either way we are going back to weveing
+								set_sub_mode("RepeateWeve")
+							_: #not statue spawn, so probably weve
+								set_mode("Idle","StatueSpawn")
+				"Idle":
+					if inner_beat >= 4:
+						match sub_mode:
+							"StatueSpawn":
+								set_mode("Follow","RepeateWeve")
+							_:
+								set_mode("Circle","StatueSpawn")
+								_angular_accel = 100
+				"Follow":
+					if inner_beat >= 6: #this set of 3 will feel wierd and throw off the player cuz every thing else is in sets of 4 >:>
+						set_mode("Idle")
+						if randf() < 0.25:
+							set_sub_mode("StatueSpawn")
+						else:
+							set_sub_mode("RepeateWeve")
 #this script represents the behavior for the centipide statue boss
 func main_ready():
 	add_to_group("CentipideBoss")
