@@ -42,6 +42,7 @@ func set_sub_mode(val : String)->void:
 		"Weve":
 			play_anim()
 	counter = 0
+	inner_beat = 0
 	sub_mode = val
 func get_sub_mode()->String:
 	return sub_mode
@@ -115,16 +116,22 @@ func update_sprite(mode : String,vel : Vector2):
 	else:
 		get_parent().get_node("YSort/Sprite/AnimationPlayer").play("Idle")
 #use a space for our default value because we have to be able to use an empty string
-func set_mode(val : String,sub_mode_val : String = " ")->void:
+func set_mode(val : String,sub_mode_val : String = " ",movement_speed_factor : float = 1)->void:
+	print("\t updating mode to " + val)
+	print("\t with sub mode of \""+sub_mode_val+"\"")
+	print("\t movement speed factor of " + str(movement_speed_factor))
+	
+	#note circle mode does not set its speed in the set mode function
+	#because that mode has special cases of speed when determinine radius
 	match val:
 		"Follow":
-			movement_speed = 50
+			movement_speed = 100
 		"Idle":
-			movement_speed = 300
-		"IdleAttack":
-			movement_speed = 400
+			movement_speed = 700
+	movement_speed*=movement_speed_factor
 	if sub_mode_val != " ":
 		set_sub_mode(sub_mode_val)
+	inner_beat = 0
 	.set_mode(val)
 
 #gets a cardinal direction from a vector
@@ -250,45 +257,71 @@ func get_tail_link_list()->Array:
 	return get_parent().get_node("Sprite/Tail").get_link_list()
 
 
+func get_circle_angular_vel(radius : float,speed : float)->float:
+	return speed / radius
 #sets circle mode with a given speed and radius
 func circle(radius : float, speed : float):
 	movement_speed = speed
-	_angular_vel = speed / radius
+	_angular_vel = get_circle_angular_vel(radius,speed)
 	set_mode("Circle")
-	
-
+#changes the radius of the circle in circle mode such that angular velocity is conserved
+func conserve_angular_velocity_radius_cange(radius : float)->void:
+	#this will conserve angular velocity but move us closer to the target
+	movement_speed = _angular_accel*radius
 #these are the main functions of the boss that use the above functions
 #to control behavior
 
 #this function updates the mode of the boss using the super mode
 func update_mode()->void:
+	print("SuperMode " + str(super_mode))
 	match super_mode:
 		SuperMode.INITIAL:
 			match mode:
 				"Idle":
 					match sub_mode:
-						"RepeatWeve":
+						"":
+							if inner_beat >= 8:
+								if randf() < 0.75:
+									set_sub_mode("RepeatWeve")
+								else:
+									set_mode("Follow","",0.5)
+						#this should never happen, but just in case
+						"StatueSpawn":
 							set_sub_mode("")
 						_:
-							if inner_beat >= 4 and randf() < 0.75:
-								set_sub_mode("RepeatWeve")
-							else:
-								set_mode("Follow","")
+							if inner_beat >= 32:
+								set_sub_mode("")
+
 				"Follow":
-					set_mode("Idle","")
+					if inner_beat >= 64:
+						set_mode("Idle","",0.5)
+
 		SuperMode.UPONE:
 			match mode:
 				"Circle":
-					if inner_beat >= 8:
-						set_mode("Follow","StatueSpawn")
+					match inner_beat:
+						16:
+							conserve_angular_velocity_radius_cange(200)
+						#spooky
+						40:
+							conserve_angular_velocity_radius_cange(100)
+						_:
+							#use the equality juuuust in case
+							if inner_beat > 64:
+								set_mode("Follow","StatueSpawn")
 				"Follow":
 					if inner_beat >= 4:
 						set_mode("Idle","RepeatWeve")
 				"Idle":
-					if inner_beat >= 4 and randf() < 0.5:
-						set_mode("Circle","StatueSpawn")
-					else:
-						inner_beat = 0
+					#if we made it to 8 beats
+					if inner_beat >= 16:
+						#mabye enter circle mode
+						if randf() < 0.5:
+							circle(300,600)
+							set_sub_mode("StatueSpawn")
+						else:
+							#back to spawning scary stuff
+							inner_beat = 0
 		SuperMode.UPTWO:
 			match mode:
 				"Circle":
@@ -350,6 +383,14 @@ func main_ready():
 	add_to_group("CentipideBoss")
 	.main_ready()
 	get_parent().get_node("Sprite/AnimationPlayerHead").connect("animation_finished",self,"anim_head_finished")
+	set_mode("Idle")
+func take_damage(dmg : int):
+	.take_damage(dmg)
+	#get ANGRY if we got hit
+	if super_mode < SuperMode.UPTHREE:
+		super_mode += 1
+	else:
+		super_mode = SuperMode.UPTHREE
 func get_tail_rotation_speed()->float:
 	return movement_speed
 func run(player_pos : Vector2,beat):
@@ -388,6 +429,8 @@ func run(player_pos : Vector2,beat):
 			spawn_statue_tail()
 			counter = 0
 		counter += 1
+	update_mode()
+	inner_beat += 1
 #gets the center of the circle used in the circle mode
 func getCircleTarget()->Vector2:
 	match circle_target_mode:

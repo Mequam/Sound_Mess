@@ -29,7 +29,7 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_R):
 		$CircleRail.r += delta * 10
 	if Input.is_key_pressed(KEY_F):
-		$CentipideBoss/CentipideBoss.circle_center_target = $player.position
+		$CentipideBoss/CentipideBoss.super_mode = $CentipideBoss/CentipideBoss.SuperMode.UPONE
 	$CentipiedeMotor.velocity = ($player.position-$CentipiedeMotor.position).normalized()*100
 func _on_statueSwitch_completed_dialog(dialog):
 	$StatueEnemy.corrupt()
