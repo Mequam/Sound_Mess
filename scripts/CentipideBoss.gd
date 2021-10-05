@@ -55,18 +55,20 @@ func set_super_mode(val : int)->void:
 func get_super_mode()->int:
 	return super_mode
 
-enum CircleTargetMode {
+enum TargetMode {
 	PLAYER,
 	INITIAL_POSITION
 }
 #stores the mode used by the boss to set the center of the circle
-var circle_target_mode : int = CircleTargetMode.PLAYER
-var circle_center_target : Vector2 = Vector2(0,0) setget set_circle_center_target, get_circle_center_target
-func set_circle_center_target(val : Vector2):
-	circle_center_target = val
-	circle_target_mode = CircleTargetMode.INITIAL_POSITION
-func get_circle_center_target()->Vector2:
-	return circle_center_target
+var target_mode : int = TargetMode.PLAYER
+
+
+var buffered_target : Vector2 = Vector2(0,0) setget set_buffered_target, get_buffered_target
+func set_buffered_target(val : Vector2):
+	buffered_target = val
+	target_mode = TargetMode.INITIAL_POSITION
+func get_buffered_target()->Vector2:
+	return buffered_target
 
 #used for arbitrary counting between modes and sub modes
 var counter : int = 0
@@ -125,7 +127,9 @@ func set_mode(val : String,sub_mode_val : String = " ",movement_speed_factor : f
 	#because that mode has special cases of speed when determinine radius
 	match val:
 		"Follow":
-			movement_speed = 100
+			movement_speed = 300
+			#we allways follow where the player was, not where they are
+			set_buffered_target(Globals.get_scene_root().get_node("player").position)
 		"Idle":
 			movement_speed = 700
 	movement_speed*=movement_speed_factor
@@ -256,18 +260,22 @@ func spawn_statue_tail()->void:
 func get_tail_link_list()->Array:
 	return get_parent().get_node("Sprite/Tail").get_link_list()
 
-
+#speed/radius = angular_vel
+#speed =  angular_vel*radius
 func get_circle_angular_vel(radius : float,speed : float)->float:
 	return speed / radius
-#sets circle mode with a given speed and radius
-func circle(radius : float, speed : float):
+#sets the circle radius and speed
+func circle(radius : float, speed : float)->void:
 	movement_speed = speed
 	_angular_vel = get_circle_angular_vel(radius,speed)
+#changes the mode to circle and sets the circle radius and speed
+func circle_mode_change(radius : float,speed : float)->void:
+	circle(radius,speed)
 	set_mode("Circle")
 #changes the radius of the circle in circle mode such that angular velocity is conserved
 func conserve_angular_velocity_radius_cange(radius : float)->void:
-	#this will conserve angular velocity but move us closer to the target
-	movement_speed = _angular_accel*radius
+	#this will conserve velocity but move us closer to the target
+	_angular_vel = get_circle_angular_vel(radius,movement_speed)
 #these are the main functions of the boss that use the above functions
 #to control behavior
 
@@ -295,19 +303,27 @@ func update_mode()->void:
 				"Follow":
 					if inner_beat >= 64:
 						set_mode("Idle","",0.5)
+				#this should never happen, but just in case we get to an error state
+				"Circle":
+					#bounce back to our IDLE mode
+					set_mode("Idle","RepeatWeve",0.5)
+					
 
 		SuperMode.UPONE:
 			match mode:
 				"Circle":
 					match inner_beat:
-						16:
-							conserve_angular_velocity_radius_cange(200)
-						#spooky
-						40:
-							conserve_angular_velocity_radius_cange(100)
+						128:
+							print("INCRAESE ZOOM")
+							conserve_angular_velocity_radius_cange(circle_mode_radius()*0.75)
+						200:
+							print("ZOOOOOMIES")
+							conserve_angular_velocity_radius_cange(circle_mode_radius()*0.75)
 						_:
+							print("UPONE circle exit case")
 							#use the equality juuuust in case
-							if inner_beat > 64:
+							if inner_beat > 400:
+								print("UPONE circle mode exit")
 								set_mode("Follow","StatueSpawn")
 				"Follow":
 					if inner_beat >= 4:
@@ -317,9 +333,13 @@ func update_mode()->void:
 					if inner_beat >= 16:
 						#mabye enter circle mode
 						if randf() < 0.5:
-							circle(300,600)
+							print("UPTWO Leaving Idle Mode")
+							#target the player as the center
+							target_mode = TargetMode.PLAYER
+							circle_mode_change(500,900)
 							set_sub_mode("StatueSpawn")
 						else:
+							print("Resetting inner beat")
 							#back to spawning scary stuff
 							inner_beat = 0
 		SuperMode.UPTWO:
@@ -341,7 +361,7 @@ func update_mode()->void:
 						set_mode("Idle","RepeateWeve")
 				"Idle":
 					#idle for longer
-					if inner_beat >= 8:
+					if inner_beat >= 32:
 						if sub_mode == "StatueSpawn":
 							set_sub_mode("RepeateWeve")
 						else:
@@ -432,12 +452,12 @@ func run(player_pos : Vector2,beat):
 	update_mode()
 	inner_beat += 1
 #gets the center of the circle used in the circle mode
-func getCircleTarget()->Vector2:
-	match circle_target_mode:
-		CircleTargetMode.PLAYER:
+func getTarget()->Vector2:
+	match target_mode:
+		TargetMode.PLAYER:
 			return Globals.get_scene_root().get_node("player").position
-		CircleTargetMode.INITIAL_POSITION:
-			return circle_center_target
+		TargetMode.INITIAL_POSITION:
+			return get_buffered_target()
 	#we should never get here, but just in case
 	return Vector2(0,0)
 #syntactic sugar function that gets the radius that the boss uses in circle mod
@@ -451,7 +471,7 @@ func main_process(delta):
 	
 	if mode == "Follow":
 			#move directly twoards the player
-			velocity = (Globals.get_scene_root().get_node("player").position-get_parent().position).normalized()*4
+			velocity = (getTarget()-get_parent().position).normalized()
 	elif mode == "Idle":
 			#get the angular velocity
 			_angular_vel += _angular_accel*delta
@@ -477,7 +497,7 @@ func main_process(delta):
 		var center : Vector2 = get_parent().position - (Vector2(x,y)*circle_mode_radius())
 		
 		#get the center of the circle
-		var target_center : Vector2 = getCircleTarget()
+		var target_center : Vector2 = getTarget()
 		var twoards_center = target_center-center
 		if twoards_center.length_squared() > 100:
 			velocity += twoards_center.normalized()
