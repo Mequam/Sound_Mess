@@ -87,11 +87,21 @@ func move_and_collide(rel_vec : Vector2, infinite_inertia: bool = true, exclude_
 	position = Vector2(0,0)
 	#return the collision object
 	return col
+	
+var projectile_count : int = 0
+func incriment_projectile_count()->void:
+	projectile_count += 1
+func decriment_projectile_count()->void:
+	projectile_count -= 1
 #adds a projcetile to the parent to launch in the given direction
 func launch_projectile(dir : Vector2)->void:
 	var inst : Projectile = medusaProjectile.instance()
 	#set up the projectile with an initial direction and speed
 	inst.dir = dir*initalMedusaProjectileSpeed+velocity
+	#increase the projectile count
+	incriment_projectile_count()
+	#decriment the count when the projectile despawns
+	inst.connect("despawn",self,"decriment_projectile_count")
 	get_parent().get_parent().add_child(inst)
 	inst.global_position = get_parent().get_node("Sprite/assets/head_front").global_position
 
