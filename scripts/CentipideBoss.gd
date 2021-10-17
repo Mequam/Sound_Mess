@@ -56,8 +56,9 @@ func get_super_mode()->int:
 	return super_mode
 
 enum TargetMode {
-	PLAYER,
-	INITIAL_POSITION
+	PLAYER, #go to where the player is
+	INITIAL_POSITION,#go to the buffered position
+	RELATIVE # go to our position + buffered position, basicaly works like velocity
 }
 #stores the mode used by the boss to set the center of the circle
 var target_mode : int = TargetMode.PLAYER
@@ -91,19 +92,26 @@ func move_and_collide(rel_vec : Vector2, infinite_inertia: bool = true, exclude_
 var projectile_count : int = 0
 func incriment_projectile_count()->void:
 	projectile_count += 1
+	print("UPDATING PROJECTILE COUNT: " + str(projectile_count))
 func decriment_projectile_count()->void:
 	projectile_count -= 1
+	print("UPDATING PROJECTILE COUNT: " + str(projectile_count))
+#do not spawn projectiles if we would have more than this amount
+var max_projectile_count : int = 6
 #adds a projcetile to the parent to launch in the given direction
 func launch_projectile(dir : Vector2)->void:
-	var inst : Projectile = medusaProjectile.instance()
-	#set up the projectile with an initial direction and speed
-	inst.dir = dir*initalMedusaProjectileSpeed+velocity
-	#increase the projectile count
-	incriment_projectile_count()
-	#decriment the count when the projectile despawns
-	inst.connect("despawn",self,"decriment_projectile_count")
-	get_parent().get_parent().add_child(inst)
-	inst.global_position = get_parent().get_node("Sprite/assets/head_front").global_position
+	if projectile_count < max_projectile_count:
+		var inst : Projectile = medusaProjectile.instance()
+		#set up the projectile with an initial direction and speed
+		inst.dir = dir*initalMedusaProjectileSpeed+velocity
+		#increase the projectile count
+		incriment_projectile_count()
+		#decriment the count when the projectile despawns
+		inst.connect("despawn",self,"decriment_projectile_count")
+		get_parent().get_parent().add_child(inst)
+		inst.global_position = get_parent().get_node("Sprite/assets/head_front").global_position
+	else:
+		print("Reached max projectile count")
 
 func set_statue_frozen(val : bool)->void:
 	if not statue_frozen and val:
@@ -279,9 +287,9 @@ func circle(radius : float, speed : float)->void:
 	movement_speed = speed
 	_angular_vel = get_circle_angular_vel(radius,speed)
 #changes the mode to circle and sets the circle radius and speed
-func circle_mode_change(radius : float,speed : float)->void:
+func circle_mode_change(radius : float,speed : float,sub_mode : String = " ")->void:
 	circle(radius,speed)
-	set_mode("Circle")
+	set_mode("Circle",sub_mode)
 #changes the radius of the circle in circle mode such that angular velocity is conserved
 func conserve_angular_velocity_radius_cange(radius : float)->void:
 	#this will conserve velocity but move us closer to the target
@@ -343,7 +351,6 @@ func update_mode()->void:
 					if inner_beat >= 16:
 						#mabye enter circle mode
 						if randf() < 0.5:
-							print("UPTWO Leaving Idle Mode")
 							#target the player as the center
 							target_mode = TargetMode.PLAYER
 							circle_mode_change(500,900)
@@ -355,9 +362,10 @@ func update_mode()->void:
 		SuperMode.UPTWO:
 			match mode:
 				"Circle":
-					if inner_beat >= 8:
+					if inner_beat >= 16:
 						if randf() < 0.4: #we MIGHT move into the follow attack
-							set_mode("Follow","RepeatWeve")
+							#target the playeres current position
+							set_follow_mode_at_point(Globals.get_scene_root().get_node("player").position,"RepeateWeve",2)
 						else:
 							#if we dont alternate between spawning statues and shooting stuff
 							if sub_mode == "StatueSpawn":
@@ -367,15 +375,21 @@ func update_mode()->void:
 							inner_beat = 0
 				"Follow":
 					#follow the player for longer this time
-					if inner_beat >= 8:
-						set_mode("Idle","RepeateWeve")
+					if inner_beat >= 16:
+						#we move into the idel mode while targiting the playere
+						set_mode("Idle","StatueSpawn")
+						target_mode = TargetMode.PLAYER
 				"Idle":
 					#idle for longer
-					if inner_beat >= 32:
+					if inner_beat >= 128:
 						if sub_mode == "StatueSpawn":
-							set_sub_mode("RepeateWeve")
+							set_sub_mode("RepeatWeve")
 						else:
-							set_mode("Circle","StatueSpawn")
+							#ensure that we are clear for the circle mode
+							target_mode = TargetMode.PLAYER
+							_angular_vel = 0
+							circle_mode_change(100,200,"StatueSpawn")
+							
 						inner_beat = 0
 		SuperMode.UPTHREE:
 			match mode:
@@ -438,18 +452,25 @@ func run(player_pos : Vector2,beat):
 
 	#run the sub mode state machine
 	if sub_mode == "Weve" or sub_mode == "RepeatWeve":
-		counter += 1
-		if counter >= 10:
-			launch_projectile(
-						((Globals.get_scene_root().get_node("player").global_position 
-						- get_parent().get_node("Sprite/assets/head_front").global_position) as Vector2).normalized()
-			)
-			if sub_mode == "RepeatWeve":
-				#this mode bounces back to repeat weve with a certain probability
-				set_sub_mode("RepeatWeveWait")
-			else:
-				set_sub_mode("")
-			play_anim()
+		#dont run anything with randum numbers counters or weird state machines 
+		#if we dont want to spawn projectiles
+		
+		#NOTE: we COULD change modes from this, but other code relies on 
+		#us bieng in weve modes, and this achives the same result
+		#without interfering with that state
+		if projectile_count < max_projectile_count:
+			counter += 1
+			if counter >= 10:
+				launch_projectile(
+							((Globals.get_scene_root().get_node("player").global_position 
+							- get_parent().get_node("Sprite/assets/head_front").global_position) as Vector2).normalized()
+				)
+				if sub_mode == "RepeatWeve":
+					#this mode bounces back to repeat weve with a certain probability
+					set_sub_mode("RepeatWeveWait")
+				else:
+					set_sub_mode("")
+				play_anim()
 	elif sub_mode == "RepeatWeveWait":
 		if randf() < 0.075:
 			#bounce back to repeat weve
@@ -468,21 +489,28 @@ func getTarget()->Vector2:
 			return Globals.get_scene_root().get_node("player").position
 		TargetMode.INITIAL_POSITION:
 			return get_buffered_target()
+		_:
+			#just in case
+			return get_buffered_target()
 	#we should never get here, but just in case
 	return Vector2(0,0)
 #syntactic sugar function that gets the radius that the boss uses in circle mod
 func circle_mode_radius()->float:
 	return movement_speed/_angular_vel
 
+func set_follow_mode_at_point(target : Vector2,sub_mode : String = " ",speed_mult : float = 1)->void:
+	velocity = (target-get_parent().position).normalized()
+	set_mode("Follow",sub_mode,speed_mult)
 #this function runs every frame and performs our processing
 func main_process(delta):
 	#buffer velocity for our animation updates
 	var old_vel : Vector2 = velocity
 	
-	if mode == "Follow":
-			#move directly twoards the player
-			velocity = (getTarget()-get_parent().position).normalized()
-	elif mode == "Idle":
+	#the follow mode only goes in a straight line
+	#if mode == "Follow":
+	#		#move directly twoards the player
+	#		velocity = (getTarget()-get_parent().position).normalized()
+	if mode == "Idle":
 			#get the angular velocity
 			_angular_vel += _angular_accel*delta
 			#cap our velocity

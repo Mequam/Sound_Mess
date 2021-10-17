@@ -26,15 +26,25 @@ func on_hit(col : KinematicCollision2D,delta : float) -> void:
 	.on_hit(col,delta)
 	queue_free()
 
-const BEATS_UNTOUCHABLE = 10 
+const BEATS_UNTOUCHABLE = 8
+const BEATS_ALIVE = 40
+
 var inner_beat : int = 0
 func run(player_pos,beat):
-	if inner_beat <= BEATS_UNTOUCHABLE:
-		if inner_beat == BEATS_UNTOUCHABLE:
+	match inner_beat:
+		BEATS_UNTOUCHABLE:
 			#we hit the player and whatever the parent hits
 			collision_mask = .gen_col_mask() | col_math.Layer.PLAYER
 			collision_layer = .gen_col_layer()
-		inner_beat += 1
+			#indicate to the player we will now be able to hit them
+			modulate = Color.white
+		BEATS_ALIVE:
+			queue_free()
+		_:
+			#this should never happen but just in case
+			if inner_beat > BEATS_ALIVE:
+				queue_free()
+	inner_beat += 1
 #gets the point that we are pulled to
 #in this class its just the player position, but in others we could
 #overide to target other stuff
