@@ -28,4 +28,9 @@ script = ExtResource( 4 )
 position = Vector2( 0.529739, -28.0758 )
 shape = SubResource( 1 )
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="CentipideBoss"]
+position = Vector2( -3.77975, -71.8155 )
+
 [node name="Sprite" parent="." instance=ExtResource( 5 )]
+
+[connection signal="screen_exited" from="CentipideBoss/VisibilityNotifier2D" to="CentipideBoss" method="_on_VisibilityNotifier2D_screen_exited"]

@@ -42,7 +42,9 @@ func set_sub_mode(val : String)->void:
 		"Weve":
 			play_anim()
 	counter = 0
-	inner_beat = 0
+	
+	#inner_beat = 0
+	
 	sub_mode = val
 func get_sub_mode()->String:
 	return sub_mode
@@ -186,7 +188,7 @@ func play_anim(player_pos : Vector2 = Vector2(0,0))->void:
 	var subModeStr : String = sub_mode
 
 	#map different modes into the same behaviors for the following code	
-	if mode == "Follow" or mode == "Circle":
+	if mode == "Follow" or mode == "Circle" or mode == "Follow":
 		modeStr = "Idle"
 	if subModeStr == "RepeatWeve":
 		subModeStr = "Weve"
@@ -302,25 +304,29 @@ func update_mode()->void:
 	print("SuperMode " + str(super_mode))
 	match super_mode:
 		SuperMode.INITIAL:
+			print(mode)
+			print("\tinner_beat " + str(inner_beat))
 			match mode:
 				"Idle":
 					match sub_mode:
 						"":
-							if inner_beat >= 8:
+							if inner_beat >= 32:
 								if randf() < 0.75:
 									set_sub_mode("RepeatWeve")
+									#begin the process again
+									inner_beat = 0
 								else:
-									set_mode("Follow","",0.5)
+									set_follow_mode_at_point(Globals.get_scene_root().get_node("player").position,"",1)
 						#this should never happen, but just in case
 						"StatueSpawn":
 							set_sub_mode("")
 						_:
 							if inner_beat >= 32:
 								set_sub_mode("")
-
 				"Follow":
+					#this also exists when we the visibility notifier indicates we left the screen
 					if inner_beat >= 64:
-						set_mode("Idle","",0.5)
+						set_mode("Idle","",0.75)
 				#this should never happen, but just in case we get to an error state
 				"Circle":
 					#bounce back to our IDLE mode
@@ -331,40 +337,37 @@ func update_mode()->void:
 			match mode:
 				"Circle":
 					match inner_beat:
-						128:
-							print("INCRAESE ZOOM")
+						64:
 							conserve_angular_velocity_radius_cange(circle_mode_radius()*0.75)
-						200:
-							print("ZOOOOOMIES")
+						128:
 							conserve_angular_velocity_radius_cange(circle_mode_radius()*0.75)
 						_:
-							print("UPONE circle exit case")
 							#use the equality juuuust in case
-							if inner_beat > 400:
-								print("UPONE circle mode exit")
-								set_mode("Follow","StatueSpawn")
+							if inner_beat > 64:
+									set_follow_mode_at_point(Globals.get_scene_root().get_node("player").position,"StatueSpawn",2.5)
 				"Follow":
-					if inner_beat >= 4:
+					if inner_beat >= 8:
 						set_mode("Idle","RepeatWeve")
 				"Idle":
 					#if we made it to 8 beats
-					if inner_beat >= 16:
+					if inner_beat >= 32:
 						#mabye enter circle mode
 						if randf() < 0.5:
 							#target the player as the center
 							target_mode = TargetMode.PLAYER
 							circle_mode_change(500,900)
 							set_sub_mode("StatueSpawn")
+							statue_spawn_beats = 9
 						else:
-							print("Resetting inner beat")
 							#back to spawning scary stuff
 							inner_beat = 0
 		SuperMode.UPTWO:
 			match mode:
 				"Circle":
-					if inner_beat >= 16:
-						if randf() < 0.4: #we MIGHT move into the follow attack
+					if inner_beat >= 32:
+						if randf() < 0.6: #we MIGHT move into the follow attack
 							#target the playeres current position
+							print("changing out of statue mode")
 							set_follow_mode_at_point(Globals.get_scene_root().get_node("player").position,"RepeateWeve",2)
 						else:
 							#if we dont alternate between spawning statues and shooting stuff
@@ -381,14 +384,16 @@ func update_mode()->void:
 						target_mode = TargetMode.PLAYER
 				"Idle":
 					#idle for longer
-					if inner_beat >= 128:
+					print("Idle mode " + str(inner_beat))
+					if inner_beat >= 64:
+						print("[Centipide] changing out of idle mode")
 						if sub_mode == "StatueSpawn":
 							set_sub_mode("RepeatWeve")
 						else:
 							#ensure that we are clear for the circle mode
 							target_mode = TargetMode.PLAYER
 							_angular_vel = 0
-							circle_mode_change(100,200,"StatueSpawn")
+							circle_mode_change(500,1000,"StatueSpawn")
 							
 						inner_beat = 0
 		SuperMode.UPTHREE:
@@ -437,6 +442,9 @@ func take_damage(dmg : int):
 		super_mode = SuperMode.UPTHREE
 func get_tail_rotation_speed()->float:
 	return movement_speed
+
+var statue_spawn_beats : int = 19
+
 func run(player_pos : Vector2,beat):
 	player_pos -= get_parent().position
 	#run the mode state machine	
@@ -476,7 +484,7 @@ func run(player_pos : Vector2,beat):
 			#bounce back to repeat weve
 			set_sub_mode("RepeatWeve")
 	elif sub_mode == "StatueSpawn":
-		if counter == 19: #4 beats with a zero based index gives us 3 as the emphasis beat and we do every 5 group of 4 so 5*4-1
+		if counter >= statue_spawn_beats: #4 beats with a zero based index gives us 3 as the emphasis beat and we do every 5 group of 4 so 5*4-1
 			spawn_statue_tail()
 			counter = 0
 		counter += 1
@@ -554,3 +562,11 @@ func main_process(delta):
 	dmg_mv(velocity*movement_speed*delta,1)
 	
 	.main_process(delta)
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	#exits the mode based on the super mode and the fact we are no longer visible
+	match super_mode:
+		SuperMode.INITIAL:
+			if mode == "Follow":
+				set_mode("Idle","",0.75)
