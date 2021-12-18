@@ -1,4 +1,6 @@
-extends "res://scripts/abstracts/generic_enemy.gd"
+extends Enemy
+
+class_name CorruptableEnemy
 
 #we collide with nothing as we do not start corrupted
 func gen_col_layer()->int:

@@ -2,11 +2,63 @@ extends "res://scripts/abstracts/generic_boss.gd"
 
 class_name CentipideBoss
 
+var spider_enemy : PackedScene = preload("res://scenes/instance/entities/enemies/Spider_Enemy.tscn")
+var statue_enemy : PackedScene = preload("res://scenes/instance/entities/enemies/StatueEnemy.tscn")
+var spawn_projectile : PackedScene = load("res://scenes/instance/projectiles/SpawnProjectile.tscn")
 
 #we hit the playr and the terrain
 func gen_col_mask():
 	return col_math.Layer.PLAYER | col_math.Layer.TERRAIN
 
+#keeps track of how many enemies that we spawned in
+#we spawn in an enemy
+var enemy_count : int = 0 setget set_enemy_count,get_enemy_count
+func set_enemy_count(val : int):
+	enemy_count = val
+func get_enemy_count()->int:
+	return enemy_count
+
+func spawn_enemy()->void:
+	
+	var spawn_projectile : SpawnProjectile = load("res://scenes/instance/projectiles/SpawnProjectile.tscn").instance()
+	spawn_projectile.to_spawn = get_spawn_enemy()
+	
+	#the enemy decreases the projectile count
+	spawn_projectile.to_spawn.connect("ready",self,"incriment_enemy_count")
+	spawn_projectile.to_spawn.connect("die",self,"decriment_enemy_count")
+	
+
+	
+	spawn_projectile.dir = (LoadData.get_player_pos()-get_parent().position).normalized()
+	get_parent().get_parent().add_child(spawn_projectile)
+	
+	spawn_projectile.position = get_parent().position
+	
+
+	#reset the enemy spawn beat
+	enemy_spawn_beat = 0
+#returns an enemy for the spawn function
+func get_spawn_enemy()->Enemy:
+	var inst : Enemy = spider_enemy.instance()
+	match super_mode:
+		SuperMode.UPONE:
+			if randf() < 0.5:
+				inst = statue_enemy.instance()
+		SuperMode.UPTWO:
+			if randf() < 0.75:
+				inst = statue_enemy.instance()
+		SuperMode.UPTHREE:
+			inst = statue_enemy.instance()
+	return inst
+#these are inteanded to be called via signal from enemies we spawn in
+func incriment_enemy_count()->void:
+	enemy_count += 1
+	if enemy_count >= 2:
+		enemy_spawn_beat = -1
+func decriment_enemy_count()->void:
+	enemy_count -= 1
+	if enemy_count == 0:
+		enemy_spawn_beat = 0
 
 #this is the projectile that we shoot that stuns the player
 var medusaProjectile : PackedScene = preload("res://scenes/instance/projectiles/MedusaProjectile.tscn")
@@ -301,7 +353,6 @@ func conserve_angular_velocity_radius_cange(radius : float)->void:
 
 #this function updates the mode of the boss using the super mode
 func update_mode()->void:
-	print("SuperMode " + str(super_mode))
 	match super_mode:
 		SuperMode.INITIAL:
 			print(mode)
@@ -444,9 +495,11 @@ func get_tail_rotation_speed()->float:
 	return movement_speed
 
 var statue_spawn_beats : int = 19
-
+var enemy_spawn_beat : int = 0
 func run(player_pos : Vector2,beat):
 	player_pos -= get_parent().position
+	if enemy_spawn_beat >= 80 and enemy_count < 2:
+		spawn_enemy()
 	#run the mode state machine	
 	if mode == "Idle":
 			#randomly assign accelleration
@@ -490,6 +543,8 @@ func run(player_pos : Vector2,beat):
 		counter += 1
 	update_mode()
 	inner_beat += 1
+	if enemy_spawn_beat >= 0:
+		enemy_spawn_beat += 1
 #gets the center of the circle used in the circle mode
 func getTarget()->Vector2:
 	match target_mode:

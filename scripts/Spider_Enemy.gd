@@ -1,5 +1,7 @@
-extends "res://scripts/abstracts/generic_enemy.gd"
+extends Enemy
+
 #this script represents the basic spider enemy
+class_name SpiderEnemy
 
 #represents the mode that the spdider is in, search, patroll, attack
 var just_attacked = false

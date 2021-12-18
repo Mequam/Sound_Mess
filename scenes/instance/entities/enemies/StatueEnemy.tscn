@@ -52,6 +52,7 @@ script = ExtResource( 8 )
 [node name="groundPound" parent="statueSwitch" instance=ExtResource( 9 )]
 position = Vector2( 2.46148, -32.0133 )
 scale = Vector2( 8, 8 )
+
 [connection signal="ready" from="." to="statueSwitch" method="_on_StatueEnemy_ready"]
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]

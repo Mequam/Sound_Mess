@@ -10,6 +10,7 @@ func _ready():
 	$StatueEnemy/statueSwitch.connect("completed_dialog",self,"statue_switch_a_complete_dialog")
 	$StatueEnemy/statueSwitch.connect("completed_dialog",$OpeningDoorFront,"incriment_charge")
 	$StatueEnemy/statueSwitch.connect("completed_dialog",$openingDoorSide,"incriment_charge")
+	LoadData._player_ref = $player
 	.init()
 func statue_switch_a_complete_dialog(dialog):
 	$StatueEnemy/statueSwitch.disconnect("completed_dialog",$OpeningDoorFront,"incriment_charge")
@@ -29,7 +30,7 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_R):
 		$CircleRail.r += delta * 10
 	if Input.is_key_pressed(KEY_F):
-		$CentipideBoss/CentipideBoss.super_mode = $CentipideBoss/CentipideBoss.SuperMode.UPONE
+		$CentipideBoss/CentipideBoss.super_mode = $CentipideBoss/CentipideBoss.SuperMode.UPTHREE
 	$CentipiedeMotor.velocity = ($player.position-$CentipiedeMotor.position).normalized()*100
 func _on_statueSwitch_completed_dialog(dialog):
 	$StatueEnemy.corrupt()

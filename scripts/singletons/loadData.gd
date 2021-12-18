@@ -16,7 +16,7 @@ var prev_scene = null
 var _player_ref : Node2D setget set_player_ref, get_player_ref
 func set_player_ref(val):
 	_player_ref = val
-	#print("[WARNING] node attempting to set global player ref")
+	print("[WARNING] node attempting to set global player ref")
 func get_player_ref():
 	pass
 	print("[WARNING] node attempting to get global player ref")

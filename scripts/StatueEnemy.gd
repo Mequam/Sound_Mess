@@ -1,5 +1,6 @@
 extends "res://scripts/abstracts/corruptable_enemy.gd"
 
+class_name StatueEnemy
 
 #for when we are not corrupted and the player can use us like a switch
 signal completed_dialog

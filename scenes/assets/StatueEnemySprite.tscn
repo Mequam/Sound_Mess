@@ -2037,8 +2037,9 @@ __meta__ = {
 
 [node name="head" type="Node2D" parent="."]
 visible = false
-position = Vector2( -4.10815, 3.91541 )
+position = Vector2( -3.22851, 0.0306129 )
 rotation = 0.198929
+scale = Vector2( 0.5, 0.5 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -2088,9 +2089,9 @@ texture = ExtResource( 3 )
 
 [node name="Top" type="Sprite" parent="top_left_leg"]
 visible = false
-position = Vector2( -61.9453, -38.1888 )
-rotation = -0.0684967
-scale = Vector2( 0.0244066, 0.0829075 )
+position = Vector2( -25.9899, 12.6245 )
+rotation = 0.250975
+scale = Vector2( 0.00914272, 0.00767313 )
 texture = ExtResource( 3 )
 
 [node name="top_right_leg" type="Node2D" parent="."]
@@ -2099,15 +2100,15 @@ position = Vector2( 5.29732, -16.4217 )
 [node name="Bottom" type="Sprite" parent="top_right_leg"]
 visible = false
 position = Vector2( 38.1557, -34.289 )
-rotation = 0.688028
-scale = Vector2( 0.0320191, 0.0834709 )
+rotation = 2.61801
+scale = Vector2( 0.0048813, 0.00382974 )
 texture = ExtResource( 3 )
 
 [node name="Top" type="Sprite" parent="top_right_leg"]
 visible = false
-position = Vector2( 62.9274, -24.6311 )
-rotation = -0.0800712
-scale = Vector2( 0.0236368, 0.0834709 )
+position = Vector2( 3.58435, 12.489 )
+rotation = -0.364428
+scale = Vector2( 0.00592388, 0.00443476 )
 texture = ExtResource( 3 )
 
 [node name="statue" type="Node2D" parent="."]
@@ -2120,9 +2121,9 @@ position = Vector2( -5, 2 )
 visible = false
 
 [node name="Bottom" type="Sprite" parent="bottom_left_leg"]
-position = Vector2( -29.8177, -42.2301 )
-rotation = -0.819519
-scale = Vector2( 0.0320191, 0.0834709 )
+position = Vector2( -20.4351, -5.47027 )
+rotation = -2.30998
+scale = Vector2( 0.0177709, 0.0105872 )
 texture = ExtResource( 3 )
 
 [node name="Top" type="Sprite" parent="bottom_left_leg"]
@@ -2135,15 +2136,15 @@ texture = ExtResource( 3 )
 visible = false
 
 [node name="Bottom" type="Sprite" parent="bottom_right_leg"]
-position = Vector2( 34.7884, -38.2176 )
-rotation = 0.80819
-scale = Vector2( 0.0320191, 0.0834709 )
+position = Vector2( 1.58335, -6.0071 )
+rotation = 2.31715
+scale = Vector2( 0.00466104, 0.00641858 )
 texture = ExtResource( 3 )
 
 [node name="Top" type="Sprite" parent="bottom_right_leg"]
-position = Vector2( 73.314, -24.9586 )
-rotation = -0.214206
-scale = Vector2( 0.0236368, 0.0834709 )
+position = Vector2( 2.97497, -1.50929 )
+rotation = 0.587584
+scale = Vector2( 0.00767892, 0.00692361 )
 texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
