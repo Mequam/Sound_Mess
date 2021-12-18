@@ -199,6 +199,13 @@ func set_statue_frozen(val : bool)->void:
 		
 		get_parent().modulate = Color.white
 		
+		$health_bar.inv = false
+		$health_bar.hp -= 2
+		$health_bar.inv = true
+		
+		if super_mode < SuperMode.UPTHREE:
+			super_mode += 1
+		
 		#the parent call should take care of animating the head in the set state
 		#functions of this class
 	.set_statue_frozen(val)
@@ -513,6 +520,7 @@ func main_ready():
 	.main_ready()
 	get_parent().get_node("Sprite/AnimationPlayerHead").connect("animation_finished",self,"anim_head_finished")
 	set_mode("Idle")
+	$health_bar.inv = true
 func take_damage(dmg : int):
 	.take_damage(dmg)
 	#get ANGRY if we got hit
