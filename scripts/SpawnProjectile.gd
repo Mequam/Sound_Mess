@@ -18,7 +18,6 @@ var spawn_animation : String = "Spawn"
 func _ready():
 	#start the death animation
 	$DeathAnimation.play("emit")
-	print(dir)
 	speed = 400
 
 #spawns the to_spawn node that is our child
@@ -47,6 +46,3 @@ func queue_free():
 func _on_DeathAnimation_animation_finished(anim_name):
 	if anim_name == "emit":
 		queue_free()
-
-func _process(delta):
-	print(dir)

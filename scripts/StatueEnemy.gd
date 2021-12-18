@@ -115,6 +115,7 @@ func _process(delta):
 					set_mode("evil")
 func main_ready():
 	$health_bar.hp = 2
+	add_to_group("StatueEnemy")
 	.main_ready()
 func die():
 	#move the statue that we were using back to the main scene

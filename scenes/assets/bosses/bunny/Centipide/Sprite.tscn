@@ -4376,14 +4376,14 @@ position = Vector2( -23.2373, -9.03267 )
 rotation = -0.513201
 
 [node name="bottom" type="Sprite" parent="assets/head_front/legs_back/leg9"]
-position = Vector2( 2.65167, -18.1655 )
-rotation = 0.174034
+position = Vector2( 0.344225, -19.2108 )
+rotation = -0.00398755
 scale = Vector2( 0.0293556, 0.0365214 )
 texture = ExtResource( 3 )
 
 [node name="top" type="Sprite" parent="assets/head_front/legs_back/leg9"]
-position = Vector2( 9.88, -52.6184 )
-rotation = -2.93828
+position = Vector2( 6.18808, -53.6267 )
+rotation = -2.85553
 scale = Vector2( 0.0258692, 0.0533859 )
 texture = ExtResource( 3 )
 
@@ -4494,7 +4494,7 @@ texture = ExtResource( 3 )
 
 [node name="eyes" type="Node2D" parent="assets/head_front"]
 modulate = Color( 0.431373, 0.431373, 0.431373, 1 )
-position = Vector2( 6.85501, 0.800404 )
+position = Vector2( 0.551376, -5.18481 )
 
 [node name="right_eye" type="Sprite" parent="assets/head_front/eyes"]
 position = Vector2( 10.4516, -2.27258 )
@@ -4533,14 +4533,14 @@ position = Vector2( -5.26806, -20.8236 )
 rotation = -0.315544
 
 [node name="bottom" type="Sprite" parent="assets/head_front/legs/leg6"]
-position = Vector2( 0.236984, -16.6846 )
-rotation = -0.00398755
+position = Vector2( 4.53455, -18.1929 )
+rotation = 0.491933
 scale = Vector2( 0.0293556, 0.0298276 )
 texture = ExtResource( 3 )
 
 [node name="top" type="Sprite" parent="assets/head_front/legs/leg6"]
-position = Vector2( 7.80615, -44.4243 )
-rotation = -2.53916
+position = Vector2( 21.1394, -41.9912 )
+rotation = -2.52076
 scale = Vector2( 0.0258692, 0.0323585 )
 texture = ExtResource( 3 )
 
@@ -4554,7 +4554,7 @@ scale = Vector2( 0.0293556, 0.0282731 )
 texture = ExtResource( 3 )
 
 [node name="top" type="Sprite" parent="assets/head_front/legs/leg3"]
-position = Vector2( -9.0249, -42.2656 )
+position = Vector2( -9.42188, -42.2656 )
 rotation = -3.95588
 scale = Vector2( 0.0258692, 0.0323585 )
 texture = ExtResource( 3 )
@@ -4563,13 +4563,13 @@ texture = ExtResource( 3 )
 position = Vector2( 21.4057, -30.9194 )
 
 [node name="bottom" type="Sprite" parent="assets/head_front/legs/leg1"]
-position = Vector2( 9.50171, -12.3672 )
-rotation = 0.739751
+position = Vector2( 11.9822, -11.2436 )
+rotation = 0.500691
 scale = Vector2( 0.0415117, 0.0353192 )
 texture = ExtResource( 3 )
 
 [node name="top" type="Sprite" parent="assets/head_front/legs/leg1"]
-position = Vector2( 46.4966, -26.1006 )
+position = Vector2( 48.9883, -26.7141 )
 rotation = -1.65233
 scale = Vector2( 0.0271831, 0.0625724 )
 texture = ExtResource( 3 )
@@ -4578,14 +4578,14 @@ texture = ExtResource( 3 )
 position = Vector2( -13.0813, -27.3518 )
 
 [node name="bottom" type="Sprite" parent="assets/head_front/legs/leg2"]
-position = Vector2( -10.7148, -12.5649 )
+position = Vector2( -9.95654, -13.5439 )
 rotation = -0.51608
 scale = Vector2( 0.0370757, 0.0523103 )
 texture = ExtResource( 3 )
 
 [node name="top" type="Sprite" parent="assets/head_front/legs/leg2"]
-position = Vector2( -49.1206, -55.1974 )
-rotation = -3.95588
+position = Vector2( -50.3943, -56.1604 )
+rotation = -4.00597
 scale = Vector2( 0.032648, 0.100996 )
 texture = ExtResource( 3 )
 
@@ -4600,7 +4600,7 @@ scale = Vector2( 0.0293556, 0.0367194 )
 texture = ExtResource( 3 )
 
 [node name="top" type="Sprite" parent="assets/head_front/legs/leg4"]
-position = Vector2( 10.0479, -47.9741 )
+position = Vector2( 7.80615, -44.4243 )
 rotation = -2.53916
 scale = Vector2( 0.0258692, 0.0444637 )
 texture = ExtResource( 3 )
@@ -4644,14 +4644,14 @@ position = Vector2( -1.12247, -138.624 )
 position = Vector2( -14.592, 10.1022 )
 
 [node name="bicept" type="Sprite" parent="assets/arms_front/left"]
-position = Vector2( -19.6632, 18.2964 )
-rotation = -2.53731
+position = Vector2( -16.8762, 20.0978 )
+rotation = -2.47153
 scale = Vector2( 0.0451716, 0.0890352 )
 texture = ExtResource( 3 )
 
 [node name="forarm" type="Sprite" parent="assets/arms_front/left"]
-position = Vector2( -56.8285, 113.8 )
-rotation = -6.06884
+position = Vector2( -101.727, 73.8451 )
+rotation = -5.08821
 scale = Vector2( 0.0354178, 0.172107 )
 texture = ExtResource( 3 )
 
@@ -4659,14 +4659,14 @@ texture = ExtResource( 3 )
 position = Vector2( 10.1021, 12.3471 )
 
 [node name="bicept" type="Sprite" parent="assets/arms_front/right"]
-position = Vector2( 31.6987, -1.25397 )
-rotation = -4.04744
+position = Vector2( 19.5356, 23.5226 )
+rotation = -3.62842
 scale = Vector2( 0.0451716, 0.0890352 )
 texture = ExtResource( 3 )
 
 [node name="forarm" type="Sprite" parent="assets/arms_front/right"]
-position = Vector2( 55.8333, 93.5507 )
-rotation = 0.127892
+position = Vector2( 94.0647, 95.5387 )
+rotation = -0.938778
 scale = Vector2( 0.0354178, 0.172107 )
 texture = ExtResource( 3 )
 

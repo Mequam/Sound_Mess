@@ -5,7 +5,7 @@ extends Projectile
 #the movement behavior of this projectile is to be pulled twoards a target point
 
 #how strong we are pulled twoards the target point
-var pull_force : float = 500
+var pull_force : float = 700
 #how fast we can move max
 var terminal_velocity : float = 600
 

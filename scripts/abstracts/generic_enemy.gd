@@ -5,6 +5,11 @@ extends "res://scripts/abstracts/entity.gd"
 
 class_name Enemy
 
+#this signal is emited when an enemies status effect is updated with a value
+#NOTE: this signal is called even when a false state status effect is updated
+#with a false value
+signal status_update
+
 #the beat of the enemies song
 var inner_beat : int = 0
 #used for flight effects
@@ -81,12 +86,28 @@ func set_flying(val : bool)->void:
 		#cause whatever animation setup happened BEFORE the get_mode
 		#to fire again
 		set_mode(get_mode())
+	emit_signal("status_update",self,"flying",val)
 func get_flying()->bool:
 	#returns true if we are shifted into the flight layer
 	return col_math.in_layer_no_constants(
 		collision_layer,
 		col_math.shift_collision(gen_col_layer(),col_math.SuperLayer.FLIGHT))
 
+#used to spawn the statue switch when we are statue_frozen
+#this is functionized so children overloading the class that have special
+#cases of this spawn code can fiddle with it
+func spawn_switch()->Node:
+	#load and add the switch to the scene
+	var switch = load("res://scenes/instance/statue_frozen_switch.tscn").instance()
+	
+	get_parent().add_child(switch)
+	
+	switch.get_child(0).get_node("DialogChoiceList").connect("completed_dialog_no_arg",self,"undo_statue")
+	switch.get_child(0).get_node("DialogChoiceList").connect("completed_dialog_no_arg",switch,"queue_free")
+	
+	switch.global_position = global_position
+	
+	return switch
 #determines whether or not we are frozen like a statue
 var statue_frozen : bool = false setget set_statue_frozen, get_statue_frozen
 func set_statue_frozen(val : bool)->void:
@@ -101,24 +122,17 @@ func set_statue_frozen(val : bool)->void:
 		modulate = Color.darkgray
 		
 		#stop animation and music
-		$Sprite/AnimationPlayer.stop()
+		if $Sprite/AnimationPlayer:
+			$Sprite/AnimationPlayer.stop()
 		$NotePlayer.stop()
 		
-		#load and add the switch to the scene
-		var switch = load("res://scenes/instance/statue_frozen_switch.tscn").instance()
-		
-		get_parent().add_child(switch)
-		
-		switch.get_child(0).get_node("DialogChoiceList").connect("completed_dialog_no_arg",self,"undo_statue")
-		switch.get_child(0).get_node("DialogChoiceList").connect("completed_dialog_no_arg",switch,"queue_free")
-		
-		switch.global_position = global_position
+		spawn_switch()
 		
 		#we dont collide with anything while we are like this
 		collision_layer = 0
 		collision_mask = 0
-		
 	statue_frozen = val
+	emit_signal("status_update",self,"statue_frozen",val)
 func get_statue_frozen()->bool:
 	return statue_frozen
 func undo_statue()->void:

@@ -18,26 +18,38 @@ func set_enemy_count(val : int):
 func get_enemy_count()->int:
 	return enemy_count
 
+#freezes us when we free a statue
+func freeze(enemy,status,value):
+	if status == "statue_frozen":
+		set_statue_frozen(!value)
+	if not value:
+		enemy.queue_free()
+
+#this is called when spawn projectiles that we launch spawn an enemy into the game
+#we need to connect the enemies signals here because as far as I can tell 
+#custom signals has to be in the tree to be connected
+func on_projectile_enemy_spawn(enemy):
+	enemy.connect("status_update",self,"freeze")
+
 func spawn_enemy()->void:
-	
 	var spawn_projectile : SpawnProjectile = load("res://scenes/instance/projectiles/SpawnProjectile.tscn").instance()
 	spawn_projectile.to_spawn = get_spawn_enemy()
-	
 	#the enemy decreases the projectile count
 	spawn_projectile.to_spawn.connect("ready",self,"incriment_enemy_count")
 	spawn_projectile.to_spawn.connect("die",self,"decriment_enemy_count")
-	
-
+	spawn_projectile.connect("on_spawn",self,"on_projectile_enemy_spawn")
 	
 	spawn_projectile.dir = (LoadData.get_player_pos()-get_parent().position).normalized()
 	get_parent().get_parent().add_child(spawn_projectile)
 	
 	spawn_projectile.position = get_parent().position
 	
-
 	#reset the enemy spawn beat
 	enemy_spawn_beat = 0
+
 #returns an enemy for the spawn function
+#this function ONLY returns a type of enemy, it does
+#nothing to prep the enemy for spawning
 func get_spawn_enemy()->Enemy:
 	var inst : Enemy = spider_enemy.instance()
 	match super_mode:
@@ -171,18 +183,35 @@ func set_statue_frozen(val : bool)->void:
 	if not statue_frozen and val:
 		#stop the animation on the head
 		get_parent().get_node("Sprite/AnimationPlayerHead").stop()
+		get_parent().get_node("Sprite/AnimationPlayer").stop()
 		#turn off the centipide chain update
 		get_parent().get_node("Sprite/Tail").do_chain_update = false
 		#update the animation state of each of the links
 		get_parent().get_node("Sprite/Tail").link_anim_state = "Frozen"
 		get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").stop()
+		
+		get_parent().modulate = Color.darkgray
+	
 	elif statue_frozen and not val:
 		get_parent().get_node("Sprite/Tail").do_chain_update = true
 		get_parent().get_node("Sprite/Tail").link_anim_state = "Run"
 		get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").play(get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").current_animation)
+		
+		get_parent().modulate = Color.white
+		
 		#the parent call should take care of animating the head in the set state
 		#functions of this class
 	.set_statue_frozen(val)
+func spawn_switch()->Node:
+	var switch = .spawn_switch()
+	
+	#move the switch from our child to our parents as the overloaded function
+	#spawns the switch in as a child of our parent and wee need it a parent parent child
+	get_parent().remove_child(switch)
+	get_parent().get_parent().add_child(switch)
+	
+	switch.global_position = global_position
+	return switch
 #takes a mode and a velocity and updates the sprite
 func update_sprite(mode : String,vel : Vector2):
 	if abs(vel.x) > abs(vel.y):
@@ -498,7 +527,7 @@ var statue_spawn_beats : int = 19
 var enemy_spawn_beat : int = 0
 func run(player_pos : Vector2,beat):
 	player_pos -= get_parent().position
-	if enemy_spawn_beat >= 80 and enemy_count < 2:
+	if enemy_spawn_beat >= 4 and enemy_count < 4:
 		spawn_enemy()
 	#run the mode state machine	
 	if mode == "Idle":
