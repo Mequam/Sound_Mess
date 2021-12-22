@@ -65,3 +65,4 @@ func sync_disp():
 func _ready():
 	add_to_group("ui")
 	add_to_group("health_bar")
+	sync_disp()

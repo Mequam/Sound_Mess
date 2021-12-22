@@ -23,29 +23,39 @@ func freeze(enemy,status,value):
 	if status == "statue_frozen":
 		set_statue_frozen(!value)
 	if not value:
-		enemy.queue_free()
+		enemy.die()
 
+func die():
+	.die()
+	velocity = Vector2(0,0)
+	get_parent().get_node("Sprite/AnimationPlayer").play("Die")
+	
 #this is called when spawn projectiles that we launch spawn an enemy into the game
 #we need to connect the enemies signals here because as far as I can tell 
 #custom signals has to be in the tree to be connected
 func on_projectile_enemy_spawn(enemy):
 	enemy.connect("status_update",self,"freeze")
+	enemy.connect("die",self,"decriment_enemy_count")
 
 func spawn_enemy()->void:
+	
+	#we have to incriment the enemy count BEFORE the enemy actually spawns into the game
+	#because the projectile IS going to spawn an enemy so the boss could shoot a projectile,
+	#then see no enemy count increase and shoot another projcetile 
+	incriment_enemy_count()
+	
 	var spawn_projectile : SpawnProjectile = load("res://scenes/instance/projectiles/SpawnProjectile.tscn").instance()
+	
 	spawn_projectile.to_spawn = get_spawn_enemy()
-	#the enemy decreases the projectile count
-	spawn_projectile.to_spawn.connect("ready",self,"incriment_enemy_count")
-	spawn_projectile.to_spawn.connect("die",self,"decriment_enemy_count")
+	
+	#we cant connecet signals to somthing thats not in the tree, so wait till
+	#it gets in the tree to connect them
 	spawn_projectile.connect("on_spawn",self,"on_projectile_enemy_spawn")
 	
 	spawn_projectile.dir = (LoadData.get_player_pos()-get_parent().position).normalized()
 	get_parent().get_parent().add_child(spawn_projectile)
 	
 	spawn_projectile.position = get_parent().position
-	
-	#reset the enemy spawn beat
-	enemy_spawn_beat = 0
 
 #returns an enemy for the spawn function
 #this function ONLY returns a type of enemy, it does
@@ -67,7 +77,7 @@ func incriment_enemy_count()->void:
 	enemy_count += 1
 	if enemy_count >= 2:
 		enemy_spawn_beat = -1
-func decriment_enemy_count()->void:
+func decriment_enemy_count(enemy)->void:
 	enemy_count -= 1
 	if enemy_count == 0:
 		enemy_spawn_beat = 0
@@ -158,10 +168,8 @@ func move_and_collide(rel_vec : Vector2, infinite_inertia: bool = true, exclude_
 var projectile_count : int = 0
 func incriment_projectile_count()->void:
 	projectile_count += 1
-	print("UPDATING PROJECTILE COUNT: " + str(projectile_count))
 func decriment_projectile_count()->void:
 	projectile_count -= 1
-	print("UPDATING PROJECTILE COUNT: " + str(projectile_count))
 #do not spawn projectiles if we would have more than this amount
 var max_projectile_count : int = 6
 #adds a projcetile to the parent to launch in the given direction
@@ -176,9 +184,7 @@ func launch_projectile(dir : Vector2)->void:
 		inst.connect("despawn",self,"decriment_projectile_count")
 		get_parent().get_parent().add_child(inst)
 		inst.global_position = get_parent().get_node("Sprite/assets/head_front").global_position
-	else:
-		print("Reached max projectile count")
-
+		
 func set_statue_frozen(val : bool)->void:
 	if not statue_frozen and val:
 		#stop the animation on the head
@@ -191,7 +197,11 @@ func set_statue_frozen(val : bool)->void:
 		get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").stop()
 		
 		get_parent().modulate = Color.darkgray
-	
+		
+		#we will deal no damage for a time after a timeout passes
+		$no_damage_timer.start()
+		collision_mask = 0
+		
 	elif statue_frozen and not val:
 		get_parent().get_node("Sprite/Tail").do_chain_update = true
 		get_parent().get_node("Sprite/Tail").link_anim_state = "Run"
@@ -199,15 +209,13 @@ func set_statue_frozen(val : bool)->void:
 		
 		get_parent().modulate = Color.white
 		
-		$health_bar.inv = false
-		$health_bar.hp -= 2
-		$health_bar.inv = true
+		#let the player hurt us
+		set_inv(false)
+		take_damage(2)
+		set_inv(true)
 		
-		if super_mode < SuperMode.UPTHREE:
-			super_mode += 1
-		
-		#the parent call should take care of animating the head in the set state
-		#functions of this class
+	#the parent call should take care of animating the head in the set state
+	#functions of this class
 	.set_statue_frozen(val)
 func spawn_switch()->Node:
 	var switch = .spawn_switch()
@@ -226,11 +234,7 @@ func update_sprite(mode : String,vel : Vector2):
 	else:
 		get_parent().get_node("YSort/Sprite/AnimationPlayer").play("Idle")
 #use a space for our default value because we have to be able to use an empty string
-func set_mode(val : String,sub_mode_val : String = " ",movement_speed_factor : float = 1)->void:
-	print("\t updating mode to " + val)
-	print("\t with sub mode of \""+sub_mode_val+"\"")
-	print("\t movement speed factor of " + str(movement_speed_factor))
-	
+func set_mode(val : String,sub_mode_val : String = " ",movement_speed_factor : float = 1)->void:	
 	#note circle mode does not set its speed in the set mode function
 	#because that mode has special cases of speed when determinine radius
 	match val:
@@ -319,9 +323,9 @@ func anim_head_finished(anim):
 
 #called when the player collides with the tail segments
 #this is custom collision using the squared distance from the segment 
-#and function telephone called up the chain
+#and function telephone called up the chain from the tail
 func player_entered_tail(player : Player,segment)->void:
-	if player.collision_layer & collision_mask != 0:
+	if $no_damage_timer.time_left == 0 && player.collision_layer & collision_mask != 0:
 		player.take_damage(1)
 func get_last_tail_link()->CentiBody:
 	return (get_parent().get_node("Sprite/Tail") as CentiMotor).get_last_link() as CentiBody
@@ -391,8 +395,6 @@ func conserve_angular_velocity_radius_cange(radius : float)->void:
 func update_mode()->void:
 	match super_mode:
 		SuperMode.INITIAL:
-			print(mode)
-			print("\tinner_beat " + str(inner_beat))
 			match mode:
 				"Idle":
 					match sub_mode:
@@ -418,8 +420,6 @@ func update_mode()->void:
 				"Circle":
 					#bounce back to our IDLE mode
 					set_mode("Idle","RepeatWeve",0.5)
-					
-
 		SuperMode.UPONE:
 			match mode:
 				"Circle":
@@ -437,7 +437,7 @@ func update_mode()->void:
 						set_mode("Idle","RepeatWeve")
 				"Idle":
 					#if we made it to 8 beats
-					if inner_beat >= 32:
+					if inner_beat >= 64:
 						#mabye enter circle mode
 						if randf() < 0.5:
 							#target the player as the center
@@ -454,7 +454,6 @@ func update_mode()->void:
 					if inner_beat >= 32:
 						if randf() < 0.6: #we MIGHT move into the follow attack
 							#target the playeres current position
-							print("changing out of statue mode")
 							set_follow_mode_at_point(Globals.get_scene_root().get_node("player").position,"RepeateWeve",2)
 						else:
 							#if we dont alternate between spawning statues and shooting stuff
@@ -471,9 +470,7 @@ func update_mode()->void:
 						target_mode = TargetMode.PLAYER
 				"Idle":
 					#idle for longer
-					print("Idle mode " + str(inner_beat))
 					if inner_beat >= 64:
-						print("[Centipide] changing out of idle mode")
 						if sub_mode == "StatueSpawn":
 							set_sub_mode("RepeatWeve")
 						else:
@@ -522,21 +519,30 @@ func main_ready():
 	set_mode("Idle")
 	$health_bar.inv = true
 func take_damage(dmg : int):
+	
+	#let the damage code run
 	.take_damage(dmg)
-	#get ANGRY if we got hit
-	if super_mode < SuperMode.UPTHREE:
-		super_mode += 1
-	else:
-		super_mode = SuperMode.UPTHREE
+	
+	#if we dont actually take dmg then dont incriment the super mode 
+	if not get_inv() and dmg != 0:
+		#get ANGRY if we got hit
+		if super_mode < SuperMode.UPTHREE:
+			super_mode += 1
+		else:
+			super_mode = SuperMode.UPTHREE
+
 func get_tail_rotation_speed()->float:
 	return movement_speed
 
 var statue_spawn_beats : int = 19
 var enemy_spawn_beat : int = 0
+const MAX_ENEMY_COUNT = 2
 func run(player_pos : Vector2,beat):
 	player_pos -= get_parent().position
-	if enemy_spawn_beat >= 4 and enemy_count < 4:
+	if enemy_spawn_beat >= 8 and enemy_count < MAX_ENEMY_COUNT:
 		spawn_enemy()
+		#reset the enemy spawn beat
+		enemy_spawn_beat = 0
 	#run the mode state machine	
 	if mode == "Idle":
 			#randomly assign accelleration
@@ -580,7 +586,7 @@ func run(player_pos : Vector2,beat):
 		counter += 1
 	update_mode()
 	inner_beat += 1
-	if enemy_spawn_beat >= 0:
+	if enemy_count < MAX_ENEMY_COUNT:
 		enemy_spawn_beat += 1
 #gets the center of the circle used in the circle mode
 func getTarget()->Vector2:
@@ -662,3 +668,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 		SuperMode.INITIAL:
 			if mode == "Follow":
 				set_mode("Idle","",0.75)
+
+
+func _on_no_damage_timer_timeout():
+	collision_mask = gen_col_mask()

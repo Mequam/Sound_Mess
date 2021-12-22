@@ -34,6 +34,10 @@ func set_hp(val : int) -> void:
 func get_hp() -> int:
 	return $health_bar.hp
 
+func get_inv()->bool:
+	return $health_bar.inv
+func set_inv(inv : bool)->void:
+	$health_bar.inv = inv
 #the following two functions (take_damage and heal) are syntactic sugar only
 #function that indicates the player takes damage
 func take_damage(amount : int) -> void:

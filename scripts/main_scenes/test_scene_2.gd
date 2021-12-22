@@ -30,7 +30,6 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_R):
 		$CircleRail.r += delta * 10
 	if Input.is_key_pressed(KEY_F):
-		get_tree().call_group("StatueEnemy","set_statue_frozen",true)
-	$CentipiedeMotor.velocity = ($player.position-$CentipiedeMotor.position).normalized()*100
+		$CentipideBoss/CentipideBoss.die()
 func _on_statueSwitch_completed_dialog(dialog):
 	$StatueEnemy.corrupt()

@@ -115,6 +115,7 @@ func set_statue_frozen(val : bool)->void:
 		modulate = Color.white
 		
 		set_mode("Idle")
+		
 		#reset our collision
 		collision_layer = gen_col_layer()
 		collision_mask = gen_col_mask()
