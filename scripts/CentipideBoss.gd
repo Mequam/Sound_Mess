@@ -28,6 +28,9 @@ func freeze(enemy,status,value):
 func die():
 	.die()
 	velocity = Vector2(0,0)
+	
+	#update our animation stufz
+	stop_tail_animation()
 	get_parent().get_node("Sprite/AnimationPlayer").play("Die")
 	
 #this is called when spawn projectiles that we launch spawn an enemy into the game
@@ -184,17 +187,29 @@ func launch_projectile(dir : Vector2)->void:
 		inst.connect("despawn",self,"decriment_projectile_count")
 		get_parent().get_parent().add_child(inst)
 		inst.global_position = get_parent().get_node("Sprite/assets/head_front").global_position
-		
+func stop_tail_animation()->void:
+	#turn off the centipide chain update
+	get_parent().get_node("Sprite/Tail").do_chain_update = false
+	#update the animation state of each of the links
+	get_parent().get_node("Sprite/Tail").link_anim_state = "Frozen"
+	#the first leg is technicaly not part of the tail chain, and is part of our sprite
+	#so we have to stop it ourselfs
+	get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").stop()
+func start_tail_animation()->void:
+	#turn on the chain
+	get_parent().get_node("Sprite/Tail").do_chain_update = true
+	#let the chain know were running
+	get_parent().get_node("Sprite/Tail").link_anim_state = "Run"
+	#get the legs playing the proper animation
+	get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").play(get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").current_animation)
+
 func set_statue_frozen(val : bool)->void:
 	if not statue_frozen and val:
 		#stop the animation on the head
 		get_parent().get_node("Sprite/AnimationPlayerHead").stop()
 		get_parent().get_node("Sprite/AnimationPlayer").stop()
-		#turn off the centipide chain update
-		get_parent().get_node("Sprite/Tail").do_chain_update = false
-		#update the animation state of each of the links
-		get_parent().get_node("Sprite/Tail").link_anim_state = "Frozen"
-		get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").stop()
+
+		stop_tail_animation()
 		
 		get_parent().modulate = Color.darkgray
 		
@@ -203,13 +218,11 @@ func set_statue_frozen(val : bool)->void:
 		collision_mask = 0
 		
 	elif statue_frozen and not val:
-		get_parent().get_node("Sprite/Tail").do_chain_update = true
-		get_parent().get_node("Sprite/Tail").link_anim_state = "Run"
-		get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").play(get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").current_animation)
-		
 		get_parent().modulate = Color.white
 		
-		#let the player hurt us
+		start_tail_animation()
+		
+		#we take damage
 		set_inv(false)
 		take_damage(2)
 		set_inv(true)

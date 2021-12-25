@@ -840,6 +840,42 @@ tracks/68/keys = {
 "update": 1,
 "values": [ -53.788, -53.788, -53.788, -124.586, -53.788, -53.788, -53.788, -124.586, -53.788, -53.788, -53.788, -124.586, -74.318, -66.8919 ]
 }
+tracks/69/type = "value"
+tracks/69/path = NodePath("assets/head_front/legs_back_back_anim:visible")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/70/type = "value"
+tracks/70/path = NodePath("assets/head_front/face:visible")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/71/type = "value"
+tracks/71/path = NodePath("assets/head_front/eyes:visible")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "IdleBack"
@@ -2169,6 +2205,42 @@ tracks/69/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ -53.788 ]
+}
+tracks/70/type = "value"
+tracks/70/path = NodePath("assets/head_front/legs_back_back_anim:visible")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/71/type = "value"
+tracks/71/path = NodePath("assets/head_front/face:visible")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/72/type = "value"
+tracks/72/path = NodePath("assets/head_front/eyes:visible")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -6249,7 +6321,7 @@ texture = ExtResource( 3 )
 
 [node name="top" type="Sprite" parent="assets/head_front/legs/leg1"]
 position = Vector2( 44.8936, -35.5334 )
-rotation = -1.96991
+rotation = -1.96992
 scale = Vector2( 0.0271831, 0.0625724 )
 texture = ExtResource( 3 )
 
@@ -6264,7 +6336,7 @@ texture = ExtResource( 3 )
 
 [node name="top" type="Sprite" parent="assets/head_front/legs/leg2"]
 position = Vector2( -50.3943, -56.1604 )
-rotation = -2.75733
+rotation = -2.75732
 scale = Vector2( 0.032648, 0.100996 )
 texture = ExtResource( 3 )
 
