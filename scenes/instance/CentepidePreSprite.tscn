@@ -1,0 +1,844 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
+[ext_resource path="res://triangles/long_triangle.png" type="Texture" id=2]
+[ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/CentipideBoss.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/StatueSplosionParticles.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("caterpillarStatueSprite/head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3.50911, -0.76018 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("caterpillarStatueSprite/head:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -19.0033 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("caterpillarStatueSprite/body/body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1.46707, -1.2271 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("caterpillarStatueSprite/body/body:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 76.8388 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("caterpillarStatueSprite/head:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("caterpillarStatueSprite/body/body:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.00813912, 0.00725361 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("caterpillarStatueSprite/head/anteni/right:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.128906, -1.2085 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("caterpillarStatueSprite/head/anteni/right:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 11.2786 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("caterpillarStatueSprite/head/anteni/right:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.00207892, 0.00234965 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("caterpillarStatueSprite/head/anteni/left:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.500977, -1.29224 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("caterpillarStatueSprite/head/anteni/left:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 23.4717 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("caterpillarStatueSprite/head/anteni/left:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.00231528, 0.00274775 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("caterpillarStatueSprite/head/anteni/leg:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.01404, -5.15918 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("caterpillarStatueSprite/head/anteni/leg:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 196.934 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("caterpillarStatueSprite/head/anteni/leg:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.00231528, 0.00243123 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("caterpillarStatueSprite/head/anteni/leg:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("caterpillarStatueSprite/head/anteni/right2:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2.54883, -5.67822 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("caterpillarStatueSprite/head/anteni/right2:rotation_degrees")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -171.274 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("caterpillarStatueSprite/head/anteni/right2:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.00207476, 0.0073472 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("caterpillarStatueSprite/head/anteni/right2:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("caterpillarStatueSprite/arms/left:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2.39999, 0 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("caterpillarStatueSprite/arms/left:rotation_degrees")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.82999 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("caterpillarStatueSprite/arms/left:scale")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.00419306, 0.00354833 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("caterpillarStatueSprite/arms/left:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("caterpillarStatueSprite/arms/left_back:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2.20001, -3.40002 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("caterpillarStatueSprite/arms/left_back:rotation_degrees")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 178.867 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("caterpillarStatueSprite/arms/left_back:scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.00341583, 0.0023077 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("caterpillarStatueSprite/arms/left_back:visible")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("caterpillarStatueSprite/head/head:modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.607843, 0.607843, 0.607843, 1 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("caterpillarStatueSprite/head/head/StatueSplosionParticles:emitting")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Transform"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("caterpillarStatueSprite/head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.7, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.9, 2.4, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -3.50911, -0.76018 ), Vector2( -2.2, -0.8 ), Vector2( -3.50911, -0.76018 ), Vector2( -2.2, -0.8 ), Vector2( -3.50911, -0.76018 ), Vector2( -2.2, -0.8 ), Vector2( -3.50911, -0.76018 ), Vector2( -2.2, -0.8 ), Vector2( -3.50911, -0.76018 ), Vector2( -2.2, -0.8 ), Vector2( -3.50911, -0.76018 ), Vector2( -5.2, -5.6 ), Vector2( -6.6, -12.4 ), Vector2( -5.2, -22 ), Vector2( -1, -29.6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("caterpillarStatueSprite/head:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.6, 1.9, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -19.0033, -16.0802, -0.490235 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("caterpillarStatueSprite/body/body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.44671, -1.33643 ), Vector2( -1.60001, -1.2 ), Vector2( -1.44671, -1.33643 ), Vector2( -1.60001, -1.2 ), Vector2( -1.44671, -1.33643 ), Vector2( -1.60001, -1.2 ), Vector2( -1.44671, -1.33643 ), Vector2( -1.60001, -1.2 ), Vector2( -1.44671, -1.33643 ), Vector2( -1.60001, -1.2 ), Vector2( -1.46707, -1.2271 ), Vector2( 0.800049, -13.4 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("caterpillarStatueSprite/body/body:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.6, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 76.8388, 177.738 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("caterpillarStatueSprite/head:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.6, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 4.3, 2.5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("caterpillarStatueSprite/body/body:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.6, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00813912, 0.00725361 ), Vector2( 0.015056, 0.045854 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("caterpillarStatueSprite/head/anteni/right:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.6, 1.8, 2.1, 3.5, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.128906, -1.2085 ), Vector2( -0.102234, -2.11743 ), Vector2( -0.499268, -1.85449 ), Vector2( -1.54785, -1.24536 ), Vector2( -1.06909, -2.25586 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("caterpillarStatueSprite/head/anteni/right:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1.6, 1.8, 3.5, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 11.2786, -5.09327, -46.1999, -25.4186 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("caterpillarStatueSprite/head/anteni/right:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 1.6, 1.8, 2.1, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00207892, 0.00234965 ), Vector2( 0.00207892, 0.00456429 ), Vector2( 0.00207892, 0.00711673 ), Vector2( 0.00230298, 0.00430598 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("caterpillarStatueSprite/head/anteni/left:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 1.6, 2.1, 3.5, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.500977, -1.29224 ), Vector2( 0.819092, -2.3479 ), Vector2( 0.110555, -0.989189 ), Vector2( 1.26685, -2.02173 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("caterpillarStatueSprite/head/anteni/left:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 1.6, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 23.4717, 23.4717 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("caterpillarStatueSprite/head/anteni/left:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 1.6, 1.8, 2.1, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00231528, 0.00274775 ), Vector2( 0.00231528, 0.0046122 ), Vector2( 0.00231528, 0.00631469 ), Vector2( 0.00186124, 0.00224413 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("caterpillarStatueSprite/head/anteni/leg:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 2, 2.1, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.01404, -5.15918 ), Vector2( 2.02502, -5.63574 ), Vector2( 0.271699, -3.5483 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("caterpillarStatueSprite/head/anteni/leg:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 2, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 196.934, 165.274 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("caterpillarStatueSprite/head/anteni/leg:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 2, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00231528, 0.00243123 ), Vector2( 0.00174734, 0.0031689 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("caterpillarStatueSprite/head/anteni/leg:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("caterpillarStatueSprite/head/anteni/right2:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 1.8, 1.9, 2.1, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.120361, -5.11768 ), Vector2( -0.510254, -5.16797 ), Vector2( -0.901611, -5.74805 ), Vector2( -2.54883, -5.67822 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("caterpillarStatueSprite/head/anteni/right2:rotation_degrees")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -171.274 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("caterpillarStatueSprite/head/anteni/right2:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 1.9, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00207476, 0.00224709 ), Vector2( 0.00207476, 0.0073472 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("caterpillarStatueSprite/head/anteni/right2:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("caterpillarStatueSprite/arms/left:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 1.8, 1.9, 2, 2.7, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.39999, 0 ), Vector2( -2.40002, -0.200001 ), Vector2( -2.40002, -0.599998 ), Vector2( -2.79999, -2.39999 ), Vector2( -11.786, -5.71079 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("caterpillarStatueSprite/arms/left:rotation_degrees")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 1.8, 2.7, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 5.82999, -4.19101, 47.0718 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("caterpillarStatueSprite/arms/left:scale")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 1.8, 1.9, 2, 2.7, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00419306, 0.00354833 ), Vector2( 0.00309287, 0.00469974 ), Vector2( 0.00309287, 0.00554897 ), Vector2( 0.00309287, 0.00867137 ), Vector2( 0.00588006, 0.0240888 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("caterpillarStatueSprite/arms/left:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("caterpillarStatueSprite/arms/left_back:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 2.1, 2.7, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.20001, -3.40002 ), Vector2( -3, -7.59998 ), Vector2( -2.62416, -17.5376 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("caterpillarStatueSprite/arms/left_back:rotation_degrees")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 2.1, 2.7, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 178.867, 181.861, 199.511 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("caterpillarStatueSprite/arms/left_back:scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 2.1, 2.7, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00341583, 0.00181264 ), Vector2( 0.00341583, 0.00428793 ), Vector2( 0.00642292, 0.0140528 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("caterpillarStatueSprite/arms/left_back:visible")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 2, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("caterpillarStatueSprite/head/head:modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 0.607843, 0.607843, 0.607843, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("caterpillarStatueSprite/head/head/StatueSplosionParticles:emitting")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="CentepidePreSprite" type="Node2D"]
+
+[node name="caterpillarStatueSprite" type="Node2D" parent="."]
+scale = Vector2( 5, 5 )
+
+[node name="body" type="Node2D" parent="caterpillarStatueSprite"]
+modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
+
+[node name="even_triangle" type="Sprite" parent="caterpillarStatueSprite/body"]
+position = Vector2( 3.47756, -1.17362 )
+rotation = 1.56572
+scale = Vector2( 0.00903255, 0.00903255 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle3" type="Sprite" parent="caterpillarStatueSprite/body"]
+position = Vector2( 1.83199, -1.795 )
+rotation = 1.81512
+scale = Vector2( 0.00841111, 0.00841111 )
+texture = ExtResource( 1 )
+
+[node name="even_triangle4" type="Sprite" parent="caterpillarStatueSprite/body"]
+position = Vector2( -0.0181433, -1.90084 )
+rotation = -4.96757
+scale = Vector2( 0.00799021, 0.00799021 )
+texture = ExtResource( 1 )
+
+[node name="body" type="Sprite" parent="caterpillarStatueSprite/body"]
+position = Vector2( -1.46707, -1.2271 )
+rotation = 1.34109
+scale = Vector2( 0.00813912, 0.00725361 )
+texture = ExtResource( 1 )
+
+[node name="head" type="Node2D" parent="caterpillarStatueSprite"]
+position = Vector2( -3.50911, -0.76018 )
+rotation = -0.33167
+
+[node name="head" type="Sprite" parent="caterpillarStatueSprite/head"]
+modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
+position = Vector2( 0.150604, 0.614073 )
+rotation = -0.0561969
+scale = Vector2( 0.00763852, 0.00672533 )
+texture = ExtResource( 1 )
+
+[node name="StatueSplosionParticles" parent="caterpillarStatueSprite/head/head" instance=ExtResource( 4 )]
+position = Vector2( 24.479, -54.9406 )
+rotation = 0.437659
+scale = Vector2( 10, 10 )
+emitting = true
+
+[node name="left_eye" type="Sprite" parent="caterpillarStatueSprite/head"]
+modulate = Color( 0.419608, 0.419608, 0.419608, 1 )
+position = Vector2( -0.291767, -0.210626 )
+rotation = -3.14159
+scale = Vector2( 0.00219967, 0.00203996 )
+texture = ExtResource( 1 )
+
+[node name="anteni" type="Node2D" parent="caterpillarStatueSprite/head"]
+position = Vector2( 0.0743256, -1.07772 )
+
+[node name="right" type="Sprite" parent="caterpillarStatueSprite/head/anteni"]
+modulate = Color( 0.388235, 0.388235, 0.388235, 1 )
+position = Vector2( 0.128906, -1.2085 )
+rotation = 0.196849
+scale = Vector2( 0.00207892, 0.00234965 )
+texture = ExtResource( 2 )
+
+[node name="right2" type="Sprite" parent="caterpillarStatueSprite/head/anteni"]
+visible = false
+modulate = Color( 0.388235, 0.388235, 0.388235, 1 )
+position = Vector2( -2.54883, -5.67822 )
+rotation = -2.98929
+scale = Vector2( 0.00207476, 0.0073472 )
+texture = ExtResource( 2 )
+
+[node name="left" type="Sprite" parent="caterpillarStatueSprite/head/anteni"]
+modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
+position = Vector2( 0.500977, -1.29224 )
+rotation = 0.409658
+scale = Vector2( 0.00231528, 0.00274775 )
+texture = ExtResource( 2 )
+
+[node name="leg" type="Sprite" parent="caterpillarStatueSprite/head/anteni"]
+modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
+position = Vector2( 2.01404, -5.15918 )
+rotation = 3.43714
+scale = Vector2( 0.00231528, 0.00243123 )
+texture = ExtResource( 2 )
+
+[node name="arms" type="Node2D" parent="caterpillarStatueSprite"]
+
+[node name="left" type="Sprite" parent="caterpillarStatueSprite/arms"]
+modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
+position = Vector2( -2.39999, 0 )
+rotation = 0.101753
+scale = Vector2( 0.00419306, 0.00354833 )
+texture = ExtResource( 2 )
+
+[node name="left_back" type="Sprite" parent="caterpillarStatueSprite/arms"]
+modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
+position = Vector2( -2.20001, -3.40002 )
+rotation = 3.12181
+scale = Vector2( 0.00341583, 0.0023077 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/Transform = SubResource( 2 )
+
+[node name="CentipideBoss" parent="." instance=ExtResource( 3 )]
+position = Vector2( 280, 15 )
