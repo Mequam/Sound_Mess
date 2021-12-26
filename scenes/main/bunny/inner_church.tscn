@@ -175,4 +175,5 @@ __meta__ = {
 
 [node name="bunny_boss_entity" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1329.75, 207.797 )
+
 [connection signal="body_entered" from="door_way" to="." method="_on_door_way_body_entered"]

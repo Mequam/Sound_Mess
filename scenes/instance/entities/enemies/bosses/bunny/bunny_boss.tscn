@@ -30,4 +30,5 @@ position = Vector2( -84.6043, -184.537 )
 
 [node name="save_state_node" parent="." instance=ExtResource( 5 )]
 script = ExtResource( 6 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

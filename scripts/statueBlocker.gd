@@ -10,7 +10,7 @@ var anim_killed : int = 0
 var total_killed : int = 0
 #the bosses that we care about inteanded to be overloaded by others scripts
 #or set in the scene tree
-var bosses = ["inner_church_bunny-bunny_boss_entity","silo_boss_room-SiloBoss","statue_boss_room-StatueBoss"] #supposed to be a string array
+var bosses = ["inner_church_bunny-bunny_boss_entity","silo_boss_room-SiloBoss","centipide_boss_room-CentipideBoss"] #supposed to be a string array
 
 var bossParticles = preload("res://scenes/assets/BossParticles.tscn")
 #used to determine how many particles to spawn in conjunction with the timer

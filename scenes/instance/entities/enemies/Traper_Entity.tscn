@@ -30,4 +30,5 @@ position = Vector2( 1.97488, 17.4462 )
 scale = Vector2( 0.481038, 0.121839 )
 z_index = -1
 texture = ExtResource( 4 )
+
 [connection signal="body_entered" from="." to="." method="_on_Traper_Entity_body_entered"]
