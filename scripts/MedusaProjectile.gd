@@ -38,6 +38,10 @@ func run(player_pos,beat):
 			collision_layer = .gen_col_layer()
 			#indicate to the player we will now be able to hit them
 			modulate = Color.white
+			
+			#indicate to the player that we can hit stuff now
+			$prior_particles.emitting = false
+			$statueWebParticles2.emitting = true
 		BEATS_ALIVE:
 			queue_free()
 		_:
