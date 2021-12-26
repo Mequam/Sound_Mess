@@ -222,13 +222,13 @@ func set_statue_frozen(val : bool)->void:
 		
 		start_tail_animation()
 		
+		#the parent call should take care of animating the head in the set state
+		#functions of this class
+		
 		#we take damage
 		set_inv(false)
 		take_damage(2)
 		set_inv(true)
-		
-	#the parent call should take care of animating the head in the set state
-	#functions of this class
 	.set_statue_frozen(val)
 func spawn_switch()->Node:
 	var switch = .spawn_switch()
@@ -527,17 +527,20 @@ func update_mode()->void:
 #this script represents the behavior for the centipide statue boss
 func main_ready():
 	add_to_group("CentipideBoss")
-	.main_ready()
 	get_parent().get_node("Sprite/AnimationPlayerHead").connect("animation_finished",self,"anim_head_finished")
 	set_mode("Idle")
 	$health_bar.inv = true
+	#this needs to be run last so the main_ready code can overwrite our setup if we start as dead
+	.main_ready()
+	if mode == "dead":
+		stop_tail_animation()
 func take_damage(dmg : int):
 	
 	#let the damage code run
 	.take_damage(dmg)
 	
 	#if we dont actually take dmg then dont incriment the super mode 
-	if not get_inv() and dmg != 0:
+	if not get_inv() and dmg != 0 and mode != "dead": #if were dead we don't come back to life
 		#get ANGRY if we got hit
 		if super_mode < SuperMode.UPTHREE:
 			super_mode += 1
@@ -551,56 +554,57 @@ var statue_spawn_beats : int = 19
 var enemy_spawn_beat : int = 0
 const MAX_ENEMY_COUNT = 2
 func run(player_pos : Vector2,beat):
-	player_pos -= get_parent().position
-	if enemy_spawn_beat >= 8 and enemy_count < MAX_ENEMY_COUNT:
-		spawn_enemy()
-		#reset the enemy spawn beat
-		enemy_spawn_beat = 0
-	#run the mode state machine	
-	if mode == "Idle":
-			#randomly assign accelleration
-			_angular_accel = randf()*PI-PI/2
-			
-			#don't get to far from the player
-			if player_pos.distance_squared_to(position) > 250000:
-				velocity = (player_pos-position).normalized()*movement_speed
-				#update our animation
-				play_anim()
+	if mode != "dead":
+		player_pos -= get_parent().position
+		if enemy_spawn_beat >= 8 and enemy_count < MAX_ENEMY_COUNT:
+			spawn_enemy()
+			#reset the enemy spawn beat
+			enemy_spawn_beat = 0
+		#run the mode state machine	
+		if mode == "Idle":
+				#randomly assign accelleration
+				_angular_accel = randf()*PI-PI/2
+				
+				#don't get to far from the player
+				if player_pos.distance_squared_to(position) > 250000:
+					velocity = (player_pos-position).normalized()*movement_speed
+					#update our animation
+					play_anim()
 
-	#run the sub mode state machine
-	if sub_mode == "Weve" or sub_mode == "RepeatWeve":
-		#dont run anything with randum numbers counters or weird state machines 
-		#if we dont want to spawn projectiles
-		
-		#NOTE: we COULD change modes from this, but other code relies on 
-		#us bieng in weve modes, and this achives the same result
-		#without interfering with that state
-		if projectile_count < max_projectile_count:
+		#run the sub mode state machine
+		if sub_mode == "Weve" or sub_mode == "RepeatWeve":
+			#dont run anything with randum numbers counters or weird state machines 
+			#if we dont want to spawn projectiles
+			
+			#NOTE: we COULD change modes from this, but other code relies on 
+			#us bieng in weve modes, and this achives the same result
+			#without interfering with that state
+			if projectile_count < max_projectile_count:
+				counter += 1
+				if counter >= 10:
+					launch_projectile(
+								((Globals.get_scene_root().get_node("player").global_position 
+								- get_parent().get_node("Sprite/assets/head_front").global_position) as Vector2).normalized()
+					)
+					if sub_mode == "RepeatWeve":
+						#this mode bounces back to repeat weve with a certain probability
+						set_sub_mode("RepeatWeveWait")
+					else:
+						set_sub_mode("")
+					play_anim()
+		elif sub_mode == "RepeatWeveWait":
+			if randf() < 0.075:
+				#bounce back to repeat weve
+				set_sub_mode("RepeatWeve")
+		elif sub_mode == "StatueSpawn":
+			if counter >= statue_spawn_beats: #4 beats with a zero based index gives us 3 as the emphasis beat and we do every 5 group of 4 so 5*4-1
+				spawn_statue_tail()
+				counter = 0
 			counter += 1
-			if counter >= 10:
-				launch_projectile(
-							((Globals.get_scene_root().get_node("player").global_position 
-							- get_parent().get_node("Sprite/assets/head_front").global_position) as Vector2).normalized()
-				)
-				if sub_mode == "RepeatWeve":
-					#this mode bounces back to repeat weve with a certain probability
-					set_sub_mode("RepeatWeveWait")
-				else:
-					set_sub_mode("")
-				play_anim()
-	elif sub_mode == "RepeatWeveWait":
-		if randf() < 0.075:
-			#bounce back to repeat weve
-			set_sub_mode("RepeatWeve")
-	elif sub_mode == "StatueSpawn":
-		if counter >= statue_spawn_beats: #4 beats with a zero based index gives us 3 as the emphasis beat and we do every 5 group of 4 so 5*4-1
-			spawn_statue_tail()
-			counter = 0
-		counter += 1
-	update_mode()
-	inner_beat += 1
-	if enemy_count < MAX_ENEMY_COUNT:
-		enemy_spawn_beat += 1
+		update_mode()
+		inner_beat += 1
+		if enemy_count < MAX_ENEMY_COUNT:
+			enemy_spawn_beat += 1
 #gets the center of the circle used in the circle mode
 func getTarget()->Vector2:
 	match target_mode:
@@ -622,57 +626,59 @@ func set_follow_mode_at_point(target : Vector2,sub_mode : String = " ",speed_mul
 	set_mode("Follow",sub_mode,speed_mult)
 #this function runs every frame and performs our processing
 func main_process(delta):
-	#buffer velocity for our animation updates
-	var old_vel : Vector2 = velocity
-	
-	#the follow mode only goes in a straight line
-	#if mode == "Follow":
-	#		#move directly twoards the player
-	#		velocity = (getTarget()-get_parent().position).normalized()
-	if mode == "Idle":
-			#get the angular velocity
-			_angular_vel += _angular_accel*delta
-			#cap our velocity
-			if abs(_angular_vel) > MAX_ANGULAR_VELOCITY_MAGNITUDE:
-				_angular_vel = MAX_ANGULAR_VELOCITY_MAGNITUDE*sign(_angular_vel)
-			#get the angular position
-			var new_angle : float = velocity.angle()+_angular_vel*delta
+	#we only do this if we are not dead
+	if mode != "dead":
+		#buffer velocity for our animation updates
+		var old_vel : Vector2 = velocity
+		
+		#the follow mode only goes in a straight line
+		#if mode == "Follow":
+		#		#move directly twoards the player
+		#		velocity = (getTarget()-get_parent().position).normalized()
+		if mode == "Idle":
+				#get the angular velocity
+				_angular_vel += _angular_accel*delta
+				#cap our velocity
+				if abs(_angular_vel) > MAX_ANGULAR_VELOCITY_MAGNITUDE:
+					_angular_vel = MAX_ANGULAR_VELOCITY_MAGNITUDE*sign(_angular_vel)
+				#get the angular position
+				var new_angle : float = velocity.angle()+_angular_vel*delta
+				
+				velocity = Vector2(cos(new_angle),sin(new_angle))
+		elif mode =="Circle": #or "ForceCircle":
+			#movement speed will get factored in later anyways
+			#-sin is the derivative of cos and cos is the derivative of sin
+			var x : float = cos(angle)
+			var y : float = sin(angle)
+			#when moving in a circle we move 90 to the center
+			#also proves that the derivative of cosin is negative sin using linear
+			#algebra which is cool
+			velocity = Vector2(-y,x) 
 			
-			velocity = Vector2(cos(new_angle),sin(new_angle))
-	elif mode =="Circle": #or "ForceCircle":
-		#movement speed will get factored in later anyways
-		#-sin is the derivative of cos and cos is the derivative of sin
-		var x : float = cos(angle)
-		var y : float = sin(angle)
-		#when moving in a circle we move 90 to the center
-		#also proves that the derivative of cosin is negative sin using linear
-		#algebra which is cool
-		velocity = Vector2(-y,x) 
-		
-		#we also move twoards the player
-		# r = m/s radius is movment_speed / movement vector rotation rate
-		var center : Vector2 = get_parent().position - (Vector2(x,y)*circle_mode_radius())
-		
-		#get the center of the circle
-		var target_center : Vector2 = getTarget()
-		var twoards_center = target_center-center
-		if twoards_center.length_squared() > 100:
-			velocity += twoards_center.normalized()
-		
-		angle = angle+delta*_angular_vel
-		#for shrinking the circle
-		circle(circle_mode_radius()-_angular_accel*delta,movement_speed)
+			#we also move twoards the player
+			# r = m/s radius is movment_speed / movement vector rotation rate
+			var center : Vector2 = get_parent().position - (Vector2(x,y)*circle_mode_radius())
 			
-	
-	
-	#update our animation if necessary
-	if get_cardinal(old_vel) != get_cardinal(velocity):
-			play_anim()
-	
-	#move
-	dmg_mv(velocity*movement_speed*delta,1)
-	
-	.main_process(delta)
+			#get the center of the circle
+			var target_center : Vector2 = getTarget()
+			var twoards_center = target_center-center
+			if twoards_center.length_squared() > 100:
+				velocity += twoards_center.normalized()
+			
+			angle = angle+delta*_angular_vel
+			#for shrinking the circle
+			circle(circle_mode_radius()-_angular_accel*delta,movement_speed)
+				
+		
+		
+		#update our animation if necessary
+		if get_cardinal(old_vel) != get_cardinal(velocity):
+				play_anim()
+		
+		#move
+		dmg_mv(velocity*movement_speed*delta,1)
+		
+		.main_process(delta)
 
 
 func _on_VisibilityNotifier2D_screen_exited():

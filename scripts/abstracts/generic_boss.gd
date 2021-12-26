@@ -14,4 +14,5 @@ func die():
 	remove_from_group("enemies")
 	mode = "dead"
 	emit_signal("die")
+	
 	$save_state_node.save_death()

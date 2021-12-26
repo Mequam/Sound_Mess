@@ -2,6 +2,8 @@ extends Node
 #this node serves as the most generic form of a node designed
 #to save the state of it's parent to the file system for later use
 
+class_name SaveStateNode
+
 #this function is inteanded to be overloaded by child classes of
 #this class to get a dictionary of data that we care about from the parent
 func serialize() -> Dictionary:
@@ -32,6 +34,8 @@ func save_data_path_dict(save_path : String, dict : Dictionary) -> void:
 	if OK == fileRes.open(save_path,File.WRITE):
 		#store the data as json
 		fileRes.store_string(JSON.print(dict))
+	else:
+		print("[WARNING] save save_data_path_dict unable to open file!")
 #reads the data at the path from our get_save_path function
 #syntactic sugar
 func read_data() -> Dictionary:

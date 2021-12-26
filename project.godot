@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/abstracts/generic_boss.gd"
 }, {
-"base": "Node",
+"base": "SaveStateNode",
 "class": "BossSaveStateNode",
 "language": "GDScript",
 "path": "res://scripts/boss_save_state.gd"
@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/CentipideBoss.gd"
 }, {
+"base": "BossSaveStateNode",
+"class": "CentipideSaveState",
+"language": "GDScript",
+"path": "res://scripts/centipide_save_state_node.gd"
+}, {
 "base": "Node2D",
 "class": "CircleRail",
 "language": "GDScript",
@@ -58,6 +63,11 @@ _global_script_classes=[ {
 "class": "CorruptableEnemy",
 "language": "GDScript",
 "path": "res://scripts/abstracts/corruptable_enemy.gd"
+}, {
+"base": "SaveStateNode",
+"class": "DeathStateNode",
+"language": "GDScript",
+"path": "res://scripts/delete_save_state.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",
@@ -104,6 +114,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/projectileDeathParticles.gd"
 }, {
+"base": "Node",
+"class": "SaveStateNode",
+"language": "GDScript",
+"path": "res://scripts/abstracts/save_state_node.gd"
+}, {
 "base": "Node2D",
 "class": "Scene",
 "language": "GDScript",
@@ -138,8 +153,10 @@ _global_script_class_icons={
 "CentiMotor": "",
 "CentiRail": "",
 "CentipideBoss": "",
+"CentipideSaveState": "",
 "CircleRail": "",
 "CorruptableEnemy": "",
+"DeathStateNode": "",
 "Enemy": "",
 "Entity": "",
 "GenericKinematic": "",
@@ -149,6 +166,7 @@ _global_script_class_icons={
 "Player": "",
 "Projectile": "",
 "ProjectileDeathParticles": "",
+"SaveStateNode": "",
 "Scene": "",
 "SpawnProjectile": "",
 "SpiderEnemy": "",

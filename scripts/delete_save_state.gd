@@ -1,6 +1,8 @@
-extends "res://scripts/abstracts/save_state_node.gd"
+extends SaveStateNode
 #this script adds a death removal behavior to the parent, removing the parent
 #from the game if they are saved as dead
+
+class_name DeathStateNode
 
 #it is inteanded to be added to a node independent of it's other actions
 

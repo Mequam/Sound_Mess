@@ -31,5 +31,7 @@ func _process(delta):
 		$CircleRail.r += delta * 10
 	if Input.is_key_pressed(KEY_F):
 		$CentipideBoss/CentipideBoss.die()
+	if Input.is_key_pressed(KEY_B):
+		$CentipideBoss/CentipideBoss.statue_frozen = true
 func _on_statueSwitch_completed_dialog(dialog):
 	$StatueEnemy.corrupt()
