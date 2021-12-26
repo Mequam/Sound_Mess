@@ -31,6 +31,10 @@ func die():
 	
 	#update our animation stufz
 	stop_tail_animation()
+	#the default idle for the head has some state information we need for the diee animation
+	get_parent().get_node("Sprite/AnimationPlayerHead").play("Idle")
+	get_parent().get_node("Sprite/AnimationPlayerHead").stop()
+		
 	get_parent().get_node("Sprite/AnimationPlayer").play("Die")
 	
 #this is called when spawn projectiles that we launch spawn an enemy into the game
@@ -123,6 +127,8 @@ func set_sub_mode(val : String)->void:
 	#inner_beat = 0
 	
 	sub_mode = val
+	#make sure we have no lingering noises when we change our sub mode
+	$NotePlayerWeve.stop()
 func get_sub_mode()->String:
 	return sub_mode
 
@@ -255,6 +261,8 @@ func set_mode(val : String,sub_mode_val : String = " ",movement_speed_factor : f
 			movement_speed = 300
 			#we allways follow where the player was, not where they are
 			set_buffered_target(Globals.get_scene_root().get_node("player").position)
+			#update the animation
+			play_anim()
 		"Idle":
 			movement_speed = 700
 	movement_speed*=movement_speed_factor
@@ -262,7 +270,8 @@ func set_mode(val : String,sub_mode_val : String = " ",movement_speed_factor : f
 		set_sub_mode(sub_mode_val)
 	inner_beat = 0
 	.set_mode(val)
-
+	#reset the music beat for the new modes so we start playing at the begining of the song
+	music_beat = 0
 #gets a cardinal direction from a vector
 enum CARDINAL {UP,DOWN,LEFT,RIGHT}
 func get_cardinal(dir : Vector2)->int:
@@ -289,25 +298,20 @@ func get_cardinal_str(card : int)->String:
 func play_anim(player_pos : Vector2 = Vector2(0,0))->void:
 	#this remaps modes to other modes so we can re-use
 	#animations set up for other modes, namely idle
-	var modeStr : String = mode
-	var subModeStr : String = sub_mode
 
-	#map different modes into the same behaviors for the following code	
-	if mode == "Follow" or mode == "Circle" or mode == "Follow":
-		modeStr = "Idle"
-	if subModeStr == "RepeatWeve":
-		subModeStr = "Weve"
+
+	var cardinal : int = get_cardinal(velocity)
+	var cardStr : String = get_cardinal_str(cardinal)
 	
-	var cardStr : String = get_cardinal_str(get_cardinal(velocity))
-	get_parent().get_node("Sprite/AnimationPlayer").play(modeStr + cardStr)
+	get_parent().get_node("Sprite/AnimationPlayer").play("Idle" + cardStr)
 	
 	#use the weve sub mode string here
-	if subModeStr == "Weve":
-		get_parent().get_node("Sprite/AnimationPlayerHead").play(subModeStr + cardStr)
+	if sub_mode == "Weve" or sub_mode == "RepeatWeve":
+		get_parent().get_node("Sprite/AnimationPlayerHead").play("Weve" + cardStr)
 	else:
-		get_parent().get_node("Sprite/AnimationPlayerHead").play(modeStr + cardStr)
+		get_parent().get_node("Sprite/AnimationPlayerHead").play("Idle" + cardStr)
 	
-	var cardinal : int = get_cardinal(velocity)
+	
 	if cardinal == CARDINAL.RIGHT or cardinal == CARDINAL.LEFT:
 		get_parent().get_node("Sprite/assets/body/LegsSprite/AnimationPlayer").play("Side_Run")
 	else:
@@ -380,7 +384,7 @@ func spawn_statue_segment_at_last_link()->void:
 func spawn_statue_tail()->void:
 	for link in get_tail_link_list():
 		spawn_statue_segment_at_link(link)
-
+	$NotePlayerWeve.play_note(0)
 #gets an array containing a reference to each link in the tail
 func get_tail_link_list()->Array:
 	return get_parent().get_node("Sprite/Tail").get_link_list()
@@ -418,7 +422,7 @@ func update_mode()->void:
 									#begin the process again
 									inner_beat = 0
 								else:
-									set_follow_mode_at_point(Globals.get_scene_root().get_node("player").position,"",1)
+									set_follow_mode_at_point(Globals.get_scene_root().get_node("player").position,"",2)
 						#this should never happen, but just in case
 						"StatueSpawn":
 							set_sub_mode("")
@@ -530,6 +534,8 @@ func main_ready():
 	get_parent().get_node("Sprite/AnimationPlayerHead").connect("animation_finished",self,"anim_head_finished")
 	set_mode("Idle")
 	$health_bar.inv = true
+	#initilize our second note player to the proper mode
+	$NotePlayerWeve.mode = 6
 	#this needs to be run last so the main_ready code can overwrite our setup if we start as dead
 	.main_ready()
 	if mode == "dead":
@@ -553,6 +559,65 @@ func get_tail_rotation_speed()->float:
 var statue_spawn_beats : int = 19
 var enemy_spawn_beat : int = 0
 const MAX_ENEMY_COUNT = 2
+
+#this function plays a note and then properly updates the music beat
+var music_beat : int = 0
+func play_note()->void:
+	if sub_mode == "Weve" or sub_mode == "RepeatWeve":
+		if music_beat % 2 == 0:
+			$NotePlayerWeve.play_note(0)
+		else:
+			$NotePlayerWeve.stop()
+	#we play a note when we spawn a statue in this mode
+	elif sub_mode == "StatueSpawn" and music_beat % 4 ==  0:
+		$NotePlayerWeve.stop()
+		
+	match mode:
+		"Idle":
+			music_beat = music_beat % 16
+			match music_beat:
+				0:
+					$NotePlayer.play_note(-7)
+				2:
+					$NotePlayer.play_note(0)
+				4:
+					$NotePlayer.play_note(3-7)
+				6:
+					$NotePlayer.play_note(4-7)
+				8:
+					$NotePlayer.play_note(-7)
+				10:
+					$NotePlayer.play_note(-6)
+				12:
+					$NotePlayer.play_note(1)
+				14:
+					$NotePlayer.play_note(4-7)
+				_:
+					$NotePlayer.stop()
+		"Follow":
+			music_beat = music_beat % 4
+			match music_beat:
+				0:
+					$NotePlayer.play_note(4-7)
+				2:
+					$NotePlayer.play_note(-7)
+		"Circle":
+			#this code could prolly be simplified with a linear relation and special case
+			#but this is more reaedable so we will leave it like this for now
+			music_beat = music_beat % 4
+			match music_beat:
+				0:
+					$NotePlayer.play_note(-7)
+				1:
+					$NotePlayer.play_note(-6)
+				2:
+					$NotePlayer.play_note(-5)
+				3:
+					$NotePlayer.play_note(-3)
+				_:
+					$NotePlayer.stop()
+			
+	music_beat += 1
 func run(player_pos : Vector2,beat):
 	if mode != "dead":
 		player_pos -= get_parent().position
@@ -603,8 +668,10 @@ func run(player_pos : Vector2,beat):
 			counter += 1
 		update_mode()
 		inner_beat += 1
+		
 		if enemy_count < MAX_ENEMY_COUNT:
 			enemy_spawn_beat += 1
+		play_note()
 #gets the center of the circle used in the circle mode
 func getTarget()->Vector2:
 	match target_mode:

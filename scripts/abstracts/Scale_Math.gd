@@ -1,3 +1,5 @@
+class_name ScaleMath
+
 enum ActionDegree {
 	ROOT,
 	MOVE_LEFT,

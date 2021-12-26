@@ -32,6 +32,8 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_F):
 		$CentipideBoss/CentipideBoss.die()
 	if Input.is_key_pressed(KEY_B):
-		$CentipideBoss/CentipideBoss.statue_frozen = true
+		$CentipideBoss/CentipideBoss.set_mode("Follow")
+	if Input.is_key_pressed(KEY_K):
+		$CentipideBoss/CentipideBoss.die()
 func _on_statueSwitch_completed_dialog(dialog):
 	$StatueEnemy.corrupt()
