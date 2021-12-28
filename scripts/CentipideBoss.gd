@@ -174,6 +174,8 @@ func move_and_collide(rel_vec : Vector2, infinite_inertia: bool = true, exclude_
 				set_circle_rotation_dir(-get_circle_rotation_dir())
 			"Idle":
 				velocity = -velocity
+			"Follow":
+				set_mode("Idle")
 	#move the parent to us
 	get_parent().position += position
 	
