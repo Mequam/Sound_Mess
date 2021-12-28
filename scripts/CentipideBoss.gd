@@ -8,7 +8,7 @@ var spawn_projectile : PackedScene = load("res://scenes/instance/projectiles/Spa
 
 #we hit the playr and the terrain
 func gen_col_mask():
-	return col_math.Layer.PLAYER | col_math.Layer.TERRAIN
+	return col_math.Layer.PLAYER | col_math.Layer.TERRAIN | col_math.ConstLayer.TILE_BORDER
 
 #keeps track of how many enemies that we spawned in
 #we spawn in an enemy
@@ -168,11 +168,26 @@ var angle : float = 0
 func move_and_collide(rel_vec : Vector2, infinite_inertia: bool = true, exclude_raycast_shapes: bool = true, test_only: bool = false):
 	#perform our movement
 	var col = .move_and_collide(rel_vec,infinite_inertia,exclude_raycast_shapes,test_only)
+	if col:
+		match mode:
+			"Circle":
+				set_circle_rotation_dir(-get_circle_rotation_dir())
+			"Idle":
+				velocity = -velocity
 	#move the parent to us
 	get_parent().position += position
+	
 	position = Vector2(0,0)
+	
 	#return the collision object
 	return col
+#this variable determines the rotation of the circleular motion
+var _circle_rotation_dir : int = 1 setget set_circle_rotation_dir,get_circle_rotation_dir
+func set_circle_rotation_dir(val):
+	#the angle if mulitplied by this value which is set to 1 or -1
+	_circle_rotation_dir = val
+func get_circle_rotation_dir()-> int:
+	return _circle_rotation_dir
 	
 var projectile_count : int = 0
 func incriment_projectile_count()->void:
@@ -436,7 +451,8 @@ func update_mode()->void:
 				#this should never happen, but just in case we get to an error state
 				"Circle":
 					#bounce back to our IDLE mode
-					set_mode("Idle","RepeatWeve",0.5)
+					pass
+					#set_mode("Idle","RepeatWeve",0.5)
 		SuperMode.UPONE:
 			match mode:
 				"Circle":
@@ -717,10 +733,11 @@ func main_process(delta):
 			#-sin is the derivative of cos and cos is the derivative of sin
 			var x : float = cos(angle)
 			var y : float = sin(angle)
+			
 			#when moving in a circle we move 90 to the center
 			#also proves that the derivative of cosin is negative sin using linear
 			#algebra which is cool
-			velocity = Vector2(-y,x) 
+			velocity = Vector2(-y,x)*_circle_rotation_dir
 			
 			#we also move twoards the player
 			# r = m/s radius is movment_speed / movement vector rotation rate
@@ -732,7 +749,7 @@ func main_process(delta):
 			if twoards_center.length_squared() > 100:
 				velocity += twoards_center.normalized()
 			
-			angle = angle+delta*_angular_vel
+			angle = angle+delta*_angular_vel*_circle_rotation_dir
 			#for shrinking the circle
 			circle(circle_mode_radius()-_angular_accel*delta,movement_speed)
 				

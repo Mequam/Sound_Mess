@@ -41,6 +41,9 @@ wait_time = 5.0
 [node name="save_state_node" type="Node" parent="CentipideBoss"]
 script = ExtResource( 3 )
 
+[node name="circle_turn_timer" type="Timer" parent="CentipideBoss"]
+one_shot = true
+
 [node name="Sprite" parent="." instance=ExtResource( 5 )]
 
 [connection signal="screen_exited" from="CentipideBoss/VisibilityNotifier2D" to="CentipideBoss" method="_on_VisibilityNotifier2D_screen_exited"]

@@ -5,12 +5,16 @@ class_name SpawnProjectile
 var to_spawn : Enemy = null
 
 func gen_col_layer()->int:
-	collision_layer = 0
 	return 0
 func gen_col_mask()->int:
-	collision_mask = 0
-	return 0
+	return col_math.ConstLayer.TILE_BORDER | col_math.Layer.TERRAIN
 
+func move_and_collide(rel_vec : Vector2, infinite_inertia: bool = true, exclude_raycast_shapes: bool = true, test_only: bool = false)->KinematicCollision2D:
+	var col = .move_and_collide(rel_vec,infinite_inertia,exclude_raycast_shapes,test_only)
+	if col:
+		#turn around if we hit
+		dir = -dir
+	return col
 signal on_spawn
 
 var spawn_animation : String = "Spawn"

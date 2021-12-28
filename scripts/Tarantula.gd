@@ -1,5 +1,7 @@
 extends "res://scripts/abstracts/generic_enemy.gd"
 
+class_name Corrupter
+
 func set_mode(val):
 	resetEyeSize()
 	inner_beat = 0.0

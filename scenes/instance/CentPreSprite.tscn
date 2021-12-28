@@ -1409,7 +1409,6 @@ texture = ExtResource( 1 )
 position = Vector2( 24.479, -54.9406 )
 rotation = 0.437659
 scale = Vector2( 10, 10 )
-emitting = true
 
 [node name="left_eye" type="Sprite" parent="caterpillarStatueSprite/head"]
 modulate = Color( 0.419608, 0.419608, 0.419608, 1 )
@@ -1574,13 +1573,11 @@ anims/Transform = SubResource( 2 )
 position = Vector2( -23, -28 )
 rotation = -0.00531835
 scale = Vector2( 0.435433, 0.378084 )
-emitting = true
 
 [node name="StatueSplosionParticles4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 11, -12 )
 rotation = -0.00531835
 scale = Vector2( 0.435433, 0.378084 )
-emitting = true
 
 [node name="StatueSplosionParticles3" parent="." instance=ExtResource( 4 )]
 position = Vector2( -10, -4 )

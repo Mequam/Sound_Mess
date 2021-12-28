@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/abstracts/corruptable_enemy.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Corrupter",
+"language": "GDScript",
+"path": "res://scripts/Tarantula.gd"
+}, {
 "base": "SaveStateNode",
 "class": "DeathStateNode",
 "language": "GDScript",
@@ -167,6 +172,7 @@ _global_script_class_icons={
 "CentipideSaveState": "",
 "CircleRail": "",
 "CorruptableEnemy": "",
+"Corrupter": "",
 "DeathStateNode": "",
 "Enemy": "",
 "Entity": "",
