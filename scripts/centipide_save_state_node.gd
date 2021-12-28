@@ -15,8 +15,7 @@ func get_save_path() -> String:
 		#get the path that this particular node will save to
 		return "user://game" + get_game_save_file() +"/"+ parent.owner.name +"-" + parent.name + ".dat"
 	else:
-		print("not returning path")
 		return ""
 func save_death()->void:
-	print("saving death")
+	print( get_parent().name + " saving death")
 	.save_data()

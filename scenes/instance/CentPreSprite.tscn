@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://triangles/even_triangle.png" type="Texture" id=1]
 [ext_resource path="res://triangles/long_triangle.png" type="Texture" id=2]
+[ext_resource path="res://scenes/instance/save_state_node.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/StatueSplosionParticles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/CentepidePreSprite.gd" type="Script" id=5]
 
@@ -1583,5 +1584,7 @@ scale = Vector2( 0.435433, 0.378084 )
 position = Vector2( -10, -4 )
 rotation = -0.00531835
 scale = Vector2( 0.435433, 0.378084 )
+
+[node name="save_state_node" parent="." instance=ExtResource( 3 )]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

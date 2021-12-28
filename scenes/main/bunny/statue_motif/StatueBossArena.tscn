@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/StatueBossArena.gd" type="Script" id=1]
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=2]
@@ -7,6 +7,19 @@
 [ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/instance/door_way.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/instance/entities/enemies/ShowManTarantula.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/assets/caterpillarStatueSprite.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/assets/side_bunny_statue_sprite.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/assets/spiderStatueSprite.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/assets/carrotStatue.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/assets/mushroomStatuee.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/assets/daisy_statue.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/assets/architecture/stone_path.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/assets/tall_grass.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/instance/entities/poof_grass.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/assets/architecture/bunny/well.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/instance/entities/PineTreeBody.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/assets/daisy.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/assets/hill_sprite.tscn" type="PackedScene" id=20]
 
 [node name="StatueBossArena" type="YSort"]
 script = ExtResource( 1 )
@@ -29,6 +42,14 @@ collision_mask = 0
 [node name="CentepidePreSprite" parent="pedastule" instance=ExtResource( 4 )]
 position = Vector2( -5, -87 )
 
+[node name="pedastule2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -483, -481 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="carrotStatue2" parent="pedastule2" instance=ExtResource( 11 )]
+position = Vector2( -2, -113 )
+
 [node name="Met" parent="." instance=ExtResource( 5 )]
 position = Vector2( -376, 119 )
 
@@ -38,3 +59,249 @@ scale = Vector2( 30, 5 )
 
 [node name="ShowManTarantula" parent="." instance=ExtResource( 7 )]
 position = Vector2( 518, -489 )
+
+[node name="bunny_statue_side_sprite2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 962, 156 )
+scale = Vector2( 0.1875, 0.1875 )
+
+[node name="SpiderStatueSprite" parent="." instance=ExtResource( 10 )]
+position = Vector2( -150, -106 )
+
+[node name="SpiderStatueSprite3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1374, -410 )
+
+[node name="SpiderStatueSprite4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 922, -386 )
+
+[node name="bunny_statue_side_sprite" parent="." instance=ExtResource( 9 )]
+position = Vector2( -586, 700 )
+scale = Vector2( 0.1875, 0.1875 )
+
+[node name="SpiderStatueSprite2" parent="." instance=ExtResource( 10 )]
+position = Vector2( -954, 362 )
+
+[node name="caterpillarStatueSprite" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1646, -535 )
+
+[node name="caterpillarStatueSprite2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -838, -365 )
+scale = Vector2( -1, 1 )
+
+[node name="carrotStatue" parent="." instance=ExtResource( 11 )]
+position = Vector2( -1012, -8 )
+
+[node name="carrotStatue3" parent="." instance=ExtResource( 11 )]
+position = Vector2( -1153, 187 )
+rotation = 1.5708
+
+[node name="MushRoomStatue" parent="." instance=ExtResource( 12 )]
+position = Vector2( -724, 206 )
+
+[node name="MushRoomStatue5" parent="." instance=ExtResource( 12 )]
+position = Vector2( -1216, 186 )
+
+[node name="MushRoomStatue3" parent="." instance=ExtResource( 12 )]
+position = Vector2( -660, 224 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="MushRoomStatue4" parent="." instance=ExtResource( 12 )]
+position = Vector2( -741, 235 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="MushRoomStatue2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 654, -23 )
+
+[node name="caterpillarStatueSprite3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -210, -698 )
+
+[node name="daisyStatue" parent="." instance=ExtResource( 13 )]
+position = Vector2( -472, 426 )
+
+[node name="daisyStatue2" parent="." instance=ExtResource( 13 )]
+position = Vector2( -509, 505 )
+
+[node name="daisyStatue3" parent="." instance=ExtResource( 13 )]
+position = Vector2( -588, 456 )
+
+[node name="daisyStatue4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1188, 304 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="daisyStatue5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1148, 356 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="carrotStatue2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 942, 655 )
+rotation = 1.5708
+
+[node name="path_stones" parent="." instance=ExtResource( 14 )]
+position = Vector2( 271, -80 )
+
+[node name="path_stones2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 449, -84 )
+
+[node name="path_stones3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 758, 289 )
+
+[node name="path_stones4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 872, 382 )
+
+[node name="path_stones5" parent="." instance=ExtResource( 14 )]
+position = Vector2( -904, 552 )
+
+[node name="path_stones6" parent="." instance=ExtResource( 14 )]
+position = Vector2( -775, 527 )
+
+[node name="path_stones7" parent="." instance=ExtResource( 14 )]
+position = Vector2( -906, 436 )
+
+[node name="path_stones8" parent="." instance=ExtResource( 14 )]
+position = Vector2( -800, 322 )
+
+[node name="path_stones9" parent="." instance=ExtResource( 14 )]
+position = Vector2( -572, -403 )
+
+[node name="path_stones10" parent="." instance=ExtResource( 14 )]
+position = Vector2( -452, -422 )
+
+[node name="path_stones11" parent="." instance=ExtResource( 14 )]
+position = Vector2( -436, -521 )
+
+[node name="path_stones12" parent="." instance=ExtResource( 14 )]
+position = Vector2( -247, -378 )
+
+[node name="path_stones13" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1184, -378 )
+
+[node name="tall_grass" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1700, -52 )
+
+[node name="tall_grass2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 403, -773 )
+
+[node name="tall_grass3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 456, -736 )
+
+[node name="tall_grass4" parent="." instance=ExtResource( 15 )]
+position = Vector2( 392, -736 )
+
+[node name="tall_grass5" parent="." instance=ExtResource( 15 )]
+position = Vector2( 323, -789 )
+
+[node name="tall_grass6" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1630, -849 )
+
+[node name="tall_grass7" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1678, -795 )
+
+[node name="tall_grass8" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1606, -765 )
+
+[node name="tall_grass9" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1804, 581 )
+
+[node name="tall_grass10" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1732, 611 )
+
+[node name="tall_grass11" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1789, 641 )
+
+[node name="tall_grass12" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1717, 671 )
+
+[node name="tall_grass13" parent="." instance=ExtResource( 15 )]
+position = Vector2( 215, 396 )
+
+[node name="tall_grass14" parent="." instance=ExtResource( 15 )]
+position = Vector2( 143, 426 )
+
+[node name="tall_grass15" parent="." instance=ExtResource( 15 )]
+position = Vector2( 200, 456 )
+
+[node name="tall_grass16" parent="." instance=ExtResource( 15 )]
+position = Vector2( 128, 486 )
+
+[node name="poof_grass" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1720, 0 )
+
+[node name="poof_grass2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1664, 0 )
+
+[node name="poof_grass3" parent="." instance=ExtResource( 16 )]
+position = Vector2( -256, 264 )
+
+[node name="poof_grass4" parent="." instance=ExtResource( 16 )]
+position = Vector2( -208, 300 )
+
+[node name="poof_grass5" parent="." instance=ExtResource( 16 )]
+position = Vector2( -1500, -277 )
+
+[node name="poof_grass6" parent="." instance=ExtResource( 16 )]
+position = Vector2( -1463, -218 )
+
+[node name="poof_grass7" parent="." instance=ExtResource( 16 )]
+position = Vector2( -1554, -218 )
+
+[node name="well" parent="." instance=ExtResource( 17 )]
+position = Vector2( -1162, -342 )
+
+[node name="PineTree" parent="." instance=ExtResource( 18 )]
+position = Vector2( -709, -803 )
+
+[node name="PineTree2" parent="." instance=ExtResource( 18 )]
+position = Vector2( -848, -803 )
+
+[node name="PineTree3" parent="." instance=ExtResource( 18 )]
+position = Vector2( -646, -884 )
+
+[node name="PineTree4" parent="." instance=ExtResource( 18 )]
+position = Vector2( -1917, -62 )
+
+[node name="PineTree5" parent="." instance=ExtResource( 18 )]
+position = Vector2( -1850, -134 )
+
+[node name="PineTree6" parent="." instance=ExtResource( 18 )]
+position = Vector2( -2021, -130 )
+
+[node name="PineTree7" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2590, -494 )
+
+[node name="PineTree8" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2463, -443 )
+
+[node name="PineTree9" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1887, -850 )
+
+[node name="daisy" parent="." instance=ExtResource( 19 )]
+position = Vector2( 2572, 316 )
+
+[node name="daisy2" parent="." instance=ExtResource( 19 )]
+position = Vector2( 2534, 379 )
+
+[node name="daisy3" parent="." instance=ExtResource( 19 )]
+position = Vector2( 2655, 350 )
+
+[node name="daisy4" parent="." instance=ExtResource( 19 )]
+position = Vector2( 2080, 184 )
+
+[node name="daisy5" parent="." instance=ExtResource( 19 )]
+position = Vector2( 2156, 204 )
+
+[node name="daisy6" parent="." instance=ExtResource( 19 )]
+position = Vector2( 2070, 259 )
+
+[node name="hill" parent="." instance=ExtResource( 20 )]
+modulate = Color( 0.54902, 1, 0.682353, 1 )
+position = Vector2( 2312, -51 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="hill2" parent="." instance=ExtResource( 20 )]
+modulate = Color( 0.54902, 1, 0.682353, 1 )
+position = Vector2( 2214, -78 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="hill3" parent="." instance=ExtResource( 20 )]
+modulate = Color( 0.54902, 1, 0.682353, 1 )
+position = Vector2( 2401, -6.00001 )
+scale = Vector2( 0.2, 0.2 )

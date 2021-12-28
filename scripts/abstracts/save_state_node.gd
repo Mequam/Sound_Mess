@@ -35,7 +35,7 @@ func save_data_path_dict(save_path : String, dict : Dictionary) -> void:
 		#store the data as json
 		fileRes.store_string(JSON.print(dict))
 	else:
-		print("[WARNING] save save_data_path_dict unable to open file!")
+		print("[WARNING] save save_data_path_dict unable to open file! save path: " + str(save_path))
 #reads the data at the path from our get_save_path function
 #syntactic sugar
 func read_data() -> Dictionary:

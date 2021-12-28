@@ -10,7 +10,9 @@ signal super_corrupt
 func set_mode(val)->void:
 	if val == "Idle":
 		.set_mode("Idle")
-
+func _ready():
+	if $save_state_node.read_data_path("user://game" + $save_state_node.get_game_save_file() +"/"+ owner.name +"-CentipideBoss.dat").has("mode"):
+		queue_free()
 #this is what starts the corruption the Alert mode will be hijacked in the run function and we will catch 
 #its ending to remove ourselfs
 func super_corrupt()->void:

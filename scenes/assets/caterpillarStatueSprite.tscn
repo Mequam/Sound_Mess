@@ -7,6 +7,7 @@
 
 [node name="body" type="Node2D" parent="."]
 modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
+scale = Vector2( 7, 7 )
 
 [node name="even_triangle" type="Sprite" parent="body"]
 position = Vector2( 3.47756, -1.17362 )
@@ -33,8 +34,9 @@ scale = Vector2( 0.00813912, 0.00725361 )
 texture = ExtResource( 1 )
 
 [node name="head" type="Node2D" parent="."]
-position = Vector2( -3.50911, -0.76018 )
+position = Vector2( -21, -8 )
 rotation = -0.33167
+scale = Vector2( 7, 7 )
 
 [node name="head" type="Sprite" parent="head"]
 modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
