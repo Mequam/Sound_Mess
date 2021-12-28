@@ -1,4 +1,4 @@
-extends "res://scripts/abstracts/bunny_forest.gd"
+extends BunnyForest
 var switch_ref : Node2D
 var switch_ref2 : Node2D
 
@@ -9,6 +9,10 @@ func _ready():
 	
 	$statue_path_enterence_hidden.door_name = "B"
 	$statue_path_enterence_hidden.new_scene = "res://scenes/main/bunny/statue_motif/entering_statue_road.tscn"
+	
+	$statue_road_2.door_name = "C"
+	$statue_road_2.new_scene = ""
+	
 	#set up the switch connections
 	#TODO:
 	#getting these repeated dialog notes working from the root is a PAIN

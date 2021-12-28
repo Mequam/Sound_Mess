@@ -814,6 +814,11 @@ scale = Vector2( 40, 10 )
 [node name="statue_path_enterence_hidden" parent="." instance=ExtResource( 31 )]
 position = Vector2( -2009.63, -159.153 )
 scale = Vector2( 40, 10 )
+
+[node name="statue_road_2" parent="." instance=ExtResource( 31 )]
+position = Vector2( 3949, -3641 )
+scale = Vector2( 40, 10 )
+
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]
 [connection signal="completed_dialog" from="statueSwitch3" to="." method="_on_statueSwitch_completed_dialog"]
 [connection signal="completed_dialog" from="statueSwitch2" to="." method="_on_statueSwitch2_completed_dialog"]

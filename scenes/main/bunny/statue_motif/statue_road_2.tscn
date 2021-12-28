@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/main_scenes/bunny/statue_motif/statue_road_2.gd" type="Script" id=2]
+[ext_resource path="res://scenes/instance/Met.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/instance/bunnyOpeningDoorFront.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/assets/floatingCharge.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/instance/entities/enemies/StatueEnemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/instance/entities/enemies/Tarantula.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/instance/entities/enemies/Spider_Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/instance/openingDoorSide.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/instance/dialog/singleNoteRight.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/instance/dialog/doubleNoteLeftRight.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/instance/dialog/testDialog.tscn" type="PackedScene" id=13]
+
+[node name="statue_road_2" type="YSort"]
+script = ExtResource( 2 )
+
+[node name="tiles" type="Node2D" parent="."]
+
+[node name="grass" parent="tiles" instance=ExtResource( 1 )]
+modulate = Color( 0, 1, 0.576471, 1 )
+tile_data = PoolIntArray( -262135, 2, 0, -196599, 0, 0, -196598, 0, 0, -196597, 0, 0, -65537, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 1, 0, -2, 2, 0, -1, 0, 0, -65536, 3, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 1, 0, 65530, 2, 0, 65531, 2, 0, 65532, 2, 0, 65533, 2, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 3, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 0, 0, 10, 0, 0, 12, 2, 0, 131055, 2, 0, 131056, 2, 0, 131060, 2, 0, 131061, 2, 0, 131065, 2, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 196589, 2, 0, 196590, 2, 0, 196591, 0, 0, 196592, 0, 0, 196593, 1, 0, 196595, 2, 0, 196596, 0, 0, 196597, 0, 0, 196598, 3, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 1, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 262125, 0, 0, 262126, 0, 0, 262127, 0, 0, 262128, 0, 0, 262129, 3, 0, 262130, 2, 0, 262131, 0, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 3, 0, 262136, 2, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 1, 0, 262141, 2, 0, 262142, 0, 0, 262143, 1, 0, 196610, 2, 0, 196611, 0, 0, 196612, 0, 0, 196613, 1, 0, 327660, 2, 0, 327661, 0, 0, 327662, 0, 0, 327663, 0, 0, 327664, 0, 0, 327665, 0, 0, 327666, 0, 0, 327667, 0, 0, 327668, 0, 0, 327669, 0, 0, 327670, 0, 0, 327671, 0, 0, 327672, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 1, 0, 327677, 0, 0, 327678, 0, 0, 327679, 1, 0, 262145, 2, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 1, 0, 393195, 2, 0, 393196, 0, 0, 393197, 0, 0, 393198, 0, 0, 393199, 0, 0, 393200, 0, 0, 393201, 0, 0, 393202, 0, 0, 393203, 0, 0, 393204, 0, 0, 393205, 0, 0, 393206, 0, 0, 393207, 0, 0, 393208, 0, 0, 393209, 0, 0, 393210, 1, 0, 393213, 0, 0, 393214, 0, 0, 393215, 1, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 1, 0, 458729, 2, 0, 458730, 2, 0, 458731, 0, 0, 458732, 0, 0, 458733, 0, 0, 458734, 0, 0, 458735, 0, 0, 458736, 0, 0, 458737, 1, 0, 458739, 0, 0, 458740, 1, 0, 393217, 0, 0, 393218, 0, 0, 393219, 1, 0, 524264, 0, 0, 524265, 0, 0, 524266, 0, 0, 524267, 0, 0, 524268, 0, 0, 524269, 0, 0, 524270, 0, 0, 524271, 0, 0, 524272, 1, 0, 524274, 2, 0, 524275, 0, 0, 524276, 1, 0, 589800, 0, 0, 589801, 0, 0, 589802, 0, 0, 589803, 0, 0, 589804, 0, 0, 589805, 0, 0, 589806, 0, 0, 589807, 0, 0, 589808, 1, 0, 589810, 0, 0, 589811, 0, 0, 655338, 0, 0, 655339, 0, 0, 655340, 0, 0, 655341, 0, 0, 655342, 0, 0, 655343, 1, 0, 655345, 2, 0, 655346, 0, 0, 655347, 0, 0, 720876, 0, 0, 720877, 0, 0, 720878, 1, 0, 720881, 0, 0, 720882, 0, 0, 720883, 0, 0, 720884, 1, 0, 786417, 0, 0, 786418, 0, 0, 786419, 1, 0 )
+
+[node name="cement" parent="tiles" instance=ExtResource( 1 )]
+modulate = Color( 0.552941, 0.552941, 0.552941, 1 )
+tile_data = PoolIntArray( -262134, 2, 0, -262133, 2, 0, -196598, 0, 0, -196597, 0, 0, -196596, 1, 0, -131062, 0, 0, 1, 2, 0, 2, 2, 0, 10, 0, 0, 11, 3, 0, 131065, 2, 0, 131070, 0, 0, 65537, 0, 0, 65538, 0, 0, 65546, 0, 0, 65547, 0, 0, 196589, 2, 0, 196590, 2, 0, 196595, 2, 0, 196601, 0, 0, 196602, 0, 0, 131078, 0, 0, 262125, 0, 0, 262126, 0, 0, 262130, 2, 0, 262131, 0, 0, 262137, 0, 0, 262141, 2, 0, 327660, 2, 0, 327661, 0, 0, 327663, 0, 0, 327664, 0, 0, 327666, 0, 0, 327667, 0, 0, 327669, 0, 0, 327677, 0, 0, 262145, 2, 0, 393196, 0, 0, 393197, 0, 0, 393199, 0, 0, 393200, 0, 0, 393202, 0, 0, 393205, 0, 0, 393206, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 1, 0, 327681, 0, 0, 458734, 0, 0, 458735, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 1, 0, 524268, 0, 0, 589803, 0, 0, 589804, 0, 0, 589811, 0, 0, 589812, 1, 0, 655339, 0, 0, 655346, 0, 0, 655347, 0, 0, 655348, 1, 0 )
+
+[node name="Met" parent="." instance=ExtResource( 3 )]
+position = Vector2( -21, -53 )
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( -203, 502 )
+
+[node name="SecrativeDoor" parent="." instance=ExtResource( 5 )]
+position = Vector2( -4234, -620 )
+
+[node name="floatingCharge" parent="SecrativeDoor" instance=ExtResource( 6 )]
+position = Vector2( -181, -281 )
+
+[node name="floatingCharge2" parent="SecrativeDoor" instance=ExtResource( 6 )]
+position = Vector2( 9, -414 )
+
+[node name="floatingCharge3" parent="SecrativeDoor" instance=ExtResource( 6 )]
+position = Vector2( 175, -295 )
+
+[node name="secret_door_1" parent="." instance=ExtResource( 7 )]
+position = Vector2( 588, -537 )
+
+[node name="doubleNoteLeftRight" parent="secret_door_1" instance=ExtResource( 12 )]
+
+[node name="mid_door_statue" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1777, 77 )
+
+[node name="singleNoteRight" parent="mid_door_statue" instance=ExtResource( 11 )]
+
+[node name="secret_door_2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2886, -644 )
+
+[node name="testDialog" parent="secret_door_2" instance=ExtResource( 13 )]
+position = Vector2( -2886, 644 )
+
+[node name="secret_door_3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 5398, 586 )
+
+[node name="doubleNoteLeftRight" parent="secret_door_3" instance=ExtResource( 12 )]
+position = Vector2( -5398, -586 )
+
+[node name="Tarantula" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2679, -558 )
+
+[node name="Tarantula2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5688, 588 )
+
+[node name="Spider_Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5186, 353 )
+
+[node name="Spider_Enemy2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5844, 272 )
+
+[node name="Spider_Enemy3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1077, 106 )
+
+[node name="Spider_Enemy4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1327, 29 )
+
+[node name="Spider_Enemy5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3550, -8 )
+
+[node name="Spider_Enemy9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3912, -3 )
+
+[node name="Spider_Enemy7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3151, 28 )
+
+[node name="Spider_Enemy8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3326, -175 )
+
+[node name="Spider_Enemy6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4432, -23 )
+
+[node name="Spider_Enemy10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5326, 28 )
+
+[node name="mid_door" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2137, -1 )
+scale = Vector2( -0.6, 0.6 )
+
+[node name="floatingCharge" parent="mid_door" instance=ExtResource( 6 )]
+position = Vector2( 41.6665, -428.333 )
+
+[node name="center_door" parent="." instance=ExtResource( 10 )]
+position = Vector2( -6816, -701 )
+
+[node name="floatingCharge" parent="center_door" instance=ExtResource( 6 )]
+position = Vector2( 41.6665, -428.333 )
