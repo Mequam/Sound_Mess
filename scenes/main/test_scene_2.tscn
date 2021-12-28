@@ -29,7 +29,7 @@
 [ext_resource path="res://scenes/instance/CircleRail.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/instance/CentipiedeMotor.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/instance/artAI/bunny/CaterpillarAI.tscn" type="PackedScene" id=29]
-[ext_resource path="res://scenes/instance/entities/enemies/bosses/bunny/CentipideBoss.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/instance/CentPreSprite.tscn" type="PackedScene" id=30]
 
 [node name="test_space" type="YSort"]
 script = ExtResource( 3 )
@@ -183,7 +183,7 @@ position = Vector2( -2194, -1028 )
 [node name="PineTree3" parent="." instance=ExtResource( 4 )]
 position = Vector2( -1728, -1026 )
 
-[node name="CentipideBoss" parent="." instance=ExtResource( 30 )]
-position = Vector2( 1328, -1484 )
+[node name="CentepidePreSprite" parent="." instance=ExtResource( 30 )]
+position = Vector2( 590, -1988 )
 
 [connection signal="completed_dialog" from="statueSwitch" to="." method="_on_statueSwitch_completed_dialog"]

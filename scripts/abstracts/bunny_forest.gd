@@ -1,5 +1,8 @@
 extends "res://scripts/abstracts/scene.gd"
+#this class represents the specific colors of the bunny forest
+#main scene
 
+class_name BunnyForest
 
 func init():
 	var colors = [Color.aliceblue,Color.orangered,Color.aquamarine,Color.crimson]
