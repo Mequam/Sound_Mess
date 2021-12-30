@@ -1,0 +1,253 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/UI/Theme/main_ui.tres" type="Theme" id=1]
+[ext_resource path="res://assets/UI/UI_Buttons/Triangle/horizontal_triangle.png" type="Texture" id=2]
+[ext_resource path="res://scripts/UI/HorizontalButton.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "focus_entered"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -13.8134 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 751, 479 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.25, 0.25 ), Vector2( 0.35, 0.35 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_pivot_offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -63, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Flower:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Flower:rect_rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.01, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -6.73454, -186.672 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Flower:rect_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.01, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1314, 837 ), Vector2( 1314, 837 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Flower:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.01, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 159.492, 192.514 ), Vector2( 399.121, 334.291 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Flower:rect_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.01, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.25, 0.25 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Flower:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.01, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.364706, 0.364706, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.368627, 0.368627, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CenterContainer/Label:theme")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[node name="AnimatedTriangleButton" type="Control"]
+anchor_right = 0.184
+anchor_bottom = 0.202
+margin_right = -0.416016
+margin_bottom = -0.200005
+rect_min_size = Vector2( 188, 121 )
+focus_mode = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+self_modulate = Color( 1, 0.368627, 0.368627, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 563.0
+margin_bottom = 358.0
+rect_scale = Vector2( 0.25, 0.25 )
+focus_mode = 0
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Flower" type="TextureButton" parent="TextureButton"]
+visible = false
+self_modulate = Color( 1, 0.364706, 0.364706, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 382.566
+margin_top = 353.758
+margin_right = 945.566
+margin_bottom = 711.758
+rect_rotation = -182.2
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="TextureButton/Flower"]
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 0
+margin_left = 423.71
+margin_top = 286.393
+margin_right = 963.71
+margin_bottom = 727.393
+rect_rotation = 172.801
+theme = ExtResource( 1 )
+text = "GO
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureButton"]
+anchor_left = 0.064
+anchor_top = 0.117
+anchor_right = 0.602
+anchor_bottom = 1.0
+margin_left = -111.151
+margin_top = 99.8743
+margin_right = 123.811
+margin_bottom = 117.917
+rect_rotation = -17.6516
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton/CenterContainer"]
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 0
+margin_left = 51.0
+margin_right = 586.0
+margin_bottom = 441.0
+theme = ExtResource( 1 )
+text = "play 
+
+game
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton"]
+anims/RESET = SubResource( 1 )
+anims/focus_entered = SubResource( 2 )
+
+[connection signal="focus_entered" from="." to="." method="_on_AnimatedTriangleButton_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_AnimatedTriangleButton_focus_exited"]

@@ -8,6 +8,13 @@ extends Control
 
 func _ready():
 	$Button.connect("button_down",self,"load_game")
+func _process(delta):
+	if Input.is_key_pressed(KEY_A):
+		print("detected key a")
+		$CenterContainer/HBoxContainer/VBoxContainer/AnimatedTriangleButton.grab_focus()
+	if Input.is_key_pressed(KEY_B):
+		$CenterContainer/VBoxContainer/TextureButton2.grab_focus()
+		
 func load_game():
 	#load the player globaly
 	LoadData.load_player()

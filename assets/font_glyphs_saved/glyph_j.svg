@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="10mm"
+   height="10mm"
+   viewBox="0 0 10 10"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
+   sodipodi:docname="glyph_j.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     width="1000000mm"
+     inkscape:zoom="18.153194"
+     inkscape:cx="21.125758"
+     inkscape:cy="22.062233"
+     inkscape:window-width="1366"
+     inkscape:window-height="768"
+     inkscape:window-x="42"
+     inkscape:window-y="133"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g928" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1029"
+       transform="matrix(1.00005,0,0,1.0000122,0.1415435,0.80297861)">
+      <g
+         id="g834"
+         transform="matrix(0.02225396,0,0,-0.10377328,4.0629797,22.612429)">
+        <g
+           id="g928">
+          <path
+             id="path830"
+             style="fill:#999999;fill-rule:evenodd"
+             inkscape:transform-center-x="1.1296413e-06"
+             inkscape:transform-center-y="-11.895892"
+             transform="matrix(0.26458333,0,0,0.26458333,0,-0.96000158)"
+             d="m 494.64132,764.0418 -155.74892,0 -155.74893,0 77.87446,-134.88252 77.87447,-134.88253 77.87446,134.88252 z" />
+          <path
+             id="path832"
+             style="fill:#ffffff;fill-rule:evenodd"
+             inkscape:transform-center-x="2.1006309e-06"
+             inkscape:transform-center-y="-9.1992735"
+             transform="matrix(0.17725656,0,0,0.20460623,29.735573,40.554599)"
+             d="m 494.64132,764.0418 -155.74892,0 -155.74893,0 77.87446,-134.88252 77.87447,-134.88253 77.87446,134.88252 z" />
+        </g>
+      </g>
+      <g
+         id="g831"
+         transform="matrix(-0.01274691,0.0138275,-0.0363938,-0.01176174,11.63629,9.483941)">
+        <g
+           id="g829">
+          <path
+             id="path825"
+             style="fill:#999999;fill-rule:evenodd"
+             inkscape:transform-center-x="1.1296413e-06"
+             inkscape:transform-center-y="-11.895892"
+             transform="matrix(0.26458333,0,0,0.26458333,0,-0.96000158)"
+             d="m 494.64132,764.0418 -155.74892,0 -155.74893,0 77.87446,-134.88252 77.87447,-134.88253 77.87446,134.88252 z" />
+          <path
+             id="path827"
+             style="fill:#ffffff;fill-rule:evenodd"
+             inkscape:transform-center-x="2.1006309e-06"
+             inkscape:transform-center-y="-9.1992735"
+             transform="matrix(0.17725656,0,0,0.20460623,29.735573,40.554599)"
+             d="m 494.64132,764.0418 -155.74892,0 -155.74893,0 77.87446,-134.88252 77.87447,-134.88253 77.87446,134.88252 z" />
+        </g>
+      </g>
+      <g
+         id="g1015"
+         transform="matrix(0.01434448,-0.00444572,0.00681662,0.02199438,0.20213577,3.6780484)">
+        <g
+           id="g1013">
+          <path
+             id="path1009"
+             style="fill:#999999;fill-rule:evenodd"
+             inkscape:transform-center-x="1.1296413e-06"
+             inkscape:transform-center-y="-11.895892"
+             transform="matrix(0.26458333,0,0,0.26458333,0,-0.96000158)"
+             d="m 494.64132,764.0418 -155.74892,0 -155.74893,0 77.87446,-134.88252 77.87447,-134.88253 77.87446,134.88252 z" />
+          <path
+             id="path1011"
+             style="fill:#ffffff;fill-rule:evenodd"
+             inkscape:transform-center-x="2.1006309e-06"
+             inkscape:transform-center-y="-9.1992735"
+             transform="matrix(0.17725656,0,0,0.20460623,29.735573,40.554599)"
+             d="m 494.64132,764.0418 -155.74892,0 -155.74893,0 77.87446,-134.88252 77.87447,-134.88253 77.87446,134.88252 z" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
