@@ -1,11 +1,47 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/UI/Theme/main_ui.tres" type="Theme" id=1]
-[ext_resource path="res://assets/UI/UI_Buttons/Triangle/horizontal_triangle.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/UI_Buttons/Triangle/flipped_horizontal_triangle.png" type="Texture" id=2]
 [ext_resource path="res://scripts/UI/HorizontalButton.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flower:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 728.239, 324.002 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flower:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -186.672 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Flower:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1314, 837 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "focus_entered"
@@ -105,7 +141,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0.01, 0.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 159.492, 192.514 ), Vector2( 399.121, 334.291 ) ]
+"values": [ Vector2( 159.492, 192.514 ), Vector2( 728.239, 324.002 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("Flower:rect_scale")
@@ -159,8 +195,8 @@ tracks/11/keys = {
 [node name="AnimatedTriangleButton" type="Control"]
 anchor_right = 0.184
 anchor_bottom = 0.202
-margin_right = -0.416016
-margin_bottom = -0.200005
+margin_right = -188.832
+margin_bottom = -121.2
 rect_min_size = Vector2( 188, 121 )
 focus_mode = 2
 script = ExtResource( 3 )
@@ -178,7 +214,6 @@ rect_scale = Vector2( 0.25, 0.25 )
 focus_mode = 0
 size_flags_stretch_ratio = 0.0
 texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -188,15 +223,14 @@ visible = false
 self_modulate = Color( 1, 0.818487, 0.818487, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 227.957
-margin_top = 233.022
-margin_right = 790.957
-margin_bottom = 591.022
-rect_rotation = -58.1452
+margin_left = 728.239
+margin_top = 324.002
+margin_right = 2042.24
+margin_bottom = 1161.0
+rect_rotation = -186.672
 rect_scale = Vector2( 0.321429, 0.321429 )
 size_flags_stretch_ratio = 0.0
 texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -206,11 +240,11 @@ anchor_left = 0.064
 anchor_top = 0.117
 anchor_right = 0.602
 anchor_bottom = 1.0
-margin_left = -352.064
-margin_top = -212.043
-margin_right = 378.898
-margin_bottom = 286.0
-rect_rotation = -0.0441025
+margin_left = -136.064
+margin_top = -208.043
+margin_right = 594.898
+margin_bottom = 290.0
+rect_rotation = -0.116768
 __meta__ = {
 "_edit_use_anchors_": false
 }

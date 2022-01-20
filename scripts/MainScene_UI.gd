@@ -11,7 +11,7 @@ func _ready():
 func _process(delta):
 	if Input.is_key_pressed(KEY_A):
 		print("detected key a")
-		$CenterContainer/HBoxContainer/VBoxContainer/AnimatedTriangleButton.grab_focus()
+		$CenterContainer/VBoxContainer/AnimatedTriangleButton.grab_focus()
 	if Input.is_key_pressed(KEY_B):
 		$CenterContainer/VBoxContainer/TextureButton2.grab_focus()
 		
@@ -23,4 +23,4 @@ func load_game():
 	#load the beginner scene of the player, the vector here is the center of the mushroom circle in the bunny forest
 	#Vector2(417.919,365.21) this is the position that the player starts when first loading the game
 	#commented and moved so debugging rabbit starts not there
-	LoadData.load_scene("res://scenes/main/bunny/statue_motif/StatueBossArena.tscn","",null)
+	LoadData.load_scene("res://scenes/main/bunny/statue_motif/entering_statue_road.tscn","",null,Vector2(92,223))

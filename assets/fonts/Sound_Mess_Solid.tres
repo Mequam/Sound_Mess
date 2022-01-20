@@ -3,6 +3,4 @@
 [ext_resource path="res://assets/fonts/Sound_Mess.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 122
-use_filter = true
 font_data = ExtResource( 1 )

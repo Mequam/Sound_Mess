@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/StatueBossArena.gd" type="Script" id=1]
 [ext_resource path="res://scenes/assets/testTiles.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://scenes/instance/entities/PineTreeBody.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/assets/daisy.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/assets/hill_sprite.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/instance/entities/player.tscn" type="PackedScene" id=21]
 
 [node name="StatueBossArena" type="YSort"]
 script = ExtResource( 1 )
@@ -305,3 +306,6 @@ scale = Vector2( 0.2, 0.2 )
 modulate = Color( 0.54902, 1, 0.682353, 1 )
 position = Vector2( 2401, -6.00001 )
 scale = Vector2( 0.2, 0.2 )
+
+[node name="player" parent="." instance=ExtResource( 21 )]
+position = Vector2( -108, 971 )

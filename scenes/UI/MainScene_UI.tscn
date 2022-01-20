@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/MainScene_UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/UI/Theme/main_ui.tres" type="Theme" id=2]
 [ext_resource path="res://scenes/UI/HorizontalButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/UI/HorizontalButtonInverted.tscn" type="PackedScene" id=4]
 
 [node name="MainScene_UI" type="Control"]
 anchor_right = 1.0
@@ -13,7 +14,6 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
@@ -25,111 +25,45 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
-margin_right = 764.0
-margin_bottom = 371.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+margin_left = 418.0
+margin_top = 131.0
+margin_right = 606.0
+margin_bottom = 469.0
+custom_constants/separation = -49
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
-margin_right = 188.0
-margin_bottom = 371.0
-
-[node name="AnimatedTriangleButton" parent="CenterContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="AnimatedTriangleButton3" parent="CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 188.0
-margin_bottom = 121.0
+margin_bottom = 122.0
+rect_min_size = Vector2( 188, 122 )
 
-[node name="AnimatedTriangleButton2" parent="CenterContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="AnimatedTriangleButton2" parent="CenterContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 125.0
+margin_top = 73.0
 margin_right = 188.0
-margin_bottom = 246.0
+margin_bottom = 194.0
 
-[node name="AnimatedTriangleButton3" parent="CenterContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="AnimatedTriangleButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 250.0
+margin_top = 145.0
 margin_right = 188.0
-margin_bottom = 371.0
+margin_bottom = 266.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
-margin_left = 192.0
-margin_right = 380.0
-margin_bottom = 371.0
-
-[node name="AnimatedTriangleButton" parent="CenterContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 3 )]
+[node name="AnimatedTriangleButton4" parent="CenterContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 217.0
 margin_right = 188.0
-margin_bottom = 121.0
-
-[node name="AnimatedTriangleButton2" parent="CenterContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 125.0
-margin_right = 188.0
-margin_bottom = 246.0
-
-[node name="AnimatedTriangleButton3" parent="CenterContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 250.0
-margin_right = 188.0
-margin_bottom = 371.0
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
-margin_left = 384.0
-margin_right = 572.0
-margin_bottom = 371.0
-
-[node name="AnimatedTriangleButton" parent="CenterContainer/HBoxContainer/VBoxContainer3" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 188.0
-margin_bottom = 121.0
-
-[node name="AnimatedTriangleButton2" parent="CenterContainer/HBoxContainer/VBoxContainer3" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 125.0
-margin_right = 188.0
-margin_bottom = 246.0
-
-[node name="AnimatedTriangleButton3" parent="CenterContainer/HBoxContainer/VBoxContainer3" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 250.0
-margin_right = 188.0
-margin_bottom = 371.0
-
-[node name="VBoxContainer4" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
-margin_left = 576.0
-margin_right = 764.0
-margin_bottom = 371.0
-
-[node name="AnimatedTriangleButton" parent="CenterContainer/HBoxContainer/VBoxContainer4" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 188.0
-margin_bottom = 121.0
-
-[node name="AnimatedTriangleButton2" parent="CenterContainer/HBoxContainer/VBoxContainer4" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 125.0
-margin_right = 188.0
-margin_bottom = 246.0
-
-[node name="AnimatedTriangleButton3" parent="CenterContainer/HBoxContainer/VBoxContainer4" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 250.0
-margin_right = 188.0
-margin_bottom = 371.0
+margin_bottom = 338.0
